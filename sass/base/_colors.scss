@@ -1,0 +1,50 @@
+$colors: (
+	'blanc':#fff,
+	'rouge' :#EC6557,
+	'rouge-clair' : #F76D5F,
+	'rouge-logo' : #E5403B,
+	'bleu' : #49495D, //gris bleu très foncé, utilisé pour la plupart des textes ou en aplat
+	'noir' : #000,
+	'jaune' : #E6CB6D,
+	'feu' : #E6CB6D,
+	'terre' : #BBD03C,
+	'air' :#C4AAD2,
+	'eau' : #56BCB0,
+	'gris-fond' : #AAA89E,
+	'gris-fond-clair' : #F2F1ED,
+	'gris-decor' : #EAE7E1,
+	'gris-texte' : #707070, // liens de menu
+
+);
+
+:root {
+	@each $name, $color in $colors {
+	
+	--#{$name} : #{$color};
+	}
+
+}
+
+
+@each $name, $color in $colors {
+
+	.has-#{$name}-color {
+		color: $color;
+	}
+
+	.has-#{$name}-background-color {
+		background-color: $color;
+	}
+	a.wp-block-button__link.has-#{$name}-background-color {
+		border-color:$color;
+		&:focus, &:hover {
+			background-color:transparent;
+			color:$color;
+			border-color:$color;
+			text-decoration: none;
+		}
+	}
+
+
+}
+

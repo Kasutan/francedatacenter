@@ -1,0 +1,22 @@
+.single-post .entry-meta {
+	text-align: center;
+}
+
+.entry-content {
+	&.loop {
+		article {
+			margin-bottom:var(--margin-bottom);
+		}
+		h2.item-title {
+			margin-bottom:0;
+			a {
+				text-decoration: none;
+			}
+		}
+	}
+
+	.search-form {
+		margin: 2rem auto;
+	}
+
+}

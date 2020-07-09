@@ -1,0 +1,251 @@
+
+/*--------------------------------------------------------------
+## Footer
+--------------------------------------------------------------*/
+
+
+.site-footer {
+	align-items:center;
+	background-color:#2D2F38;
+	color:#F0EEE7;
+	display: flex;
+	flex-direction: column;
+	justify-content:center;
+	padding:3.5rem var(--padding-x);
+	text-align: center;
+
+
+	ul {
+		list-style: none;
+		margin:0;
+		padding:0;
+	}
+
+	.logo-footer, .boutons, .social {
+		margin-bottom:3rem;
+	}
+	.liens {
+		margin-bottom:2rem;
+
+	}
+
+
+	a {
+		color:#F0EEE7;
+		font-size : 1.125rem;
+		text-decoration: none;
+		&:hover, &:focus {
+			text-decoration: underline;
+		}
+	}
+
+	.liens {
+		li {
+			padding:21px 0;
+			position: relative;
+			text-align: center;
+			&::before {
+				background-color:var(--rouge);
+				border-radius:1px;
+				content : '';
+				height: 2px;
+				left: calc(50% - 10px);
+				position: absolute;
+				top:0;
+				width:20px;
+			}
+		}
+	
+
+		@include bp(md) {
+			li {
+				padding: 0 0 1rem 31px;
+				text-align:left;
+				&::before {
+					left:0;
+					top:12px;
+					width:15px;
+				}
+			}
+
+	
+
+		}
+	
+	}
+
+
+	.boutons {
+		a {
+			@include bouton;
+			font-size : 1.125rem;
+			font-weight:500;
+			margin: 0 4px 1rem;
+			padding: 14px 23px;
+			width:241px;
+		}
+		li:nth-of-type(1) {
+			a {
+				background-color:var(--rouge);
+				border-color:var(--rouge);
+				color:var(--blanc);
+				&:hover, &:focus {
+					background-color:transparent;
+					color:var(--rouge);
+				}
+			}
+		}
+		li:nth-of-type(2) {
+			a {
+				background-color:var(--blanc);
+				border-color:var(--blanc);
+				color:var(--rouge);
+				&:hover, &:focus {
+					background-color:transparent;
+					color:var(--blanc);
+				}
+			}
+		}
+
+		@include bp(md) {
+			display: flex;
+			justify-content: center;
+
+		}
+	}
+
+	.social {
+		.titre {
+			line-height:60px;
+			font-size:1.125rem;
+			margin:auto;
+			position: relative;
+			text-align: center;
+			text-transform: uppercase;
+			width:220px;
+
+			&::before, &::after {
+				background-color:var(--rouge);
+				border-radius:1px;
+				content : '';
+				height: 2px;
+				left: 0;
+				position: absolute;
+				top:29px;
+				width:23px;
+			}
+
+			&::after {
+				left:unset;
+				right:0;
+			}
+
+		}
+
+		ul {
+			display: flex;
+			align-items:center;
+			justify-content: center;
+			
+			a {
+				background-image:url('icons/social/instagram.svg');
+				background-repeat: no-repeat;
+				background-size:100%;
+				display: block;
+				color:transparent;
+				height:33px;
+				margin:10px 17px 20px;
+				overflow:hidden;
+				width:33px;
+
+				&[href^="https://www.facebook"] {
+					background-image:url('icons/social/facebook.svg');
+				}
+				&[href^="https://www.youtube"] {
+					background-image:url('icons/social/youtube.svg');
+				}
+			}
+		}
+	}
+
+	.liens-techniques {
+		display: flex;
+		margin-bottom:0.5rem;
+		li:not(:first-child) {
+			margin-left:10px;
+			&:before {
+				content:'|';
+				margin-right:10px;
+			}
+		}
+		a {
+			font-size:0.875rem;
+		}
+	}
+
+	@include bp(md) {
+		flex-direction: row;
+		flex-wrap:wrap;
+		.boutons, .social {
+			flex-basis:100%;
+		}
+		.logo-footer, .liens, .liens-techniques, .footer {
+			flex-basis:50%;
+		}
+		.liens-techniques {
+			margin-bottom:0;
+		}
+		.copyright {
+			font-size:0.875rem;
+		}
+
+	}
+	@include bp(lg) {
+		align-items: start;
+		display: grid;
+		grid-auto-flow: dense;
+		grid-template-columns: 1fr auto 1fr;
+		grid-template-rows: auto auto;
+		justify-items: start;
+		text-align:left;
+
+
+		a {
+			font-size: 1rem;
+		}
+		.liens {
+			margin-bottom:0;
+		}
+		.logo-footer {
+			justify-self:center;
+			grid-column: 2;
+			margin-bottom:0;
+		}
+		.social {
+			justify-self: end;
+		}
+		.liens-techniques {
+			grid-column: 1;
+			margin-bottom:0;
+		}
+		.boutons {
+			grid-column: 2;
+			justify-self: center;
+			margin-bottom:0;
+			a {
+				margin-bottom:0;
+			}
+			
+		}
+		.liens-techniques, .boutons, .copyright {
+			align-self: end;
+		}
+		.copyright {
+			justify-self: end;
+			text-align: right;
+		}
+	}
+
+}
+
+

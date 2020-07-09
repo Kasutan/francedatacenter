@@ -1,0 +1,35 @@
+/*!
+Theme Name: France Data Center 2020
+Theme URI: http://underscores.me/
+Author: Magalie Castaing
+Author URI: https://kasutan.pro
+Description: Refonte juillet 2020
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: francedatacenter
+Tags: custom-logo, custom-menu, featured-images
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+francedatacenter is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+@import "base/normalize";
+@import "base/utilities";
+@import "base/colors"; 
+@import "base/layout";
+@import "base/typography";
+@import "base/elements";
+@import "base/navigation"; 
+@import "base/print";
+@import "templates/footer";
+@import "templates/header";
+@import "templates/home";
+@import "templates/post";
+@import "blocks/owl_nav";
