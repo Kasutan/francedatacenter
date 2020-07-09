@@ -41,16 +41,31 @@ function fdc_get_picto_url($name) {
 
 
 function fdc_get_picto_inline($name) {
-	if($name==='fleche-cta') {
-		return '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-		viewBox="0 0 41.2 41.2" style="enable-background:new 0 0 41.2 41.2;" xml:space="preserve">
-	<path class="cercle" d="M20.6,0C32,0,41.2,9.2,41.2,20.6S32,41.2,20.6,41.2S0,32,0,20.6C0,9.2,9.2,0,20.6,0
-		C20.6,0,20.6,0,20.6,0z"/>
-	<path class="fleche" d="M27.8,20.2l-4-4.3c-0.2-0.3-0.7-0.3-0.9,0c-0.3,0.2-0.3,0.7,0,0.9l3,3.3H12.4c-0.4,0-0.7,0.3-0.7,0.7
-		s0.3,0.7,0.7,0.7h13.4l-2.9,3.1c-0.2,0.3-0.2,0.7,0,0.9c0.1,0.1,0.3,0.2,0.4,0.2c0.2,0,0.3-0.1,0.5-0.2l4-4.3
-		C28,20.9,28,20.5,27.8,20.2z"/>
-	</svg>';
+	switch ($name) {
+		case 'calendrier':
+			return '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+				viewBox="0 0 41.2 41.2" style="enable-background:new 0 0 41.2 41.2;" xml:space="preserve">
+			<path class="cercle" d="M20.6,0C32,0,41.2,9.2,41.2,20.6S32,41.2,20.6,41.2S0,32,0,20.6C0,9.2,9.2,0,20.6,0
+				C20.6,0,20.6,0,20.6,0z"/>
+			<path class="fleche" d="M27.8,20.2l-4-4.3c-0.2-0.3-0.7-0.3-0.9,0c-0.3,0.2-0.3,0.7,0,0.9l3,3.3H12.4c-0.4,0-0.7,0.3-0.7,0.7
+				s0.3,0.7,0.7,0.7h13.4l-2.9,3.1c-0.2,0.3-0.2,0.7,0,0.9c0.1,0.1,0.3,0.2,0.4,0.2c0.2,0,0.3-0.1,0.5-0.2l4-4.3
+				C28,20.9,28,20.5,27.8,20.2z"/>
+			</svg>';
+			break;
+		case 'verrou-ouvert':
+			break;
+		case 'verrou-ferme':
+			break;
+		case 'video':
+		break;
+		case 'jpg':
+		break;
+		case 'zip':
+		break;
+		case 'pdf':
+		break;
 	}
+	
 }
 
 
