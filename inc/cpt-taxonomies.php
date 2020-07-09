@@ -39,7 +39,7 @@ $labels = array(
 register_taxonomy('type_ressource','ressource',array(
 	'hierarchical' => true,
 	'labels' => $labels,
-	'show_ui' => true,
+	'show_ui' => true, //TODO mettre à false après saisie
 	'show_admin_column' => true,
 	'query_var' => false,
 	'public' => false,
@@ -172,6 +172,6 @@ function fdc_get_type_evement($post_id) {
 function fdc_get_type_ressource($post_id) {
 	$terms=get_the_terms($post_id,'type_ressource');
 	if($terms) {
-		return $terms[0]->name;
+		return $terms[0]->slug;
 	}
 }

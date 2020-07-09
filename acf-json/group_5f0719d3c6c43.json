@@ -1,0 +1,144 @@
+{
+    "key": "group_5f0719d3c6c43",
+    "title": "Informations sur la ressource",
+    "fields": [
+        {
+            "key": "field_5f071c5c5601c",
+            "label": "Publique ou réservée aux adhérents ?",
+            "name": "acces",
+            "type": "radio",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "publique": "publique",
+                "privee": "réservée aux adhérents"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "publique",
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_5f0724b0e3b2f",
+            "label": "Type de fichier",
+            "name": "type_fichier",
+            "type": "radio",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "pdf": "pdf",
+                "jpg": "jpg",
+                "zip": "zip",
+                "video": "video"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_5f072adfaf13f",
+            "label": "Label du lien de téléchargement \/ visionnage",
+            "name": "label_lien",
+            "type": "text",
+            "instructions": "Par exemple : voir la vidéo (YouTube) ou télécharger la présentation (PDF)",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5f071cb15601d",
+            "label": "Fichier PDF, JPG ou répertoire ZIP",
+            "name": "url_fichier",
+            "type": "file",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5f0724b0e3b2f",
+                        "operator": "!=",
+                        "value": "video"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "library": "uploadedTo",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": "zip, pdf, jpg, jpeg"
+        },
+        {
+            "key": "field_5f071cf05601e",
+            "label": "URL de la vidéo",
+            "name": "url_video",
+            "type": "url",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5f0724b0e3b2f",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "ressource"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1594305367
+}
