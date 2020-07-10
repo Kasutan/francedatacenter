@@ -3,14 +3,14 @@
 --------------------------------------------------------------*/
 a,
 a:visited {
-	color: var(--bleu);
+	color: var(--cyan);
 	transition: color var(--transition);
 }
 
 a:hover,
 a:active,
 a:focus {
-	color: var(--rouge);
+	color: var(--bleu);
 }
 
 a:focus {

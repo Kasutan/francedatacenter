@@ -8,38 +8,43 @@
  */
 
 add_theme_support( 'editor-color-palette', array(
-	
+	array(
+		'name'  =>'Bleu foncé',
+		'slug'  => 'bleu-fonce',
+		'color'	=> '#30358C',
+	),
 	array(
 		'name'  =>'Bleu',
 		'slug'  => 'bleu',
-		'color'	=> '#49495D',
+		'color'	=> '#0B499A',
 	),
+	array(
+		'name'  =>'Cyan',
+		'slug'  => 'cyan',
+		'color'	=> '#37b0b0',
+	),
+	array(
+		'name'  =>'Bleu clair',
+		'slug'  => 'bleu-clair',
+		'color'	=> '#EAF9F9',
+	),
+	
 	array(
 		'name'  =>'Rouge',
 		'slug'  => 'rouge',
-		'color'	=> '#EC6557',
+		'color'	=> '#D61530',
 	),
 	array(
-		'name'  =>'Jaune',
-		'slug'  => 'jaune',
-		'color'	=> '#E6CB6D',
+		'name'  =>'Violet',
+		'slug'  => 'violet',
+		'color'	=> '#99066E',
 	),
 
 	
 	array(
-		'name'  =>'Gris texte',
-		'slug'  => 'gris-texte',
-		'color'	=> '#707070',
-	),
-	array(
-		'name'  =>'Gris fond',
-		'slug'  => 'gris-fond',
-		'color'	=> '#AAA89E',
-	),
-	array(
-		'name'  =>'Gris fond clair',
-		'slug'  => 'gris-fond-clair',
-		'color'	=> '#F2F1ED',
+		'name'  =>'Gris',
+		'slug'  => 'gris',
+		'color'	=> '#82879A',
 	),
 	array(
 		'name'  =>'Blanc',
@@ -49,6 +54,6 @@ add_theme_support( 'editor-color-palette', array(
 	array(
 		'name'  =>'Noir',
 		'slug'  => 'noir',
-		'color'	=> '#000000',
+		'color'	=> '#101631',
 	),
 ));
