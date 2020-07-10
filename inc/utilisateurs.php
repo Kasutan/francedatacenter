@@ -1,6 +1,52 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+//TODO vérifier que l'adhérent est actif ou non dans la requête get_users avec meta_compare
+//https://developer.wordpress.org/reference/classes/wp_user_query/prepare_query/
+function fdc_affiche_adherent($user,$contexte='grille') {
+	if( !function_exists('get_field') || !function_exists('fdc_get_picto_url') ) {
+		return;
+	}
+	$user_id=$user->ID;
+	$logo=esc_attr(get_field('logo','user_'.$user_id));
+	$entreprise=esc_html(get_field('entreprise','user_'.$user_id));
+	$url=$user->get('user_url');
+
+	if($contexte==='slider') { //on affiche le logo cliquable ou simplement l'image
+		if(!$empty($url)) {
+			printf('<li class="adherent"><a href="%s">%s</a></li>',
+				$url,
+				wp_get_attachment_image($logo, 'thumbnail', false, array('alt'=>$entreprise))
+			);
+		} else {
+			printf('<li class="adherent">%s</li>',
+				wp_get_attachment_image($logo, 'thumbnail', false, array('alt'=>$entreprise))
+			);
+		}
+	} else { //contexte grille, on affiche le logo cliquable qui ouvre une popup au clic
+		printf('<li class="adherent"><a href="#adherent-%s" class="ouvrir-modaal">%s</a>%s</li>',
+			$user_id,
+			wp_get_attachment_image($logo, 'medium', false, array('alt'=>$entreprise)),
+			fdc_prepare_popup_adherent($user_id,$logo,$entreprise,$url)
+		);
+	}
+}
+
+function fdc_prepare_popup_adherent($user_id,$logo,$entreprise,$url) {
+	$descriptif=wp_kses_post(get_field('descriptif','user_'.$user_id));
+	ob_start(); 
+	printf('<div id="adherent-%s" class="popup">',$user_id);
+		echo '<div class="infos">';
+			if($logo) echo wp_get_attachment_image($logo, 'medium', false, array('alt'=>$entreprise));
+			if($descriptif) printf('<div class="descriptif">%s</div>',$descriptif); else echo $entreprise;
+			if($url) printf('<a href="%s" class="url">%s</a>',$url, $url);
+		echo '</div>'; //fin .infos
+		printf('<button class="retour" id="retour-liste"><img src="%s" width="52" height="52" alt="Fermer"/><span>Revenir à la liste</span></button>',fdc_get_picto_url('croix'));
+	echo '</div>'; //fin .popup
+	return ob_get_clean();
+}
+
+
 /**
 * Déterminer si l'utilisateur actuel est un adhérent actif (=la date d'expiration de son adhésion n'est pas dépassée)
 */
@@ -22,6 +68,7 @@ function fdc_is_current_user_adherent() {
 		return false;
 	}
 }
+
 
 /**
 * Masquer certains champs des écrans d'édition et de création d'utilisateurs

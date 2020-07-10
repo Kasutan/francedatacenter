@@ -2,7 +2,9 @@
 
 	$( document ).ready(function() {
 		//var width=$(window).width();
-
+		/****************** Modaal*************************/
+		$('.ouvrir.modaal').modaal();
+		
 		/****************** Sticky header *************************/	
 		var siteHeader=$('.site-header');
 		var siteContent=$('.site-main');
