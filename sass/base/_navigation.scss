@@ -175,7 +175,7 @@ a.cta-resultat {
 		ul.menu {
 			align-items: center;
 			display: flex;
-			justify-content: center;
+			justify-content: flex-end;
 
 			ul { //sous-menu
 				background-color:var(--blanc);
@@ -234,15 +234,18 @@ a.cta-resultat {
 	}
 
 	a {
-		color:var(--gris-texte);
+		color:var(--noir);
 		display: block;
-		font-size:18px;
+		font-weight: 500;
 		text-decoration: none;
-		text-transform:uppercase;
 
-		&:hover, &:active {
-			color :var(--rouge);
+		&:hover, &:focus, &:active {
+			color :var(--bleu);
 		}
+	}
+
+	.current-menu-item > a, .current-menu-ancestor > a {
+		color:var(--cyan);
 	}
 
 	//sous-menu
@@ -258,78 +261,13 @@ a.cta-resultat {
 				}
 			} 
 
-			@include bp(md) {
-				padding-top:0;
-				&::after {
-					background-image:url('icons/Eclair-menu.svg');
-					background-position: center;
-					background-repeat: no-repeat;
-					content:' ';
-					height:35px;
-					left:0;
-					position: absolute;
-					top:-20px;
-					width:100%;
-				}
-			}
+			
 		}
 	}
 
 	
-	.current-menu-item > a, .current-menu-ancestor > a {
-		//font-weight:700; // TODO solution pour les liens vers des ancres
-	}
+	
 
-	//Trait de décor sous la page courante (liens de premier niveau uniquement)
-	ul.menu > li:not(.button) {
-		&.current-menu-item, &.current-menu-ancestor {
-			> a {
-				color:var(--gris-texte);
-				font-weight:700;
-				position:relative;
-				&::after {
-					background-color: var(--rouge);
-					content:' ';
-					height:3px;
-					width:40px;
-					position:absolute;
-					bottom : -1rem;
-					left:calc(50% - 20px);
-				}
-			}
-
-			
-		}
-		//masquer ce trait de décor à l'ouverture du sous-menu
-		&.menu-item-has-children {
-			&:hover, &.focus {
-				a::after {
-					display: none;
-				}
-			}
-		}
-	}
-
-	//Lien de menu affiché sous forme de bouton
-	ul.menu li.button {
-		> a {
-			@include bouton;
-			background: var(--rouge);
-			border-color: var(--rouge);
-			color: var(--blanc);
-			margin-bottom: 0;
-			&:hover, &.focus, &:focus-within {
-				background: var(--blanc);
-				color:var(--rouge);
-				text-decoration: none;
-			}
-		}
-		@include bp(md) {
-			margin-left:auto;
-			padding-top:0;
-			padding-bottom: 0;
-		}
-	}
 
 	//Lien de menu vers l'accès client (lien externe)
 	li.client a {
@@ -344,37 +282,6 @@ a.cta-resultat {
 		padding-left: 34px;	
 	}
 
-	//styles adaptés en desktop
-	@include bp(md) {
-		li {
-			padding:1rem;
-			&:first-child {
-				margin-left:auto;
-			}
-			a {
-				background-position: left bottom ;
-				font-size:16px;
-				line-height:1;
-				min-height:25px;
-				padding-top:4px;
-				text-align: center;
-			}
-		}
-		li.client a {
-			font-size:14px;
-			line-height:1;
-			text-align: left;
-		}
-		&.sticky {
-			ul.menu > li:not(.button) {
-				&.current-menu-item, &.current-menu-ancestor {
-					a::after {
-						bottom:-5px;
-					}
-				}
-			}
-		}
-	}
 }
 
 //Lien de menu vers l'accès client déplacé en haut à droite (uniquement en desktop si l'en-tête n'est pas sticky)
@@ -390,33 +297,4 @@ a.cta-resultat {
 		}
 
 	}
-}
-
-
-
-
-
-
-
-
-.site-main .comment-navigation,
-.site-main .posts-navigation,
-.site-main .post-navigation {
-	margin: 0 0 1.5em;
-	overflow: hidden;
-}
-
-.comment-navigation .nav-previous,
-.posts-navigation .nav-previous,
-.post-navigation .nav-previous {
-	float: left;
-	width: 50%;
-}
-
-.comment-navigation .nav-next,
-.posts-navigation .nav-next,
-.post-navigation .nav-next {
-	float: right;
-	text-align: right;
-	width: 50%;
 }
