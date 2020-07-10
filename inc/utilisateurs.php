@@ -12,7 +12,7 @@ function fdc_is_current_user_adherent() {
 	if(current_user_can('edit_posts')) {
 		return true; // toujours montrer tout le contenu aux éditeurs
 	}
-	
+
 	$date_expiration=get_field('date_expiration','user_'.$current_user);
 	$date_actuelle=date('Ymd');
 
@@ -116,3 +116,29 @@ if ( ! function_exists( 'wp_password_change_notification' ) ) :
         return;
     }
 endif;
+
+
+//Masquer la barre d'admin pour les non éditeurs
+add_action('set_current_user', 'fdc_hide_admin_bar');
+function fdc_hide_admin_bar()
+{
+	if (!current_user_can( 'edit_posts' ))
+		{
+		show_admin_bar(false);
+		}
+}
+
+//Redirect users if they are not editors to the front-end (no direct access to back-end)
+function fdc_block_access_to_dashboard(){
+	if( is_admin() && !defined('DOING_AJAX')  )
+	{
+		if(!current_user_can('edit_posts') ) {
+			wp_safe_redirect(home_url());
+			exit;
+		}
+
+	}
+}
+add_action('init','fdc_block_access_to_dashboard');
+
+
