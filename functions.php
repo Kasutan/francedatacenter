@@ -33,15 +33,64 @@ if ( ! function_exists( 'fdc_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails', array('post','page','evenement'));
 
-		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'menu-1' => 'Menu principal (en-tête)',
-			'footer-1' => 'Colonne 1 du pied de page',
-			'footer-2' => 'Colonne 2 du pied de page',
-			'footer-3' => 'Colonne 3 du pied de page',
-			'footer-4' => 'Colonne 4 du pied de page',
-			'social-footer' => 'Liens vers les réseaux sociaux',
+			'footer' => 'Liens légaux du footer'
 		) );
+
+		//Autoriser les shortcodes dans les widgets
+		add_filter( 'widget_text', 'do_shortcode' );
+
+		add_action( 'widgets_init', function() {
+			
+
+			register_sidebar(array(
+				'name'=> 'Footer colonne 1',
+				'id' => 'footer_1',
+				'before_widget' => '<div id="%1$s" class="footer-1">',
+				'after_widget' => '</div>',
+				'before_title' => '<div class="h4">',
+				'after_title' => '</div>',
+			));
+
+			register_sidebar(array(
+				'name'=> 'Footer colonne 2',
+				'id' => 'footer_2',
+				'before_widget' => '<div id="%1$s" class="footer-2">',
+				'after_widget' => '</div>',
+				'before_title' => '<div class="h4">',
+				'after_title' => '</div>',
+			));
+
+			register_sidebar(array(
+				'name'=> 'Footer colonne 3',
+				'id' => 'footer_3',
+				'before_widget' => '<div id="%1$s" class="footer-3">',
+				'after_widget' => '</div>',
+				'before_title' => '<div class="h4">',
+				'after_title' => '</div>',
+			));
+			
+			register_sidebar(array(
+				'name'=> 'Footer colonne 4',
+				'id' => 'footer_4',
+				'before_widget' => '<div id="%1$s" class="footer-4">',
+				'after_widget' => '</div>',
+				'before_title' => '<div class="h4">',
+				'after_title' => '</div>',
+			));
+			
+			register_sidebar(array(
+				'name'=> 'Footer colonne 5',
+				'id' => 'footer_5',
+				'before_widget' => '<div id="%1$s" class="%2$s">',
+				'after_widget' => '</div>',
+				'before_title' => '<div class="h5">',
+				'after_title' => '</div>',
+			));
+			
+
+		} );
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments

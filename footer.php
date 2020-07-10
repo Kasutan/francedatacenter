@@ -12,45 +12,28 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-		<?php
+		<div class="footer-widgets">
+			<div class="row">
+				<?php dynamic_sidebar('footer_1');
+				dynamic_sidebar('footer_2');
+				dynamic_sidebar('footer_3');
+				dynamic_sidebar('footer_4');
+			echo '</div>';
+			echo '<div class="footer-5">';
+				dynamic_sidebar('footer_5');
+			echo '</div>';
+		
 
-		printf('<div class="logo-footer"><img src="%s" width="97" height="70" alt="My Big Bang Logo"/></div>',fdc_get_picto_url('logo-Footer') );
-
-		wp_nav_menu( array(
-			'theme_location' => 'liens-footer',
-			'container' => false,
-			'fallback_cb' => false,
-			'menu_id' => 'liens-footer',
-			'menu_class' => 'liens'
-		) );
-
-		wp_nav_menu( array(
-			'theme_location' => 'boutons-footer',
-			'container' => false,
-			'fallback_cb' => false,
-			'menu_id' => 'boutons-footer',
-			'menu_class' => 'boutons'
-		) );
-
-		echo '<div class="social"><p class="titre">Suivez-nous</p>';
+		echo '</div>'; //fin .footer-widgets
+		echo '<div class="copyright alignfull">';
+			printf('<span>&copy;%s francedatacenter.com</span>',current_time('Y'));
 			wp_nav_menu( array(
-				'theme_location' => 'social-footer',
+				'theme_location' => 'footer',
 				'container' => false,
 				'fallback_cb' => false,
-				'menu_id' => 'social-footer',
-				'menu_class' => 'social-footer'
+				'menu_id' => 'footer',
+				'menu_class' => 'liens-copyright'
 			) );
-		echo '</div>';
-
-		wp_nav_menu( array(
-			'theme_location' => 'liens-techniques-footer',
-			'container' => false,
-			'fallback_cb' => false,
-			'menu_id' => 'liens-techniques-footer',
-			'menu_class' => 'liens-techniques'
-		) );
-
-		printf('<div class="copyright">Copyright 2016-%s My Big Bang</div>',current_time('Y'));
 		
 		?>
 	</footer><!-- #colophon -->

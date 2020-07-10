@@ -126,7 +126,7 @@ function mc_adresse_email($atts) {
 		'mail' => ' ',    
 		), $atts) );
 	
-			return (antispambot($mail));
+			return sprintf('<a href="mailto:%s">%s</a>',antispambot($mail),antispambot($mail));
 		}
 		
 add_shortcode( 'adresse-email', 'mc_adresse_email' );
