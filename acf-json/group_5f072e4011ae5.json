@@ -1,13 +1,32 @@
 {
     "key": "group_5f072e4011ae5",
-    "title": "Informations sur l'utilisateur",
+    "title": "Informations sur l'entreprise adhérente",
     "fields": [
+        {
+            "key": "field_5f0873152834d",
+            "label": "Nom de l'entreprise",
+            "name": "entreprise",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
         {
             "key": "field_5f072e5d07a40",
             "label": "Date d'expiration de l'adhésion",
             "name": "date_expiration",
             "type": "date_picker",
-            "instructions": "Laisser vide si l'utilisateur n'est pas adhérent",
+            "instructions": "Si ce champ est vide ou contient une date passée, l'utilisateur n'aura pas accès au contenu adhérents",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -25,7 +44,7 @@
             "name": "logo",
             "type": "image",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -42,6 +61,25 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
+        },
+        {
+            "key": "field_5f0876fe2e9d4",
+            "label": "Descriptif de l'entreprise",
+            "name": "descriptif",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": "br"
         }
     ],
     "location": [
@@ -61,5 +99,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1594308213
+    "modified": 1594391287
 }

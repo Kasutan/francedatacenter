@@ -149,11 +149,12 @@ require get_template_directory() . '/inc/template-functions.php';
 //add_image_size('banniere',1960,300,true);
 
 /**
-* CPT et custom taxonomies
+* CPT, custom fields, custom taxonomies et functions associées
 */
 
 require_once( 'inc/cpt-taxonomies.php' );
 require_once( 'inc/ressources.php' );
+require_once( 'inc/utilisateurs.php' );
 
 
 /**

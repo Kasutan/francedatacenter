@@ -1,7 +1,7 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-//filtre sur champ ACF url_fichier pour stocker les fichiers dans un répertoire séparé
+//TODO filtre sur champ ACF url_fichier pour stocker les fichiers dans un répertoire séparé
 // avec un hash pour empêcher de deviner l'url ?
 // règle robots.txt pour empêcher l'indexation de ce répertoire
 
@@ -62,17 +62,3 @@ function fdc_affiche_ressource($post_id) {
 
 }
 
-function fdc_is_current_user_adherent() {
-	$current_user=wp_get_current_user()->ID;
-	if($current_user==0) { //le visiteur n'est pas connecté
-		return false; 
-	}
-	$date_expiration=get_field('date_expiration','user_'.$current_user);
-	$date_actuelle=date('Ymd');
-
-	if($date_actuelle<=$date_expiration) {
-		return true;
-	} else {
-		return false;
-	}
-}
