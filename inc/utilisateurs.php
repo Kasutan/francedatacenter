@@ -1,8 +1,6 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-//TODO vérifier que l'adhérent est actif ou non dans la requête get_users avec meta_compare
-//https://developer.wordpress.org/reference/classes/wp_user_query/prepare_query/
 function fdc_affiche_adherent($user,$contexte='grille') {
 	if( !function_exists('get_field') || !function_exists('fdc_get_picto_url') ) {
 		return;
@@ -104,14 +102,11 @@ jQuery(document).ready( function($) {
 		$(notification).prop('checked',false);
 		$(notification).parents('tr').hide();
 	}
-	var identifiant=$('#user_login');
 
-	//A la création du profil, copier l'identifiant dans le champ email
-	var email=$('#email');
-	if(identifiant.length && email.length) {
-		identifiant.on('blur, keyup', function(){
-			email.val(identifiant.val());
-		});
+	//Ajouter une indication au niveau du champ identifiant
+	var identifiant=$('#user_login');
+	if(identifiant.length) {
+		$('label[for="user_login"]').append('<p><em>Saisir ici le nom de l\'entreprise (sans espaces ni caractères spéciaux). Cet identifiant sera utilisé pour présenter les entreprises par ordre alphabétique sur la page Adhérents</em></p>');
 	}
 
 });
