@@ -36,6 +36,7 @@ body {
 	--margin-bottom:60px;
 	--padding-x:20px;
 	//--header-height:80px;
+	--max-width-xl:1900px;
 
 	@include bp(md) {
 		--margin-bottom:80px;

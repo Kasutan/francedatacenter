@@ -4,6 +4,9 @@
 		//var width=$(window).width();
 		/****************** Modaal*************************/
 		$('.ouvrir-modaal').modaal();
+		$('.fermer-modaal').click(function(){
+			$('.ouvrir-modaal').modaal('close');
+		})
 		
 		/****************** Sticky header *************************/	
 		var siteHeader=$('.site-header');

@@ -31,7 +31,7 @@ function fdc_adherents_callback( $block ) {
 	} else $className='';
 
 
-	printf('<section class="acf-block-adherents %s">', $className);
+	printf('<section class="acf-block-adherents alignfull %s">', $className);
 		//https://developer.wordpress.org/reference/classes/wp_user_query/prepare_query/
 		// WP_User_Query arguments
 		$args = array(
@@ -48,9 +48,11 @@ function fdc_adherents_callback( $block ) {
 
 		// The User Loop
 		if ( ! empty( $user_query->results ) ) {
+			echo '<ul class="adherents">';
 			foreach ( $user_query->results as $user ) {
 				fdc_affiche_adherent($user,$contexte='grille');
 			}
+			echo '</ul>';
 		} else {
 			echo 'Aucun adhérent actif';
 		}
