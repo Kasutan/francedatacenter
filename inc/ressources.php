@@ -5,6 +5,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 // avec un hash pour empêcher de deviner l'url ?
 // règle robots.txt pour empêcher l'indexation de ce répertoire
 
+//TODO afficher métas pertinentes dans les colonnes du BO
+
 
 function fdc_affiche_ressource($post_id) {
 	if(get_post_type($post_id)!=='ressource' || !function_exists('get_field') || !function_exists('fdc_get_picto_inline') || !function_exists('fdc_is_current_user_adherent')) {
@@ -14,9 +16,9 @@ function fdc_affiche_ressource($post_id) {
 	$desc=get_the_content($post_id);
 	$date=get_the_date('', $post_id);
 	$type_ressource=fdc_get_type_ressource($post_id); // pour la couleur et le filtre
-	$access=esc_attr(get_field('access',$post_id));
-	$type_ficher=esc_attr(get_field('type_fichier',$post_id)); // pour le picto et l'url
-	$label_lien=esc_html(get_field('type_fichier',$post_id)); 
+	$acces=esc_attr(get_field('acces',$post_id));
+	$type_fichier=esc_attr(get_field('type_fichier',$post_id)); // pour le picto et l'url
+	$label_lien=esc_html(get_field('label_lien',$post_id)); 
 	
 	if($type_fichier=='video') {
 		$url=esc_url(get_field('url_video',$post_id));
@@ -32,17 +34,17 @@ function fdc_affiche_ressource($post_id) {
 		echo '<div class="pictos">';
 			printf('<div class="picto-type">%s</div>',fdc_get_picto_inline($type_fichier));
 
-			if($access=='privee' && !$adherent) {
+			if($acces=='privee' && !$adherent) {
 				printf('<div class="picto-verrou">%s</div>',fdc_get_picto_inline('verrou-ferme'));
-			} else if($access=='privee' && $adherent) {
+			} else if($acces=='privee' && $adherent) {
 				printf('<div class="picto-verrou">%s</div>',fdc_get_picto_inline('verrou-ouvert'));
 			}
 		echo '</div>';//fin .pictos
-		printf('<div class="texte"><h2 class="titre">%s</h2><div class="desc"></div>',$titre, $desc);
+		printf('<div class="texte"><h2 class="titre">%s</h2><div class="desc">%s</div>',$titre, $desc);
 			echo '<div class="meta">';
 				printf('<div class="date">%s %s</div>',fdc_get_picto_inline('calendrier'),$date);
 				
-				if($access=='privee' && !$adherent) {
+				if($acces=='privee' && !$adherent) {
 					printf('<div class="message verrouillage">%s %s</div>',
 						fdc_get_picto_inline($type_fichier),
 						'Accès réservé aux adhérents'
@@ -62,3 +64,6 @@ function fdc_affiche_ressource($post_id) {
 
 }
 
+function fdc_affiche_filtre_ressources(){
+	echo '<nav>filtre ressources</nav>';
+}
