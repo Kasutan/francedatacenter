@@ -181,7 +181,7 @@ function fdc_scripts() {
 
 	wp_register_script( 'francedatacenter-modaal',get_template_directory_uri() . '/lib/modaal/modaal.min.js', array('jquery'), '0.4.4', true );
 
-	wp_enqueue_script( 'francedatacenter-scripts', get_template_directory_uri() . '/js/francedatacenter.js', array('jquery', 'francedatacenter-owl-carousel', 'francedatacenter-modaal'), '', true );
+	wp_enqueue_script( 'francedatacenter-scripts', get_template_directory_uri() . '/js/fdc.js', array('jquery', 'francedatacenter-owl-carousel', 'francedatacenter-modaal'), '', true );
 }
 add_action( 'wp_enqueue_scripts', 'fdc_scripts' );
 
@@ -225,7 +225,7 @@ function fdc_block_categories( $categories, $post ) {
 }
 add_filter( 'block_categories', 'fdc_block_categories', 10, 2 );
 
-//require_once( 'blocks/acf-block-questionnaire.php' );
+require_once( 'blocks/acf-block-adherents.php' );
 
 
 /**

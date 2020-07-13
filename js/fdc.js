@@ -3,7 +3,7 @@
 	$( document ).ready(function() {
 		//var width=$(window).width();
 		/****************** Modaal*************************/
-		$('.ouvrir.modaal').modaal();
+		$('.ouvrir-modaal').modaal();
 		
 		/****************** Sticky header *************************/	
 		var siteHeader=$('.site-header');
