@@ -44,8 +44,10 @@ get_header();
 
 		<div class="entry-content container" id="entry-content">
 			<div class="overlay"></div>
-			<div>Fil d'ariane ici</div>
-			<?php if ( 'post' === get_post_type() ) :
+			<?php 
+				if ( function_exists( 'fdc_fil_ariane' ) )  fdc_fil_ariane();
+
+				if ( 'post' === get_post_type() ) :
 					?>
 					<div class="entry-meta">
 						<?php

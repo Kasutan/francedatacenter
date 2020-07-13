@@ -8,6 +8,8 @@
  */
 
 get_header();
+				//TODO afficher une image bannière -> image par défaut
+
 ?>
 
 		<main id="main" class="site-main">
@@ -23,6 +25,8 @@ get_header();
 			</header><!-- .page-header -->
 			<div class="entry-content container loop">
 			<?php
+			if ( function_exists( 'fdc_fil_ariane' ) )  fdc_fil_ariane();
+
 			/* Start the Loop */
 			while ( have_posts() ) :
 				the_post();

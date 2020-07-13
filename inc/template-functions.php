@@ -187,3 +187,93 @@ if ( ! function_exists( 'fdc_post_thumbnail' ) ) :
 	}
 
 endif;
+
+
+/**
+* Récupérer l'ID d'une page - stockée dans une option ACF.
+*/
+
+function fdc_get_page_ID($nom) {
+	if (!function_exists('get_field')) {
+		return;
+	}
+
+	$page=get_field($nom,'option');
+
+	return $page;
+}
+
+/***************************************************************
+	Affiche le fil d'ariane
+/***************************************************************/
+if ( ! function_exists( 'fdc_fil_ariane' ) ) :
+	/**
+	* Affiche le fil d'ariane.
+	*/
+	function fdc_fil_ariane() {
+
+		//On n'affiche pas le fil d'ariane sur la page d'accueil
+		if(!is_front_page()) :
+			echo '<p class="fil-ariane">';
+
+			//Afficher le lien vers l'accueil
+			$accueil=get_option('page_on_front');
+			printf('<a href="%s">%s</a> > ',
+				get_the_permalink( $accueil),
+				get_the_title($accueil)
+			);
+			
+			//Afficher la page des actualités pour les articles (single ou archive de catégorie)
+			if ( (is_single() && 'post' === get_post_type()) || is_category() ) :
+				//l'ID de la page est stockée dans les options ACF
+				$actus=fdc_get_page_ID('page_actualites'); 
+				if($actus) :
+					printf('<a href="%s">%s</a> > ',
+						get_the_permalink( $actus),
+						get_the_title($actus)
+					);
+				endif;
+			endif;
+
+			//Afficher la page des ressources pour les single ressources
+			if ( (is_single() && 'ressource' === get_post_type()) ) :
+				//l'ID de la page est stockée dans les options ACF
+				$ressources=fdc_get_page_ID('page_ressources'); 
+				if($ressources) :
+					printf('<a href="%s">%s</a> > ',
+						get_the_permalink( $ressources),
+						get_the_title($ressources)
+					);
+				endif;
+			endif;
+
+
+			//Afficher le titre de la page courante
+			if(is_page()) : 
+				//Afficher le titre de la page parente s'il y en a une
+				$current=get_post(get_the_ID());
+				$parent=$current->post_parent; 
+				if($parent) :
+					printf('<span class="current">%s : %s</span>',
+						get_the_title($parent),
+						get_the_title()
+					);
+				else :
+					the_title('<span class="current">','</span>'); 
+				endif;
+			elseif(is_single()): //single articles ou ressources
+				the_title('<span class="current">','</span>'); 
+			elseif (is_category()) :  //archives catégories d'articles
+				echo '<span class="current">'.single_cat_title( '', false ).'</span>';
+			elseif (is_archive('post')) :
+				echo '<span class="current">Actualités</span>';
+			elseif (is_search()) :
+				echo '<span class="current">Recherche : '.get_search_query().'</span>';
+			endif;
+
+			//Fermer la balise du fil d'ariane
+			echo '</p>';
+
+		endif;
+	}
+endif;

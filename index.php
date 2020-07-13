@@ -30,8 +30,10 @@ get_header();
 				<?php
 			endif;
 
+			//TODO afficher une image bannière -> image par défaut
 			
 			echo '<div class="entry-content container loop">';
+			if ( function_exists( 'fdc_fil_ariane' ) )  fdc_fil_ariane();
 
 			/* Start the Loop */
 			while ( have_posts() ) :

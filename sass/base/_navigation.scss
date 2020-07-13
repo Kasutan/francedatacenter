@@ -108,6 +108,15 @@ a.cta-resultat {
 }
 
 /*--------------------------------------------------------------
+## Fil d'ariane
+--------------------------------------------------------------*/
+p.fil-ariane {
+	margin-bottom:28px;
+	a {
+		text-decoration: none;
+	}
+}
+/*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
 
@@ -181,9 +190,9 @@ a.cta-resultat {
 				background-color:var(--blanc);
 				border: solid 1px #EAE7E1;
 				float: left;
-				margin-top:10px;
+				margin-top:0px;
 				position: absolute;
-				top: 100%;
+				top: 90%;
 				left: -999em;
 				z-index: 10;
 			}

@@ -8,6 +8,8 @@
  */
 
 get_header();
+			//TODO afficher une image bannière -> image par défaut
+
 ?>
 
 	<main id="main" class="site-main">

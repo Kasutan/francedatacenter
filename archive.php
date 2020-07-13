@@ -16,6 +16,7 @@ get_header();
 
 			<header class="entry-header">
 				<?php
+				//TODO afficher une image bannière -> choix de l'image avec un champ ACF
 				printf('<h1 class="page-title">%s</h1>',
 					 get_the_archive_title() 
 				);
@@ -24,6 +25,8 @@ get_header();
 			</header><!-- .page-header -->
 			<div class="entry-content container loop">
 			<?php
+			if ( function_exists( 'fdc_fil_ariane' ) )  fdc_fil_ariane();
+
 			/* Start the Loop */
 			while ( have_posts() ) :
 				the_post();
