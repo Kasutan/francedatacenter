@@ -1,6 +1,9 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+//TODO ajouter colonne avec infos pertinentes dans la table des utilisateurs
+//https://www.tipsandtricks-hq.com/adding-a-custom-column-to-the-users-table-in-wordpress-7378
+
 function fdc_affiche_adherent($user,$contexte='grille') {
 	if( !function_exists('get_field') || !function_exists('fdc_get_picto_url') ) {
 		return;
