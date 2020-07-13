@@ -23,7 +23,7 @@ function fdc_acf_block_adherents_acf_init() {
 }
 
 function fdc_adherents_callback( $block ) {
-	if( !function_exists("get_field")) {
+	if( !function_exists("get_field") || !function_exists("fdc_affiche_adherent")) {
 		return '';
 	}
 	if(array_key_exists('className',$block)) {
