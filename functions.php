@@ -195,7 +195,7 @@ require get_template_directory() . '/inc/template-functions.php';
 * https://developer.wordpress.org/reference/functions/add_image_size/
 */
 
-//add_image_size('banniere',1960,300,true);
+add_image_size('banniere',1600,700,false);
 
 /**
 * CPT, custom fields, custom taxonomies et functions associées

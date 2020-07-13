@@ -19,27 +19,40 @@ get_header();
 <main id="main" class="site-main">
 <?php
 	while ( have_posts() ) :
-		the_post(); ?>
+		the_post(); 
 
-			<header class="entry-header">
+		if(function_exists('get_field')) {
+			$baseline=wp_kses_post( get_field('baseline'));
+			$decoupe_banniere=esc_html( get_field('decoupe_banniere'));
+			$decor_banniere=esc_html( get_field('decor_banniere'));
+		} else {
+			$baseline=$decoupe_banniere=$decor_banniere='';
+		}
+		
+
+		printf('<header class="entry-header %s %s">',$decoupe_banniere,$decor_banniere);
 				
-				<?php printf('<h1 class="page-title">%s</h1>',
-					get_the_title()
-				);?>
-				
-				<?php if ( 'post' === get_post_type() ) :
+			if(function_exists('fdc_post_thumbnail')) echo '<div class="image">'.fdc_post_thumbnail('banniere').'</div>';
+			echo '<div class="texte-banniere">';
+				printf('<h1 class="page-title">%s</h1>',get_the_title());
+				if($baseline) printf('<p class="baseline">%s</p>',$baseline);
+			echo '</div>';
+			if(function_exists('fdc_get_picto_url')) printf('<a href="#entry-content"><img src="%s" alt="fleche vers le bas" width="40" height="23"/></a>',fdc_get_picto_url('angle-bas'));
+			?>
+		</header><!-- .entry-header -->
+
+
+		<div class="entry-content container" id="entry-content">
+			<div class="overlay"></div>
+			<div>Fil d'ariane ici</div>
+			<?php if ( 'post' === get_post_type() ) :
 					?>
 					<div class="entry-meta">
 						<?php
 						the_date('', 'Publié le ');
 						?>
 					</div><!-- .entry-meta -->
-				<?php endif; ?>
-			</header><!-- .entry-header -->
-
-
-		<div class="entry-content container">
-			<div class="overlay"></div>
+				<?php endif; ?>	
 			<?php
 			the_content();
 			?>

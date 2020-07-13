@@ -164,3 +164,26 @@ if( 'revealid_id' == $column ) {
 	echo $id;
 }
 }
+
+/***************************************************************
+	Affiche l'image banniere
+/***************************************************************/
+if ( ! function_exists( 'fdc_post_thumbnail' ) ) :
+
+	function fdc_post_thumbnail($taille='banniere') {
+		ob_start();
+		$defaut='';
+		if(function_exists('get_field')) {
+			$defaut=esc_attr(get_field('banniere_defaut','option'));
+		}
+		if(has_post_thumbnail(  )) {
+			the_post_thumbnail( $taille);
+		} else {
+			if($defaut) {
+				echo wp_get_attachment_image( $defaut, $taille);
+			}
+		}
+		return ob_get_clean();
+	}
+
+endif;

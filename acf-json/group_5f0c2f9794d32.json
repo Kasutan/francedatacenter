@@ -1,0 +1,105 @@
+{
+    "key": "group_5f0c2f9794d32",
+    "title": "Réglages de l'en-tête",
+    "fields": [
+        {
+            "key": "field_5f0c2f9fd9f8a",
+            "label": "Baseline",
+            "name": "baseline",
+            "type": "textarea",
+            "instructions": "Baseline associée au titre pour exprimer un complément d'info",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 2,
+            "new_lines": "br"
+        },
+        {
+            "key": "field_5f0c2fd8d9f8d",
+            "label": "Côté de la découpe",
+            "name": "decoupe_banniere",
+            "type": "radio",
+            "instructions": "Appliquer une découpe au bas de l'image bannière, soit côté droit, soit côté gauche.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "decoupe-droite": "pointe côté droit",
+                "decoupe-gauche": "pointe côté gauche"
+            },
+            "allow_null": 1,
+            "other_choice": 0,
+            "default_value": "decoupe-gauche",
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_5f0c3072d9f8e",
+            "label": "Affichage du décor",
+            "name": "decor_banniere",
+            "type": "radio",
+            "instructions": "Afficher ou pas le décor en lignes grises sous l'image bannière, côté droit",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "decor": "afficher le décor",
+                "sans-decor": "ne pas afficher le décor"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "sans-decor",
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "ressource"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1594640883
+}
