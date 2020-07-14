@@ -1,0 +1,146 @@
+/*style de la vignette ressource utilisée pour le bloc ressources et pour la page single*/
+.liste-ressources {
+	list-style:none;
+	padding:0;
+	margin:0;
+}
+.ressource {
+	--accent : var(--bleu); //fonction du type de ressource
+	&.travaux-internes {
+		--accent : var(--cyan);
+	}
+	&.videos {
+		--accent : var(--violet);
+	}
+	&.photos {
+		--accent : var(--bleu-fonce);
+	}
+	align-items: flex-start;
+	display:flex;
+	margin-bottom:13px;
+	.texte {
+		border-bottom: 1px solid var(--bleu);
+		padding-bottom:18px;
+	}
+	.pictos {
+		flex-basis:60px;
+		flex-grow:0;
+		flex-shrink: 0;
+		margin-right:30px;
+	}
+	.picto-type {
+		align-items: center;
+		border:solid 2px var(--accent);
+		border-radius: 50%;
+		display: flex;
+		height:60px;
+		justify-content: center;
+		margin-bottom: 25px;
+		width:60px;
+		svg {
+			max-height:35px;
+		}
+	}
+	.picto-verrou {
+		text-align: center;
+		svg {
+			max-width:36px;
+			path {
+				fill:var(--gris);
+			}
+		}
+		&.ouvert svg path {
+			fill:var(--accent);
+		}
+	}
+	h2 {
+		color:var(--accent);
+		font-size: 1.33em;
+		&::after {
+			display: none;
+		}
+	}
+	.desc {
+		font-size: 0.9em;
+		margin-bottom: 5px;
+	}
+	.meta {
+		align-items: center;
+		display: flex;
+	}
+	.date {
+		font-weight: 500;
+		margin-right: 20px;
+	}
+
+	a {
+		font-weight: 700;
+		text-decoration: none;
+	}
+
+	.date, a, .message-verrouillage {
+		align-items: center;
+		display: flex;
+		.picto {
+			align-items: center;
+			display: flex;
+			justify-content: center;
+		}
+		svg {
+			margin-right:7px;
+			max-width:18px;
+		}
+	}
+
+	.date, .picto-type, a {
+		color : var(--accent);
+		svg path {
+			fill:var(--accent);
+		}
+		&:hover, &:focus {
+			color : var(--accent);
+		}
+	}
+	.message-verrouillage {
+		color:var(--gris);
+		svg path {
+			fill:var(--gris);
+		}
+	}
+
+
+	@media screen and (max-width:768px) {
+		border-bottom: 1px solid var(--bleu);
+		padding-bottom: 15px;
+		.texte {
+			border:none;
+			padding-bottom: 0;
+		}
+		.pictos {
+			flex-basis: 33px;
+			margin-right: 14px;
+		}
+		.picto-type {
+			border-width:1px;
+			height:32px;
+			margin-bottom: 10px;
+			width:32px;
+			svg {
+				max-height: 19px;
+			}
+		}
+		.picto-verrou svg {
+			max-width:28px;
+		}
+		.meta {
+			align-items: flex-start;
+			flex-direction: column;
+		}
+		.date, a {
+			svg {
+				max-height: unset;
+				max-width:11px;
+			}
+		}
+	}
+}

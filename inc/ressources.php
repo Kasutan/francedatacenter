@@ -1,9 +1,26 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-//TODO filtre sur champ ACF url_fichier pour stocker les fichiers dans un répertoire séparé
-// avec un hash pour empêcher de deviner l'url ?
-// règle robots.txt pour empêcher l'indexation de ce répertoire
+//Filtre sur champ ACF url_fichier pour stocker les fichiers dans un répertoire séparé
+//https://support.advancedcustomfields.com/forums/topic/change-file-upload-path-for-one-specific-field/
+add_filter('acf/upload_prefilter/name=url_fichier', 'fdc_field_name_upload_prefilter');
+function fdc_field_name_upload_prefilter($errors) {
+  // in this filter we add a WP filter that alters the upload path
+  add_filter('upload_dir', 'fdc_field_name_upload_dir');
+  return $errors;
+}
+// second filter
+function fdc_field_name_upload_dir($uploads) {
+  // here is where we alter the path
+  //random string appended for each upload
+	$random = substr(str_shuffle('1234567890abcefghijklmnopqrstuvwxyz'), 0, 10);
+
+  $uploads['path'] = $uploads['basedir'].'/ressources'.'/'.$random;
+  $uploads['url'] = $uploads['baseurl'].'/ressources'.'/'.$random;
+  $uploads['subdir'] = '';
+  return $uploads;
+}
+
 
 //TODO afficher métas pertinentes dans les colonnes du BO
 
@@ -22,10 +39,10 @@ function fdc_affiche_ressource($post_id) {
 	
 	if($type_fichier=='video') {
 		$url=esc_url(get_field('url_video',$post_id));
-		$forcer_telechargement='';
+		$attribut_lien=' target="_blank"';
 	} else {
 		$url=esc_url(get_field('url_fichier',$post_id));
-		$forcer_telechargement=' download';
+		$attribut_lien=' download';
 	}
 
 	$adherent=fdc_is_current_user_adherent();
@@ -37,22 +54,22 @@ function fdc_affiche_ressource($post_id) {
 			if($acces=='privee' && !$adherent) {
 				printf('<div class="picto-verrou">%s</div>',fdc_get_picto_inline('verrou-ferme'));
 			} else if($acces=='privee' && $adherent) {
-				printf('<div class="picto-verrou">%s</div>',fdc_get_picto_inline('verrou-ouvert'));
+				printf('<div class="picto-verrou ouvert">%s</div>',fdc_get_picto_inline('verrou-ouvert'));
 			}
 		echo '</div>';//fin .pictos
 		printf('<div class="texte"><h2 class="titre">%s</h2><div class="desc">%s</div>',$titre, $desc);
 			echo '<div class="meta">';
-				printf('<div class="date">%s %s</div>',fdc_get_picto_inline('calendrier'),$date);
+				printf('<div class="date"><span class="picto">%s</span> %s</div>',fdc_get_picto_inline('calendrier'),$date);
 				
 				if($acces=='privee' && !$adherent) {
-					printf('<div class="message verrouillage">%s %s</div>',
+					printf('<div class="message-verrouillage"><span class="picto">%s</span> %s</div>',
 						fdc_get_picto_inline($type_fichier),
 						'Accès réservé aux adhérents'
 					);
 				} else {
-					printf('<a href="%s"%s>%s %s</a>',
+					printf('<a href="%s"%s><span class="picto">%s</span> %s</a>',
 						$url,
-						$forcer_telechargement,
+						$attribut_lien,
 						fdc_get_picto_inline($type_fichier),
 						$label_lien
 					);
@@ -65,5 +82,5 @@ function fdc_affiche_ressource($post_id) {
 }
 
 function fdc_affiche_filtre_ressources(){
-	echo '<nav>filtre ressources</nav>';
+	echo '<nav style="background-color:var(--gris);margin-bottom:50px;padding:30px">filtre ressources ici</nav>';
 }

@@ -1,6 +1,9 @@
 /*--------------------------------------------------------------
 ## Links
 --------------------------------------------------------------*/
+:root {
+	--transition:0.5s ease-in-out;
+}
 a,
 a:visited {
 	color: var(--cyan);
@@ -22,79 +25,65 @@ a:active {
 	outline: 0;
 }
 
-a.fleche {
-	font-weight:500;
-	background-image:url('icons/Fleche-Cta.svg');
-	background-repeat: no-repeat;
-	background-position:center right;
-	background-size:contain;
-	float:right;
-	height:41px;
-	line-height: 41px;
-	margin:0;
-	padding-right: 56px;
-	text-decoration: none;
-	transition: all var(--transition);
+.fleche {
+	text-align: center;
 
-	&:focus, &:hover, &:active {
-		color:var(--bleu);
-		margin-right:-4px;
-		padding-right:60px;
+	a {
+		--lien:var(--cyan);
 
-	}
+		border-bottom:solid 2px var(--lien);
+		color:var(--lien);
+		display: inline-block;
+		font-size: 122%;
+		font-weight:700;
+		line-height:1.36;
+		margin:2em auto;
+		padding:0 3px;
+		position: relative;
+		text-decoration: none;
+		transition-property: border,color;
+		
+		svg {
+			margin-left: 6px;
+			max-width:6px;
+			position: relative;
+			top:4px;
+			@include bp(md) {
+				margin-left: 8px;
+				max-width:11px;
+				top:2px;
+			}
 
-	&.inverse {
-		background-image:url('icons/Fleche-Cta-Inverse.svg');
-		color:var(--blanc);
-		&:focus, &:hover, &:active {
-			color:var(--blanc);
+			path {
+				fill:var(--lien);
+				transition: fill var(--transition);
+
+			}
+
+			
+		}
+
+		&:hover, &:focus, &:active {
+			--lien : var(--bleu);
 		}
 	}
 	
+
+	/*Variante avec les couleurs inversées*/
+	&.bleu {
+		a {
+			--lien : var(--bleu);
+			&:hover, &:focus, &:active {
+				--lien : var(--cyan);
+			}
+		}
+		
+	}
+
+
+	
 }
 
-a.cta-resultat {
-	align-items: center;
-	color: var(--blanc);
-	display: flex;
-	font-weight: 500;
-	height: 41px;
-	justify-content: flex-end;
-	letter-spacing: 0.5px;
-	text-align: right;
-	text-decoration: none;
-	margin: 0 0 30px;
-
-	span {
-		font-size: 14px;
-		padding-right: 15px;
-	}
-
-	svg {
-		max-width: 41px;
-		transform: left var(--transition);
-
-		.fleche {
-			fill: var(--rouge);
-		}
-
-		.cercle {
-			fill: var(--blanc);
-		}
-	}
-
-	&:focus,
-	&:hover,
-	&:active {
-		text-decoration: none;
-
-		svg {
-			left: 3px;
-			position: relative;
-		}
-
-	}
-}
 /*--------------------------------------------------------------
 ## Ancres
 --------------------------------------------------------------*/

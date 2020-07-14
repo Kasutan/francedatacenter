@@ -40,7 +40,7 @@ function fdc_ressources_callback( $block ) {
 		if($ressources->have_posts()) :
 			echo '<div class="ressources" id="ressources">';
 				fdc_affiche_filtre_ressources();
-				echo '<ul>';
+				echo '<ul class="liste-ressources">';
 				while ($ressources->have_posts()):
 					$ressources->the_post();
 					fdc_affiche_ressource(get_the_ID());
