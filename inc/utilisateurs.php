@@ -1,8 +1,37 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-//TODO ajouter colonne avec infos pertinentes dans la table des utilisateurs
+//Ajouter colonnes avec infos personnalisées dans la table des utilisateurs
 //https://www.tipsandtricks-hq.com/adding-a-custom-column-to-the-users-table-in-wordpress-7378
+add_action('manage_users_columns','fdc_modify_user_columns');
+function fdc_modify_user_columns($column_headers) {
+  unset($column_headers['posts']);
+  $column_headers['entreprise'] = 'Entreprise';
+  $column_headers['date_expiration'] = 'Fin d\'adhésion';
+  return $column_headers;
+}
+
+add_action('manage_users_custom_column', 'fdc_user_custom_column_content', 10, 3);
+function fdc_user_custom_column_content($value, $column_name, $user_id) {
+  if(!function_exists('get_field')) {
+	  return $value;
+  }
+  if ( 'entreprise' == $column_name ) {
+    return esc_html(get_field('entreprise','user_'.$user_id));
+  } else if('date_expiration' == $column_name) {
+	$date_expiration=get_field('date_expiration','user_'.$user_id);
+	if($date_expiration) {
+		$date_actuelle=date('Ymd');
+		$date_expiration_formatee = date("d-m-Y", strtotime($date_expiration));
+		if($date_actuelle<=$date_expiration) {
+			return '<span style="color:green">'.$date_expiration_formatee.'</span>';
+		} else {
+			return '<span style="color:orange">'.$date_expiration_formatee.'</span>';
+		}
+	} 
+  }
+  return $value;
+}
 
 function fdc_affiche_adherent($user,$contexte='grille') {
 	if( !function_exists('get_field') || !function_exists('fdc_get_picto_url') ) {
