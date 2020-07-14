@@ -22,9 +22,6 @@ function fdc_field_name_upload_dir($uploads) {
 }
 
 
-//TODO afficher métas pertinentes dans les colonnes du BO
-
-
 function fdc_affiche_ressource($post_id) {
 	if(get_post_type($post_id)!=='ressource' || !function_exists('get_field') || !function_exists('fdc_get_picto_inline') || !function_exists('fdc_is_current_user_adherent')) {
 		return;
@@ -83,4 +80,40 @@ function fdc_affiche_ressource($post_id) {
 
 function fdc_affiche_filtre_ressources(){
 	echo '<nav style="background-color:var(--gris);margin-bottom:50px;padding:30px">filtre ressources ici</nav>';
+	//TODO construire le filtre
 }
+
+
+/******************Colonnes dans l'admin *****************/
+add_filter( 'manage_ressource_posts_columns', 'fdc_set_custom_edit_ressource_columns' );
+
+function fdc_set_custom_edit_ressource_columns( $columns ) {
+
+  $columns['acces'] = __( 'Accès', 'francedatacenter' );
+  $columns['type_fichier'] = __( 'Type de fichier', 'francedatacenter' );
+
+  return $columns;
+}
+
+add_action( 'manage_ressource_posts_custom_column' , 'fdc_custom_ressource_column', 10, 2 );
+
+function fdc_custom_ressource_column( $column, $post_id ) {
+	if(!function_exists('get_field')) {
+		echo '';
+	}
+  switch ( $column ) {
+
+    // display the value of an ACF (Advanced Custom Fields) field
+    case 'acces' :
+	  $acces=get_field( 'acces', $post_id );  
+	  if($acces=="publique") echo "Public";
+	  if($acces=="privee") echo '<span style="color:orange">Réservé aux adhérents</span>';
+	  break;
+	
+	case 'type_fichier' :
+		echo get_field( 'type_fichier', $post_id );  
+		break;
+
+  }
+}
+

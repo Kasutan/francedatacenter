@@ -46,6 +46,7 @@ function fdc_ressources_callback( $block ) {
 					fdc_affiche_ressource(get_the_ID());
 				endwhile;
 				echo '</ul>';
+				//TODO bouton pour afficher plus de ressources
 			echo '</div>';
 		else : 
 			'<p>Aucune ressource</p>';
