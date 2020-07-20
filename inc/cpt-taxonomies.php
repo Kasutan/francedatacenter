@@ -163,7 +163,7 @@ add_action( 'init', 'fdc_ressource_post_type', 0 );
 /***************************************************************
 	Fonctions communes
 /***************************************************************/
-function fdc_get_type_evement($post_id) {
+function fdc_get_type_evenement($post_id) {
 	$terms=get_the_terms($post_id,'type_evement');
 	if($terms) {
 		return $terms[0]; //renvoie l'objet Term

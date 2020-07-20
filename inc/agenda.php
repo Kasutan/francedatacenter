@@ -22,11 +22,14 @@ function fdc_affiche_evenement($post_id) {
 	$array_date_debut=explode('-',$date_debut);
 	$date_debut=sprintf('<span class="date">%s/%s</span><span class="sep">/</span><span class="annee">%s</span>',$array_date_debut[2],$array_date_debut[1],$array_date_debut[0]);
 
-	$array_date_fin=explode('-',$date_fin);
-	$date_fin=sprintf('<span class="date">%s/%s</span><span class="sep">/</span><span class="annee">%s</span>',$array_date_fin[2],$array_date_fin[1],$array_date_fin[0]);
+	if($date_fin) {
+		$array_date_fin=explode('-',$date_fin);
+		$date_fin=sprintf('<span class="date">%s/%s</span><span class="sep">/</span><span class="annee">%s</span>',$array_date_fin[2],$array_date_fin[1],$array_date_fin[0]);
+	}
+	
 
 	$annee_courante=date('Y');
-	if($array_date_debut[0]>=$annee_courante) {
+	if($array_date_debut[0]>$annee_courante) {
 		$classe_futur='futur';
 	} else {
 		$classe_futur='';
@@ -111,4 +114,9 @@ function fdc_affiche_resume_evenement($date_debut,$date_fin,$titre,$plage_horair
 			}
 		echo '</div>'; //fin .texte
 	echo '</div>'; //fin resume
+}
+
+function fdc_affiche_filtre_agenda(){
+	echo '<nav style="background-color:var(--gris);margin-bottom:50px;padding:30px">filtre agenda ici</nav>';
+	//TODO construire le filtre - mettre les labels au pluriel !
 }

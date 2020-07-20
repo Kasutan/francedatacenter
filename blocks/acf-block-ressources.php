@@ -49,7 +49,7 @@ function fdc_ressources_callback( $block ) {
 				//TODO bouton pour afficher plus de ressources
 			echo '</div>';
 		else : 
-			'<p>Aucune ressource</p>';
+			echo '<p>Aucune ressource</p>';
 		endif;	
 		wp_reset_postdata();
 	echo "</section>";
