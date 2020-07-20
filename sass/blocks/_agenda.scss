@@ -1,0 +1,125 @@
+.acf-block-agenda {
+	padding:30px 0;
+	.popup {
+		display: none;
+	}
+	.evenements {
+		border-top:solid 1px var(--bleu);
+		list-style:none;
+		padding:0;
+		margin:0;
+	}
+	.evenement {
+		--accent:var(--bleu);
+		border-bottom:solid 1px var(--bleu);
+		padding:10px 5px;
+
+		&.futur {
+			--accent:var(--cyan);
+		}
+		a {
+			text-decoration: none;
+		}
+		.image {
+			display: none;
+		}		
+
+		.type-desktop {
+			display: none;
+		}
+
+	}
+	
+}
+
+/*sortir le style résumé du bloc pour l'appliquer aussi à la popup*/
+
+.resume {
+	display: flex;
+	.dates {
+		color:var(--accent);
+		flex:85px 0 0;
+		font-size: 11px;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+
+		.debut {
+			font-size: 16px;
+		}
+		path {
+			fill:var(--accent);
+		}
+		.fleche svg {
+			width:10px;
+		}
+	}
+	.texte {
+		flex-grow:1;
+		padding-left:25px;
+	}
+	.nom {
+		color:var(--accent);
+		font-size: 16px;
+		font-weight: 700;
+		line-height: 21px;
+	}
+	.horaires, .lieu, .type-mobile {
+		color:var(--noir);
+		display: inline-block;
+		margin-right:10px;
+		svg {
+			margin-right:2px;
+			width:12px;
+		}
+	}
+	.horaires, .lieu {
+		margin-bottom: 10px;
+
+	}
+	.type-mobile {
+		display: block;
+	}
+
+	/*styles particuliers dans la popup*/
+	&.popup {
+		--accent:var(--bleu);
+		border-bottom:solid 1px var(--accent);
+
+		&.futur {
+			--accent:var(--cyan);
+		}
+		.dates {
+			border-right:solid 1px var(--accent);
+			flex-basis:125px;
+			font-size: 16px;
+			padding:10px;
+			.fleche svg {
+				width:15px;
+			}
+			.sep {
+				display: none;
+			}
+			.annee, .date {
+				display:block;
+				text-align: center;
+			}
+			.date {
+				font-size: 24px;
+			}
+		}
+		.texte {
+			padding:15px;
+		}
+	}
+}
+
+.description-evenement {
+	padding:10px 17px 20px;
+}
+.lien-evenement {
+	margin-top:1rem;
+	a {
+		color:var(--cyan);
+	}
+}

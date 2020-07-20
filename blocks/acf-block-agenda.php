@@ -51,7 +51,7 @@ function fdc_agenda_callback( $block ) {
 		if($agenda->have_posts()) :
 			echo '<div class="agenda" id="agenda">';
 				fdc_affiche_filtre_agenda();
-				echo '<ul class="liste-agenda">';
+				echo '<ul class="list evenements">';
 				while ($agenda->have_posts()):
 					$agenda->the_post();
 					fdc_affiche_evenement(get_the_ID());

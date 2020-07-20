@@ -60,16 +60,16 @@ function fdc_affiche_evenement($post_id) {
 	
 	//on prépare la popup
 	printf('<div id="evenement-%s" class="popup %s">',$post_id,$classe_futur);
-		fdc_affiche_resume_evenement($date_debut,$date_fin,$titre,$plage_horaire,$type_evenement,$ville,$pays);
+		fdc_affiche_resume_evenement($date_debut,$date_fin,$titre,$plage_horaire,$type_evenement,$ville,$pays,'popup',$classe_futur);
 		if(has_post_thumbnail( $post_id )) {
 			printf('<div class="image">%s</div>',get_the_post_thumbnail( $post_id,'medium'));
 		} 
-		echo '<div class="desc">';
+		echo '<div class="description-evenement">';
 			echo $desc;
 			if($lien_resa) {
-				echo '<p class="lien">';
-				if($label_lien_resa) printf('<strong>%s&nbsp;:</strong>',$label_lien_resa);
-				printf('<a href="%s">%s</a>',$lien_resa);
+				echo '<p class="lien-evenement">';
+				if($label_lien_resa) printf('<strong>%s&nbsp;: </strong>',$label_lien_resa);
+				printf('<a href="%s">%s</a>',$lien_resa,$lien_resa);
 				echo '</p>';
 			}
 		echo '</div>';
@@ -79,8 +79,8 @@ function fdc_affiche_evenement($post_id) {
 	echo '</li>'; // fin de l'évènement
 }
 
-function fdc_affiche_resume_evenement($date_debut,$date_fin,$titre,$plage_horaire,$type_evenement,$ville,$pays) {
-	echo '<div class="resume">';
+function fdc_affiche_resume_evenement($date_debut,$date_fin,$titre,$plage_horaire,$type_evenement,$ville,$pays,$contexte='',$classe_futur='') {
+	printf('<div class="resume %s %s">',$contexte, $classe_futur);
 		printf('<div class="dates"><div class="debut">%s</div>',$date_debut);
 		if($date_fin) {
 			printf('<div class="fleche">%s</div><div class="fin">%s</div>',
