@@ -43,7 +43,7 @@ function fdc_affiche_adherent($user,$contexte='grille') {
 	$url=$user->get('user_url');
 
 	if($contexte==='slider') { //on affiche le logo cliquable ou simplement l'image
-		if(!$empty($url)) {
+		if(!empty($url)) {
 			printf('<li class="adherent"><a href="%s">%s</a></li>',
 				$url,
 				wp_get_attachment_image($logo, 'thumbnail', false, array('alt'=>$entreprise))
