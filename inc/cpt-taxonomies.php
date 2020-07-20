@@ -166,7 +166,7 @@ add_action( 'init', 'fdc_ressource_post_type', 0 );
 function fdc_get_type_evement($post_id) {
 	$terms=get_the_terms($post_id,'type_evement');
 	if($terms) {
-		return $terms[0]->name;
+		return $terms[0]; //renvoie l'objet Term
 	}
 }
 function fdc_get_type_ressource($post_id) {

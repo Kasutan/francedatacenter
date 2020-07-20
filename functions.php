@@ -204,6 +204,7 @@ add_image_size('banniere',1600,700,false);
 require_once( 'inc/cpt-taxonomies.php' );
 require_once( 'inc/ressources.php' );
 require_once( 'inc/utilisateurs.php' );
+require_once( 'inc/agenda.php' );
 
 
 /**
