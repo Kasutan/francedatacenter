@@ -1,6 +1,8 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+//TODO afficher infos complémentaires dans l'admin
+
 function fdc_affiche_evenement($post_id) {
 	if(get_post_type($post_id)!=='evenement' || !function_exists('get_field') || !function_exists('fdc_get_picto_inline') || !function_exists('fdc_get_picto_url') || !function_exists('fdc_get_type_evenement')) {
 		return;
@@ -48,7 +50,7 @@ function fdc_affiche_evenement($post_id) {
 		fdc_affiche_resume_evenement($date_debut,$date_fin,$titre,$plage_horaire,$type_evenement,$ville,$pays);
 		if($type_evenement) { 
 			// affiché en desktop en position absolute
-			printf('<span class="type-desktop">%s</span>',
+			printf('<div class="type-desktop"><span>%s</span></div>',
 				$type_evenement->name
 			);
 			//pour le filtre uniquement
@@ -62,7 +64,7 @@ function fdc_affiche_evenement($post_id) {
 	printf('<div id="evenement-%s" class="popup %s">',$post_id,$classe_futur);
 		fdc_affiche_resume_evenement($date_debut,$date_fin,$titre,$plage_horaire,$type_evenement,$ville,$pays,'popup',$classe_futur);
 		if(has_post_thumbnail( $post_id )) {
-			printf('<div class="image">%s</div>',get_the_post_thumbnail( $post_id,'medium'));
+			printf('<div class="image-popup">%s</div>',get_the_post_thumbnail( $post_id,'medium'));
 		} 
 		echo '<div class="description-evenement">';
 			echo $desc;

@@ -10,7 +10,7 @@
 $modaal-radius: 0; //5px
 $modaal-main-bg: #fff;
 $modaal-main-text: var(--noir-texte);
-$modaal-max-width: 1000px;
+$modaal-max-width: 900px;
 $modaal-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 $modaal-padding: 30px;
 $modaal-hover-color: rgba(0,0,0, 0.7);
@@ -177,6 +177,7 @@ button.modaal-close {
 	}
 
 	@include bp(md) {
+		left:unset;
 		right: -10px;
 		top: -10px;
 		width: 70px;

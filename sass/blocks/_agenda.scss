@@ -13,7 +13,6 @@
 		--accent:var(--bleu);
 		border-bottom:solid 1px var(--bleu);
 		padding:10px 5px;
-
 		&.futur {
 			--accent:var(--cyan);
 		}
@@ -29,6 +28,90 @@
 		}
 
 	}
+
+	@include bp(md) {
+		.evenements {
+			border:none;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+		.evenement {
+			border:solid 1px var(--accent);
+			flex-basis:45%;
+			flex-basis:calc(50% - 20px);
+			margin-bottom: 40px;
+			padding:0;
+			> a {
+				display: flex;
+				flex-direction: column;
+				height:100%;
+				min-height:309px;
+				position: relative;
+			}
+			.image {
+				display: flex;
+				height:111px;
+				width:100%;
+				img {
+					object-fit: cover;
+					width:100%;
+				}
+				&.defaut {
+					align-items: center;
+					background-color: var(--accent);
+					justify-content: center;
+					img {
+						object-fit: unset;
+						width:90px;
+					}
+				
+				}
+			}
+			.type-desktop {
+				display: block;
+				height:25px;
+				position:absolute;
+				width:100%;
+				bottom:-12px;
+				text-align: center;
+				span {
+					background-color: #fff;
+					border:solid 1px var(--accent);
+					color:var(--accent);
+					font-size: 15px;
+					font-weight: 500;
+					line-height: 25px;
+					padding:2px 10px;
+					text-transform: uppercase;
+				}
+			}
+
+			&:hover {
+				.resume {
+					background-color: var(--accent);
+					border-top:solid 1px var(--blanc);
+					.dates, .nom, .horaires, .lieu {
+						color:var(--blanc);
+						svg path {
+							fill:var(--blanc);
+						}
+					}
+					.dates {
+						border-color:var(--blanc);
+					}
+				}
+			}
+		}
+	}
+	@include bp(lg) {
+		.evenement {
+			flex-basis:30%;
+			flex-basis:calc((100% - 90px) / 3);
+			margin-bottom: 43px;
+		}
+		
+	}
 	
 }
 
@@ -36,6 +119,8 @@
 
 .resume {
 	display: flex;
+	transition:all var(--transition);
+
 	.dates {
 		color:var(--accent);
 		flex:85px 0 0;
@@ -112,10 +197,80 @@
 			padding:15px;
 		}
 	}
+
+	@include bp(md) {
+		flex-grow:1;
+		.dates {
+			border-right:solid 1px var(--accent);
+			flex-basis:92px;
+			font-size: 16px;
+			padding:10px 6px;
+			.fleche svg {
+				width:15px;
+			}
+			.sep {
+				display: none;
+			}
+			.annee, .date {
+				display:block;
+				text-align: center;
+			}
+			.debut .date {
+				font-size: 30px;
+			}
+		}
+		.texte {
+			padding:11px;
+		}
+		.nom {
+			font-size: 20px;
+			font-weight: 500;
+			margin-bottom: 1em;
+		}
+		.horaires, .lieu {
+			display: block;
+			font-size: 18px;
+		}
+		.type-mobile {
+			display: none;
+		}
+		&.popup {
+			.dates {
+				align-items: center;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+			.nom {
+				font-size: 32px;
+				font-weight: 700;
+				line-height: 43px;
+				margin-bottom: 0;
+			}
+			.horaires, .lieu, .type-mobile {
+				display: inline-block;
+			}
+		}
+	}
 }
+@include bp(md) {
+	.image-popup {
+		display: flex;
+		height:320px;
+		width:100%;
+		img {
+			object-fit: cover;
+			width:100%;
+		}
+	}
+}
+
 
 .description-evenement {
 	padding:10px 17px 20px;
+	@include bp(md) {
+		padding:40px 70px 0 50px;
+	}
 }
 .lien-evenement {
 	margin-top:1rem;
