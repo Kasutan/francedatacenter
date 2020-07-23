@@ -10,7 +10,8 @@
 	$sm: "(min-width: 576px)";
 	$md: "(min-width: 768px)";
 	$lg: "(min-width: 960px)";
-	$xl: "(min-width: 1680px)";
+	$xl: "(min-width: 1400px)";
+	$xxl: "(min-width: 1000px)";
   
 	@if $point == sm {
 	@media #{$sm} { @content; }
@@ -26,6 +27,10 @@
 	@else if $point == xl {
 	@media #{$xl} { @content; }
 	}
+
+	@else if $point == xxl {
+		@media #{$xxl} { @content; }
+		}
 }
 
 
@@ -33,20 +38,37 @@ body {
 	overflow-x:hidden;
 }
 :root {
-	--margin-bottom:60px;
-	--padding-x:20px;
+	--margin-bottom:20px;
+	--padding-x:15px;
+	--padding-x-grille:var(--padding-x);
+	--padding-x-header:var(--padding-x);
+	--padding-x-footer:var(--padding-x);
 	//--header-height:80px;
-	--max-width-xl:1900px;
+	//--max-width-xl:1900px;
+
+
+	@include bp(xs) {
+		--padding-x:4%;
+	}
 
 	@include bp(md) {
-		--margin-bottom:80px;
-		--padding-x : 5%;
+		--margin-bottom:40px;
 	}
 	@include bp(lg) {
-		--margin-bottom:105px;
+		--margin-bottom:55px;
+		--padding-x : calc(50vw - 868px/2);
+		--padding-x-grille:40px;
+		--padding-x-header: 40px;
+		--padding-x-footer: 40px;
+
+	}
+	@media screen and (min-width:1200px) {
+		--padding-x-grille : calc(50vw - 1090px/2);
+
 	}
 	@include bp(xl) {
-		--padding-x: calc(50vw - 1515px/2);
+		--padding-x-header: calc(50vw - 1260px/2);
+		--padding-x-footer: calc(50vw - 1312px/2);
 	}
 }
 
@@ -64,8 +86,6 @@ body {
 }
 
 .container {
-//	max-width:1406px; //1366px largeur max contenu + 20px de padding de chaque côté
-//	margin:0 auto;
 	padding:0 var(--padding-x);
 }
 
