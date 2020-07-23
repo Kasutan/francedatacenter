@@ -229,6 +229,7 @@ add_filter( 'block_categories', 'fdc_block_categories', 10, 2 );
 require_once( 'blocks/acf-block-adherents.php' );
 require_once( 'blocks/acf-block-ressources.php' );
 require_once( 'blocks/acf-block-agenda.php' );
+require_once( 'blocks/acf-block-image-decalee.php' );
 
 
 /**

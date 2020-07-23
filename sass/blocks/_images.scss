@@ -1,0 +1,36 @@
+.acf-block-image-decalee {
+	display:flex;
+	justify-content: center;
+	margin-bottom:34px;
+	.image {
+		display: flex;
+		height:260px;
+		position: relative;
+		width: 294px;
+		img {
+			object-fit: cover;
+			width:100%;
+		}
+		.decor {
+			background: var(--gradient);
+			bottom:-20px;
+			height:125px;
+			left:20px;
+			opacity: 0.5;
+			position: absolute;
+			width:106px;
+		}
+	}
+	@include bp(md) {
+		display: flex;
+		float: left;
+		justify-content: flex-end;
+		margin-right: 39px;
+		overflow: visible;
+		width:183px;
+		.image {
+			flex-basis: 294px;
+			flex-shrink: 0;
+		}
+	}
+}

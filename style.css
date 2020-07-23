@@ -2421,4 +2421,49 @@ button.retour {
   .lien-evenement a {
     color: var(--cyan); }
 
+.acf-block-image-decalee {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-bottom: 34px; }
+  .acf-block-image-decalee .image {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 260px;
+    position: relative;
+    width: 294px; }
+    .acf-block-image-decalee .image img {
+      -o-object-fit: cover;
+      object-fit: cover;
+      width: 100%; }
+    .acf-block-image-decalee .image .decor {
+      background: var(--gradient);
+      bottom: -20px;
+      height: 125px;
+      left: 20px;
+      opacity: 0.5;
+      position: absolute;
+      width: 106px; }
+  @media (min-width: 768px) {
+    .acf-block-image-decalee {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      float: left;
+      -webkit-box-pack: end;
+      -ms-flex-pack: end;
+      justify-content: flex-end;
+      margin-right: 39px;
+      overflow: visible;
+      width: 183px; }
+      .acf-block-image-decalee .image {
+        -ms-flex-preferred-size: 294px;
+        flex-basis: 294px;
+        -ms-flex-negative: 0;
+        flex-shrink: 0; } }
+
 /*# sourceMappingURL=style.css.map */
