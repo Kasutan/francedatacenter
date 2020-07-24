@@ -1,0 +1,75 @@
+.acf-block-banniere {
+	color:var(--blanc);
+	padding:0 var(--padding-x-grille);
+	margin-bottom:var(--margin-y);
+	margin-top:var(--margin-y);
+	.interieur {
+		display: flex;
+		flex-direction: column;
+		padding:20px;
+		position: relative;
+		> * {
+			position: relative;
+		}
+		.image {
+			display: flex;
+			height:100%;
+			left:0;
+			position:absolute;
+			top:0;
+			width:100%;
+
+			img {
+				object-fit: cover;
+				object-position: center;
+				width:100%;
+			}
+			.filtre {
+				background: var(--gradient);
+				height:100%;
+				left:0;
+				opacity: 0.7;
+				position:absolute;
+				top:0;
+				width:100%;
+			}
+		}
+		.ligne-1, .ligne-2 {
+			font-weight: 700;
+			line-height: 1.2;
+			margin-bottom: 0;
+		}
+		.ligne-3 {
+			font-weight: 500;
+		}
+	}
+	&.ambition {
+		.fleche {
+			text-align: right;
+			a {
+				margin:1em 0;
+			}
+		}
+		.ligne-1 {
+			text-transform: uppercase;
+			@include taille(50);
+		}
+		.ligne-2 {
+			@include taille(120);
+		}
+		.ligne-3 {
+			@include taille(22);
+			max-width: 445px;
+		}
+	}
+	&.agenda {
+		.interieur {
+			align-items: center;
+		}
+	}
+	@include bp(lg) {
+		.interieur {
+			padding:60px 40px 50px 110px;
+		}
+	}
+}

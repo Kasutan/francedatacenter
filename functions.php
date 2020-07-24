@@ -231,6 +231,7 @@ require_once( 'blocks/acf-block-ressources.php' );
 require_once( 'blocks/acf-block-agenda.php' );
 require_once( 'blocks/acf-block-image-decalee.php' );
 require_once( 'blocks/acf-block-titre-degrade.php' );
+require_once( 'blocks/acf-block-banniere.php' );
 
 
 /**
