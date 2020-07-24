@@ -1124,7 +1124,7 @@ a:active {
     font-size: 122%;
     font-weight: 700;
     line-height: 1.36;
-    margin: 2em auto;
+    margin: 1em auto;
     padding: 8px;
     position: relative;
     text-decoration: none;
@@ -1138,6 +1138,8 @@ a:active {
       height: 2px;
       left: -8px;
       position: relative;
+      -webkit-transition: background-color var(--transition);
+      transition: background-color var(--transition);
       width: 100%;
       width: calc(100% + 16px); }
     .fleche a svg {
@@ -2622,5 +2624,40 @@ button.retour {
       padding: 60px 40px 50px 110px; }
     .acf-block-banniere.agenda .interieur {
       padding: 120px 40px 50px; } }
+
+.acf-block-poursuivre {
+  border-top: solid 2px rgba(55, 176, 176, 0.2);
+  margin: var(--margin-y) 0;
+  padding-top: 40px; }
+  .acf-block-poursuivre .titre {
+    color: var(--bleu);
+    font-weight: 500;
+    margin-bottom: 0;
+    text-align: center;
+    text-transform: uppercase; }
+  .acf-block-poursuivre .liens {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+  @media (min-width: 768px) {
+    .acf-block-poursuivre .liens {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -ms-flex-pack: distribute;
+      justify-content: space-around; }
+    .acf-block-poursuivre .fleche {
+      margin: 0 20px; } }
+  @media (min-width: 960px) {
+    .acf-block-poursuivre .fleche {
+      margin: 0 35px; } }
 
 /*# sourceMappingURL=style.css.map */

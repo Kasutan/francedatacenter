@@ -36,7 +36,7 @@ a:active {
 		font-size: 122%;
 		font-weight:700;
 		line-height:1.36;
-		margin:2em auto;
+		margin:1em auto;
 		padding:8px;
 		position: relative;
 		text-decoration: none;
@@ -50,6 +50,7 @@ a:active {
 			height:2px;
 			left:-8px;
 			position: relative;
+			transition:background-color var(--transition);
 			width:100%;
 			width:calc(100% + 16px);
 		}
