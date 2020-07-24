@@ -44,7 +44,7 @@ a:active {
 
 		&::after {
 			background-color: var(--lien);
-			bottom:8px;
+			bottom:-8px;
 			content:'';
 			display: block;
 			height:2px;

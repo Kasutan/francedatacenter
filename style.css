@@ -1132,7 +1132,7 @@ a:active {
     transition-property: border,color; }
     .fleche a::after {
       background-color: var(--lien);
-      bottom: 8px;
+      bottom: -8px;
       content: '';
       display: block;
       height: 2px;
@@ -2575,6 +2575,8 @@ button.retour {
       margin-bottom: 0; }
     .acf-block-banniere .interieur .ligne-3 {
       font-weight: 500; }
+    .acf-block-banniere .interieur br {
+      display: none; }
   .acf-block-banniere.ambition .fleche {
     text-align: right; }
     .acf-block-banniere.ambition .fleche a {
@@ -2599,9 +2601,26 @@ button.retour {
   .acf-block-banniere.agenda .interieur {
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center; }
+    align-items: center;
+    text-align: center; }
+  .acf-block-banniere.agenda .ligne-1 {
+    font-size: calc(32 * 0.8125rem / 13); }
+    @media (min-width: 768px) {
+      .acf-block-banniere.agenda .ligne-1 {
+        font-size: calc(32 * 1.125rem / 18); } }
+  .acf-block-banniere.agenda .ligne-2 {
+    text-transform: uppercase;
+    font-size: calc(60 * 0.8125rem / 13); }
+    @media (min-width: 768px) {
+      .acf-block-banniere.agenda .ligne-2 {
+        font-size: calc(60 * 1.125rem / 18); } }
+  @media (min-width: 768px) {
+    .acf-block-banniere br {
+      display: block; } }
   @media (min-width: 960px) {
-    .acf-block-banniere .interieur {
-      padding: 60px 40px 50px 110px; } }
+    .acf-block-banniere.ambition .interieur {
+      padding: 60px 40px 50px 110px; }
+    .acf-block-banniere.agenda .interieur {
+      padding: 120px 40px 50px; } }
 
 /*# sourceMappingURL=style.css.map */
