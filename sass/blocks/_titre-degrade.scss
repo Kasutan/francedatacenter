@@ -1,0 +1,33 @@
+.acf-block-titre-degrade {
+	margin-bottom: var(--margin-bottom);
+	text-align: center;
+	font-weight: 700;
+
+	background: var(--gradient);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	
+	.titre {
+		font-size:1.8125rem;
+		line-height: 1.2;
+
+	}
+	.sous-titre {
+		font-size: 1.2rem;
+
+	}
+	br {
+		display: none;
+	}
+	@include bp(md) {
+		br {
+			display: block;
+		}
+		.titre {
+			font-size:3rem;
+		}
+		.sous-titre {
+			font-size: 2rem;
+		}
+	}
+}
