@@ -1815,6 +1815,7 @@ button.modaal-close {
   -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 0 var(--padding-x-header);
+  position: relative;
   z-index: 10; }
   .site-header.sticky {
     -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
@@ -1824,8 +1825,7 @@ button.modaal-close {
     position: fixed;
     left: 0;
     top: 0;
-    width: 100%;
-    z-index: 10; }
+    width: 100%; }
 
 .custom-logo {
   display: block;
