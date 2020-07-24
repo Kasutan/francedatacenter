@@ -1,13 +1,36 @@
 .acf-block-banniere {
 	color:var(--blanc);
+	overflow: visible;
 	padding:0 var(--padding-x-grille);
 	margin-bottom:var(--margin-y);
 	margin-top:var(--margin-y);
+	
 	.interieur {
 		display: flex;
 		flex-direction: column;
 		padding:20px;
 		position: relative;
+
+		&::before {
+			background-image:url('icons/decor.svg');
+			background-position: bottom right;
+			background-repeat: no-repeat;
+			background-size: contain;
+			content:'';
+			position: absolute;
+			height:600px;
+			right:-50%;
+			width:545px;
+			top:-20%;
+			@include bp(md) {
+				top:-20%;
+				height:872px;
+				right:-55%;
+				width:823px;
+			}
+		}
+
+
 		> * {
 			position: relative;
 		}

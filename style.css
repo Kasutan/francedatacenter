@@ -2533,6 +2533,7 @@ button.retour {
 
 .acf-block-banniere {
   color: var(--blanc);
+  overflow: visible;
   padding: 0 var(--padding-x-grille);
   margin-bottom: var(--margin-y);
   margin-top: var(--margin-y); }
@@ -2546,6 +2547,23 @@ button.retour {
     flex-direction: column;
     padding: 20px;
     position: relative; }
+    .acf-block-banniere .interieur::before {
+      background-image: url("icons/decor.svg");
+      background-position: bottom right;
+      background-repeat: no-repeat;
+      background-size: contain;
+      content: '';
+      position: absolute;
+      height: 600px;
+      right: -50%;
+      width: 545px;
+      top: -20%; }
+      @media (min-width: 768px) {
+        .acf-block-banniere .interieur::before {
+          top: -20%;
+          height: 872px;
+          right: -55%;
+          width: 823px; } }
     .acf-block-banniere .interieur > * {
       position: relative; }
     .acf-block-banniere .interieur .image {
