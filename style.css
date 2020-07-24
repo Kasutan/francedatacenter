@@ -571,6 +571,9 @@ body {
   --padding-x-grille:var(--padding-x);
   --padding-x-header:var(--padding-x);
   --padding-x-footer:var(--padding-x); }
+  @media (min-width: 576px) {
+    :root {
+      --padding-x:4%; } }
   @media (min-width: 768px) {
     :root {
       --margin-bottom:40px; } }
@@ -2459,20 +2462,25 @@ button.retour {
       width: 106px; }
   @media (min-width: 768px) {
     .acf-block-image-decalee {
+      float: left;
+      margin-right: 39px; } }
+  @media (min-width: 960px) {
+    .acf-block-image-decalee {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-      float: left;
       -webkit-box-pack: end;
       -ms-flex-pack: end;
       justify-content: flex-end;
-      margin-right: 39px;
       overflow: visible;
-      width: 183px; }
+      width: 250px; }
       .acf-block-image-decalee .image {
         -ms-flex-preferred-size: 294px;
         flex-basis: 294px;
         -ms-flex-negative: 0;
         flex-shrink: 0; } }
+  @media screen and (min-width: 1200px) {
+    .acf-block-image-decalee {
+      width: 183px; } }
 
 /*# sourceMappingURL=style.css.map */

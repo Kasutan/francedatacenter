@@ -22,15 +22,20 @@
 		}
 	}
 	@include bp(md) {
-		display: flex;
 		float: left;
-		justify-content: flex-end;
 		margin-right: 39px;
+	}
+	@include bp(lg) {
+		display: flex;
+		justify-content: flex-end;
 		overflow: visible;
-		width:183px;
+		width:250px;
 		.image {
 			flex-basis: 294px;
 			flex-shrink: 0;
 		}
+	}
+	@media screen and (min-width:1200px) {
+		width:183px;
 	}
 }

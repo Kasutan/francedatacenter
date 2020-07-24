@@ -47,7 +47,7 @@ body {
 	//--max-width-xl:1900px;
 
 
-	@include bp(xs) {
+	@include bp(sm) {
 		--padding-x:4%;
 	}
 
