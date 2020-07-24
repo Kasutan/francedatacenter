@@ -233,6 +233,15 @@ require_once( 'blocks/acf-block-image-decalee.php' );
 require_once( 'blocks/acf-block-titre-degrade.php' );
 require_once( 'blocks/acf-block-banniere.php' );
 
+/**
+* Reusable Blocks accessible in backend
+* @link https://www.billerickson.net/reusable-blocks-accessible-in-wordpress-admin-area
+*
+*/
+function fdc_reusable_blocks_admin_menu() {
+	add_menu_page( 'Blocs réutilisables', 'Blocs réutilisables', 'edit_posts', 'edit.php?post_type=wp_block', '', 'dashicons-editor-table', 22 );
+}
+add_action( 'admin_menu', 'fdc_reusable_blocks_admin_menu' );
 
 /**
 * Page options
