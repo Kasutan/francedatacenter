@@ -38,7 +38,7 @@ body {
 	overflow-x:hidden;
 }
 :root {
-	--margin-bottom:20px;
+	--margin-y:20px;
 	--padding-x:15px;
 	--padding-x-grille:var(--padding-x);
 	--padding-x-header:var(--padding-x);
@@ -52,10 +52,10 @@ body {
 	}
 
 	@include bp(md) {
-		--margin-bottom:40px;
+		--margin-y:40px;
 	}
 	@include bp(lg) {
-		--margin-bottom:55px;
+		--margin-y:55px;
 		--padding-x : calc(50vw - 868px/2);
 		--padding-x-grille:40px;
 		--padding-x-header: 40px;
@@ -82,7 +82,6 @@ body {
 	@include bleed;
 	padding-left: 0;
 	padding-right: 0;
-	margin-bottom:var(--margin-bottom);
 }
 
 .container {

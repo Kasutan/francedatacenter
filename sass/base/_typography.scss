@@ -20,6 +20,12 @@ textarea {
 		font-size: 1.125rem;
 	}
 }
+@mixin taille($px) {
+	font-size:calc(#{$px} * 0.8125rem / 13);
+	@include bp(md) {
+		font-size: calc(#{$px} * 1.125rem / 18);
+	}
+}
 
 
 h1,
@@ -52,6 +58,7 @@ h4, .h2, .h3, .h4
 
 h2, .h2 {
 	font-size: 1.44rem;
+	margin-bottom: 1em;
 	position: relative;
 	&::after {
 		background-color: var(--cyan);
