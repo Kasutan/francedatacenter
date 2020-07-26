@@ -234,6 +234,7 @@ require_once( 'blocks/acf-block-titre-degrade.php' );
 require_once( 'blocks/acf-block-banniere.php' );
 require_once( 'blocks/acf-block-poursuivre-boutons.php' );
 require_once( 'blocks/acf-block-actualites.php' );
+require_once( 'blocks/acf-block-picto.php' );
 
 /**
 * Reusable Blocks accessible in backend

@@ -1,0 +1,47 @@
+.acf-block-picto {
+	--accent:var(--cyan);
+	&.bleu {
+		--accent:var(--bleu);
+	}
+	margin-bottom: 36px;
+	margin-top: 28px;
+	align-items: flex-start;
+	display: flex;
+	.picto {
+		flex:0 0 68px;
+		height:68px;
+		margin-right: 27px;
+		width:68px;
+	}
+	
+	.texte {
+		flex-grow:1;
+	}
+	.titre {
+		color:var(--accent);
+	}
+	h3.titre {
+		text-transform: uppercase;
+		.h4 {
+			color:var(--accent);
+			text-transform: lowercase;
+		}
+	}
+	p.titre {
+		margin-bottom: 0;
+		@include taille(20);
+	}
+	@include bp(md) {
+		&.grand {
+			.picto {
+				flex-basis:120px;
+				margin-right: 38px;
+				width:120px;
+			}
+			.texte {
+				border-left: solid 1px var(--accent);
+				padding-left: 50px ;
+			}
+		}
+	}
+}
