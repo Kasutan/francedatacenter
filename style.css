@@ -2678,4 +2678,131 @@ button.retour {
     .acf-block-poursuivre .fleche {
       margin: 0 35px; } }
 
+.actualite {
+  margin-bottom: 18px; }
+  .actualite .image-wrapper {
+    margin-bottom: 14px;
+    position: relative;
+    width: 100%; }
+  .actualite .date {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: var(--bleu);
+    bottom: -9px;
+    color: var(--blanc);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    font-weight: 700;
+    height: 54px;
+    left: 6px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: absolute;
+    width: 50px;
+    font-size: calc(16 * 0.8125rem / 13); }
+    @media (min-width: 768px) {
+      .actualite .date {
+        font-size: calc(16 * 1.125rem / 18); } }
+    .actualite .date .jour {
+      font-size: calc(26 * 0.8125rem / 13); }
+      @media (min-width: 768px) {
+        .actualite .date .jour {
+          font-size: calc(26 * 1.125rem / 18); } }
+  .actualite .image {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 243px;
+    overflow: hidden;
+    width: 100%; }
+    .actualite .image img {
+      -o-object-fit: cover;
+      object-fit: cover;
+      -o-object-position: center;
+      object-position: center;
+      -webkit-transition: -webkit-transform var(--transition);
+      transition: -webkit-transform var(--transition);
+      transition: transform var(--transition);
+      transition: transform var(--transition), -webkit-transform var(--transition);
+      width: 100%; }
+  .actualite .titre-actualite {
+    color: var(--bleu);
+    font-size: calc(24 * 0.8125rem / 13);
+    -webkit-transition: color var(--transition);
+    transition: color var(--transition); }
+    @media (min-width: 768px) {
+      .actualite .titre-actualite {
+        font-size: calc(24 * 1.125rem / 18); } }
+  .actualite a {
+    color: var(--noir);
+    display: block;
+    text-decoration: none;
+    width: 100%; }
+    .actualite a:hover img, .actualite a:focus img, .actualite a:active img {
+      -webkit-transform: scale(1.02);
+      transform: scale(1.02); }
+    .actualite a:hover .titre-actualite, .actualite a:focus .titre-actualite, .actualite a:active .titre-actualite {
+      color: var(--cyan); }
+
+.acf-block-actualites {
+  margin-bottom: var(--margin-y);
+  padding-bottom: 30px;
+  position: relative; }
+  .acf-block-actualites .decor {
+    background-color: var(--bleu-clair);
+    -webkit-clip-path: polygon(14% 11%, 100% 28%, 100% 93%, 13% 100%, 0 93%, 0px 16%);
+    clip-path: polygon(14% 11%, 100% 28%, 100% 93%, 13% 100%, 0 93%, 0px 16%);
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%; }
+  .acf-block-actualites .titre, .acf-block-actualites .actualites, .acf-block-actualites .fleche {
+    position: relative; }
+  .acf-block-actualites .titre {
+    font-size: calc(50 * 0.8125rem / 13);
+    text-transform: uppercase; }
+    @media (min-width: 768px) {
+      .acf-block-actualites .titre {
+        font-size: calc(50 * 1.125rem / 18); } }
+  .acf-block-actualites .actualites {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0 var(--padding-x-grille); }
+  .acf-block-actualites .actualite {
+    -ms-flex-preferred-size: 424px;
+    flex-basis: 424px;
+    -webkit-box-flex: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    -ms-flex-negative: 1;
+    flex-shrink: 1; }
+  @media (min-width: 768px) {
+    .acf-block-actualites .actualites {
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between; }
+    .acf-block-actualites .actualite {
+      -ms-flex-preferred-size: calc((100% - 18px) / 2);
+      flex-basis: calc((100% - 18px) / 2); } }
+  @media (min-width: 960px) {
+    .acf-block-actualites .actualite {
+      -ms-flex-preferred-size: calc((100% - 2 * 18px) / 3);
+      flex-basis: calc((100% - 2 * 18px) / 3); } }
+
 /*# sourceMappingURL=style.css.map */

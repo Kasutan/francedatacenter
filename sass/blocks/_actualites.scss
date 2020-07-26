@@ -1,0 +1,109 @@
+//Affichage vignette - réutilisable
+.actualite {
+	margin-bottom: 18px;
+	.image-wrapper {
+		margin-bottom: 14px;
+		position: relative;
+		width:100%;
+	}
+	.date {
+		align-items: center;
+		background-color: var(--bleu);
+		bottom:-9px;
+		color:var(--blanc);
+		display: flex;
+		flex-direction: column;
+		font-weight: 700;
+		height:54px;
+		left:6px;
+		justify-content: center;
+		position: absolute;
+		width:50px;
+		@include taille(16);
+		.jour {
+			@include taille(26);
+		}
+	}
+	.image {
+		display: flex;
+		height:243px;
+		overflow: hidden;
+		width:100%;
+		img {
+			object-fit: cover;
+			object-position: center;
+			transition:transform var(--transition);
+			width:100%;
+		}
+	}
+	.titre-actualite {
+		color:var(--bleu);
+		@include taille(24);
+		transition:color var(--transition);
+
+	}
+	a {
+		color:var(--noir);
+		display: block;
+		text-decoration: none;
+		width:100%;
+		&:hover, &:focus, &:active {
+			img {
+				transform:scale(1.02);
+			}
+			.titre-actualite {
+				color:var(--cyan);
+			}
+		}
+	}
+}
+
+.acf-block-actualites {
+	margin-bottom: var(--margin-y);
+	padding-bottom:30px;
+	position: relative;
+	.decor {
+		background-color: var(--bleu-clair);
+		clip-path:	polygon(14.00% 11%, 100% 28%, 100% 93%, 13% 100%, 0 93%, 0px 16%);
+		//https://bennettfeely.com/clippy/  + outils dév Firefox
+		height:100%;
+		position: absolute;
+		left:0;
+		top:0;
+		width: 100%;
+	}
+	.titre, .actualites, .fleche {
+		position: relative; // pour passer devant le décor
+	}
+	.titre {
+		@include taille(50);
+		text-transform: uppercase;
+	}
+	.actualites {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		list-style: none;
+		margin:0;
+		padding:0 var(--padding-x-grille);
+	}
+	.actualite {
+		flex-basis:424px;
+		flex-grow:0;
+		flex-shrink:1;
+	}
+	@include bp(md) {
+		.actualites {
+			justify-content: space-between;
+		}
+		.actualite {
+			flex-basis:calc((100% - 18px) / 2);
+		}
+	}
+	@include bp(lg) {
+		.actualite {
+			flex-basis:calc((100% - 2 * 18px) / 3);
+		}
+	}
+	
+}

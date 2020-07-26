@@ -233,6 +233,7 @@ require_once( 'blocks/acf-block-image-decalee.php' );
 require_once( 'blocks/acf-block-titre-degrade.php' );
 require_once( 'blocks/acf-block-banniere.php' );
 require_once( 'blocks/acf-block-poursuivre-boutons.php' );
+require_once( 'blocks/acf-block-actualites.php' );
 
 /**
 * Reusable Blocks accessible in backend
@@ -251,3 +252,14 @@ add_action( 'admin_menu', 'fdc_reusable_blocks_admin_menu' );
 require_once( 'inc/acf-options-page.php' );
 
 
+/**
+* Excerpt
+*/
+function fdc_custom_excerpt_length( $length ) {
+	return 15;
+}
+add_filter( 'excerpt_length', 'fdc_custom_excerpt_length', 999 );
+function fdc_custom_excerpt_more( $more ) {
+	return '...';
+}
+add_filter( 'excerpt_more', 'fdc_custom_excerpt_more' );
