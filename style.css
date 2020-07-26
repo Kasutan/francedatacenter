@@ -2460,6 +2460,7 @@ button.retour {
     color: var(--cyan); }
 
 .acf-block-image-decalee {
+  clear: both;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2491,7 +2492,7 @@ button.retour {
       float: left;
       margin-right: 39px; } }
   @media (min-width: 960px) {
-    .acf-block-image-decalee {
+    .acf-block-image-decalee.decalee {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -2500,13 +2501,13 @@ button.retour {
       justify-content: flex-end;
       overflow: visible;
       width: 250px; }
-      .acf-block-image-decalee .image {
+      .acf-block-image-decalee.decalee .image {
         -ms-flex-preferred-size: 294px;
         flex-basis: 294px;
         -ms-flex-negative: 0;
         flex-shrink: 0; } }
   @media screen and (min-width: 1200px) {
-    .acf-block-image-decalee {
+    .acf-block-image-decalee.decalee {
       width: 183px; } }
 
 .acf-block-titre-degrade {
