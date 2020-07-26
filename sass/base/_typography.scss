@@ -21,7 +21,7 @@ textarea {
 	}
 }
 @mixin taille($px) {
-	font-size:calc(#{$px} * 0.8125rem / 13);
+	font-size:calc(#{$px} * 0.8125rem / 18);
 	@include bp(md) {
 		font-size: calc(#{$px} * 1.125rem / 18);
 	}

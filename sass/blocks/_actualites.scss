@@ -64,7 +64,7 @@
 	position: relative;
 	.decor {
 		background-color: var(--bleu-clair);
-		clip-path:	polygon(14.00% 11%, 100% 28%, 100% 93%, 13% 100%, 0 93%, 0px 16%);
+		clip-path:polygon(14% 5vw, 100% 14vw, 100% 93%, 13% 100%, 0 93%, 0px 8vw);
 		//https://bennettfeely.com/clippy/  + outils dév Firefox
 		height:100%;
 		position: absolute;
@@ -85,7 +85,7 @@
 		justify-content: center;
 		list-style: none;
 		margin:0;
-		padding:0 var(--padding-x-grille);
+		padding:0 var(--padding-x-footer);
 	}
 	.actualite {
 		flex-basis:424px;
