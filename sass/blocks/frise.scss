@@ -1,0 +1,56 @@
+.acf-block-frise {
+	margin-bottom:26px;
+	margin-top:26px;
+	padding:0 var(--padding-x-grille);
+	.images {
+		display: flex;
+		flex-wrap:wrap;
+		position: relative;
+	}
+	.image {
+		display:flex;
+		flex-basis:50%;
+		height:178px;
+		width:50%;
+		img {
+			object-fit:cover;
+			object-position: center;
+			width:100%;
+		}
+	}
+	.decor {
+		background: var(--gradient);
+		bottom:-20px;
+		height:125px;
+		left:20px;
+		opacity: 0.5;
+		position: absolute;
+		width:90px;
+	}
+	.decor-2 {
+		bottom:unset;
+		height: 156px;
+		left:unset;
+		right:20px;
+		top:-20px;
+	}
+	.decor-3 {
+		display: none;
+	}
+	@include bp(md) {
+		flex-wrap: nowrap;
+		.image {
+			flex-basis: 25%;
+			width:25px;
+		}
+		.decor-2 {
+			left:51%;
+			right:unset;
+		}
+		.decor-3 {
+			display: block;
+			left:78%;
+			height:86px;
+		}
+	}
+}
