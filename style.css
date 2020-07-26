@@ -1894,7 +1894,7 @@ button.modaal-close {
     width: 460px; }
   .entry-header .texte-banniere {
     color: var(--blanc);
-    padding: 50px 20px;
+    padding: 50px var(--padding-x);
     position: relative; }
   .entry-header .baseline {
     margin-top: 30px;
@@ -2807,6 +2807,7 @@ button.retour {
 
 .acf-block-picto {
   --accent:var(--cyan);
+  clear: both;
   margin-bottom: 36px;
   margin-top: 28px;
   -webkit-box-align: start;
