@@ -313,8 +313,8 @@ p.fil-ariane {
 //Lien de menu vers l'accès client déplacé en haut à droite (uniquement en desktop si l'en-tête n'est pas sticky)
 @include bp(md) {
 	.site-header:not(.sticky) {
-		padding-bottom:51px;
-		padding-top:42px;
+		padding-bottom:14px;
+		padding-top:15px;
 		position: relative;
 		li.client {
 			position: absolute;
