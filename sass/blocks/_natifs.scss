@@ -1,0 +1,13 @@
+.wp-block-columns {
+	&.antennes-regionales {
+		align-items: center;
+		ol {
+			@include taille(22);
+			color:var(--bleu);
+			font-weight: 700;
+			li {
+				margin-bottom: 1em;
+			}
+		}
+	}
+}

@@ -167,6 +167,9 @@ small, .has-small-font-size  {
 big, .has-big-font-size  {
 	font-size: 125%;
 }
+.has-huge-font-size {
+	@include taille(26);
+}
 
 
 /*--------------------------------------------------------------

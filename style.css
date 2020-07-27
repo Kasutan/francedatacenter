@@ -806,6 +806,12 @@ small, .has-small-font-size {
 big, .has-big-font-size {
   font-size: 125%; }
 
+.has-huge-font-size {
+  font-size: calc(26 * 0.8125rem / 18); }
+  @media (min-width: 768px) {
+    .has-huge-font-size {
+      font-size: calc(26 * 1.125rem / 18); } }
+
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
@@ -871,7 +877,7 @@ hr {
 ul:not([class]),
 ol:not([class]) {
   margin: 0 0 1.5em 0;
-  padding-left: 0; }
+  padding-left: 1em; }
 
 ul:not([class]) {
   list-style: none;
@@ -2948,5 +2954,19 @@ button.retour {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 202px;
         flex: 0 0 202px; } }
+
+.wp-block-columns.antennes-regionales {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .wp-block-columns.antennes-regionales ol {
+    font-size: calc(22 * 0.8125rem / 18);
+    color: var(--bleu);
+    font-weight: 700; }
+    @media (min-width: 768px) {
+      .wp-block-columns.antennes-regionales ol {
+        font-size: calc(22 * 1.125rem / 18); } }
+    .wp-block-columns.antennes-regionales ol li {
+      margin-bottom: 1em; }
 
 /*# sourceMappingURL=style.css.map */
