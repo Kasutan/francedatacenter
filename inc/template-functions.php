@@ -223,9 +223,9 @@ if ( ! function_exists( 'fdc_fil_ariane' ) ) :
 			$accueil=get_option('page_on_front');
 			printf('<a href="%s">%s</a> > ',
 				get_the_permalink( $accueil),
-				get_the_title($accueil)
+				strip_tags(get_the_title($accueil))
 			);
-			
+
 			//Afficher la page des actualités pour les articles (single ou archive de catégorie)
 			if ( (is_single() && 'post' === get_post_type()) || is_category() ) :
 				//l'ID de la page est stockée dans les options ACF
@@ -233,7 +233,7 @@ if ( ! function_exists( 'fdc_fil_ariane' ) ) :
 				if($actus) :
 					printf('<a href="%s">%s</a> > ',
 						get_the_permalink( $actus),
-						get_the_title($actus)
+						strip_tags(get_the_title($actus))
 					);
 				endif;
 			endif;
@@ -245,7 +245,7 @@ if ( ! function_exists( 'fdc_fil_ariane' ) ) :
 				if($ressources) :
 					printf('<a href="%s">%s</a> > ',
 						get_the_permalink( $ressources),
-						get_the_title($ressources)
+						strip_tags(get_the_title($ressources))
 					);
 				endif;
 			endif;
@@ -258,16 +258,20 @@ if ( ! function_exists( 'fdc_fil_ariane' ) ) :
 				$parent=$current->post_parent; 
 				if($parent) :
 					printf('<span class="current">%s : %s</span>',
-						get_the_title($parent),
-						get_the_title()
+						strip_tags(get_the_title($parent)),
+						strip_tags(get_the_title())
 					);
 				else :
-					the_title('<span class="current">','</span>'); 
+					printf('<span class="current">%s</span>',
+						strip_tags(get_the_title())
+					);
 				endif;
 			elseif(is_single()): //single articles ou ressources
-				the_title('<span class="current">','</span>'); 
+				printf('<span class="current">%s</span>',
+					strip_tags(get_the_title())
+				);
 			elseif (is_category()) :  //archives catégories d'articles
-				echo '<span class="current">'.single_cat_title( '', false ).'</span>';
+				echo '<span class="current">'.strip_tags(single_cat_title( '', false )).'</span>';
 			elseif (is_archive('post')) :
 				echo '<span class="current">Actualités</span>';
 			elseif (is_search()) :
