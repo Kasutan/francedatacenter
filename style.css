@@ -2910,4 +2910,43 @@ button.retour {
         left: 78%;
         height: 86px; } }
 
+.acf-block-portrait .image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 179px;
+  margin-bottom: 40px;
+  margin-right: 20px;
+  position: relative;
+  width: 202px; }
+  .acf-block-portrait .image img {
+    -o-object-fit: cover;
+    object-fit: cover;
+    width: 100%; }
+  .acf-block-portrait .image .decor {
+    background: var(--gradient);
+    bottom: -20px;
+    height: 55px;
+    left: 20px;
+    opacity: 0.5;
+    position: absolute;
+    width: 73px; }
+
+.acf-block-portrait.ligne {
+  margin-bottom: 40px; }
+  .acf-block-portrait.ligne .h4 {
+    color: var(--noir);
+    margin-bottom: 0; }
+    .acf-block-portrait.ligne .h4 span {
+      color: var(--bleu); }
+  @media (min-width: 768px) {
+    .acf-block-portrait.ligne {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
+      .acf-block-portrait.ligne .image {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 202px;
+        flex: 0 0 202px; } }
+
 /*# sourceMappingURL=style.css.map */

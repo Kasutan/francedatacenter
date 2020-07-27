@@ -1,0 +1,43 @@
+.acf-block-portrait {
+
+	.image {
+		display: flex;
+		height:179px;
+		margin-bottom: 40px;
+		margin-right: 20px;
+		position: relative;
+		width: 202px;
+		img {
+			object-fit: cover;
+			width:100%;
+		}
+		.decor {
+			background: var(--gradient);
+			bottom:-20px;
+			height:55px;
+			left:20px;
+			opacity: 0.5;
+			position: absolute;
+			width:73px;
+		}
+	}
+
+	&.ligne {
+		margin-bottom: 40px;
+		.h4 {
+			color:var(--noir);
+			margin-bottom: 0;
+			span {
+				color:var(--bleu);
+			}
+		}
+		@include bp(md) {
+			display: flex;
+			.image {
+				flex: 0 0 202px;
+			}
+		}
+	}
+	
+	
+}
