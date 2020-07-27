@@ -238,6 +238,7 @@ require_once( 'blocks/acf-block-picto.php' );
 require_once( 'blocks/acf-block-frise.php' );
 require_once( 'blocks/acf-block-portrait-gouvernance.php' );
 require_once( 'blocks/acf-block-dix-raisons.php' );
+require_once( 'blocks/acf-block-bouton.php' );
 
 /**
 * Reusable Blocks accessible in backend

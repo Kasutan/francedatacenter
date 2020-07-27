@@ -1122,7 +1122,8 @@ a:active {
 
 .fleche {
   text-align: center;
-  /*Variante avec les couleurs inversées*/ }
+  /*Variante avec les couleurs inversées*/
+  /*Variante avec la fleche vers le bas*/ }
   .fleche a {
     --lien:var(--cyan);
     color: var(--lien);
@@ -1175,6 +1176,15 @@ a:active {
     --lien: var(--blanc); }
     .fleche.blanc a:hover, .fleche.blanc a:focus, .fleche.blanc a:active {
       --lien: var(--blanc); }
+  .fleche.angle-bas a svg {
+    margin-left: 4px;
+    max-width: 12px;
+    top: 6px; }
+    @media (min-width: 768px) {
+      .fleche.angle-bas a svg {
+        margin-left: 7px;
+        max-width: 18px;
+        top: 6px; } }
 
 @-webkit-keyframes animTrait {
   from {

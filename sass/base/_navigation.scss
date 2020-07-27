@@ -104,6 +104,22 @@ a:active {
 		
 	}
 
+	/*Variante avec la fleche vers le bas*/
+	&.angle-bas {
+		a {
+			svg {
+				margin-left: 4px;
+				max-width: 12px;
+				top: 6px;
+				@include bp(md) {
+					margin-left: 7px;
+					max-width: 18px;
+					top: 6px;
+				}
+			}
+		}
+	}
+
 
 	
 }
