@@ -39,7 +39,7 @@ function fdc_poursuivre_callback( $block ) {
 		if( $liens ):
 			echo '<div class="liens">';
 			foreach($liens as $lien):
-				printf('<div class="fleche"><a hef="%s">%s %s</a></div>',
+				printf('<div class="fleche"><a href="%s">%s %s</a></div>',
 					get_the_permalink($lien),
 					get_the_title($lien),
 					fdc_get_picto_inline('angle')
