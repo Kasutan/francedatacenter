@@ -2969,4 +2969,24 @@ button.retour {
     .wp-block-columns.antennes-regionales ol li {
       margin-bottom: 1em; }
 
+.decor-traits {
+  position: relative; }
+  .decor-traits::before {
+    background-image: url("icons/decor-droit.svg");
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: '';
+    position: absolute;
+    height: 600px;
+    right: -300px;
+    width: 545px;
+    top: -200px; }
+    @media (min-width: 768px) {
+      .decor-traits::before {
+        top: -120%;
+        height: 872px;
+        right: -90%;
+        width: 823px; } }
+
 /*# sourceMappingURL=style.css.map */
