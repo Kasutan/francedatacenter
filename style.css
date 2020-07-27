@@ -2989,4 +2989,12 @@ button.retour {
         right: -90%;
         width: 823px; } }
 
+.acf-block-dix-raisons {
+  margin: var(--margin-y) 0; }
+  .acf-block-dix-raisons ol.raisons {
+    list-style: none;
+    padding-left: 0; }
+    .acf-block-dix-raisons ol.raisons li {
+      margin-bottom: 1em; }
+
 /*# sourceMappingURL=style.css.map */

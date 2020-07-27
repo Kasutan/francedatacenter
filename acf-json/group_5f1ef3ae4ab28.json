@@ -1,0 +1,138 @@
+{
+    "key": "group_5f1ef3ae4ab28",
+    "title": "Bloc 10 bonnes raisons de nous rejoindre",
+    "fields": [
+        {
+            "key": "field_5f1ef3ae4c745",
+            "label": "Bloc 10 bonnes raisons de nous rejoindre",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_5f1ef3ae4c77d",
+            "label": "Titre",
+            "name": "titre",
+            "type": "textarea",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "10 bonnes raisons de nous rejoindre",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 2,
+            "new_lines": "br"
+        },
+        {
+            "key": "field_5f1ef3d66f060",
+            "label": "Ancre",
+            "name": "ancre",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "dix-raisons",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5f1ef3e66f061",
+            "label": "Raisons",
+            "name": "raisons",
+            "type": "repeater",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_5f1ef3f76f062",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Ajouter une raison",
+            "sub_fields": [
+                {
+                    "key": "field_5f1ef3f76f062",
+                    "label": "Ligne 1",
+                    "name": "ligne_1",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5f1ef4836df93",
+                    "label": "Ligne 2",
+                    "name": "ligne_2",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": 2,
+                    "new_lines": "br"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/acf-dix-raisons"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1595864216
+}
