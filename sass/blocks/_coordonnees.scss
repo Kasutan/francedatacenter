@@ -1,0 +1,24 @@
+.acf-block-coordonnees {
+	margin-bottom:var(--margin-y);
+	a {
+		align-items: center;
+		color:var(--cyan);
+		display: flex;
+		line-height: 1.55;
+		text-decoration: none;
+		svg {
+			margin-right: 8px;
+			width:17px;
+			path {
+				fill : var(--cyan);
+				transition: fill var(--transition);
+			}
+		} 
+		&:hover, &:focus, &:active {
+			color:var(--bleu);
+			svg path {
+				fill:var(--bleu);
+			}
+		}
+	}
+}

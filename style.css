@@ -3007,4 +3007,28 @@ button.retour {
     .acf-block-dix-raisons ol.raisons li {
       margin-bottom: 1em; }
 
+.acf-block-coordonnees {
+  margin-bottom: var(--margin-y); }
+  .acf-block-coordonnees a {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: var(--cyan);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    line-height: 1.55;
+    text-decoration: none; }
+    .acf-block-coordonnees a svg {
+      margin-right: 8px;
+      width: 17px; }
+      .acf-block-coordonnees a svg path {
+        fill: var(--cyan);
+        -webkit-transition: fill var(--transition);
+        transition: fill var(--transition); }
+    .acf-block-coordonnees a:hover, .acf-block-coordonnees a:focus, .acf-block-coordonnees a:active {
+      color: var(--bleu); }
+      .acf-block-coordonnees a:hover svg path, .acf-block-coordonnees a:focus svg path, .acf-block-coordonnees a:active svg path {
+        fill: var(--bleu); }
+
 /*# sourceMappingURL=style.css.map */
