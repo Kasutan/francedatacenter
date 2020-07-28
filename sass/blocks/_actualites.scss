@@ -105,5 +105,18 @@
 			flex-basis:calc((100% - 2 * 18px) / 3);
 		}
 	}
+
+	//bloc 6 articles sur 2 colonnes pour la page Actualités
+	&.six {
+		padding-bottom: 0;
+		.actualites {
+			padding:0;
+		}
+		@include bp(md) {
+			.actualite {
+				flex-basis:calc((100% - 22px) / 2);
+			}
+		}
+	}
 	
 }

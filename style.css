@@ -2857,6 +2857,14 @@ button.retour {
     .acf-block-actualites .actualite {
       -ms-flex-preferred-size: calc((100% - 2 * 18px) / 3);
       flex-basis: calc((100% - 2 * 18px) / 3); } }
+  .acf-block-actualites.six {
+    padding-bottom: 0; }
+    .acf-block-actualites.six .actualites {
+      padding: 0; }
+    @media (min-width: 768px) {
+      .acf-block-actualites.six .actualite {
+        -ms-flex-preferred-size: calc((100% - 22px) / 2);
+        flex-basis: calc((100% - 22px) / 2); } }
 
 .acf-block-actualites-themes {
   margin-bottom: var(--margin-y); }

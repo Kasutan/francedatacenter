@@ -242,6 +242,7 @@ require_once( 'blocks/acf-block-bouton.php' );
 require_once( 'blocks/acf-block-coordonnees.php' );
 require_once( 'blocks/acf-block-adherents-slider.php' );
 require_once( 'blocks/acf-block-actualites-themes.php' );
+require_once( 'blocks/acf-block-actualites-6.php' );
 
 /**
 * Reusable Blocks accessible in backend
