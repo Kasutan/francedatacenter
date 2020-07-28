@@ -1,0 +1,33 @@
+.acf-block-adherents-slider {
+	margin-bottom: var(--margin-y);
+	.titre {
+		@include taille(50);
+		text-transform: uppercase;
+	}
+	.adherents {
+		list-style: none;
+		margin:0;
+		padding:0;
+	}
+	.adherent, .adherent a {
+		align-items: center;
+		display: flex;
+		height:150px;
+		justify-content: center;
+		img {
+			object-fit: contain;
+			object-position: center;
+		}
+	}
+	&.droite {
+		position: relative;
+		@include bp(md) {
+			.fleche {
+				position: absolute;
+				right:var(--padding-x-footer);
+				top:0;
+			}
+		}
+		
+	}
+}

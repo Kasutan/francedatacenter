@@ -240,6 +240,7 @@ require_once( 'blocks/acf-block-portrait-gouvernance.php' );
 require_once( 'blocks/acf-block-dix-raisons.php' );
 require_once( 'blocks/acf-block-bouton.php' );
 require_once( 'blocks/acf-block-coordonnees.php' );
+require_once( 'blocks/acf-block-adherents-slider.php' );
 
 /**
 * Reusable Blocks accessible in backend

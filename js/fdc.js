@@ -45,31 +45,47 @@
 
 
 
-		/****************** Carrousel de logos presse *************************/
+		/****************** Carrousel de logos adhérents *************************/
 
 
-		$(".acf-block-presse .owl-carousel").owlCarousel({
-			center: true,
+		$(".acf-block-adherents-slider .owl-carousel").owlCarousel({
 			loop:true,
-			nav : true,
+			nav : false,
 			dots : false,
-			margin : 40,
+			margin : 44,
 			autoplay:true,
 			autoplayTimeout:2000,
+			autoplaySpeed:2000,
 			autoplayHoverPause:true,
 			responsive : {
 				// breakpoint from 0 up
 				0 : {
-					items:1,
+					items:2,
 				},
-				// breakpoint from 768px (md) up
-				768 : {
+				500 : {
 					items : 3,
 				},
-				// breakpoint from 960px  (lg) up
-				960 : {
+				740 : {
+					items : 4,
+				},
+				926 : {
 					items : 5,
 				},
+				1120 : {
+					items : 6,
+				},
+				1320 : {
+					items : 7,
+				},
+				1510 : {
+					items : 8,
+				},
+				1702 : {
+					items : 9,
+				},
+				1900 : {
+					items : 10,
+				}
 			},
 		});
 	});

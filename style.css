@@ -2190,6 +2190,42 @@ button.retour {
     button.retour span {
       font-size: 22px; } }
 
+.acf-block-adherents-slider {
+  margin-bottom: var(--margin-y); }
+  .acf-block-adherents-slider .titre {
+    font-size: calc(50 * 0.8125rem / 18);
+    text-transform: uppercase; }
+    @media (min-width: 768px) {
+      .acf-block-adherents-slider .titre {
+        font-size: calc(50 * 1.125rem / 18); } }
+  .acf-block-adherents-slider .adherents {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+  .acf-block-adherents-slider .adherent, .acf-block-adherents-slider .adherent a {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 150px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+    .acf-block-adherents-slider .adherent img, .acf-block-adherents-slider .adherent a img {
+      -o-object-fit: contain;
+      object-fit: contain;
+      -o-object-position: center;
+      object-position: center; }
+  .acf-block-adherents-slider.droite {
+    position: relative; }
+    @media (min-width: 768px) {
+      .acf-block-adherents-slider.droite .fleche {
+        position: absolute;
+        right: var(--padding-x-footer);
+        top: 0; } }
+
 .owl-nav {
   display: -webkit-box;
   display: -ms-flexbox;
