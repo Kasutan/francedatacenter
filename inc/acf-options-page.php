@@ -3,8 +3,8 @@
 if( function_exists('acf_add_options_page') ) {
 	
 	acf_add_options_page(array(
-		'page_title' 	=> 'Réglages France Data Center',
-		'menu_title'	=> 'France Data Center',
+		'page_title' 	=> 'Réglages France Datacenter',
+		'menu_title'	=> 'France Datacenter',
 		'menu_slug' 	=> 'francedatacenter-settings',
 		'capability'	=> 'edit_posts',
 		'position' 		=> '2.5',
