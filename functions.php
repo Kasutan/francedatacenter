@@ -241,6 +241,7 @@ require_once( 'blocks/acf-block-dix-raisons.php' );
 require_once( 'blocks/acf-block-bouton.php' );
 require_once( 'blocks/acf-block-coordonnees.php' );
 require_once( 'blocks/acf-block-adherents-slider.php' );
+require_once( 'blocks/acf-block-actualites-themes.php' );
 
 /**
 * Reusable Blocks accessible in backend

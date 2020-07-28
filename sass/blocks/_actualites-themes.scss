@@ -1,0 +1,44 @@
+.acf-block-actualites-themes {
+	margin-bottom: var(--margin-y);
+	.categories {
+		align-items: stretch;
+		display: flex;
+		flex-wrap: wrap;
+		list-style: none;
+		justify-content: space-between;
+		margin: 0;
+		padding:0;
+	}
+	li, a {
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		height:110px;
+		text-align: center;
+	}
+	li {
+		background-size: cover;
+	}
+	.tous {
+		background: var(--gradient);
+	}
+	a {
+		color:var(--blanc);
+		@include taille(22);
+		font-weight: 700;
+		max-width: 210px;
+		text-decoration: none;
+	}
+	li {
+		flex-basis:100%;
+		margin-bottom: 25px;
+		@include bp(md) {
+			flex-basis:calc((100% - 25px) / 2);
+		}
+		@include bp(lg) {
+			flex-basis:calc((100% - 2 * 25px) / 3);
+		}
+
+	}
+
+}
