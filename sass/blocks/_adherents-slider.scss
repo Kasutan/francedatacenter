@@ -21,7 +21,7 @@
 	}
 	&.droite {
 		position: relative;
-		@include bp(md) {
+		@include bp(lg) {
 			.fleche {
 				position: absolute;
 				right:var(--padding-x-footer);

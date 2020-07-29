@@ -83,6 +83,23 @@ function fdc_affiche_filtre_ressources(){
 	//TODO construire le filtre
 }
 
+function fdc_affiche_ressource_pour_liste($post_id) {
+	if(get_post_type($post_id)!=='ressource' || !function_exists('get_field') || !function_exists('fdc_get_picto_inline')) {
+		return;
+	}
+	$titre=get_the_title($post_id);
+	$desc=get_the_content($post_id);
+	$date=get_the_date('d/m/y',$post_id); //y : année sur 2 chiffres
+	$array_date=explode('/',$date);
+	$date=sprintf('<div class="date"><span class="jour">%s</span><br/><span>%s/%s</span></div>',$array_date[0],$array_date[1],$array_date[2]);
+
+
+	printf('<li>');
+		echo $date;
+		printf('<div class="texte"><h3 class="titre">%s</h3><div class="desc">%s</div></div>',$titre, $desc);
+	echo '</li>';
+
+}
 
 /******************Colonnes dans l'admin *****************/
 add_filter( 'manage_ressource_posts_columns', 'fdc_set_custom_edit_ressource_columns' );
