@@ -33,3 +33,16 @@
 		}
 	}
 }
+
+.wp-block-image {
+	figcaption {
+		font-style: italic;
+	}
+	&.alignwide {
+		@include bleed;
+		padding:0 var(--padding-grille);
+		figcaption {
+			text-align: right;
+		}
+	}
+}

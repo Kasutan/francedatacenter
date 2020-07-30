@@ -3243,6 +3243,18 @@ button.retour {
         right: -90%;
         width: 823px; } }
 
+.wp-block-image figcaption {
+  font-style: italic; }
+
+.wp-block-image.alignwide {
+  width: 100vw;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  padding: 0 var(--padding-grille); }
+  .wp-block-image.alignwide figcaption {
+    text-align: right; }
+
 .acf-block-dix-raisons {
   margin: var(--margin-y) 0; }
   .acf-block-dix-raisons ol.raisons {
