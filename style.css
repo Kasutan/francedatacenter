@@ -2063,6 +2063,25 @@ button.modaal-close {
     .post-footer .related li:hover::before, .post-footer .related li:focus-within::before {
       color: var(--bleu); }
 
+.boutons-partage {
+  margin-bottom: 20px;
+  margin-top: 28px;
+  text-align: center; }
+  .boutons-partage .h4 {
+    color: var(--noir);
+    margin-bottom: 20px; }
+    .boutons-partage .h4::after {
+      display: none; }
+  .boutons-partage nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+    .boutons-partage nav a:not(:last-of-type) {
+      margin-right: 20px; }
+
 .entry-content .search-form {
   margin: 2rem auto; }
 

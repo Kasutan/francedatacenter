@@ -109,6 +109,25 @@
 		}
 	}
 }
+.boutons-partage {
+	margin-bottom: 20px;
+	margin-top: 28px;
+	text-align: center;
+	.h4 {
+		color:var(--noir);
+		margin-bottom: 20px;
+		&::after {
+			display:none;
+		}
+	}
+	nav {
+		display: flex;
+		justify-content: center;
+		a:not(:last-of-type) {
+			margin-right:20px;
+		}
+	}
+}
 
 .entry-content {
 
