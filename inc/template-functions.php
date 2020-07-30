@@ -272,8 +272,8 @@ if ( ! function_exists( 'fdc_fil_ariane' ) ) :
 				strip_tags(get_the_title($accueil))
 			);
 
-			//Afficher la page des actualités pour les articles (single ou archive de catégorie ou archive des articles)
-			if ( (is_single() && 'post' === get_post_type()) || is_category() || is_home() ) :
+			//Afficher la page des actualités pour les articles (single ou archive de catégorie ou archive des articles ou archive de tag)
+			if ( (is_single() && 'post' === get_post_type()) || is_category() || is_tag() || is_home() ) :
 				//l'ID de la page est stockée dans les options ACF
 				$actus=fdc_get_page_ID('page_actualites'); 
 				if($actus) :
@@ -318,6 +318,8 @@ if ( ! function_exists( 'fdc_fil_ariane' ) ) :
 				);
 			elseif (is_category()) :  //archives catégories d'articles
 				echo '<span class="current">'.strip_tags(single_cat_title( '', false )).'</span>';
+			elseif (is_tag()) :  //archives tags d'articles
+				echo '<span class="current">'.strip_tags(single_tag_title( '', false )).'</span>';
 			elseif (is_home()) :
 				echo '<span class="current">Tous les articles</span>';
 			elseif (is_search()) :
