@@ -25,23 +25,18 @@ $term=get_queried_object(  );
 				if(function_exists('fdc_get_picto_url')) printf('<a href="#entry-content"><img src="%s" alt="fleche vers le bas" width="40" height="23"/></a>',fdc_get_picto_url('angle-bas'));
 				?>
 			</header><!-- .entry-header -->
-			<div class="entry-content container loop" id="entry-content">
+			<div class="entry-content container" id="entry-content">
 			<?php
 			if ( function_exists( 'fdc_fil_ariane' ) )  fdc_fil_ariane();
 
+			echo '<ul class="actualites alignfull">';
 			/* Start the Loop */
 			while ( have_posts() ) :
 				the_post();
-
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content-loop', get_post_type() );
-
+				if(function_exists('fdc_affiche_actualite')) fdc_affiche_actualite(get_the_ID());
 			endwhile;
 			?>
+			</ul>
 			<?php
 			
 			if (function_exists('wp_pagenavi')) :

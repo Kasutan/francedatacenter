@@ -6,23 +6,34 @@
 			line-height: calc(50/66);
 		}
 	}
+	.actualites {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		list-style: none;
+		margin-bottom:var(--margin-y);
+		margin-top: var(--margin-y);
+		padding:0 var(--padding-x-grille);
+	}
+	.actualite {
+		flex-basis:424px;
+		flex-grow:0;
+		flex-shrink:1;
+	}
+	@include bp(md) {
+		.actualites {
+			justify-content: space-between;
+		}
+		.actualite {
+			flex-basis:calc((100% - 18px) / 2);
+		}
+	}
 }
 .single-post .entry-meta {
 	text-align: center;
 }
 
 .entry-content {
-	&.loop {
-		article {
-			margin-bottom:var(--margin-y);
-		}
-		h2.item-title {
-			margin-bottom:0;
-			a {
-				text-decoration: none;
-			}
-		}
-	}
 
 	.search-form {
 		margin: 2rem auto;

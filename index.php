@@ -31,28 +31,19 @@ get_header();
 				?>
 			</header><!-- .entry-header -->
 			<?php 
-			echo '<div class="entry-content container loop" id="entry-content">';
+			echo '<div class="entry-content container" id="entry-content">';
 			if ( function_exists( 'fdc_fil_ariane' ) )  fdc_fil_ariane();
 
+			echo '<ul class="actualites alignfull">';
 			/* Start the Loop */
 			while ( have_posts() ) :
 				the_post();
-
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content-loop', get_post_type() );
-
+				if(function_exists('fdc_affiche_actualite')) fdc_affiche_actualite(get_the_ID());
 			endwhile;
+			?>
+			</ul>
 
-			if ( is_home() && ! is_front_page() ) :
-				?>
-				<?php
-			endif;
-
-			if (function_exists('wp_pagenavi')) :
+			<?php if (function_exists('wp_pagenavi')) :
 				wp_pagenavi();
 			else :
 				the_posts_navigation();
