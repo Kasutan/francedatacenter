@@ -1989,6 +1989,42 @@ button.modaal-close {
     -ms-flex-preferred-size: calc((100% - 18px) / 2);
     flex-basis: calc((100% - 18px) / 2); } }
 
+.archive .wp-pagenavi, .blog .wp-pagenavi {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-bottom: var(--margin-y); }
+  .archive .wp-pagenavi span, .archive .wp-pagenavi a, .blog .wp-pagenavi span, .blog .wp-pagenavi a {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border: solid 2px var(--bleu);
+    color: var(--bleu);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 700;
+    height: 40px;
+    text-decoration: none;
+    width: 40px;
+    -webkit-transition: color, background-color var(--transition);
+    transition: color, background-color var(--transition); }
+    .archive .wp-pagenavi span:not(:first-child), .archive .wp-pagenavi a:not(:first-child), .blog .wp-pagenavi span:not(:first-child), .blog .wp-pagenavi a:not(:first-child) {
+      border-left: 0; }
+    .archive .wp-pagenavi span.current, .archive .wp-pagenavi span:hover, .archive .wp-pagenavi span:focus, .archive .wp-pagenavi span:active, .archive .wp-pagenavi a.current, .archive .wp-pagenavi a:hover, .archive .wp-pagenavi a:focus, .archive .wp-pagenavi a:active, .blog .wp-pagenavi span.current, .blog .wp-pagenavi span:hover, .blog .wp-pagenavi span:focus, .blog .wp-pagenavi span:active, .blog .wp-pagenavi a.current, .blog .wp-pagenavi a:hover, .blog .wp-pagenavi a:focus, .blog .wp-pagenavi a:active {
+      background-color: var(--bleu);
+      color: var(--blanc); }
+
 .single-post .entry-meta {
   text-align: center; }
 
