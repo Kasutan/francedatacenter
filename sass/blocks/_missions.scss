@@ -1,0 +1,47 @@
+.acf-block-missions {
+	margin-bottom: var(--margin-y);
+	text-align: center;
+	.titre {
+		@include taille(50);
+		margin-bottom: 13px;
+		text-transform: uppercase;
+	}
+	.sous-titre {
+		color:var(--bleu);
+		@include taille(34);
+		line-height:calc(40/34);
+		margin-bottom:13px;
+		br {
+			display: none;
+		}
+	}
+	.texte {
+		@include taille(20);
+		font-weight: 500;
+		margin-bottom:0;
+	}
+	.liens {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	@include bp(md) {
+		.sous-titre {
+			br {
+				display: block;
+			}
+		}
+		.liens {
+			flex-direction: row;
+			justify-content: space-around;
+		}
+		.fleche {
+			margin:0 20px;
+		}
+	}
+	@include bp(lg) {
+		.fleche {
+			margin:0 35px;
+		}
+	}
+}
