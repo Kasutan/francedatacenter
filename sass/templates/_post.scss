@@ -1,3 +1,12 @@
+
+.archive, .blog {
+	.entry-header {
+		h1 span {
+			@include taille(50);
+			line-height: calc(50/66);
+		}
+	}
+}
 .single-post .entry-meta {
 	text-align: center;
 }

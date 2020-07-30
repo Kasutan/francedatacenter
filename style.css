@@ -1876,7 +1876,7 @@ button.modaal-close {
   min-height: 40vw;
   position: relative; }
   .entry-header .image {
-    background-color: var(--gradient);
+    background: var(--gradient);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1949,6 +1949,13 @@ button.modaal-close {
         left: calc(50% - 25px);
         top: -36px;
         width: 50px; } }
+
+.archive .entry-header h1 span, .blog .entry-header h1 span {
+  font-size: calc(50 * 0.8125rem / 18);
+  line-height: calc(50/66); }
+  @media (min-width: 768px) {
+    .archive .entry-header h1 span, .blog .entry-header h1 span {
+      font-size: calc(50 * 1.125rem / 18); } }
 
 .single-post .entry-meta {
   text-align: center; }

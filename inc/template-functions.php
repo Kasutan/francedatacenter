@@ -177,7 +177,7 @@ if( 'revealid_id' == $column ) {
 }
 
 /***************************************************************
-	Affiche l'image banniere
+	Affiche l'image banniere d'un post ou d'une page
 /***************************************************************/
 if ( ! function_exists( 'fdc_post_thumbnail' ) ) :
 
@@ -199,7 +199,45 @@ if ( ! function_exists( 'fdc_post_thumbnail' ) ) :
 
 endif;
 
+/***************************************************************
+	Affiche l'image banniere d'une archive
+/***************************************************************/
+if ( ! function_exists( 'fdc_archive_thumbnail' ) ) :
 
+	function fdc_archive_thumbnail($taille='banniere',$term_id=null) {
+		$image_id='';
+		if(!function_exists('get_field')) {
+			return '';
+		}
+		if(is_category() && $term_id) {
+			$image_id=esc_attr(get_field('image','term_'.$term_id));
+			return wp_get_attachment_image( $image_id, $taille);
+		} else {
+			$actus=fdc_get_page_ID('page_actualites'); 
+			if($actus) :
+				return get_the_post_thumbnail($actus,$taille);
+			endif;
+		}
+
+	}
+
+endif;
+
+/***************************************************************
+	Supprimer Catégorie du titre de l'archive
+/***************************************************************/
+
+add_filter( 'get_the_archive_title', function ($title) {
+	if ( is_category() ) {
+	$title = single_cat_title( '', false );
+	} elseif ( is_tag() ) {
+	$title = single_tag_title( '', false );
+	} elseif ( is_author() ) {
+	$title = '<span class="vcard">' . get_the_author() . '</span>' ;
+	}
+	 
+	return $title;
+	});
 /**
 * Récupérer l'ID d'une page - stockée dans une option ACF.
 */
@@ -234,8 +272,8 @@ if ( ! function_exists( 'fdc_fil_ariane' ) ) :
 				strip_tags(get_the_title($accueil))
 			);
 
-			//Afficher la page des actualités pour les articles (single ou archive de catégorie)
-			if ( (is_single() && 'post' === get_post_type()) || is_category() ) :
+			//Afficher la page des actualités pour les articles (single ou archive de catégorie ou archive des articles)
+			if ( (is_single() && 'post' === get_post_type()) || is_category() || is_home() ) :
 				//l'ID de la page est stockée dans les options ACF
 				$actus=fdc_get_page_ID('page_actualites'); 
 				if($actus) :
@@ -280,8 +318,8 @@ if ( ! function_exists( 'fdc_fil_ariane' ) ) :
 				);
 			elseif (is_category()) :  //archives catégories d'articles
 				echo '<span class="current">'.strip_tags(single_cat_title( '', false )).'</span>';
-			elseif (is_archive('post')) :
-				echo '<span class="current">Actualités</span>';
+			elseif (is_home()) :
+				echo '<span class="current">Tous les articles</span>';
 			elseif (is_search()) :
 				echo '<span class="current">Recherche : '.get_search_query().'</span>';
 			endif;

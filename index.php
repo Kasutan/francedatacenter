@@ -18,21 +18,20 @@ get_header();
 		<main id="main" class="site-main">
 
 		<?php
-		if ( have_posts() ) :
+		if ( have_posts() ) :?>
 
-			if ( is_home() && ! is_front_page() ) :
-				?>
-				<header class="entry-header">
-					<?php printf('<h1 class="page-title">%s</h1>',
-						 get_the_title() 
-					);?>
-				</header>
+			<header class="entry-header decoupe-gauche">
 				<?php
-			endif;
+				
+				if(function_exists('fdc_archive_thumbnail')) echo '<div class="image">'.fdc_archive_thumbnail('banniere').'</div>';
 
-			//TODO afficher une image bannière -> image par défaut
-			
-			echo '<div class="entry-content container loop">';
+				printf('<div class="texte-banniere"><h1 class="page-title"><span>Actualités</span><br>Tous les articles</h1></div>');
+
+				if(function_exists('fdc_get_picto_url')) printf('<a href="#entry-content"><img src="%s" alt="fleche vers le bas" width="40" height="23"/></a>',fdc_get_picto_url('angle-bas'));
+				?>
+			</header><!-- .entry-header -->
+			<?php 
+			echo '<div class="entry-content container loop" id="entry-content">';
 			if ( function_exists( 'fdc_fil_ariane' ) )  fdc_fil_ariane();
 
 			/* Start the Loop */

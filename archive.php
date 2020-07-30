@@ -8,22 +8,24 @@
  */
 
 get_header();
+$term=get_queried_object(  );
 ?>
 
 		<main id="main" class="site-main">
 
 		<?php if ( have_posts() ) : ?>
 
-			<header class="entry-header">
+			<header class="entry-header decoupe-gauche">
 				<?php
-				//TODO afficher une image bannière -> choix de l'image avec un champ ACF
-				printf('<h1 class="page-title">%s</h1>',
-					 get_the_archive_title() 
-				);
-				the_archive_description( '<div class="archive-description">', '</div>' );
+				
+				if(function_exists('fdc_archive_thumbnail')) echo '<div class="image">'.fdc_archive_thumbnail('banniere',$term->term_id).'</div>';
+
+				printf('<div class="texte-banniere"><h1 class="page-title"><span>Actualités</span><br>%s</h1></div>',get_the_archive_title());
+
+				if(function_exists('fdc_get_picto_url')) printf('<a href="#entry-content"><img src="%s" alt="fleche vers le bas" width="40" height="23"/></a>',fdc_get_picto_url('angle-bas'));
 				?>
-			</header><!-- .page-header -->
-			<div class="entry-content container loop">
+			</header><!-- .entry-header -->
+			<div class="entry-content container loop" id="entry-content">
 			<?php
 			if ( function_exists( 'fdc_fil_ariane' ) )  fdc_fil_ariane();
 
