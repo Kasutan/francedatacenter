@@ -40,9 +40,17 @@
 	}
 	&.alignwide {
 		@include bleed;
-		padding:0 var(--padding-grille);
+		padding:0 var(--padding-x-grille);
 		figcaption {
 			text-align: right;
 		}
 	}
+}
+
+/*Galeries créées avec Meow Gallery*/
+.mgl-masonry-container, .mgl-tiles-container, .mgl-justified-container, .mgl-square-container, 
+.mgl-cascade-container {
+	@include bleed;
+	padding:0 var(--padding-x-grille);
+	margin-bottom:var(--margin-y);
 }

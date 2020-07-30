@@ -3251,9 +3251,19 @@ button.retour {
   margin-left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-  padding: 0 var(--padding-grille); }
+  padding: 0 var(--padding-x-grille); }
   .wp-block-image.alignwide figcaption {
     text-align: right; }
+
+/*Galeries créées avec Meow Gallery*/
+.mgl-masonry-container, .mgl-tiles-container, .mgl-justified-container, .mgl-square-container,
+.mgl-cascade-container {
+  width: 100vw;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  padding: 0 var(--padding-x-grille);
+  margin-bottom: var(--margin-y); }
 
 .acf-block-dix-raisons {
   margin: var(--margin-y) 0; }
