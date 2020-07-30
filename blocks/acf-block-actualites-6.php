@@ -35,7 +35,7 @@ function fdc_actualites_6_callback( $block ) {
 	$actualites=fdc_get_page_ID('page_actualites'); 
 
 
-	printf('<section class="acf-block-actualites six %s">', $className);
+	printf('<section class="acf-block-actualites alignfull six %s">', $className);
 		$args=array(
 			'posts_per_page' => 6
 		);

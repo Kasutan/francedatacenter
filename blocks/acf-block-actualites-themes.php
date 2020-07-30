@@ -39,7 +39,7 @@ function fdc_actualites_themes_callback( $block ) {
 
 
 	if(!empty($categories)) : 
-	printf('<section class="acf-block-actualites-themes %s">', $className);
+	printf('<section class="acf-block-actualites-themes alignfull %s">', $className);
 		if($titre) printf('<h2>%s</h2>',$titre);
 		echo '<nav><ul class="categories">';
 		foreach( $categories as $category ) {

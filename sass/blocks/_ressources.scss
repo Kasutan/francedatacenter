@@ -158,11 +158,7 @@
 		margin:0;
 		padding:0;
 	}
-	li {
-		align-items: start;
-		display: flex;
-		margin-bottom: 23px;
-	}
+	
 	.date {
 		align-items: center;
 		background-color: var(--bleu);
@@ -185,12 +181,25 @@
 		color:var(--bleu);
 		@include taille(24);
 		margin-bottom: 0;
+		transition: color var(--transition);
 	}
 	.desc {
+		color:var(--noir);
 		@include taille(16);
 	}
+	li a {
+		align-items: start;
+		display: flex;
+		margin-bottom: 23px;
+		text-decoration: none;
+		&:hover, &:focus, &:active {
+			h3 {
+				color:var(--cyan);
+			}
+		}
+	}
 	@include bp(md) {
-		padding: 0 calc(var(--padding-x) - var(--padding-interne));
+		padding: 0 calc(var(--padding-x-grille) - var(--padding-interne));
 	}
 	@include bp(lg) {
 		--padding-interne : 64px;

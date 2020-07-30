@@ -60,7 +60,7 @@
 
 .acf-block-actualites {
 	margin-bottom: var(--margin-y);
-	padding-bottom:30px;
+	padding:0 var(--padding-x-grille) 30px;
 	position: relative;
 	.decor {
 		background-color: var(--bleu-clair);

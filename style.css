@@ -2116,14 +2116,6 @@ button.modaal-close {
     list-style: none;
     margin: 0;
     padding: 0; }
-  .acf-block-quatre-ressources li {
-    -webkit-box-align: start;
-    -ms-flex-align: start;
-    align-items: start;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin-bottom: 23px; }
   .acf-block-quatre-ressources .date {
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -2160,18 +2152,32 @@ button.modaal-close {
   .acf-block-quatre-ressources h3 {
     color: var(--bleu);
     font-size: calc(24 * 0.8125rem / 18);
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    -webkit-transition: color var(--transition);
+    transition: color var(--transition); }
     @media (min-width: 768px) {
       .acf-block-quatre-ressources h3 {
         font-size: calc(24 * 1.125rem / 18); } }
   .acf-block-quatre-ressources .desc {
+    color: var(--noir);
     font-size: calc(16 * 0.8125rem / 18); }
     @media (min-width: 768px) {
       .acf-block-quatre-ressources .desc {
         font-size: calc(16 * 1.125rem / 18); } }
+  .acf-block-quatre-ressources li a {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: start;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 23px;
+    text-decoration: none; }
+    .acf-block-quatre-ressources li a:hover h3, .acf-block-quatre-ressources li a:focus h3, .acf-block-quatre-ressources li a:active h3 {
+      color: var(--cyan); }
   @media (min-width: 768px) {
     .acf-block-quatre-ressources {
-      padding: 0 calc(var(--padding-x) - var(--padding-interne)); } }
+      padding: 0 calc(var(--padding-x-grille) - var(--padding-interne)); } }
   @media (min-width: 960px) {
     .acf-block-quatre-ressources {
       --padding-interne: 64px; } }
@@ -2877,7 +2883,7 @@ button.retour {
 
 .acf-block-actualites {
   margin-bottom: var(--margin-y);
-  padding-bottom: 30px;
+  padding: 0 var(--padding-x-grille) 30px;
   position: relative; }
   .acf-block-actualites .decor {
     background-color: var(--bleu-clair);
@@ -2938,7 +2944,8 @@ button.retour {
         flex-basis: calc((100% - 22px) / 2); } }
 
 .acf-block-actualites-themes {
-  margin-bottom: var(--margin-y); }
+  margin-bottom: var(--margin-y);
+  padding: 0 var(--padding-x-grille); }
   .acf-block-actualites-themes .categories {
     -webkit-box-align: stretch;
     -ms-flex-align: stretch;

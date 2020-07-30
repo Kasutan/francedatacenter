@@ -94,10 +94,10 @@ function fdc_affiche_ressource_pour_liste($post_id) {
 	$date=sprintf('<div class="date"><span class="jour">%s</span><br/><span>%s/%s</span></div>',$array_date[0],$array_date[1],$array_date[2]);
 
 
-	printf('<li>');
+	printf('<li><a href="%s">',get_the_permalink( $post_id));
 		echo $date;
 		printf('<div class="texte"><h3 class="titre">%s</h3><div class="desc">%s</div></div>',$titre, $desc);
-	echo '</li>';
+	echo '</a></li>';
 
 }
 
