@@ -13,7 +13,7 @@
  */
 
 get_header();
-
+$post_type=get_post_type();
 ?>
 
 <main id="main" class="site-main">
@@ -47,16 +47,21 @@ get_header();
 			<?php 
 				if ( function_exists( 'fdc_fil_ariane' ) )  fdc_fil_ariane();
 
-				if ( 'post' === get_post_type() ) :
+				if ( 'post' === $post_type ) :
 					?>
 					<div class="entry-meta">
 						<?php
-						the_date('', 'Publié le ');
+						printf('Publié le <strong>%s</strong>',get_the_date('d/m/Y'));
+						if(has_category()) printf(' dans %s',get_the_category_list( ', '));
 						?>
 					</div><!-- .entry-meta -->
 				<?php endif; ?>	
 			<?php
 			the_content();
+
+			if ( 'post' === $post_type) :
+				get_template_part('template-parts/post-footer');
+			endif;
 			?>
 
 		</div><!-- .entry-content -->

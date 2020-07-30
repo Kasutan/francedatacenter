@@ -56,8 +56,58 @@
 		}
 	}
 }
-.single-post .entry-meta {
-	text-align: center;
+.single-post  {
+	.fil-ariane {
+		margin-bottom: 5px;
+	}
+	.entry-meta {
+		margin-bottom: 29px;
+		& {
+			font-weight: normal;
+			text-decoration: none;
+		}
+	}
+}
+
+.post-footer {
+	border-top:solid 1px #707070;
+	margin-bottom: var(--margin-y);
+	margin-top: var(--margin-y);
+	a {
+		font-weight: 700;
+		text-decoration: none;
+	}
+	.tags, .related {
+		border-bottom:solid 1px #707070;
+		padding:20px 0;
+	}
+	.related {
+		p {
+			margin-bottom: 5px;
+		}
+		ul {
+			list-style: none;
+			margin-bottom:0;
+		}
+		li {
+			margin-bottom: 5px;
+			position: relative;
+			&::before {
+				content: "\25CF";  
+				color: var(--cyan);
+				font-weight: bold; 
+				display: inline-block; 
+				width: 1em; 
+				transition: color var(--transition);
+			}
+			&:hover, &:focus-within {
+				&::before {
+					color:var(--bleu);
+				}
+			}
+			
+		}
+	}
 }
 
 .entry-content {
