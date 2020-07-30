@@ -1913,6 +1913,7 @@ button.modaal-close {
     padding: 50px var(--padding-x);
     position: relative; }
   .entry-header .baseline {
+    font-weight: 300;
     margin-top: 30px;
     position: relative;
     text-align: center;
@@ -1949,6 +1950,21 @@ button.modaal-close {
         left: calc(50% - 25px);
         top: -36px;
         width: 50px; } }
+
+.home .page-title {
+  font-size: calc(76 * 0.8125rem / 18);
+  line-height: calc(101/76); }
+  @media (min-width: 768px) {
+    .home .page-title {
+      font-size: calc(76 * 1.125rem / 18); } }
+  .home .page-title span {
+    display: block;
+    font-weight: 300;
+    font-size: calc(55 * 0.8125rem / 18);
+    line-height: calc(73/55); }
+    @media (min-width: 768px) {
+      .home .page-title span {
+        font-size: calc(55 * 1.125rem / 18); } }
 
 .archive .entry-header h1 span, .blog .entry-header h1 span {
   font-size: calc(50 * 0.8125rem / 18);

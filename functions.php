@@ -170,8 +170,8 @@ require get_template_directory() . '/inc/colors.php';
 function fdc_scripts() {
 	wp_enqueue_style( 'francedatacenter-owl-carousel', get_template_directory_uri() . '/lib/owlcarousel/owl.carousel.min.css',array(),'2.3.4');
 	wp_enqueue_style( 'francedatacenter-style', get_stylesheet_uri() );
-	//wp_enqueue_style( 'francedatacenter-google-font', 'https://fonts.googleapis.com/css?family=Roboto:400,600');
-	wp_enqueue_style( 'francedatacenter-google-font', 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap');
+	//wp_enqueue_style( 'francedatacenter-google-font', 'https://fonts.googleapis.com/css?family=Roboto:300,400,600');
+	wp_enqueue_style( 'francedatacenter-google-font', 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap');
 	
 	wp_enqueue_script( 'francedatacenter-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 

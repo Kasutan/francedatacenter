@@ -1,4 +1,13 @@
 .home {
-	
+	.page-title {
+		@include taille(76);
+		line-height: calc(101/76);
+		span {
+		display: block;
+		font-weight: 300;
+		@include taille(55);
+		line-height: calc(73/55);
+		}
+	}
 	
 }

@@ -22,11 +22,13 @@ $post_type=get_post_type();
 		the_post(); 
 
 		if(function_exists('get_field')) {
+			$ligne_1=wp_kses_post(get_field('ligne_1'));
+			$ligne_2=wp_kses_post(get_field('ligne_2'));
 			$baseline=wp_kses_post( get_field('baseline'));
 			$decoupe_banniere=esc_html( get_field('decoupe_banniere'));
 			$decor_banniere=esc_html( get_field('decor_banniere'));
 		} else {
-			$baseline=$decoupe_banniere=$decor_banniere='';
+			$baseline=$decoupe_banniere=$decor_banniere=$ligne_1=$ligne_2='';
 		}
 		
 
@@ -34,7 +36,11 @@ $post_type=get_post_type();
 				
 			if(function_exists('fdc_post_thumbnail')) echo '<div class="image">'.fdc_post_thumbnail('banniere').'</div>';
 			echo '<div class="texte-banniere">';
-				printf('<h1 class="page-title">%s</h1>',get_the_title());
+				if(is_front_page(  ) && ($ligne_1 || $ligne_2) ) {
+					printf('<h1 class="page-title"><span>%s</span>%s</h1>', $ligne_1, $ligne_2);
+				} else {
+					printf('<h1 class="page-title">%s</h1>',get_the_title());
+				}
 				if($baseline) printf('<p class="baseline">%s</p>',$baseline);
 			echo '</div>';
 			if(function_exists('fdc_get_picto_url')) printf('<a href="#entry-content"><img src="%s" alt="fleche vers le bas" width="40" height="23"/></a>',fdc_get_picto_url('angle-bas'));
