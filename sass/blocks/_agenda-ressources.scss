@@ -1,0 +1,106 @@
+.acf-block-agenda-ressources {
+	margin-bottom: var(--margin-y);
+	padding:100px var(--padding-x-footer);
+	position: relative;
+	.fond {
+		background-color: var(--bleu-clair);
+		clip-path:polygon(14% 5vw, 100% 14vw, 100% 93%, 13% 100%, 0 93%, 0px 8vw);
+		//https://bennettfeely.com/clippy/  + outils dév Firefox
+		height:100%;
+		position: absolute;
+		left:0;
+		top:0;
+		width: 100%;
+	}
+	.agenda, .ressources, .videos {
+		position: relative; // pour passer devant le décor
+	}
+	.image {
+		display: flex;
+		height:60vw;
+		margin: 0 auto 33px;
+		max-width: 100%;
+		position: relative;
+		width: 535px;
+		img {
+			object-fit: cover;
+			width:100%;
+		}
+		.decor {
+			background: var(--gradient);
+			height:200px;
+			left:36px;
+			opacity: 0.5;
+			position: absolute;
+			top:-36px;
+			width:100px;
+		}
+		h2 {
+			bottom:37px;
+			@include taille(50);
+			margin-bottom: 0;
+			position: absolute;
+			right:30px;
+			text-transform: uppercase;
+			&::after {
+				background-color: #fff;
+				margin-top: 0;
+				position: absolute;				
+				right:0;
+			}
+		}
+	}
+	.texte {
+		background-color: #fff;
+		padding:33px;
+		.h2 {
+			text-transform: uppercase;
+			span {
+				display: block;
+				@include taille(22);
+				text-transform: none;
+			}
+			&::after {
+				display:none;
+			}
+		}
+		ul {
+			margin:0;
+			padding-left:1em;
+		}
+	}
+	@include bp(md) {
+		padding-top:180px;
+		.image {
+			height:354px;
+			.decor {
+				height:353px;
+				width:201px;
+			}
+		}
+	}
+	@include bp(lg) {
+		padding-left:var(--padding-x-grille);
+		padding-top:240px;
+		.image {
+			top:-60px;
+			position: absolute;
+			left:calc(var(--padding-x-footer) - var(--padding-x-grille));
+			z-index:1;
+		}
+		.texte {
+			min-height: 377px;
+			padding-left:calc(535px - var(--padding-x-grille) + var(--padding-x-footer) + 33px);
+			position: relative;
+		}
+		.fleche {
+			left:0;
+			position:absolute;
+			top:326px;
+			width : calc(535px - var(--padding-x-grille) + var(--padding-x-footer));
+			a {
+				margin-top: 0;
+			}
+		}
+	}
+}

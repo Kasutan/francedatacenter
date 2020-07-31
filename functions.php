@@ -245,6 +245,7 @@ require_once( 'blocks/acf-block-actualites-themes.php' );
 require_once( 'blocks/acf-block-actualites-6.php' );
 require_once( 'blocks/acf-block-ressources-4.php' );
 require_once( 'blocks/acf-block-missions-accueil.php' );
+require_once( 'blocks/acf-block-agenda-ressources-accueil.php' );
 
 /**
 * Reusable Blocks accessible in backend

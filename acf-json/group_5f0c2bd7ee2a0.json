@@ -69,6 +69,28 @@
             "multiple": 0,
             "return_format": "id",
             "ui": 1
+        },
+        {
+            "key": "field_5f2439218c9df",
+            "label": "Page de l'agenda",
+            "name": "page_agenda",
+            "type": "post_object",
+            "instructions": "Réglage utilisé pour le bloc agenda-ressources sur la page d'accueil",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": "",
+            "allow_null": 0,
+            "multiple": 0,
+            "return_format": "id",
+            "ui": 1
         }
     ],
     "location": [
@@ -88,5 +110,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1594646705
+    "modified": 1596209479
 }

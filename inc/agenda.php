@@ -122,3 +122,55 @@ function fdc_affiche_filtre_agenda(){
 	echo '<nav style="background-color:var(--gris);margin-bottom:50px;padding:30px">filtre agenda ici</nav>';
 	//TODO construire le filtre - mettre les labels au pluriel !
 }
+
+function fdc_affiche_liste_evenements() {
+	$args=array(
+		'post_type' => 'evenement',
+		'posts_per_page' => 4,
+		'meta_key' => 'date_debut', //on trie les évènements selon leur date
+		'orderby' => 'meta_value',
+		'order' => 'ASC', 
+		'meta_query' => array(
+				array(
+				'key' => 'date_debut',
+				'value' => date('Y-m-d'),
+				'compare' => '>=', // on n'affiche que les évènements futurs
+				'type' => 'CHAR'
+			)
+		)
+	);
+	$agenda=new WP_Query($args);
+	if($agenda->have_posts()) :
+		echo '<ul class="evenements">';
+		while ($agenda->have_posts()):
+			$agenda->the_post();
+			$post_id=get_the_ID();
+			$date_debut=esc_attr(get_field('date_debut',$post_id));
+			$date_fin=esc_attr(get_field('date_fin',$post_id));
+
+			/*Préparer les dates*/
+			$array_date_debut=explode('-',$date_debut);
+			$date_debut=sprintf('%s/%s/%s',$array_date_debut[2],$array_date_debut[1],$array_date_debut[0]);
+
+			if($date_fin) {
+				$array_date_fin=explode('-',$date_fin);
+				$date_fin=sprintf('%s/%s/%s',$array_date_fin[2],$array_date_fin[1],$array_date_fin[0]);
+			}
+
+			/*Préparer la ville et ajouter , pays s'il y en a un*/
+			$ville=wp_kses_post(get_field('ville',$post_id));
+			$pays=wp_kses_post(get_field('pays',$post_id));
+			if($pays) $ville.=', '.$pays;
+
+			printf('<li><strong>%s</strong><br>',get_the_title());
+				printf('<p>%s - %s',$ville, $date_debut);
+				if($date_fin) printf(' au %s',$date_fin);
+				echo '</p>';
+			echo '</li>';
+		endwhile;
+		echo '</ul>';
+	else : 
+		echo '<p>Aucun évènement</p>';
+	endif;	
+	wp_reset_postdata();
+}

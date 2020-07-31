@@ -60,7 +60,7 @@
 
 .acf-block-actualites {
 	margin-bottom: var(--margin-y);
-	padding:0 var(--padding-x-grille) 30px;
+	padding:0 var(--padding-x-footer) 30px;
 	position: relative;
 	.decor {
 		background-color: var(--bleu-clair);
@@ -85,7 +85,7 @@
 		justify-content: center;
 		list-style: none;
 		margin:0;
-		padding:0 var(--padding-x-footer);
+		padding:0 ;
 	}
 	.actualite {
 		flex-basis:424px;

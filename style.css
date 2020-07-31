@@ -605,6 +605,7 @@ body {
 
 /* Hauteur mini main*/
 .site {
+  overflow-y: hidden;
   position: relative; }
 
 .site-main {
@@ -3020,7 +3021,7 @@ button.retour {
 
 .acf-block-actualites {
   margin-bottom: var(--margin-y);
-  padding: 0 var(--padding-x-grille) 30px;
+  padding: 0 var(--padding-x-footer) 30px;
   position: relative; }
   .acf-block-actualites .decor {
     background-color: var(--bleu-clair);
@@ -3050,7 +3051,7 @@ button.retour {
     justify-content: center;
     list-style: none;
     margin: 0;
-    padding: 0 var(--padding-x-footer); }
+    padding: 0; }
   .acf-block-actualites .actualite {
     -ms-flex-preferred-size: 424px;
     flex-basis: 424px;
@@ -3420,5 +3421,102 @@ button.retour {
   @media (min-width: 960px) {
     .acf-block-missions .fleche {
       margin: 0 35px; } }
+
+.acf-block-agenda-ressources {
+  margin-bottom: var(--margin-y);
+  padding: 100px var(--padding-x-footer);
+  position: relative; }
+  .acf-block-agenda-ressources .fond {
+    background-color: var(--bleu-clair);
+    -webkit-clip-path: polygon(14% 5vw, 100% 14vw, 100% 93%, 13% 100%, 0 93%, 0px 8vw);
+    clip-path: polygon(14% 5vw, 100% 14vw, 100% 93%, 13% 100%, 0 93%, 0px 8vw);
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%; }
+  .acf-block-agenda-ressources .agenda, .acf-block-agenda-ressources .ressources, .acf-block-agenda-ressources .videos {
+    position: relative; }
+  .acf-block-agenda-ressources .image {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 60vw;
+    margin: 0 auto 33px;
+    max-width: 100%;
+    position: relative;
+    width: 535px; }
+    .acf-block-agenda-ressources .image img {
+      -o-object-fit: cover;
+      object-fit: cover;
+      width: 100%; }
+    .acf-block-agenda-ressources .image .decor {
+      background: var(--gradient);
+      height: 200px;
+      left: 36px;
+      opacity: 0.5;
+      position: absolute;
+      top: -36px;
+      width: 100px; }
+    .acf-block-agenda-ressources .image h2 {
+      bottom: 37px;
+      font-size: calc(50 * 0.8125rem / 18);
+      margin-bottom: 0;
+      position: absolute;
+      right: 30px;
+      text-transform: uppercase; }
+      @media (min-width: 768px) {
+        .acf-block-agenda-ressources .image h2 {
+          font-size: calc(50 * 1.125rem / 18); } }
+      .acf-block-agenda-ressources .image h2::after {
+        background-color: #fff;
+        margin-top: 0;
+        position: absolute;
+        right: 0; }
+  .acf-block-agenda-ressources .texte {
+    background-color: #fff;
+    padding: 33px; }
+    .acf-block-agenda-ressources .texte .h2 {
+      text-transform: uppercase; }
+      .acf-block-agenda-ressources .texte .h2 span {
+        display: block;
+        font-size: calc(22 * 0.8125rem / 18);
+        text-transform: none; }
+        @media (min-width: 768px) {
+          .acf-block-agenda-ressources .texte .h2 span {
+            font-size: calc(22 * 1.125rem / 18); } }
+      .acf-block-agenda-ressources .texte .h2::after {
+        display: none; }
+    .acf-block-agenda-ressources .texte ul {
+      margin: 0;
+      padding-left: 1em; }
+  @media (min-width: 768px) {
+    .acf-block-agenda-ressources {
+      padding-top: 180px; }
+      .acf-block-agenda-ressources .image {
+        height: 354px; }
+        .acf-block-agenda-ressources .image .decor {
+          height: 353px;
+          width: 201px; } }
+  @media (min-width: 960px) {
+    .acf-block-agenda-ressources {
+      padding-left: var(--padding-x-grille);
+      padding-top: 240px; }
+      .acf-block-agenda-ressources .image {
+        top: -60px;
+        position: absolute;
+        left: calc(var(--padding-x-footer) - var(--padding-x-grille));
+        z-index: 1; }
+      .acf-block-agenda-ressources .texte {
+        min-height: 377px;
+        padding-left: calc(535px - var(--padding-x-grille) + var(--padding-x-footer) + 33px);
+        position: relative; }
+      .acf-block-agenda-ressources .fleche {
+        left: 0;
+        position: absolute;
+        top: 326px;
+        width: calc(535px - var(--padding-x-grille) + var(--padding-x-footer)); }
+        .acf-block-agenda-ressources .fleche a {
+          margin-top: 0; } }
 
 /*# sourceMappingURL=style.css.map */
