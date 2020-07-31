@@ -66,7 +66,7 @@ function fdc_actualites_callback( $block ) {
 function fdc_affiche_actualite($post_id) {
 	$date=get_the_date('d/m/y',$post_id); //y : année sur 2 chiffres
 	$array_date=explode('/',$date);
-	$date=sprintf('<div class="date"><span class="jour">%s</span><br/><span>%s/%s</span></div>',$array_date[0],$array_date[1],$array_date[2]);
+	$date=sprintf('<div class="date"><span class="jour">%s</span><span>%s/%s</span></div>',$array_date[0],$array_date[1],$array_date[2]);
 
 	printf('<li class="actualite"><a href="%s">',get_the_permalink($post_id));
 		echo '<div class="image-wrapper">';

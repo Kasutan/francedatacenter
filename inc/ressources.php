@@ -91,7 +91,7 @@ function fdc_affiche_ressource_pour_liste($post_id) {
 	$desc=get_the_content($post_id);
 	$date=get_the_date('d/m/y',$post_id); //y : année sur 2 chiffres
 	$array_date=explode('/',$date);
-	$date=sprintf('<div class="date"><span class="jour">%s</span><br/><span>%s/%s</span></div>',$array_date[0],$array_date[1],$array_date[2]);
+	$date=sprintf('<div class="date"><span class="jour">%s</span><span>%s/%s</span></div>',$array_date[0],$array_date[1],$array_date[2]);
 
 
 	printf('<li><a href="%s">',get_the_permalink( $post_id));
