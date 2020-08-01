@@ -23,7 +23,7 @@ function fdc_acf_block_agenda_ressources_acf_init() {
 }
 
 function fdc_agenda_ressources_callback( $block ) {
-	if( !function_exists("get_field") || !function_exists("fdc_get_picto_inline") || !function_exists('fdc_affiche_liste_evenements')) {
+	if( !function_exists("get_field") || !function_exists("fdc_get_picto_inline") || !function_exists('fdc_affiche_liste_evenements') || !function_exists('fdc_affiche_liste_ressources_pour_accueil')) {
 		return '';
 	}
 	if(array_key_exists('className',$block)) {
@@ -57,6 +57,22 @@ function fdc_agenda_ressources_callback( $block ) {
 					endif;
 				echo '</div>'; //fin .texte 
 		echo '</div>'; //fin .agenda 
-		//TODO ressources et vidéos
+		
+		echo '<div class="ressources">';
+				printf('<div class="image">%s<div class="decor"></div><h2 class="titre has-blanc-color">Ressources</h2></div>',	wp_get_attachment_image( $image_ressources , 'medium'));
+
+				echo '<div class="texte">';
+					printf('<p class="h2">%s <span>%s</span></p>',$intro_ressources,$intro_ressources_2);
+					fdc_affiche_liste_ressources_pour_accueil();
+					$ressources=fdc_get_page_ID('page_ressources'); 
+					if($ressources) :
+						printf('<div class="fleche"><a href="%s">Toutes les ressources %s</a></div>',
+							get_the_permalink( $ressources),
+							fdc_get_picto_inline('angle')
+						);
+					endif;
+				echo '</div>'; //fin .texte 
+		echo '</div>'; //fin .ressources 
+		//TODO vidéos
 	echo "</section>";
 }

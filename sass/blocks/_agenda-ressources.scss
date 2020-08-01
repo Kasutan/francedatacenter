@@ -19,7 +19,7 @@
 		display: flex;
 		height:60vw;
 		margin: 0 auto 33px;
-		max-width: 100%;
+		max-width: 90%;
 		position: relative;
 		width: 535px;
 		img {
@@ -50,10 +50,15 @@
 			}
 		}
 	}
+	.ressources .image .decor {
+		height: 150px;
+		left:unset;
+		right: 27px;
+	}
 	.texte {
 		background-color: #fff;
-		padding:33px;
 		.h2 {
+			margin-bottom: 18px;
 			text-transform: uppercase;
 			span {
 				display: block;
@@ -69,37 +74,79 @@
 			padding-left:1em;
 		}
 	}
+	.picto-verrou {
+		margin-left: 10px;
+		svg {
+			width:15px;
+		}
+	}
+	//Image au-dessus du texte avec décalage 
+	.agenda, .ressources {
+		margin-top:150px;
+			
+	}
+	.image {
+		left: 5%;
+		position: absolute;
+		top:-60px;
+		z-index:1;
+	}
+	.texte {
+		padding:calc(60vw - 60px + 20px) 33px 33px;
+	}
 	@include bp(md) {
 		padding-top:180px;
 		.image {
 			height:354px;
+			left: 20%;
 			.decor {
 				height:353px;
 				width:201px;
 			}
 		}
-	}
-	@include bp(lg) {
-		padding-left:var(--padding-x-grille);
-		padding-top:240px;
-		.image {
-			top:-60px;
-			position: absolute;
-			left:calc(var(--padding-x-footer) - var(--padding-x-grille));
-			z-index:1;
+		.ressources .image .decor {
+			height: 234px;
+			width:200px;
 		}
 		.texte {
-			min-height: 377px;
-			padding-left:calc(535px - var(--padding-x-grille) + var(--padding-x-footer) + 33px);
-			position: relative;
+			padding-top:310px;
 		}
-		.fleche {
-			left:0;
-			position:absolute;
-			top:326px;
-			width : calc(535px - var(--padding-x-grille) + var(--padding-x-footer));
-			a {
-				margin-top: 0;
+		
+	}
+	@include bp(lg) {
+		display:flex;
+		flex-wrap: wrap;
+		padding-left:var(--padding-x-grille);
+		padding-top:240px;
+
+		.image {
+			left:calc(var(--padding-x-footer) - var(--padding-x-grille));
+		}
+		.agenda {
+			flex-basis:100%;
+			.texte {
+				min-height: 377px;
+				padding-top:33px;
+				padding-left:calc(535px - var(--padding-x-grille) + var(--padding-x-footer) + 33px);
+				position: relative;
+			}
+			.fleche {
+				left:0;
+				position:absolute;
+				top:326px;
+				width : calc(535px - var(--padding-x-grille) + var(--padding-x-footer));
+				a {
+					margin-top: 0;
+				}
+			}
+		}
+
+		.ressources {
+			flex-basis:50%;
+			margin-top:150px;
+			.texte {
+				padding:310px 40px 90px;
+
 			}
 		}
 	}

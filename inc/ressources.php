@@ -83,6 +83,7 @@ function fdc_affiche_filtre_ressources(){
 	//TODO construire le filtre
 }
 
+//Pour la page actualités
 function fdc_affiche_ressource_pour_liste($post_id) {
 	if(get_post_type($post_id)!=='ressource' || !function_exists('get_field') || !function_exists('fdc_get_picto_inline')) {
 		return;
@@ -101,6 +102,39 @@ function fdc_affiche_ressource_pour_liste($post_id) {
 
 }
 
+//Pour la page d'accueil
+function fdc_affiche_liste_ressources_pour_accueil() {
+	$args=array(
+		'posts_per_page' => 3,
+		'post_type' => 'ressource',
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'type_ressource',
+				'terms' => 11, //exclure les vidéos
+				'operator' => 'NOT IN'
+			)
+		)
+	);
+	$ressources=new WP_Query($args);
+	if($ressources->have_posts()) :
+		echo '<ul>';
+		while ($ressources->have_posts()):
+			$ressources->the_post();
+			$acces=esc_attr(get_field('acces',get_the_ID()));
+
+			printf('<li><strong>%s</strong>',get_the_title());
+				if($acces=='privee') {
+					printf('<span class="picto-verrou">%s</span>',fdc_get_picto_inline('petit-verrou'));
+				}
+				printf('<p>Publiée le %s</p>',get_the_date('d/m/y'));
+			echo '</li>';
+		endwhile;
+		echo '</ul>';
+	else : 
+		echo '<p>Aucune ressource</p>';
+	endif;	
+	wp_reset_postdata();
+}
 /******************Colonnes dans l'admin *****************/
 add_filter( 'manage_ressource_posts_columns', 'fdc_set_custom_edit_ressource_columns' );
 
