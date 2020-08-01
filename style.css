@@ -733,6 +733,8 @@ h2, .h2 {
     width: 31px; }
   h2.has-bleu-color::after, .h2.has-bleu-color::after {
     background-color: var(--bleu); }
+  h2.has-blanc-color::after, .h2.has-blanc-color::after {
+    background-color: var(--blanc); }
   h2.has-text-align-center::after, .h2.has-text-align-center::after {
     left: calc(50% - 15px); }
 
@@ -1452,7 +1454,7 @@ p.fil-ariane {
     display: block;
     vertical-align: top; }
 
-.modaal-container {
+.modaal-container, .modaal-video-container {
   position: relative;
   display: inline-block;
   width: 100%;
@@ -1465,11 +1467,11 @@ p.fil-ariane {
   -webkit-box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   cursor: auto; }
-  .modaal-container.is_loading {
+  .modaal-container.is_loading, .modaal-video-container.is_loading {
     height: 100px;
     width: 100px;
     overflow: hidden; }
-  .modaal-fullscreen .modaal-container {
+  .modaal-fullscreen .modaal-container, .modaal-fullscreen .modaal-video-container {
     max-width: none;
     height: 100%;
     overflow: auto; }
@@ -1509,6 +1511,21 @@ button.modaal-close {
       button.modaal-close span {
         height: 38px;
         width: 38px; } }
+
+/*Style pour les popups vidéos*/
+.modaal-video-container {
+  background: transparent; }
+
+.modaal-video-frame {
+  height: 500px;
+  max-height: 56vw;
+  width: 100%; }
+
+.modaal-video button.modaal-close {
+  background-color: transparent;
+  left: unset;
+  right: 10px;
+  top: 10px; }
 
 .modaal-loading-spinner {
   background: none;
@@ -3424,12 +3441,12 @@ button.retour {
 
 .acf-block-agenda-ressources {
   margin-bottom: var(--margin-y);
-  padding: 100px var(--padding-x-footer);
+  padding: 30px var(--padding-x-footer) 0;
   position: relative; }
   .acf-block-agenda-ressources .fond {
     background-color: var(--bleu-clair);
-    -webkit-clip-path: polygon(14% 5vw, 100% 14vw, 100% 93%, 13% 100%, 0 93%, 0px 8vw);
-    clip-path: polygon(14% 5vw, 100% 14vw, 100% 93%, 13% 100%, 0 93%, 0px 8vw);
+    -webkit-clip-path: polygon(92% 0, 100% 4vw, 100% 85%, 5% 90%, 0px 88%, 0px 8vw);
+    clip-path: polygon(92% 0, 100% 4vw, 100% 85%, 5% 90%, 0px 88%, 0px 8vw);
     height: 100%;
     position: absolute;
     left: 0;
@@ -3437,6 +3454,20 @@ button.retour {
     width: 100%; }
   .acf-block-agenda-ressources .agenda, .acf-block-agenda-ressources .ressources, .acf-block-agenda-ressources .videos {
     position: relative; }
+  .acf-block-agenda-ressources h2 {
+    bottom: 37px;
+    font-size: calc(50 * 0.8125rem / 18);
+    margin-bottom: 0;
+    position: absolute;
+    right: 30px;
+    text-transform: uppercase; }
+    @media (min-width: 768px) {
+      .acf-block-agenda-ressources h2 {
+        font-size: calc(50 * 1.125rem / 18); } }
+    .acf-block-agenda-ressources h2::after {
+      margin-top: 0;
+      position: absolute;
+      right: 0; }
   .acf-block-agenda-ressources .image {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -3458,21 +3489,6 @@ button.retour {
       position: absolute;
       top: -36px;
       width: 100px; }
-    .acf-block-agenda-ressources .image h2 {
-      bottom: 37px;
-      font-size: calc(50 * 0.8125rem / 18);
-      margin-bottom: 0;
-      position: absolute;
-      right: 30px;
-      text-transform: uppercase; }
-      @media (min-width: 768px) {
-        .acf-block-agenda-ressources .image h2 {
-          font-size: calc(50 * 1.125rem / 18); } }
-      .acf-block-agenda-ressources .image h2::after {
-        background-color: #fff;
-        margin-top: 0;
-        position: absolute;
-        right: 0; }
   .acf-block-agenda-ressources .ressources .image .decor {
     height: 150px;
     left: unset;
@@ -3507,29 +3523,46 @@ button.retour {
     z-index: 1; }
   .acf-block-agenda-ressources .texte {
     padding: calc(60vw - 60px + 20px) 33px 33px; }
+  .acf-block-agenda-ressources .videos {
+    background-color: #fff;
+    margin-top: 90px;
+    padding: 18px; }
+    .acf-block-agenda-ressources .videos h2 {
+      margin-bottom: 48px;
+      position: relative;
+      text-align: right;
+      top: 0; }
+    .acf-block-agenda-ressources .videos ul {
+      list-style: none;
+      margin: 0 auto;
+      max-width: 326px;
+      padding: 0; }
+      .acf-block-agenda-ressources .videos ul li {
+        margin-bottom: 20px; }
   @media (min-width: 768px) {
-    .acf-block-agenda-ressources {
-      padding-top: 180px; }
-      .acf-block-agenda-ressources .image {
-        height: 354px;
-        left: 20%; }
-        .acf-block-agenda-ressources .image .decor {
-          height: 353px;
-          width: 201px; }
-      .acf-block-agenda-ressources .ressources .image .decor {
-        height: 234px;
-        width: 200px; }
-      .acf-block-agenda-ressources .texte {
-        padding-top: 310px; } }
+    .acf-block-agenda-ressources .image {
+      height: 354px;
+      left: 20%; }
+      .acf-block-agenda-ressources .image .decor {
+        height: 353px;
+        width: 201px; }
+    .acf-block-agenda-ressources .ressources .image .decor {
+      height: 234px;
+      width: 200px; }
+    .acf-block-agenda-ressources .texte {
+      padding-top: 310px; } }
   @media (min-width: 960px) {
     .acf-block-agenda-ressources {
+      -webkit-box-align: start;
+      -ms-flex-align: start;
+      align-items: flex-start;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
       -ms-flex-wrap: wrap;
       flex-wrap: wrap;
       padding-left: var(--padding-x-grille);
-      padding-top: 240px; }
+      padding-top: 90px; }
       .acf-block-agenda-ressources .image {
         left: calc(var(--padding-x-footer) - var(--padding-x-grille)); }
       .acf-block-agenda-ressources .agenda {
@@ -3552,6 +3585,12 @@ button.retour {
         flex-basis: 50%;
         margin-top: 150px; }
         .acf-block-agenda-ressources .ressources .texte {
-          padding: 310px 40px 90px; } }
+          padding: 310px 40px 90px; }
+      .acf-block-agenda-ressources .videos {
+        -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        margin-left: 31px;
+        padding-bottom: 90px; } }
 
 /*# sourceMappingURL=style.css.map */

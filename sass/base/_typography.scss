@@ -72,6 +72,9 @@ h2, .h2 {
 	&.has-bleu-color::after {
 		background-color: var(--bleu);
 	}
+	&.has-blanc-color::after {
+		background-color: var(--blanc);
+	}
 	&.has-text-align-center::after {
 		left: calc(50% - 15px);
 	}

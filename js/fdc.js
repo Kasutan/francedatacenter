@@ -6,7 +6,12 @@
 		$('.ouvrir-modaal').modaal();
 		$('.fermer-modaal').click(function(){
 			$('.ouvrir-modaal').modaal('close');
-		})
+		});
+		$('.video-modaal').modaal({
+			type: 'video',
+			height:500,
+			width:900
+		});
 		
 		/****************** Sticky header *************************/	
 		var siteHeader=$('.site-header');

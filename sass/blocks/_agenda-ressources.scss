@@ -1,10 +1,10 @@
 .acf-block-agenda-ressources {
 	margin-bottom: var(--margin-y);
-	padding:100px var(--padding-x-footer);
+	padding:30px var(--padding-x-footer) 0;
 	position: relative;
 	.fond {
 		background-color: var(--bleu-clair);
-		clip-path:polygon(14% 5vw, 100% 14vw, 100% 93%, 13% 100%, 0 93%, 0px 8vw);
+		clip-path: polygon(92% 0, 100% 4vw, 100% 85%, 5% 90%, 0px 88%, 0px 8vw);
 		//https://bennettfeely.com/clippy/  + outils dév Firefox
 		height:100%;
 		position: absolute;
@@ -14,6 +14,19 @@
 	}
 	.agenda, .ressources, .videos {
 		position: relative; // pour passer devant le décor
+	}
+	h2 {
+		bottom:37px;
+		@include taille(50);
+		margin-bottom: 0;
+		position: absolute;
+		right:30px;
+		text-transform: uppercase;
+		&::after {
+			margin-top: 0;
+			position: absolute;				
+			right:0;
+		}
 	}
 	.image {
 		display: flex;
@@ -34,20 +47,6 @@
 			position: absolute;
 			top:-36px;
 			width:100px;
-		}
-		h2 {
-			bottom:37px;
-			@include taille(50);
-			margin-bottom: 0;
-			position: absolute;
-			right:30px;
-			text-transform: uppercase;
-			&::after {
-				background-color: #fff;
-				margin-top: 0;
-				position: absolute;				
-				right:0;
-			}
 		}
 	}
 	.ressources .image .decor {
@@ -94,8 +93,29 @@
 	.texte {
 		padding:calc(60vw - 60px + 20px) 33px 33px;
 	}
+
+	//Sous-bloc vidéos 
+	.videos {
+		background-color: #fff;
+		margin-top: 90px;
+		padding:18px;
+		h2 {
+			margin-bottom: 48px;
+			position: relative;
+			text-align: right;
+			top:0;
+		}
+		ul {
+			list-style: none;
+			margin:0 auto;
+			max-width: 326px;
+			padding: 0;
+			li {
+				margin-bottom: 20px;
+			}
+		}
+	}
 	@include bp(md) {
-		padding-top:180px;
 		.image {
 			height:354px;
 			left: 20%;
@@ -114,10 +134,11 @@
 		
 	}
 	@include bp(lg) {
+		align-items : flex-start;
 		display:flex;
 		flex-wrap: wrap;
 		padding-left:var(--padding-x-grille);
-		padding-top:240px;
+		padding-top:90px;
 
 		.image {
 			left:calc(var(--padding-x-footer) - var(--padding-x-grille));
@@ -148,6 +169,12 @@
 				padding:310px 40px 90px;
 
 			}
+		}
+
+		.videos {
+			flex-grow:1;
+			margin-left: 31px;
+			padding-bottom: 90px;
 		}
 	}
 }

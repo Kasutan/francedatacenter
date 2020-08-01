@@ -123,7 +123,7 @@ $modaal-grey: #a9a9a9;
 		vertical-align: top;
 	}
 }
-.modaal-container {
+.modaal-container, .modaal-video-container {
 	position: relative;
 	display: inline-block;
 	width: 100%;
@@ -191,7 +191,21 @@ button.modaal-close {
 	}
 	
 }
-
+/*Style pour les popups vidéos*/
+.modaal-video-container {
+	background:transparent;
+}
+.modaal-video-frame {
+	height:500px;
+	max-height:56vw;
+	width: 100%;
+}
+.modaal-video button.modaal-close {
+	background-color: transparent;
+	left:unset;
+	right: 10px;
+	top: 10px;
+}
 
 
 

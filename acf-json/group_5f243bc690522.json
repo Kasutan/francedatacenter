@@ -15,7 +15,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "",
+            "message": "Affiche automatiquement les 4 prochains évènements et les 4 ressources (hors vidéos) publiées le plus récemment. Pour la zone vidéos, vous pouvez choisir jusqu'à 3 vidéos à mettre en avant, avec en option la possibilité de remplacer la vignette YouTube par une autre image.",
             "new_lines": "wpautop",
             "esc_html": 0
         },
@@ -142,6 +142,75 @@
             "maxlength": "",
             "rows": 1,
             "new_lines": "br"
+        },
+        {
+            "key": "field_5f2535170bda0",
+            "label": "Vidéos à mettre en avant",
+            "name": "videos",
+            "type": "repeater",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_5f2535300bda1",
+            "min": 1,
+            "max": 3,
+            "layout": "block",
+            "button_label": "Ajouter une vidéo",
+            "sub_fields": [
+                {
+                    "key": "field_5f2535300bda1",
+                    "label": "Vidéo à choisir parmi les ressources",
+                    "name": "ressource",
+                    "type": "post_object",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "ressource"
+                    ],
+                    "taxonomy": [
+                        "type_ressource:videos"
+                    ],
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "return_format": "id",
+                    "ui": 1
+                },
+                {
+                    "key": "field_5f2535650bda2",
+                    "label": "Image pour remplacer la vignette YouTube",
+                    "name": "image",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -161,5 +230,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1596210456
+    "modified": 1596274092
 }

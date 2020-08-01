@@ -7,7 +7,7 @@ function fdc_acf_block_agenda_ressources_acf_init() {
 		acf_register_block_type( [
 			'name'            => 'acf-agenda-ressources',
 			'title'           => 'Bloc agenda, ressources et vidéos pour la page d\'accueil',
-			'description'     => 'Bloc avec titres, intros, évènements/ressources/vidéos récent-e-s et liens vers tous les contenus',
+			'description'     => 'Bloc avec titres, intros, 4 évènements à venir, 4 ressources récemment publiées (hors vidéos), et 3 vidéos à choisir parmi les ressources de type vidéo.',
 			'render_callback' => 'fdc_agenda_ressources_callback',
 			'category'        => 'francedatacenter',
 			'icon'            => 'admin-home',
@@ -73,6 +73,36 @@ function fdc_agenda_ressources_callback( $block ) {
 					endif;
 				echo '</div>'; //fin .texte 
 		echo '</div>'; //fin .ressources 
-		//TODO vidéos
+
+		if( have_rows('videos') ):
+			echo '<div class="videos">';
+				echo '<h2 class="titre">Vidéos</h2>';
+					echo '<ul class="liste-videos">';
+					while(have_rows('videos')): the_row();	
+						$post_id=esc_attr(get_sub_field('ressource'));
+						$url=esc_url(get_field('url_video',$post_id));
+						$video_id = explode("?v=", $url);
+						$video_id = $video_id[1]; //on garde ce qu'il y a après ?v=
+						$video_id = explode("&", $video_id)[0]; // on enlève les autres paramètres
+						$image_id=esc_attr(get_sub_field('image'));
+						if($image_id) {
+							$image_url=wp_get_attachment_url( $image_id );
+						} else {
+							$image_url="https://img.youtube.com/vi/".$video_id."/maxresdefault.jpg";
+						}
+						
+						printf('<li><a href="http://www.youtube.com/embed/%s" class="video-modaal"><img src="%s" alt="%s" width="385" height="182"/></a>',
+							$video_id,
+							$image_url,
+							get_the_title($post_id),
+						);
+					endwhile;
+					echo '</ul>';
+				printf('<div class="fleche bleu"><a href="%s?filtre_ressources=videos">Toutes les vidéos %s</a></div>',
+					get_the_permalink( $ressources),
+					fdc_get_picto_inline('angle')
+				);
+			echo '</div>'; //fin .videos 
+		endif;
 	echo "</section>";
 }
