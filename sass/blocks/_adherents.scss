@@ -21,6 +21,11 @@
 		height:160px;
 		justify-content: center;
 		margin:15px;
+	
+		&.js-afficher-plus {
+			display: none;
+			opacity: 0;
+		}
 	}
 	a.ouvrir-modal {
 		display: block;

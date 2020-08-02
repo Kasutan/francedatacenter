@@ -28,18 +28,22 @@ a:active {
 .fleche {
 	text-align: center;
 
-	a {
+	a, button {
 		--lien:var(--cyan);
 
+		background-color: transparent;
+		border:none;
 		color:var(--lien);
 		display: inline-block;
 		font-size: 122%;
 		font-weight:700;
 		line-height:1.36;
 		margin:1em auto;
+		outline: none;
 		padding:8px;
 		position: relative;
 		text-decoration: none;
+		text-transform: none;
 		transition-property: border,color;
 
 		&::after {
@@ -86,7 +90,7 @@ a:active {
 
 	/*Variante avec les couleurs inversées*/
 	&.bleu {
-		a {
+		a, button {
 			--lien : var(--bleu);
 			&:hover, &:focus, &:active {
 				--lien : var(--cyan);
@@ -95,7 +99,7 @@ a:active {
 		
 	}
 	&.blanc {
-		a {
+		a, button {
 			--lien : var(--blanc);
 			&:hover, &:focus, &:active {
 				--lien : var(--blanc);
@@ -106,7 +110,7 @@ a:active {
 
 	/*Variante avec la fleche vers le bas*/
 	&.angle-bas {
-		a {
+		a, button {
 			svg {
 				margin-left: 4px;
 				max-width: 12px;

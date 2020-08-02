@@ -33,7 +33,7 @@ function fdc_user_custom_column_content($value, $column_name, $user_id) {
   return $value;
 }
 
-function fdc_affiche_adherent($user,$contexte='grille') {
+function fdc_affiche_adherent($user,$contexte='grille',$groupe=0) {
 	if( !function_exists('get_field') || !function_exists('fdc_get_picto_url') ) {
 		return;
 	}
@@ -54,11 +54,22 @@ function fdc_affiche_adherent($user,$contexte='grille') {
 			);
 		}
 	} else { //contexte grille, on affiche le logo cliquable qui ouvre une popup au clic
-		printf('<li class="adherent"><a href="#adherent-%s" class="ouvrir-modaal">%s</a>%s</li>',
-			$user_id,
-			wp_get_attachment_image($logo, 'medium', false, array('alt'=>$entreprise)),
-			fdc_prepare_popup_adherent($user_id,$logo,$entreprise,$url)
-		);
+		if ($groupe > 0) {
+			printf('<li class="adherent js-afficher-plus" data-groupe="%s" data-src="%s"><a href="#adherent-%s" class="ouvrir-modaal"><img src="" alt="%s" /></a>%s</li>',
+				$groupe,
+				wp_get_attachment_image_url($logo, 'medium'),
+				$user_id,
+				$entreprise,
+				fdc_prepare_popup_adherent($user_id,$logo,$entreprise,$url)
+			);
+		} else {
+			printf('<li class="adherent"><a href="#adherent-%s" class="ouvrir-modaal">%s</a>%s</li>',
+				$user_id,
+				wp_get_attachment_image($logo, 'medium', false, array('alt'=>$entreprise)),
+				fdc_prepare_popup_adherent($user_id,$logo,$entreprise,$url)
+			);
+		}
+		
 	}
 }
 

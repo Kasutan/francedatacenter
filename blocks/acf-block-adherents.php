@@ -30,6 +30,8 @@ function fdc_adherents_callback( $block ) {
 		$className=esc_attr($block["className"]);
 	} else $className='';
 
+	$taille_groupe=esc_attr(get_field('taille_groupe'));
+	if(!$taille_groupe) $taille_groupe=10;
 
 	printf('<section class="acf-block-adherents alignfull %s">', $className);
 		//https://developer.wordpress.org/reference/classes/wp_user_query/prepare_query/
@@ -48,11 +50,20 @@ function fdc_adherents_callback( $block ) {
 
 		// The User Loop
 		if ( ! empty( $user_query->results ) ) {
+			$compteur=0;
 			echo '<ul class="adherents">';
 			foreach ( $user_query->results as $user ) {
-				fdc_affiche_adherent($user,$contexte='grille');
+				$groupe=floor($compteur/$taille_groupe);
+				fdc_affiche_adherent($user,$contexte='grille',$groupe);
+				$compteur++;
 			}
 			echo '</ul>';
+			if($compteur>$taille_groupe) {
+				printf('<div class="fleche bas"><button id="afficher-plus" data-prochain-groupe="1" data-dernier-groupe="%s" aria-label="Afficher plus d\'adhérents">Afficher plus %s</button></div>',
+				$groupe,
+				fdc_get_picto_inline('angle-bas')
+				);
+			}
 		} else {
 			echo 'Aucun adhérent actif';
 		}

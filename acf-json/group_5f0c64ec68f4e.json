@@ -18,6 +18,25 @@
             "message": "Bloc adhérents (contenu automatique)",
             "new_lines": "wpautop",
             "esc_html": 0
+        },
+        {
+            "key": "field_5f26995a97b65",
+            "label": "Nombre de logos à afficher",
+            "name": "taille_groupe",
+            "type": "text",
+            "instructions": "Nombre de logos affichés au chargement de la page puis à chaque clic sur \"Afficher plus\"",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 10,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -37,5 +56,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1594647869
+    "modified": 1596365194
 }
