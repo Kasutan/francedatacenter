@@ -51,7 +51,7 @@ function fdc_agenda_callback( $block ) {
 		);
 		$agenda=new WP_Query($args);
 		if($agenda->have_posts()) :
-			echo '<div class="agenda" id="agenda">';
+			echo '<div class="agenda" id="liste-filtrable">';
 				fdc_affiche_filtre_agenda();
 				echo '<ul class="list evenements">';
 				while ($agenda->have_posts()):
