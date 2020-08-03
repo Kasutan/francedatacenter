@@ -110,6 +110,30 @@ function fdc_is_current_user_adherent() {
 	}
 }
 
+/**
+* Afficher le lien de connexion ou de déconnexion dans l'en-tête
+*/
+function fdc_affiche_lien_connexion() {
+	if(!function_exists('fdc_get_picto_inline') || !function_exists('get_field')) {
+		return;
+	}
+	$current_user=wp_get_current_user()->ID;
+	if($current_user==0) { //le visiteur n'est pas connecté
+		printf('<button id="ouvrir-connexion" aria-expanded="false" class="connexion bouton" aria-controls="volet-connexion">%s<span>Connexion adhérent</span></button>',
+			fdc_get_picto_inline('connexion')
+		);
+	} else {
+		$entreprise=get_field('entreprise','user_'.$current_user);
+		$user_data=get_userdata( $current_user );
+		printf('<a class="connexion lien" href="%s" title="Se déconnecter">%s<span>%s',
+			wp_logout_url('/'),
+			fdc_get_picto_inline('deconnexion'),
+			$user_data->display_name
+		);
+		if($entreprise) printf(' - %s',$entreprise);
+		printf('</span></a>');
+	}
+}
 
 /**
 * Masquer certains champs des écrans d'édition et de création d'utilisateurs

@@ -163,17 +163,15 @@ p.fil-ariane {
 	clear: both;
 	display: block;
 
+	.volet-navigation {
+		display: none; // par défaut le menu est caché en mobile
+	}
+
 	ul {
 		display: none; // par défaut le menu est caché en mobile
 		list-style: none;
 		margin: 0;
 		padding-left: 0;
-
-		ul {
-			display: flex;
-			flex-direction: column;
-		}
-
 	}
 
 	.menu-toggle {
@@ -185,10 +183,8 @@ p.fil-ariane {
 	}
 
 	&.toggled { //menu mobile ouvert
-		ul.menu {
-			align-items:center;
-			background-color:var(--gris-fond-clair);
-			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+		.volet-navigation {
+			background: var(--gradient);
 			display: flex;
 			flex-direction: column;
 			height: 100Vh;
@@ -201,6 +197,11 @@ p.fil-ariane {
 			width:100vw;
 			z-index: 10;
 		}
+		ul.menu {
+			align-items:center;
+			display: flex;
+			flex-direction: column;
+		}
 
 		svg.menu { //cacher hamburger 
 			display:none;
@@ -211,13 +212,17 @@ p.fil-ariane {
 	}
 
 
-	@include bp(md) { //menu 
+	@include bp(md) { //menu
 		width: 100%;
 
 		.menu-toggle {
 			display: none;
 		}
-
+		.volet-navigation {
+			background: #fff;
+			display: flex;
+			flex-direction: row;
+		}
 		ul.menu {
 			align-items: center;
 			display: flex;
@@ -238,6 +243,8 @@ p.fil-ariane {
 				position: relative;
 				&:hover, &.focus { //classe .focus ajoutée en JS
 					ul {
+						display:flex;
+						flex-direction: column;
 						left: calc(50% - 130px);
 						padding:20px;
 						width:260px;
@@ -315,32 +322,67 @@ p.fil-ariane {
 	
 
 
-	//Lien de menu vers l'accès client (lien externe)
-	li.client a {
-		font-size:1rem;
+	//Bouton de connexion et lien de déconnexion
+	.connexion {
+		background-color: transparent;
+		border:none;
+		color:var(--blanc);
+		font-size:17px;
+		font-weight: normal;
+		margin:0;
+		padding:0;
+		padding-left:12px;
 		text-transform: unset;
-
-		background-image:url('icons/Acces-Client.svg');
-		background-repeat: no-repeat;
-		background-position: left center ;
-		background-size:25px auto;
-		line-height:25px;
-		padding-left: 34px;	
-	}
-
-}
-
-//Lien de menu vers l'accès client déplacé en haut à droite (uniquement en desktop si l'en-tête n'est pas sticky)
-@include bp(md) {
-	.site-header:not(.sticky) {
-		padding-bottom:14px;
-		padding-top:15px;
-		position: relative;
-		li.client {
-			position: absolute;
-			right:var(--padding-x);
-			top:-5px;
+		svg {
+			margin-right: 10px;
+			width:17px;
 		}
 
+		//deplacés en haut à droite en desktop + couleurs et position picto différentes
+		@include bp(md) {
+			align-items: center;
+			display: flex;
+			flex-direction: row-reverse;
+			font-size: 16px;
+			font-weight: medium;
+			line-height: 19px;
+			position: absolute;
+			right:var(--padding-x-header);
+			top:10px;
+			svg {
+				margin-right:0;
+				margin-left:4px;
+				path {
+					transition:fill var(--transition);
+				}
+			}
+			//lien de déconnexion
+			&.lien {
+				color:var(--bleu);
+				svg path {
+					fill:var(--bleu);
+				}
+				&:hover, &:focus, &:active {
+					color:var(--cyan);
+					svg path {
+						fill:var(--cyan);
+					}
+				}
+			}
+			//bouton de connexion
+			&.bouton {
+				color:var(--cyan);
+				svg path {
+					fill:var(--cyan);
+				}
+				&:hover, &:focus, &:active {
+					color:var(--bleu);
+					svg path {
+						fill:var(--bleu);
+					}
+				}
+			}
+		}
 	}
+
 }

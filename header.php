@@ -51,12 +51,19 @@
 				<svg xmlns="http://www.w3.org/2000/svg" class="times" width="22.627" height="23.023" viewBox="0 0 22.627 23.023"><g transform="translate(-322.82 -28.424)"><path d="M1.38.22H27.94" transform="translate(323.768 29.06) rotate(45)" fill="none" stroke="#37b0b0" stroke-linecap="round" stroke-width="2.5"/><path d="M1.38.22H27.94" transform="translate(344.811 30.078) rotate(135)" fill="none" stroke="#37b0b0" stroke-linecap="round" stroke-width="2.5"/></g></svg>
 
 			</button>
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-			) );
-			?>
+			<div class="volet-navigation">
+				<?php
+				wp_nav_menu( array(
+					'theme_location' => 'menu-1',
+					'menu_id'        => 'primary-menu',
+				) );
+
+				//Connexion adhérent
+				if(function_exists('fdc_affiche_lien_connexion')) {
+					fdc_affiche_lien_connexion();
+				}
+				?>
+			</div>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 
