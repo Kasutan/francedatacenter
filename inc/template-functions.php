@@ -36,7 +36,7 @@ add_action( 'wp_head', 'fdc_pingback_header' );
 * Get picto url.
 */
 function fdc_get_picto_url($name) {
-	return get_template_directory_uri() . '/icons\/'.$name.'.svg';
+	return get_template_directory_uri() . '/icons/'.$name.'.svg';
 }
 
 

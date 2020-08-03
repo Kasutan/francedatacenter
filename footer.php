@@ -34,6 +34,7 @@
 				'menu_id' => 'footer',
 				'menu_class' => 'liens-copyright'
 			) );
+		echo '</div>'; //.fin copyright
 		
 		?>
 	</footer><!-- #colophon -->
