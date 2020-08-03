@@ -76,7 +76,7 @@ function fdc_affiche_evenement($post_id) {
 				echo '</p>';
 			}
 		echo '</div>';
-		printf('<button class="fermer-modaal retour" id="retour-liste"><img src="%s" width="52" height="52" alt="Fermer"/><span>Revenir à la liste</span></button>',fdc_get_picto_url('croix'));
+		printf('<button class="fermer-modaal retour"><img src="%s" width="52" height="52" alt="Fermer"/><span>Revenir à la liste</span></button>',fdc_get_picto_url('croix'));
 	echo '</div>'; //fin .popup
 
 	echo '</li>'; // fin de l'évènement
