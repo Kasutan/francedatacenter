@@ -136,6 +136,25 @@ function fdc_affiche_lien_connexion() {
 }
 
 /**
+* Afficher le volet de connexion dans l'en-tête
+*/
+function fdc_affiche_volet_connexion() {
+	if(!function_exists('fdc_get_picto_url') || !function_exists('get_field')) {
+		return;
+	}
+	$current_user=wp_get_current_user()->ID;
+	if($current_user!=0) { //le visiteur est connecté, pas besoin d'afficher le volet
+		return '';
+	}
+	echo '<div class="volet" id="volet-connexion" aria-expanded="false" ><div class="decor"></div>';
+		printf('<img class="picto" src="%s" width="49" height="39" alt="picto connexion"/>',
+			fdc_get_picto_url('verrou-ferme-blanc')
+		);
+		echo '<p class="h2">Connexion adhérents</p>';
+	echo '</div>';
+}
+
+/**
 * Masquer certains champs des écrans d'édition et de création d'utilisateurs
 * https://www.role-editor.com/hide-disable-wordpress-user-profile-fields/
 */

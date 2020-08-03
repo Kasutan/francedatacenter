@@ -230,6 +230,25 @@
 			$('#filtre-liste').trigger("change");
 		}
 
+		/*********Afficher/masquer le volet de connexion **********/
+		var boutonConnexion=("#ouvrir-connexion");
+		if($(boutonConnexion).length>0) {
+			var voletConnexion=('#volet-connexion');
+			$(boutonConnexion).click(function(){
+				if($(boutonConnexion).attr('aria-expanded')=="false") {
+					$(voletConnexion).slideDown('slow');
+					$(voletConnexion).css('display','flex');
+					$(voletConnexion).attr('aria-expanded','true');
+					$(boutonConnexion).attr('aria-expanded','true');
+				} else {
+					$(voletConnexion).slideUp('slow');
+					$(voletConnexion).attr('aria-expanded','false');
+					$(boutonConnexion).attr('aria-expanded','false');
+				}
+
+			});
+		}
+
 	}); //fin document ready
 })( jQuery );
 

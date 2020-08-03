@@ -1920,6 +1920,29 @@ button.modaal-close {
     max-width: 290px; } }
 
 /*--------------------------------------------------------------
+## Volet connexion
+--------------------------------------------------------------*/
+#volet-connexion {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: var(--noir);
+  color: var(--blanc);
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 50px;
+  position: relative;
+  z-index: 1; }
+  #volet-connexion .h2 {
+    color: var(--blanc);
+    text-align: center; }
+    #volet-connexion .h2::after {
+      display: none; }
+
+/*--------------------------------------------------------------
 ## Entry-header
 --------------------------------------------------------------*/
 .entry-header {
