@@ -89,7 +89,6 @@ table {
 	padding: var(--padding-lien);
 	text-align: center;
 	text-decoration: none;
-	text-transform: uppercase;
 	transition: all var(--transition);
 	vertical-align: middle;
 }
@@ -106,14 +105,14 @@ a.button,
 a.wp-block-button__link:not(.has-background) {
 	@include bouton;
 
-	background: var(--rouge);
-	border-color: var(--rouge);
+	background: var(--bleu);
+	border-color: var(--bleu);
 	color: var(--blanc);
 	
 
 	&:hover, &:focus, &:active {
 		background: var(--blanc);
-		color: var(--rouge);
+		color: var(--bleu);
 		text-decoration: none;
 	}
 }

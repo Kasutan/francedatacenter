@@ -74,13 +74,39 @@ function fdc_affiche_ressource($post_id) {
 			echo '</div>'; //fin .meta
 
 		echo '</div>';//fin .texte
+		//pour le filtre uniquement
+		printf('<span class="type screen-reader-text">%s</span>',
+			$type_ressource
+		);
 	echo '</li>';
 
 }
 
 function fdc_affiche_filtre_ressources(){
-	echo '<nav style="background-color:var(--gris);margin-bottom:50px;padding:30px">filtre ressources ici</nav>';
-	//TODO construire le filtre
+	$terms = get_terms( array(
+		'taxonomy' => 'type_ressource',
+		'orderby' =>'term_id',
+	) );
+	printf('<button id="toggle-filtre" aria-controls="filtre-liste" aria-expanded="false" class="toggle-filtre">%s <span class="afficher">Afficher les filtres</span><span class="masquer">Masquer les filtres</span></button>',
+		fdc_get_picto_inline('filtre')
+	);
+	echo '<form id="filtre-liste" class="filtre filtre-ressources" aria-expanded="false">';
+		echo '<p class="screen-reader-text">Filtrer par type de ressource</p>';
+		foreach($terms as $term) : 
+			$nom=$term->name;
+			$slug=$term->slug;
+			printf('<input type="checkbox" id="%s" name="%s" value="%s" class="type" checked>',
+				$slug,
+				$slug,
+				$slug
+			);
+			printf('<label for="%s" class="%s">%s</label>',
+				$slug,
+				$slug,
+				$nom
+			);
+		endforeach;
+	echo '</form>';
 }
 
 //Pour la page actualités

@@ -1,4 +1,8 @@
-/*style de la vignette ressource utilisée pour le bloc ressources et pour la page single*/
+.acf-block-ressources {
+	margin-bottom: var(--margin-y);
+}
+
+/*style de la vignette ressource (et de la liste) utilisée pour le bloc ressources et pour la page single*/
 .liste-ressources {
 	list-style:none;
 	padding:0;
@@ -144,6 +148,7 @@
 		}
 	}
 }
+
 
 /**********Affichage en liste************/
 .acf-block-quatre-ressources {

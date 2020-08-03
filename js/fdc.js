@@ -1,7 +1,7 @@
 (function($) {
 
 	$( document ).ready(function() {
-		//var width=$(window).width();
+		var width=$(window).width();
 		/****************** Modaal*************************/
 		$('.ouvrir-modaal').modaal();
 		$('.fermer-modaal').click(function(){
@@ -137,6 +137,7 @@
 						$("#filtre-liste input:checked").each(function(i) {
 							selectedValues.push($(this).val());
 						});
+						console.log(selectedValues);
 						//on filtre la liste pour ne garder que les éléments dont le type est présent dans la liste
 						listeFiltrable.filter(function(item) {
 							return (selectedValues.indexOf(item.values().type)>=0);
@@ -186,6 +187,30 @@
 				} else {
 					$(boutonPlus).hide();
 				}
+			}
+		}
+
+		/*********Afficher/masquer les filtres ressources **********/
+		var toggleFiltre=$('#toggle-filtre');
+		if($(toggleFiltre).length>0) {
+			if(width>=768) {
+				toggleFiltre.hide();
+				$('#filtre-liste').show();
+				$('#filtre-liste').removeAttr('aria-expanded');
+			} else {
+				$('#filtre-liste').hide();
+				toggleFiltre.click(function(){
+					if(toggleFiltre.hasClass('ouvert')) {
+						$('#filtre-liste').slideUp('slow');
+						$('#filtre-liste').attr('aria-expanded','false');
+						$(toggleFiltre).attr('aria-expanded','false');
+					} else {
+						$('#filtre-liste').slideDown('slow');
+						$('#filtre-liste').attr('aria-expanded','true');
+						$(toggleFiltre).attr('aria-expanded','true');
+					}
+					toggleFiltre.toggleClass('ouvert');
+				});
 			}
 		}
 
