@@ -214,6 +214,16 @@
 			}
 		}
 
+		/*********Filtrer les ressources si paramètre videos ds l'url **********/
+		var url_string = window.location.href;
+		var url = new URL(url_string);
+		filtreRessources = url.searchParams.get("filtre_ressources");
+		if(filtreRessources=="videos" && $('#filtre-liste.filtre-ressources').length>0) {
+			$('#filtre-liste input').prop( "checked", false );
+			$('#videos').prop( "checked", true );
+			$('#filtre-liste').trigger("change");
+		}
+
 	}); //fin document ready
 })( jQuery );
 
