@@ -118,6 +118,7 @@
 		if($("#filtre-liste").length>0) {
 			var boutonPlus=("#afficher-plus");
 			var increment=parseInt($(boutonPlus).attr('data-increment'));
+			var resultats=('.list');
 			var listeFiltrable = new List('liste-filtrable', {
 				valueNames: ['type'],
 				page: increment,
@@ -125,23 +126,52 @@
 			});
 			$('#filtre-liste').change(function(){
 				//quand on clique sur une checkbox
-				var selectedValues=[];
-				//on crée un tableau avec tous les types cochés
-				$("#filtre-liste input:checked").each(function(i) {
-					selectedValues.push($(this).val());
-				});
-				//on filtre la liste pour ne garder que les éléments dont le type est présent dans la liste
-				listeFiltrable.filter(function(item) {
-					return (selectedValues.indexOf(item.values().type)>=0);
-				});
-				actualiseBouton();
+				$(resultats).animate(
+					{opacity:0},
+					400,
+					'linear',
+					function(){
+						//callback de l'animation
+						var selectedValues=[];
+						//on crée un tableau avec tous les types cochés
+						$("#filtre-liste input:checked").each(function(i) {
+							selectedValues.push($(this).val());
+						});
+						//on filtre la liste pour ne garder que les éléments dont le type est présent dans la liste
+						listeFiltrable.filter(function(item) {
+							return (selectedValues.indexOf(item.values().type)>=0);
+						});
+						actualiseBouton();
+						//la nouvelle liste est prête, nouvelle animation pour réafficher
+						$(resultats).animate(
+							{opacity:1}, 1000, 'linear'	
+						);
+					}
+				);
+				
 			});
 			$(boutonPlus).click(function(){
 				//calcul du nouveau nombre d'évènements à afficher
 				var next=parseInt($(this).attr('data-affiche')) + increment;
-				//on applique à la liste
-				listeFiltrable.show(0,next);
-				actualiseBouton();
+
+				$(resultats).animate(
+					{opacity:0},
+					400,
+					'linear',
+					function(){
+						//callback de la première animation
+						//on applique à la liste
+						listeFiltrable.show(0,next);
+						actualiseBouton();
+						
+						//la nouvelle liste est prête, nouvelle animation pour réafficher
+						$(resultats).animate(
+							{opacity:1}, 1000, 'linear'	
+						);
+					}
+				);
+				
+				
 			});
 			function actualiseBouton() {
 				//nbre d'éléments actuellement affichés (tient compte du filtre)
