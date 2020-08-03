@@ -599,7 +599,7 @@ body {
 
 /* Hauteur mini main*/
 .site {
-  overflow-y: hidden;
+  overflow-x: hidden;
   position: relative; }
 
 .site-main {
