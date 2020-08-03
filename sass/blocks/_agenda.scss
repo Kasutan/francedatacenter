@@ -97,7 +97,7 @@
 				}
 			}
 
-			&:hover {
+			&:hover, &:focus-within {
 				.resume {
 					background-color: var(--accent);
 					border-top:solid 1px var(--blanc);

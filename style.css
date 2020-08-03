@@ -2593,14 +2593,14 @@ button.retour {
           line-height: 25px;
           padding: 2px 10px;
           text-transform: uppercase; }
-      .acf-block-agenda .evenement:hover .resume {
+      .acf-block-agenda .evenement:hover .resume, .acf-block-agenda .evenement:focus-within .resume {
         background-color: var(--accent);
         border-top: solid 1px var(--blanc); }
-        .acf-block-agenda .evenement:hover .resume .dates, .acf-block-agenda .evenement:hover .resume .nom, .acf-block-agenda .evenement:hover .resume .horaires, .acf-block-agenda .evenement:hover .resume .lieu {
+        .acf-block-agenda .evenement:hover .resume .dates, .acf-block-agenda .evenement:hover .resume .nom, .acf-block-agenda .evenement:hover .resume .horaires, .acf-block-agenda .evenement:hover .resume .lieu, .acf-block-agenda .evenement:focus-within .resume .dates, .acf-block-agenda .evenement:focus-within .resume .nom, .acf-block-agenda .evenement:focus-within .resume .horaires, .acf-block-agenda .evenement:focus-within .resume .lieu {
           color: var(--blanc); }
-          .acf-block-agenda .evenement:hover .resume .dates svg path, .acf-block-agenda .evenement:hover .resume .nom svg path, .acf-block-agenda .evenement:hover .resume .horaires svg path, .acf-block-agenda .evenement:hover .resume .lieu svg path {
+          .acf-block-agenda .evenement:hover .resume .dates svg path, .acf-block-agenda .evenement:hover .resume .nom svg path, .acf-block-agenda .evenement:hover .resume .horaires svg path, .acf-block-agenda .evenement:hover .resume .lieu svg path, .acf-block-agenda .evenement:focus-within .resume .dates svg path, .acf-block-agenda .evenement:focus-within .resume .nom svg path, .acf-block-agenda .evenement:focus-within .resume .horaires svg path, .acf-block-agenda .evenement:focus-within .resume .lieu svg path {
             fill: var(--blanc); }
-        .acf-block-agenda .evenement:hover .resume .dates {
+        .acf-block-agenda .evenement:hover .resume .dates, .acf-block-agenda .evenement:focus-within .resume .dates {
           border-color: var(--blanc); } }
   @media (min-width: 960px) {
     .acf-block-agenda .evenement {
