@@ -1,0 +1,45 @@
+.filtre {
+	border:none;
+	display: flex;
+	flex-wrap:wrap;
+	justify-content: center;
+	margin-bottom: 25px;
+	input{
+		display:none;
+	}
+	label {
+		--couleur:var(--gris);
+		border:solid 1px var(--couleur);
+		color:var(--couleur);
+		margin:0 5px 14px;
+		padding:5px 10px;
+		position: relative;
+		&::after {
+			border:solid 1px var(--couleur);
+			border-radius: 50%;
+			color:transparent;
+			content:'✓';
+			display: inline-block;
+			font-size: 10px;
+			height:auto;
+			line-height: 14px;
+			margin-left: 10px;
+			position: relative;
+			text-align: center;
+			top:-2px;
+			width:15px;
+		}
+	}
+	input:checked + label {
+		--couleur:var(--cyan);
+		&::after {
+			color:var(--couleur);
+		}
+	}
+
+	@include bp(md) {
+		label {
+			margin:0 14px 14px;
+		}
+	}
+}

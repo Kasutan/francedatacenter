@@ -124,8 +124,8 @@ function fdc_affiche_filtre_agenda(){
 		'taxonomy' => 'type_evement',
 		'orderby' =>'term_id',
 	) );
-	echo '<fieldset id="filtre-liste" class="filtre agenda">';
-		echo '<legend class="screen-reader-text">Filtrer par type d\'évènement</legend>';
+	echo '<form id="filtre-liste" class="filtre agenda">';
+		echo '<p class="screen-reader-text">Filtrer par type d\'évènement</p>';
 		foreach($terms as $term) : 
 			$nom=$term->name;
 			$slug=$term->slug;
@@ -139,7 +139,7 @@ function fdc_affiche_filtre_agenda(){
 				$nom.'s'
 			);
 		endforeach;
-	echo '</fieldset>';
+	echo '</form>';
 }
 
 function fdc_affiche_liste_evenements() {

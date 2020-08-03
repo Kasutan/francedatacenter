@@ -33,6 +33,8 @@ function fdc_agenda_callback( $block ) {
 	$page=esc_attr(get_field('page'));
 	if(!$page) $page=3;
 
+	$titre=wp_kses_post(get_field('titre'));
+
 	printf('<section class="acf-block-agenda %s">', $className);
 		$args=array(
 			'post_type' => 'evenement',
@@ -51,6 +53,7 @@ function fdc_agenda_callback( $block ) {
 		);
 		$agenda=new WP_Query($args);
 		if($agenda->have_posts()) :
+			if($titre) printf('<h2 class="has-text-align-center">%s</h2>',$titre);
 			echo '<div class="agenda" id="liste-filtrable">';
 				fdc_affiche_filtre_agenda();
 				echo '<ul class="list evenements">';

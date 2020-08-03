@@ -201,12 +201,6 @@ button:-moz-focusring,
   outline: 1px dotted ButtonText; }
 
 /**
-* Correct the padding in Firefox.
-*/
-fieldset {
-  padding: 0.35em 0.75em 0.625em; }
-
-/**
 * 1. Correct the text wrapping in Edge and IE.
 * 2. Correct the color inheritance from `fieldset` elements in IE.
 * 3. Remove the padding so developers are not caught out when they zero out
@@ -2523,6 +2517,11 @@ button.retour {
       display: none; }
     .acf-block-agenda .evenement .type-desktop {
       display: none; }
+  @media screen and (max-width: 767px) {
+    .acf-block-agenda h2 {
+      height: 0;
+      margin-bottom: 0;
+      overflow: hidden; } }
   @media (min-width: 768px) {
     .acf-block-agenda .evenements {
       border: none;
@@ -2531,9 +2530,9 @@ button.retour {
       display: flex;
       -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-      -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-      justify-content: space-between; }
+      -webkit-box-pack: start;
+      -ms-flex-pack: start;
+      justify-content: flex-start; }
     .acf-block-agenda .evenement {
       border: solid 1px var(--accent);
       -ms-flex-preferred-size: 45%;
@@ -2542,6 +2541,8 @@ button.retour {
       flex-basis: calc(50% - 20px);
       margin-bottom: 40px;
       padding: 0; }
+      .acf-block-agenda .evenement:nth-of-type(2n+1) {
+        margin-right: 20px; }
       .acf-block-agenda .evenement > a {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -2606,7 +2607,10 @@ button.retour {
       flex-basis: 30%;
       -ms-flex-preferred-size: calc((100% - 90px) / 3);
       flex-basis: calc((100% - 90px) / 3);
-      margin-bottom: 43px; } }
+      margin-bottom: 43px;
+      margin-right: 0; }
+      .acf-block-agenda .evenement {
+        margin-right: 30px; } }
 
 /*sortir le style résumé du bloc pour l'appliquer aussi à la popup*/
 .resume {
@@ -3599,5 +3603,47 @@ button.retour {
         flex-grow: 1;
         margin-left: 31px;
         padding-bottom: 90px; } }
+
+.filtre {
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-bottom: 25px; }
+  .filtre input {
+    display: none; }
+  .filtre label {
+    --couleur:var(--gris);
+    border: solid 1px var(--couleur);
+    color: var(--couleur);
+    margin: 0 5px 14px;
+    padding: 5px 10px;
+    position: relative; }
+    .filtre label::after {
+      border: solid 1px var(--couleur);
+      border-radius: 50%;
+      color: transparent;
+      content: '✓';
+      display: inline-block;
+      font-size: 10px;
+      height: auto;
+      line-height: 14px;
+      margin-left: 10px;
+      position: relative;
+      text-align: center;
+      top: -2px;
+      width: 15px; }
+  .filtre input:checked + label {
+    --couleur:var(--cyan); }
+    .filtre input:checked + label::after {
+      color: var(--couleur); }
+  @media (min-width: 768px) {
+    .filtre label {
+      margin: 0 14px 14px; } }
 
 /*# sourceMappingURL=style.css.map */
