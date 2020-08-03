@@ -181,7 +181,9 @@ function fdc_scripts() {
 
 	wp_register_script( 'francedatacenter-modaal',get_template_directory_uri() . '/lib/modaal/modaal.min.js', array('jquery'), '0.4.4', true );
 
-	wp_enqueue_script( 'francedatacenter-scripts', get_template_directory_uri() . '/js/fdc.js', array('jquery', 'francedatacenter-owl-carousel', 'francedatacenter-modaal'), '', true );
+	wp_register_script( 'francedatacenter-list',get_template_directory_uri() . '/lib/list/list.min.js', array(), '1.5.0', true );
+
+	wp_enqueue_script( 'francedatacenter-scripts', get_template_directory_uri() . '/js/fdc.js', array('jquery', 'francedatacenter-owl-carousel', 'francedatacenter-modaal','francedatacenter-list'), '', true );
 }
 add_action( 'wp_enqueue_scripts', 'fdc_scripts' );
 

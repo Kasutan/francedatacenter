@@ -30,6 +30,8 @@ function fdc_agenda_callback( $block ) {
 		$className=esc_attr($block["className"]);
 	} else $className='';
 
+	$page=esc_attr(get_field('page'));
+	if(!$page) $page=3;
 
 	printf('<section class="acf-block-agenda %s">', $className);
 		$args=array(
@@ -57,7 +59,16 @@ function fdc_agenda_callback( $block ) {
 					fdc_affiche_evenement(get_the_ID());
 				endwhile;
 				echo '</ul>';
-				//TODO bouton pour afficher plus d'évènements
+				if($agenda->found_posts > $page) {
+					printf('<div class="fleche bas"><button id="afficher-plus" data-affiche="%s" data-increment="%s" data-max="%s" aria-label="Afficher plus d\'évènements">Afficher plus %s</button></div>',
+						$page,
+						$page,
+						$agenda->found_posts,
+						fdc_get_picto_inline('angle-bas')
+					);
+				}
+				//reçoit la pagination list.js - cet élément est masqué, mais sert à repérer si tous les éléments sont affichés (en tenant compte des filtres), pour savoir si on masque ou pas le bouton Afficher plus
+				echo '<ul class="pagination" style="display:none"></ul>'; 
 			echo '</div>';
 		else : 
 			echo '<p>Aucun évènement</p>';

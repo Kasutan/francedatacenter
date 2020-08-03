@@ -105,7 +105,6 @@
 				$(this).css('display','flex');
 				$(this).animate({opacity:1},1000);
 			});
-			console.log($(montrerAdherents[0]).find('a'));
 			$(montrerAdherents[0]).find('a').focus();
 			if(next==last) {
 				$(this).hide();
@@ -114,6 +113,51 @@
 				$(this).attr('data-prochain-groupe',next);
 			}
 		});
+
+		/****************** Filtre agenda *************************/	
+		if($("#filtre-agenda").length>0) {
+			var boutonPlus=("#afficher-plus");
+			var increment=parseInt($(boutonPlus).attr('data-increment'));
+			var listAgenda = new List('agenda', {
+				valueNames: ['type'],
+				page: increment,
+				pagination: true
+			});
+			$('#filtre-agenda').change(function(){
+				//quand on clique sur une checkbox
+				var selectedValues=[];
+				//on crée un tableau avec tous les types cochés
+				$("#filtre-agenda input:checked").each(function(i) {
+					selectedValues.push($(this).val());
+				});
+				//on filtre la liste pour ne garder que les éléments dont le type est présent dans la liste
+				listAgenda.filter(function(item) {
+					return (selectedValues.indexOf(item.values().type)>=0);
+				});
+				actualiseBouton();
+			});
+			$(boutonPlus).click(function(){
+				//calcul du nouveau nombre d'évènements à afficher
+				var next=parseInt($(this).attr('data-affiche')) + increment;
+				//on applique à la liste
+				listAgenda.show(0,next);
+				actualiseBouton();
+			});
+			function actualiseBouton() {
+				//nbre d'éléments actuellement affichés (tient compte du filtre)
+				var affiche=$('.evenement').length; 
+				$(boutonPlus).attr('data-affiche',affiche); //on stocke cette valeur dans le bouton
+
+				//nombre de pages automatiquement mis à jour par list.js (tient compte du filtre)
+				var pages=$('.pagination li').length;
+				//s'il y a plus d'une page, c'est qu'il y a encore des éléments à afficher = on montre le bouton - sinon on le cache
+				if(pages > 1) {
+					$(boutonPlus).show();
+				} else {
+					$(boutonPlus).hide();
+				}
+			}
+		}
 
 	}); //fin document ready
 })( jQuery );

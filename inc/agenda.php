@@ -40,7 +40,7 @@ function fdc_affiche_evenement($post_id) {
 	/*on commence l'affichage*/
 	printf('<li class="evenement %s"><a href="#evenement-%s" class="ouvrir-modaal">',
 		$classe_futur,
-		$post_id
+		$post_id,
 	);
 		if(has_post_thumbnail( $post_id )) {
 			printf('<div class="image">%s</div>',get_the_post_thumbnail( $post_id));
@@ -53,12 +53,13 @@ function fdc_affiche_evenement($post_id) {
 			printf('<div class="type-desktop"><span>%s</span></div>',
 				$type_evenement->name
 			);
-			//pour le filtre uniquement
-			printf('<span class="type screen-reader-text">%s</span>',
-				$type_evenement->slug
-			);
+			
 		}
 	echo '</a>'; //fin du bloc cliquable
+	//pour le filtre uniquement
+	printf('<span class="type screen-reader-text">%s</span>',
+		$type_evenement->slug
+	);
 	
 	//on prépare la popup
 	printf('<div id="evenement-%s" class="popup %s">',$post_id,$classe_futur);
@@ -119,8 +120,26 @@ function fdc_affiche_resume_evenement($date_debut,$date_fin,$titre,$plage_horair
 }
 
 function fdc_affiche_filtre_agenda(){
-	echo '<nav style="background-color:var(--gris);margin-bottom:50px;padding:30px">filtre agenda ici</nav>';
-	//TODO construire le filtre - mettre les labels au pluriel !
+	$terms = get_terms( array(
+		'taxonomy' => 'type_evement',
+		'orderby' =>'term_id',
+	) );
+	echo '<fieldset id="filtre-agenda" class="filtre agenda">';
+		echo '<legend class="screen-reader-text">Filtrer par type d\'évènement</legend>';
+		foreach($terms as $term) : 
+			$nom=$term->name;
+			$slug=$term->slug;
+			printf('<input type="checkbox" id="%s" name="%s" value="%s" class="type" checked>',
+				$slug,
+				$slug,
+				$slug
+			);
+			printf('<label for="%s">%s</label>',
+				$slug,
+				$nom.'s'
+			);
+		endforeach;
+	echo '</fieldset>';
 }
 
 function fdc_affiche_liste_evenements() {
