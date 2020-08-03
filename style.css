@@ -3618,7 +3618,14 @@ button.retour {
   justify-content: center;
   margin-bottom: 25px; }
   .filtre input {
-    display: none; }
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px; }
   .filtre label {
     --accent:var(--gris);
     border: solid 1px var(--accent);
@@ -3640,6 +3647,8 @@ button.retour {
       text-align: center;
       top: -2px;
       width: 15px; }
+  .filtre input:focus + label {
+    outline: dashed 1px var(--accent); }
   .filtre input:checked + label {
     --accent:var(--cyan); }
     .filtre input:checked + label.publications {

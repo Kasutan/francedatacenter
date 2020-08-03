@@ -153,7 +153,9 @@
 			});
 			$(boutonPlus).click(function(){
 				//calcul du nouveau nombre d'évènements à afficher
-				var next=parseInt($(this).attr('data-affiche')) + increment;
+				var affiche=parseInt($(this).attr('data-affiche'));
+				var next=affiche + increment;
+				var mettreFocus=affiche+1;
 
 				$(resultats).animate(
 					{opacity:0},
@@ -164,6 +166,10 @@
 						//on applique à la liste
 						listeFiltrable.show(0,next);
 						actualiseBouton();
+
+						//on met le focus sur le lien à l'intérieur du premier élément nouvellement affiché
+						$('.list li:nth-of-type('+mettreFocus+') a').focus();
+						console.log($('.list li:nth-of-type('+mettreFocus+') a'));
 						
 						//la nouvelle liste est prête, nouvelle animation pour réafficher
 						$(resultats).animate(
