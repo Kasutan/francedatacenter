@@ -1933,7 +1933,7 @@ button.modaal-close {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  padding: 50px;
+  padding: 20px;
   position: relative;
   z-index: 1; }
   #volet-connexion .h2 {
@@ -1941,6 +1941,121 @@ button.modaal-close {
     text-align: center; }
     #volet-connexion .h2::after {
       display: none; }
+  #volet-connexion form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    max-width: 488px; }
+    #volet-connexion form .login-username, #volet-connexion form .login-password {
+      position: relative; }
+      #volet-connexion form .login-username label, #volet-connexion form .login-password label {
+        border: 0;
+        clip: rect(1px, 1px, 1px, 1px);
+        -webkit-clip-path: inset(50%);
+        clip-path: inset(50%);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute !important;
+        width: 1px;
+        word-wrap: normal !important;
+        /* Many screen reader and browser combinations announce broken words as they would appear visually. */ }
+      #volet-connexion form .login-username input, #volet-connexion form .login-password input {
+        color: var(--noir);
+        font-weight: 700;
+        line-height: 40px;
+        height: 40px;
+        padding: 0 15px;
+        width: 100%; }
+        #volet-connexion form .login-username input::-webkit-input-placeholder, #volet-connexion form .login-password input::-webkit-input-placeholder {
+          /* Chrome/Opera/Safari */
+          color: var(--gris);
+          font-weight: 700;
+          line-height: 40px;
+          height: 40px;
+          padding: 0 15px;
+          text-transform: uppercase; }
+        #volet-connexion form .login-username input::-moz-placeholder, #volet-connexion form .login-password input::-moz-placeholder {
+          /* Firefox 19+ */
+          color: var(--gris);
+          font-weight: 700;
+          line-height: 40px;
+          height: 40px;
+          padding: 0 15px;
+          text-transform: uppercase; }
+        #volet-connexion form .login-username input:-ms-input-placeholder, #volet-connexion form .login-password input:-ms-input-placeholder {
+          /* IE 10+ */
+          color: var(--gris);
+          font-weight: 700;
+          line-height: 40px;
+          height: 40px;
+          padding: 0 15px;
+          text-transform: uppercase; }
+        #volet-connexion form .login-username input:-moz-placeholder, #volet-connexion form .login-password input:-moz-placeholder {
+          /* Firefox 18- */
+          color: var(--gris);
+          font-weight: 700;
+          line-height: 40px;
+          height: 40px;
+          padding: 0 15px;
+          text-transform: uppercase; }
+    #volet-connexion form .login-username {
+      -ms-flex-preferred-size: 100%;
+      flex-basis: 100%; }
+    #volet-connexion form .login-password {
+      -ms-flex-preferred-size: calc(100% - 60px);
+      flex-basis: calc(100% - 60px); }
+    #volet-connexion form .login-submit {
+      -ms-flex-preferred-size: 50px;
+      flex-basis: 50px;
+      margin-left: 10px; }
+      #volet-connexion form .login-submit input[type="submit"] {
+        background-color: #fff;
+        border: none;
+        color: var(--cyan);
+        line-height: 40px;
+        height: 40px;
+        margin: 0;
+        padding: 0;
+        text-transform: uppercase;
+        width: 100%; }
+        #volet-connexion form .login-submit input[type="submit"]:hover, #volet-connexion form .login-submit input[type="submit"]:focus, #volet-connexion form .login-submit input[type="submit"]:active {
+          color: var(--bleu); }
+  #volet-connexion .message {
+    text-align: center; }
+  #volet-connexion #fermer-connexion {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    color: var(--blanc);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    font-size: calc(22 * 0.8125rem / 18);
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0; }
+    @media (min-width: 768px) {
+      #volet-connexion #fermer-connexion {
+        font-size: calc(22 * 1.125rem / 18); } }
+    #volet-connexion #fermer-connexion span {
+      margin-bottom: 13px; }
+    #volet-connexion #fermer-connexion:hover, #volet-connexion #fermer-connexion:focus, #volet-connexion #fermer-connexion:active {
+      color: var(--blanc); }
+  @media (min-width: 768px) {
+    #volet-connexion {
+      padding: 50px; } }
 
 /*--------------------------------------------------------------
 ## Entry-header

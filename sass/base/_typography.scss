@@ -179,7 +179,7 @@ big, .has-big-font-size  {
 # Accessibility
 --------------------------------------------------------------*/
 /* Text meant only for screen readers. */
-.screen-reader-text {
+@mixin screen-reader-text {
 	border: 0;
 	clip: rect(1px, 1px, 1px, 1px);
 	clip-path: inset(50%);
@@ -191,6 +191,9 @@ big, .has-big-font-size  {
 	width: 1px;
 	word-wrap: normal !important;
 	/* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+.screen-reader-text {
+	@include screen-reader-text;
 }
 
 .screen-reader-text:focus {

@@ -12,6 +12,34 @@
 			height:500,
 			width:900
 		});
+
+		/*********Afficher/masquer le volet de connexion **********/
+		/*********+ modifier formulaire de connexion **********/
+		var voletConnexion=('#volet-connexion');
+		if($(voletConnexion).length>0) {
+			var boutonConnexion=("#ouvrir-connexion");
+			$(boutonConnexion).click(function(){
+				if($(boutonConnexion).attr('aria-expanded')=="false") {
+					$(voletConnexion).slideDown('slow');
+					$(voletConnexion).css('display','flex');
+					$(voletConnexion).attr('aria-expanded','true');
+					$(boutonConnexion).attr('aria-expanded','true');
+				} else {
+					$(voletConnexion).slideUp('slow');
+					$(voletConnexion).attr('aria-expanded','false');
+					$(boutonConnexion).attr('aria-expanded','false');
+				}
+
+			});
+			$('#fermer-connexion').click(function(){
+				$(voletConnexion).slideUp('slow');
+				$(voletConnexion).attr('aria-expanded','false');
+				$(boutonConnexion).attr('aria-expanded','false');
+			});
+			$('#volet-connexion #user_login').attr('placeholder','login');
+			$('#volet-connexion #user_pass').attr('placeholder','mot de passe');
+			$('#volet-connexion #wp-submit').attr('value','OK');
+		}
 		
 		/****************** Sticky header *************************/	
 		var siteHeader=$('.site-header');
@@ -25,7 +53,7 @@
 		$(window).scroll(function () { // scroll event
 			var windowTop = $(window).scrollTop(); // returns number
 			var windowBottom=window.innerHeight+windowTop;
-			if (windowTop > headerTop) {
+			if (windowTop > headerTop && ($(voletConnexion).length==0 || $(voletConnexion).attr('aria-expanded')!="true")) {
 				siteHeader.addClass('sticky');
 				mainNavigation.addClass('sticky');
 				siteContent.css('margin-top',siteHeader.outerHeight());
@@ -230,24 +258,7 @@
 			$('#filtre-liste').trigger("change");
 		}
 
-		/*********Afficher/masquer le volet de connexion **********/
-		var boutonConnexion=("#ouvrir-connexion");
-		if($(boutonConnexion).length>0) {
-			var voletConnexion=('#volet-connexion');
-			$(boutonConnexion).click(function(){
-				if($(boutonConnexion).attr('aria-expanded')=="false") {
-					$(voletConnexion).slideDown('slow');
-					$(voletConnexion).css('display','flex');
-					$(voletConnexion).attr('aria-expanded','true');
-					$(boutonConnexion).attr('aria-expanded','true');
-				} else {
-					$(voletConnexion).slideUp('slow');
-					$(voletConnexion).attr('aria-expanded','false');
-					$(boutonConnexion).attr('aria-expanded','false');
-				}
-
-			});
-		}
+		
 
 	}); //fin document ready
 })( jQuery );
