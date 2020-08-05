@@ -1936,6 +1936,16 @@ button.modaal-close {
   padding: 20px;
   position: relative;
   z-index: 1; }
+  #volet-connexion .decor {
+    background: var(--gradient);
+    -webkit-clip-path: polygon(100% 0px, 100% 43%, 20% 100%, 0px 81%, 0px 0px);
+    clip-path: polygon(100% 0px, 100% 43%, 20% 100%, 0px 81%, 0px 0px);
+    height: 85%;
+    left: 0;
+    opacity: 0.18;
+    position: absolute;
+    top: 0;
+    width: 100%; }
   #volet-connexion .h2 {
     color: var(--blanc);
     text-align: center; }
