@@ -1900,8 +1900,6 @@ button.modaal-close {
   .site-header.sticky {
     -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-    padding-left: 2rem;
-    padding-right: 2rem;
     position: fixed;
     left: 0;
     top: 0;

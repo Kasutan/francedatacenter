@@ -24,6 +24,17 @@
 					$(voletConnexion).css('display','flex');
 					$(voletConnexion).attr('aria-expanded','true');
 					$(boutonConnexion).attr('aria-expanded','true');
+					if(width < 768) {
+						$('body,html').animate(
+							{scrollTop : 0},400
+						);
+						var menu=$('.main-navigation');
+						if($(menu).hasClass('toggled')) {
+							$(menu).removeClass('toggled');
+							$(menu).attr('aria-expanded',false);
+							$('.menu-toggle').attr('aria-expanded',false);
+						}
+					}
 				} else {
 					$(voletConnexion).slideUp('slow');
 					$(voletConnexion).attr('aria-expanded','false');
