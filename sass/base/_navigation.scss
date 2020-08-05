@@ -237,8 +237,6 @@ p.fil-ariane {
 			justify-content: flex-end;
 
 			ul { //sous-menu
-				background-color:var(--blanc);
-				border: solid 1px #EAE7E1;
 				float: left;
 				margin-top:0px;
 				position: absolute;
@@ -253,9 +251,9 @@ p.fil-ariane {
 					ul {
 						display:flex;
 						flex-direction: column;
-						left: calc(50% - 130px);
-						padding:20px;
-						width:260px;
+						left:unset;
+						right: -32px;
+						width:195px;
 					}
 				}
 			}
@@ -288,7 +286,7 @@ p.fil-ariane {
 
 /*Style liens de menus*/ 
 
-.main-navigation {
+.volet-navigation {
 	li {
 		border-bottom:solid 1px var(--blanc);
 		color:var(--blanc);
@@ -348,9 +346,7 @@ p.fil-ariane {
 			margin-left: 10px;
 		}
 	}
-	ul.menu {
-
-	}
+	
 	ul.sub-menu {
 		background: var(--gradient);
 		display:flex;
@@ -363,11 +359,12 @@ p.fil-ariane {
 		width:100vw;
 	}
 
-	
-
-	
 
 	@include bp(md) {
+		justify-content: flex-end;
+		li {
+			padding-left:20px;
+		}
 		a {
 			color:var(--noir);
 			display: block;
@@ -381,21 +378,52 @@ p.fil-ariane {
 		.current-menu-item > a, .current-menu-ancestor > a {
 			color:var(--cyan);
 		}
+		button.ouvrir-sous-menu {
+			margin-left:5px;
+			padding:0;
+			padding-top: 5px;
+			.picto-desktop {
+				display:block;
+				svg {
+					width:8px;
+					path {
+						fill:var(--noir);
+					}
+				}
+			}
+			.picto-mobile {
+				display:none;
+			}
+		}
 
 		//sous-menu
-		ul.menu {
-			ul {
-				padding-top:2rem;
-				li {
-					padding:0.5rem;
-					margin-left:0;
-					a {
-						font-size:1rem;
-						text-transform: unset;
-					}
-				} 
+		ul.sub-menu {
+			height:auto;
+			padding:10px 12px;
+			li {
+				padding-left:0;
+			}
+			li:first-of-type {
+				display:none; // bouton fermer
+			}
+			li:last-of-type {
+				border-bottom:0;
+			}
+			a {
+				color:var(--blanc);
+			}
 
-			
+			&::before {
+				border-left: 6px solid transparent;
+				border-right: 6px solid transparent;
+				border-bottom: 6px solid var(--cyan);content:'';
+				display:inline-block;
+				height: 0;
+				position:absolute;
+				right:30px;
+				top:-6px;
+				width: 0;
+
 			}
 		}
 	}

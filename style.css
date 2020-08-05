@@ -1292,8 +1292,6 @@ p.fil-ariane {
         -ms-flex-pack: end;
         justify-content: flex-end; }
         .main-navigation ul.menu ul {
-          background-color: var(--blanc);
-          border: solid 1px #EAE7E1;
           float: left;
           margin-top: 0px;
           position: absolute;
@@ -1310,9 +1308,9 @@ p.fil-ariane {
             -webkit-box-direction: normal;
             -ms-flex-direction: column;
             flex-direction: column;
-            left: calc(50% - 130px);
-            padding: 20px;
-            width: 260px; }
+            left: unset;
+            right: -32px;
+            width: 195px; }
       .main-navigation.sticky ul.menu {
         -webkit-box-pack: end;
         -ms-flex-pack: end;
@@ -1329,21 +1327,21 @@ p.fil-ariane {
     background: transparent; }
 
 /*Style liens de menus*/
-.main-navigation li {
+.volet-navigation li {
   border-bottom: solid 1px var(--blanc);
   color: var(--blanc);
   line-height: 35px;
   padding-left: 11px; }
 
-.main-navigation a {
+.volet-navigation a {
   color: var(--blanc);
   display: block;
   font-size: 17px;
   text-decoration: none; }
-  .main-navigation a br {
+  .volet-navigation a br {
     display: none; }
 
-.main-navigation li.menu-item-has-children {
+.volet-navigation li.menu-item-has-children {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -1354,19 +1352,19 @@ p.fil-ariane {
   -ms-flex-pack: justify;
   justify-content: space-between; }
 
-.main-navigation button.ouvrir-sous-menu {
+.volet-navigation button.ouvrir-sous-menu {
   background-color: transparent;
   border: none;
   margin-bottom: 0;
   padding-right: 0; }
-  .main-navigation button.ouvrir-sous-menu .picto-desktop {
+  .volet-navigation button.ouvrir-sous-menu .picto-desktop {
     display: none; }
-  .main-navigation button.ouvrir-sous-menu .picto-mobile svg {
+  .volet-navigation button.ouvrir-sous-menu .picto-mobile svg {
     width: 8px; }
-    .main-navigation button.ouvrir-sous-menu .picto-mobile svg path {
+    .volet-navigation button.ouvrir-sous-menu .picto-mobile svg path {
       fill: var(--blanc); }
 
-.main-navigation button.fermer-sous-menu {
+.volet-navigation button.fermer-sous-menu {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -1378,16 +1376,16 @@ p.fil-ariane {
   display: flex;
   margin-bottom: 0;
   padding-left: 0; }
-  .main-navigation button.fermer-sous-menu svg {
+  .volet-navigation button.fermer-sous-menu svg {
     width: 8px;
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg); }
-    .main-navigation button.fermer-sous-menu svg path {
+    .volet-navigation button.fermer-sous-menu svg path {
       fill: var(--blanc); }
-  .main-navigation button.fermer-sous-menu span {
+  .volet-navigation button.fermer-sous-menu span {
     margin-left: 10px; }
 
-.main-navigation ul.sub-menu {
+.volet-navigation ul.sub-menu {
   background: var(--gradient);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1404,25 +1402,57 @@ p.fil-ariane {
   width: 100vw; }
 
 @media (min-width: 768px) {
-  .main-navigation a {
-    color: var(--noir);
-    display: block;
-    font-weight: 500;
-    text-decoration: none; }
-    .main-navigation a:hover, .main-navigation a:focus, .main-navigation a:active {
-      color: var(--bleu); }
-  .main-navigation .current-menu-item > a, .main-navigation .current-menu-ancestor > a {
-    color: var(--cyan); }
-  .main-navigation ul.menu ul {
-    padding-top: 2rem; }
-    .main-navigation ul.menu ul li {
-      padding: 0.5rem;
-      margin-left: 0; }
-      .main-navigation ul.menu ul li a {
-        font-size: 1rem;
-        text-transform: unset; } }
+  .volet-navigation {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end; }
+    .volet-navigation li {
+      padding-left: 20px; }
+    .volet-navigation a {
+      color: var(--noir);
+      display: block;
+      font-weight: 500;
+      text-decoration: none; }
+      .volet-navigation a:hover, .volet-navigation a:focus, .volet-navigation a:active {
+        color: var(--bleu); }
+    .volet-navigation .current-menu-item > a, .volet-navigation .current-menu-ancestor > a {
+      color: var(--cyan); }
+    .volet-navigation button.ouvrir-sous-menu {
+      margin-left: 5px;
+      padding: 0;
+      padding-top: 5px; }
+      .volet-navigation button.ouvrir-sous-menu .picto-desktop {
+        display: block; }
+        .volet-navigation button.ouvrir-sous-menu .picto-desktop svg {
+          width: 8px; }
+          .volet-navigation button.ouvrir-sous-menu .picto-desktop svg path {
+            fill: var(--noir); }
+      .volet-navigation button.ouvrir-sous-menu .picto-mobile {
+        display: none; }
+    .volet-navigation ul.sub-menu {
+      height: auto;
+      padding: 10px 12px; }
+      .volet-navigation ul.sub-menu li {
+        padding-left: 0; }
+      .volet-navigation ul.sub-menu li:first-of-type {
+        display: none; }
+      .volet-navigation ul.sub-menu li:last-of-type {
+        border-bottom: 0; }
+      .volet-navigation ul.sub-menu a {
+        color: var(--blanc); }
+      .volet-navigation ul.sub-menu::before {
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-bottom: 6px solid var(--cyan);
+        content: '';
+        display: inline-block;
+        height: 0;
+        position: absolute;
+        right: 30px;
+        top: -6px;
+        width: 0; } }
 
-.main-navigation .connexion {
+.volet-navigation .connexion {
   background-color: transparent;
   border: none;
   color: var(--blanc);
@@ -1434,11 +1464,11 @@ p.fil-ariane {
   padding-left: 12px;
   text-align: left;
   text-transform: unset; }
-  .main-navigation .connexion svg {
+  .volet-navigation .connexion svg {
     margin-right: 10px;
     width: 17px; }
   @media (min-width: 768px) {
-    .main-navigation .connexion {
+    .volet-navigation .connexion {
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
@@ -1455,27 +1485,27 @@ p.fil-ariane {
       position: absolute;
       right: var(--padding-x-header);
       top: 10px; }
-      .main-navigation .connexion svg {
+      .volet-navigation .connexion svg {
         margin-right: 0;
         margin-left: 4px; }
-        .main-navigation .connexion svg path {
+        .volet-navigation .connexion svg path {
           -webkit-transition: fill var(--transition);
           transition: fill var(--transition); }
-      .main-navigation .connexion.lien {
+      .volet-navigation .connexion.lien {
         color: var(--bleu); }
-        .main-navigation .connexion.lien svg path {
+        .volet-navigation .connexion.lien svg path {
           fill: var(--bleu); }
-        .main-navigation .connexion.lien:hover, .main-navigation .connexion.lien:focus, .main-navigation .connexion.lien:active {
+        .volet-navigation .connexion.lien:hover, .volet-navigation .connexion.lien:focus, .volet-navigation .connexion.lien:active {
           color: var(--cyan); }
-          .main-navigation .connexion.lien:hover svg path, .main-navigation .connexion.lien:focus svg path, .main-navigation .connexion.lien:active svg path {
+          .volet-navigation .connexion.lien:hover svg path, .volet-navigation .connexion.lien:focus svg path, .volet-navigation .connexion.lien:active svg path {
             fill: var(--cyan); }
-      .main-navigation .connexion.bouton {
+      .volet-navigation .connexion.bouton {
         color: var(--cyan); }
-        .main-navigation .connexion.bouton svg path {
+        .volet-navigation .connexion.bouton svg path {
           fill: var(--cyan); }
-        .main-navigation .connexion.bouton:hover, .main-navigation .connexion.bouton:focus, .main-navigation .connexion.bouton:active {
+        .volet-navigation .connexion.bouton:hover, .volet-navigation .connexion.bouton:focus, .volet-navigation .connexion.bouton:active {
           color: var(--bleu); }
-          .main-navigation .connexion.bouton:hover svg path, .main-navigation .connexion.bouton:focus svg path, .main-navigation .connexion.bouton:active svg path {
+          .volet-navigation .connexion.bouton:hover svg path, .volet-navigation .connexion.bouton:focus svg path, .volet-navigation .connexion.bouton:active svg path {
             fill: var(--bleu); } }
 
 @media print {
