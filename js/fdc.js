@@ -51,7 +51,23 @@
 			$('#volet-connexion #user_pass').attr('placeholder','mot de passe');
 			$('#volet-connexion #wp-submit').attr('value','OK');
 		}
-		
+		/********* Ouvrir-fermer les sous-menus mobile **********/
+		var ouvrirSousMenu=$('.ouvrir-sous-menu');
+		if(width<768 && ouvrirSousMenu.length>0) {
+			ouvrirSousMenu.click(function() {
+				$(this).next().animate(
+					{right:0},
+					400
+				);
+			});
+			$('.fermer-sous-menu').click(function(){
+				$(this).parents('.sub-menu').animate(
+					{right:-1*width},
+					400
+				);
+			});
+		}
+
 		/****************** Sticky header *************************/	
 		var siteHeader=$('.site-header');
 		var siteContent=$('.site-main');

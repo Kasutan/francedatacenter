@@ -163,6 +163,21 @@ add_action( 'after_setup_theme', 'fdc_setup' );
 require get_template_directory() . '/inc/colors.php';
 
 
+/* walker for primary menu sub nav */
+class etcode_sublevel_walker extends Walker_Nav_Menu
+{
+	function start_lvl( &$output, $depth = 0, $args = array() ) {
+		$output .=sprintf('<button class="ouvrir-sous-menu"><span class="screen-reader-text">Montrer ou masquer le sous-menu</span><span class="picto-mobile">%s</span><span class="picto-desktop">%s</span></button><ul class="sub-menu">',fdc_get_picto_inline('angle'),fdc_get_picto_inline('angle-bas'));
+
+		$output.=sprintf('<li><button class="fermer-sous-menu">%s<span> Retour</span></button></li>',
+			fdc_get_picto_inline('angle')
+		);
+	}
+	function end_lvl( &$output, $depth = 0, $args = array() ) {
+		$output .= "</ul>";
+	}
+}
+
 
 /**
  * Enqueue scripts and styles.

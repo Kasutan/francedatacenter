@@ -6,6 +6,7 @@
 	background-color: var(--blanc);
 	display: flex;
 	justify-content: space-between;
+	height:80px;
 	padding: 0 var(--padding-x-header);
 	position: relative;
 	z-index:10;
@@ -22,8 +23,8 @@
 
 .custom-logo {
 	display: block;
-	margin:20px 0;
-	max-width: 220px;
+	margin:0;
+	max-width: 169px;
 }
 
 @include bp(md) {

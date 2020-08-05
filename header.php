@@ -54,10 +54,18 @@
 			</button>
 			<div class="volet-navigation">
 				<?php
-				wp_nav_menu( array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				) );
+				if( class_exists('etcode_sublevel_walker') ) {
+					wp_nav_menu( array(
+						'theme_location' => 'menu-1',
+						'menu_id'        => 'primary-menu',
+						'walker' => new etcode_sublevel_walker
+					) );
+				} else {
+					wp_nav_menu( array(
+						'theme_location' => 'menu-1',
+						'menu_id'        => 'primary-menu',
+					) );
+				}
 
 				//Connexion adhérent
 				if(function_exists('fdc_affiche_lien_connexion')) {
