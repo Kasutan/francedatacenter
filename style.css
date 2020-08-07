@@ -2493,6 +2493,18 @@ button.modaal-close {
 .entry-content .search-form {
   margin: 2rem auto; }
 
+.search-results article {
+  margin-bottom: var(--margin-y); }
+  .search-results article h2 a {
+    text-decoration: none; }
+  .search-results article h2::after {
+    display: none; }
+  .search-results article p {
+    margin-bottom: 0; }
+  .search-results article .entry-meta {
+    font-weight: 500;
+    margin-bottom: 5px; }
+
 .acf-block-ressources {
   margin-bottom: var(--margin-y); }
 

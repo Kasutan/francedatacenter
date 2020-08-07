@@ -292,3 +292,14 @@ function fdc_custom_excerpt_more( $more ) {
 	return '...';
 }
 add_filter( 'excerpt_more', 'fdc_custom_excerpt_more' );
+
+/**
+ * Afficher tous les résultats sans pagination sur page résultats de recherche
+ */
+function fdc_remove_pagination( $query ) {
+	if ( $query->is_main_query() &&  get_query_var( 's', 0 ) ) {
+		$query->query_vars['nopaging'] = 1;
+		$query->query_vars['posts_per_page'] = -1;
+	}
+}
+add_action( 'pre_get_posts', 'fdc_remove_pagination' );

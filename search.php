@@ -16,14 +16,24 @@ get_header();
 
 		<?php if ( have_posts() ) : ?>
 
-			<header class="entry-header">
-				<h1 class="page-title">
-					<?php
-					echo "Recherche&nbsp;:".' <span>'. get_search_query() . '</span>' ;
-					?>
-				</h1>
+			<header class="entry-header"> 
+			<?php 
+				$defaut='';
+				if(function_exists('get_field')) {
+					$defaut=esc_attr(get_field('banniere_defaut','option'));
+				} 
+				if($defaut) {
+					printf('<div class="image">%s</div>',
+					wp_get_attachment_image( $defaut, $taille)
+					);
+				}
+				echo '<div class="texte-banniere">';
+					printf('<h1 class="page-title">Votre recherche&nbsp;:<br> %s</h1>',get_search_query());
+				echo '</div>';
+				if(function_exists('fdc_get_picto_url')) printf('<a href="#entry-content"><img src="%s" alt="fleche vers le bas" width="40" height="23"/></a>',fdc_get_picto_url('angle-bas'));
+				?>
 			</header><!-- .page-header -->
-			<div class="entry-content container loop">
+			<div class="entry-content container loop" id="entry-content">
 			<?php
 			if ( function_exists( 'fdc_fil_ariane' ) )  fdc_fil_ariane();
 
@@ -36,16 +46,9 @@ get_header();
 				 * If you want to overload this in a child theme then include a file
 				 * called content-search.php and that will be used instead.
 				 */
-				get_template_part( 'template-parts/content', 'loop' );
+				get_template_part( 'template-parts/content', 'search' );
 
 			endwhile;
-
-			if (function_exists('wp_pagenavi')) :
-				wp_pagenavi();
-			else :
-				the_posts_navigation();
-			endif;
-
 			
 			echo '</div>'; //fin entry-content
 
