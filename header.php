@@ -27,6 +27,9 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#main">Aller directement au contenu</a>
+	<?php if(function_exists('fdc_affiche_volet_recherche')) {
+		fdc_affiche_volet_recherche();
+	} ?>
 	<?php if(function_exists('fdc_affiche_volet_connexion')) {
 		fdc_affiche_volet_connexion();
 	} ?>

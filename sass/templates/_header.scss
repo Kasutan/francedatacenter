@@ -51,17 +51,18 @@
 }
 
 /*--------------------------------------------------------------
-## Volet connexion
+## Volets connexion et recherche
 --------------------------------------------------------------*/
 @mixin placeholder {
 	color:var(--gris);
 	font-weight: 700;
 	line-height: 40px;
 	height:40px;
+	opacity:1;
 	padding:0 15px;
 	text-transform: uppercase;
 }
-#volet-connexion {
+.volet-header {
 	align-items: center;
 	background-color: var(--noir);
 	color:var(--blanc);
@@ -79,6 +80,9 @@
 		position:absolute;
 		top:0;
 		width:100%;
+	}
+	.h2, .picto, form {
+		position: relative; //pour passer devant le décor
 	}
 	.h2 {
 		color:var(--blanc);
@@ -147,7 +151,7 @@
 	.message {
 		text-align: center;
 	}
-	#fermer-connexion {
+	.fermer {
 		align-items:center;
 		background-color: transparent;
 		border:none;
@@ -165,8 +169,38 @@
 			color:var(--blanc);
 		}
 	}
+
+
+	&.recherche {
+		min-height:100vh;
+		position: absolute;
+		top:0;
+		left:0;
+		width:100vw;
+		z-index: 15; //au-dessus du menu
+		.sep {
+			flex-grow:1;
+		}
+		.search-form .search-field {
+			@include placeholder;
+		}
+		.search-form .search-submit {
+			background-color: #fff;
+			color:var(--cyan);
+			&:hover, &:focus, &:active {
+				color:var(--bleu);
+			}
+		}
+	}
+
 	@include bp(md) {
 		padding:50px;
+		&.recherche .h2 {
+			margin-bottom: 58px;
+		}
+		.search-form .search-field {
+			width:425px;
+		}
 	}
 	
 }

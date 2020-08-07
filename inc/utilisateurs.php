@@ -147,14 +147,14 @@ function fdc_affiche_volet_connexion() {
 		return '';
 	}
 	$message=wp_kses_post(get_field('message_login','options'));
-	echo '<div class="volet" id="volet-connexion" aria-expanded="false" ><div class="decor"></div>';
+	echo '<div class="volet-header" id="volet-connexion" aria-expanded="false" ><div class="decor"></div>';
 		printf('<img class="picto" src="%s" width="49" height="39" alt="picto connexion"/>',
 			fdc_get_picto_url('verrou-ferme-blanc')
 		);
 		echo '<p class="h2">Connexion adhérent</p>';
 		wp_login_form(array('remember'=>false));
 		if($message) printf('<div class="message">%s</div>',$message);
-		printf('<button id="fermer-connexion"><span>Fermer</span><img src="%s" width="52" height="52" alt="Fermer"/></button>',fdc_get_picto_url('croix-blanc'));
+		printf('<button id="fermer-connexion" class="fermer"><span>Fermer</span><img src="%s" width="52" height="52" alt="Fermer"/></button>',fdc_get_picto_url('croix-blanc'));
 	echo '</div>';
 }
 

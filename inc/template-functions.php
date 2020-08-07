@@ -87,7 +87,24 @@ function fdc_get_picto_inline($name) {
 	
 }
 
-
+/**
+* Afficher le volet de recherche dans l'en-tête
+*/
+function fdc_affiche_volet_recherche() {
+	if(!function_exists('fdc_get_picto_url') ) {
+		return;
+	}
+	echo '<div class="volet-header recherche" id="volet-recherche" aria-expanded="false" ><div class="decor"></div>';
+		echo '<div class="sep"></div>';
+		printf('<img class="picto" src="%s" width="44" height="44" alt="picto recherche"/>',
+			fdc_get_picto_url('loupe')
+		);
+		echo '<p class="h2">Rechercher un contenu</p>';
+		get_search_form();
+		echo '<div class="sep"></div>';
+		printf('<button id="fermer-recherche" class="fermer"><span>Fermer</span><img src="%s" width="52" height="52" alt="Fermer"/></button>',fdc_get_picto_url('croix-blanc'));
+	echo '</div>';
+}
 
 /***************************************************************
 Remove WP compression for images - there's a plugin for that
