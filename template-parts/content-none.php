@@ -11,10 +11,11 @@
 
 <section class="no-results not-found">
 	<header class="entry-header">
-		<h1 class="page-title">Aucun resultat</h1>
+		<div class="texte-banniere"><h1 class="page-title">Aucun résultat</h1></div>
+		<?php if(function_exists('fdc_get_picto_url')) printf('<a href="#entry-content"><img src="%s" alt="fleche vers le bas" width="40" height="23"/></a>',fdc_get_picto_url('angle-bas'));?>
 	</header><!-- .page-header -->
 
-	<div class="entry-content container">
+	<div class="entry-content container" id="entry-content">
 		<?php
 		if ( is_search() ) :
 			?>
