@@ -31,9 +31,22 @@
 	.admin-bar .site-header.sticky {
 		top:32px;
 	}
+	
 	.custom-logo {
 		margin:0;
 		max-width: 290px;
+	}
+
+	
+}
+
+@include bp(xl) {
+	.site-header {
+		height:111px;
+	}
+	.site-branding {
+		flex-basis:290px;
+		flex-shrink: 0;
 	}
 }
 

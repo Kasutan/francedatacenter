@@ -1269,6 +1269,8 @@ p.fil-ariane {
     display: block; }
   @media (min-width: 768px) {
     .main-navigation {
+      height: 100%;
+      padding-top: 15px;
       width: 100%; }
       .main-navigation .menu-toggle {
         display: none; }
@@ -1280,14 +1282,16 @@ p.fil-ariane {
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
         -ms-flex-direction: row;
-        flex-direction: row; }
+        flex-direction: row;
+        height: 100%; }
       .main-navigation ul.menu {
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
+        -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+        align-items: stretch;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
+        height: 100%;
         -webkit-box-pack: end;
         -ms-flex-pack: end;
         justify-content: flex-end; }
@@ -1296,6 +1300,7 @@ p.fil-ariane {
           margin-top: 0px;
           position: absolute;
           top: 90%;
+          top: calc(100% - 10px);
           left: -999em;
           z-index: 10; }
         .main-navigation ul.menu > li {
@@ -1315,6 +1320,9 @@ p.fil-ariane {
         -webkit-box-pack: end;
         -ms-flex-pack: end;
         justify-content: flex-end; } }
+  @media (min-width: 1400px) {
+    .main-navigation {
+      padding-top: 30px; } }
 
 /* Style pictos menu mobile */
 .menu-toggle {
@@ -1328,8 +1336,17 @@ p.fil-ariane {
 
 /*Style liens de menus*/
 .volet-navigation li {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   border-bottom: solid 1px var(--blanc);
   color: var(--blanc);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   line-height: 35px;
   padding-left: 11px; }
 
@@ -1340,17 +1357,6 @@ p.fil-ariane {
   text-decoration: none; }
   .volet-navigation a br {
     display: none; }
-
-.volet-navigation li.menu-item-has-children {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between; }
 
 .volet-navigation button.ouvrir-sous-menu {
   background-color: transparent;
@@ -2023,6 +2029,15 @@ button.modaal-close {
   .custom-logo {
     margin: 0;
     max-width: 290px; } }
+
+@media (min-width: 1400px) {
+  .site-header {
+    height: 111px; }
+  .site-branding {
+    -ms-flex-preferred-size: 290px;
+    flex-basis: 290px;
+    -ms-flex-negative: 0;
+    flex-shrink: 0; } }
 
 /*--------------------------------------------------------------
 ## Volet connexion
