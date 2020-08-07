@@ -27,7 +27,7 @@
 	max-width: 169px;
 }
 
-@include bp(md) {
+@include bp(lg) {
 	.admin-bar .site-header.sticky {
 		top:32px;
 	}

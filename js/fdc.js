@@ -24,7 +24,8 @@
 					$(voletConnexion).css('display','flex');
 					$(voletConnexion).attr('aria-expanded','true');
 					$(boutonConnexion).attr('aria-expanded','true');
-					if(width < 768) {
+					if(width < 960) {
+						//TODO vérifier - interférence avec code sticky ?
 						$('body,html').animate(
 							{scrollTop : 0},400
 						);
@@ -53,7 +54,7 @@
 		}
 		/********* Ouvrir-fermer les sous-menus mobile **********/
 		var ouvrirSousMenu=$('.ouvrir-sous-menu');
-		if(width<768 && ouvrirSousMenu.length>0) {
+		if(width<960 && ouvrirSousMenu.length>0) {
 			ouvrirSousMenu.click(function() {
 				$(this).next().animate(
 					{right:0},

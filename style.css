@@ -1267,7 +1267,7 @@ p.fil-ariane {
     display: none; }
   .main-navigation.toggled svg.times {
     display: block; }
-  @media (min-width: 768px) {
+  @media (min-width: 960px) {
     .main-navigation {
       height: 100%;
       padding-top: 15px;
@@ -1407,13 +1407,13 @@ p.fil-ariane {
   top: 0;
   width: 100vw; }
 
-@media (min-width: 768px) {
+@media (min-width: 960px) {
   .volet-navigation {
     -webkit-box-pack: end;
     -ms-flex-pack: end;
     justify-content: flex-end; }
     .volet-navigation li {
-      padding-left: 20px; }
+      padding-left: 25px; }
     .volet-navigation a {
       color: var(--noir);
       display: block;
@@ -1421,8 +1421,12 @@ p.fil-ariane {
       text-decoration: none; }
       .volet-navigation a:hover, .volet-navigation a:focus, .volet-navigation a:active {
         color: var(--bleu); }
-    .volet-navigation .current-menu-item > a, .volet-navigation .current-menu-ancestor > a {
+    .volet-navigation li:hover button.ouvrir-sous-menu .picto-desktop svg path, .volet-navigation li.focus button.ouvrir-sous-menu .picto-desktop svg path {
+      fill: var(--bleu); }
+    .volet-navigation li.current-menu-item > a, .volet-navigation li.current-menu-ancestor > a {
       color: var(--cyan); }
+    .volet-navigation li.current-menu-item button.ouvrir-sous-menu .picto-desktop svg path, .volet-navigation li.current-menu-ancestor button.ouvrir-sous-menu .picto-desktop svg path {
+      fill: var(--cyan); }
     .volet-navigation button.ouvrir-sous-menu {
       margin-left: 5px;
       padding: 0;
@@ -1432,7 +1436,9 @@ p.fil-ariane {
         .volet-navigation button.ouvrir-sous-menu .picto-desktop svg {
           width: 8px; }
           .volet-navigation button.ouvrir-sous-menu .picto-desktop svg path {
-            fill: var(--noir); }
+            fill: var(--noir);
+            -webkit-transition: fill var(--transition);
+            transition: fill var(--transition); }
       .volet-navigation button.ouvrir-sous-menu .picto-mobile {
         display: none; }
     .volet-navigation ul.sub-menu {
@@ -1473,7 +1479,7 @@ p.fil-ariane {
   .volet-navigation .connexion svg {
     margin-right: 10px;
     width: 17px; }
-  @media (min-width: 768px) {
+  @media (min-width: 960px) {
     .volet-navigation .connexion {
       -webkit-box-align: center;
       -ms-flex-align: center;
@@ -2023,7 +2029,7 @@ button.modaal-close {
   margin: 0;
   max-width: 169px; }
 
-@media (min-width: 768px) {
+@media (min-width: 960px) {
   .admin-bar .site-header.sticky {
     top: 32px; }
   .custom-logo {

@@ -220,7 +220,7 @@ p.fil-ariane {
 	}
 
 
-	@include bp(md) { //menu
+	@include bp(lg) { //menu
 		height:100%;
 		padding-top:15px;
 		width: 100%;
@@ -367,10 +367,10 @@ p.fil-ariane {
 	}
 
 
-	@include bp(md) {
+	@include bp(lg) {
 		justify-content: flex-end;
 		li {
-			padding-left:20px;
+			padding-left:25px;
 		}
 		a {
 			color:var(--noir);
@@ -382,8 +382,19 @@ p.fil-ariane {
 				color :var(--bleu);
 			}
 		}
-		.current-menu-item > a, .current-menu-ancestor > a {
-			color:var(--cyan);
+		li:hover, li.focus {
+			button.ouvrir-sous-menu .picto-desktop svg path {
+				fill:var(--bleu);
+			}
+		}
+		li.current-menu-item, li.current-menu-ancestor {
+			> a {
+				color:var(--cyan);
+
+			}
+			button.ouvrir-sous-menu .picto-desktop svg path {
+				fill:var(--cyan);
+			}
 		}
 		button.ouvrir-sous-menu {
 			margin-left:5px;
@@ -395,6 +406,7 @@ p.fil-ariane {
 					width:8px;
 					path {
 						fill:var(--noir);
+						transition:fill var(--transition);
 					}
 				}
 			}
@@ -456,7 +468,7 @@ p.fil-ariane {
 		}
 
 		//deplacés en haut à droite en desktop + couleurs et position picto différentes
-		@include bp(md) {
+		@include bp(lg) {
 			align-items: center;
 			display: flex;
 			flex-direction: row-reverse;
