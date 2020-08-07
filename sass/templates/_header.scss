@@ -179,6 +179,7 @@
 		width:100vw;
 		z-index: 15; //au-dessus du menu
 		.sep {
+			flex-basis:30px;
 			flex-grow:1;
 		}
 		.search-form .search-field {

@@ -69,11 +69,17 @@
 						'menu_id'        => 'primary-menu',
 					) );
 				}
+				
+				//bouton ouvrir volet de recherche
+				printf('<button id="ouvrir-recherche" aria-expanded="false" class="recherche bouton" aria-controls="volet-recherche" aria-label="Ouvrir le volet de recherche">%s<span>Rechercher</span></button>',
+					fdc_get_picto_inline('loupe')
+				);
 
 				//Connexion adhérent
 				if(function_exists('fdc_affiche_lien_connexion')) {
 					fdc_affiche_lien_connexion();
 				}
+
 				?>
 			</div>
 		</nav><!-- #site-navigation -->

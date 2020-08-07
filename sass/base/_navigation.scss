@@ -449,11 +449,13 @@ p.fil-ariane {
 	
 
 
-	//Bouton de connexion et lien de déconnexion
-	.connexion {
+	//Bouton de connexion et lien de déconnexion + bouton recherche
+	.connexion, .recherche {
+		align-items: center;
 		background-color: transparent;
 		border:none;
 		color:var(--blanc);
+		display: flex;
 		font-size:17px;
 		font-weight: normal;
 		line-height: 35px;
@@ -463,14 +465,15 @@ p.fil-ariane {
 		text-align: left;
 		text-transform: unset;
 		svg {
+			height:17px;
 			margin-right: 10px;
 			width:17px;
 		}
+	}
 
-		//deplacés en haut à droite en desktop + couleurs et position picto différentes
+	// liens et boutons de connexion deplacés en haut à droite en desktop + couleurs et position picto différentes
+	.connexion {
 		@include bp(lg) {
-			align-items: center;
-			display: flex;
 			flex-direction: row-reverse;
 			font-size: 16px;
 			font-weight: medium;
@@ -511,6 +514,40 @@ p.fil-ariane {
 					}
 				}
 			}
+		}
+	}
+	//styles spécifiques bouton volet recherche
+	.recherche {
+		border-bottom: solid 1px var(--blanc);
+		@include bp(lg) {
+			border-bottom: 0;
+			transition:border var(--transition);
+
+			svg {
+				border-left:solid 1px var(--cyan);
+				height:22px;
+				margin-left:18px;
+				margin-right: 0;
+				padding: 3px 0 2px 15px;
+				width:30px;
+				path {
+					fill:var(--cyan);
+					transition:fill var(--transition);
+				}
+			}
+			span {
+				display: none;
+			}
+
+			&:hover, &:focus, &:active {
+				svg {
+					border-left-color:var(--bleu);
+					path {
+						fill:var(--bleu);
+					}
+				}
+			}
+
 		}
 	}
 

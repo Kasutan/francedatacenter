@@ -52,6 +52,43 @@
 			$('#volet-connexion #user_pass').attr('placeholder','mot de passe');
 			$('#volet-connexion #wp-submit').attr('value','OK');
 		}
+		
+		/*********Afficher/masquer le volet de recherche **********/
+		var voletRecherche=('#volet-recherche');
+		if($(voletRecherche).length>0) {
+			var boutonRecherche=("#ouvrir-recherche");
+			$(boutonRecherche).click(function(){
+				if($(boutonRecherche).attr('aria-expanded')=="false") {
+					$(voletRecherche).slideDown('slow');
+					$(voletRecherche).css('display','flex');
+					$(voletRecherche).attr('aria-expanded','true');
+					$(boutonRecherche).attr('aria-expanded','true');
+					if(width < 960) {
+						//TODO vérifier - interférence avec code sticky ?
+						$('body,html').animate(
+							{scrollTop : 0},400
+						);
+						var menu=$('.main-navigation');
+						if($(menu).hasClass('toggled')) {
+							$(menu).removeClass('toggled');
+							$(menu).attr('aria-expanded',false);
+							$('.menu-toggle').attr('aria-expanded',false);
+						}
+					}
+				} else {
+					$(voletRecherche).slideUp('slow');
+					$(voletRecherche).attr('aria-expanded','false');
+					$(boutonRecherche).attr('aria-expanded','false');
+				}
+
+			});
+			$('#fermer-recherche').click(function(){
+				$(voletRecherche).slideUp('slow');
+				$(voletRecherche).attr('aria-expanded','false');
+				$(boutonRecherche).attr('aria-expanded','false');
+			});
+		}
+		
 		/********* Ouvrir-fermer les sous-menus mobile **********/
 		var ouvrirSousMenu=$('.ouvrir-sous-menu');
 		if(width<960 && ouvrirSousMenu.length>0) {
