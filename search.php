@@ -33,7 +33,7 @@ get_header();
 				if(function_exists('fdc_get_picto_url')) printf('<a href="#entry-content"><img src="%s" alt="fleche vers le bas" width="40" height="23"/></a>',fdc_get_picto_url('angle-bas'));
 				?>
 			</header><!-- .page-header -->
-			<div class="entry-content container loop" id="entry-content">
+			<div class="entry-content container loop avec-ancre"><div class="ancre" id="entry-content"></div>
 			<?php
 			if ( function_exists( 'fdc_fil_ariane' ) )  fdc_fil_ariane();
 

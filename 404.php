@@ -18,7 +18,7 @@ get_header();
 				<h1 class="page-title">Page introuvable</h1>
 			</header><!-- .page-header -->
 
-			<div class="entry-content container">
+			<div class="entry-content container avec-ancre"><div class="ancre" id="entry-content"></div>
 				<p>Cette page n'existe pas. Voulez-vous essayer une recherche&nbsp;?</p>
 
 				<?php

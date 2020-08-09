@@ -56,7 +56,7 @@ get_header();
 		</header><!-- .entry-header -->
 
 
-		<div class="entry-content container" id="entry-content">
+		<div class="entry-content container avec-ancre"><div class="ancre" id="entry-content"></div>
 			<div class="overlay"></div>
 			<?php 
 				if ( function_exists( 'fdc_fil_ariane' ) )  fdc_fil_ariane();

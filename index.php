@@ -30,8 +30,8 @@ get_header();
 				if(function_exists('fdc_get_picto_url')) printf('<a href="#entry-content"><img src="%s" alt="fleche vers le bas" width="40" height="23"/></a>',fdc_get_picto_url('angle-bas'));
 				?>
 			</header><!-- .entry-header -->
+			<div class="entry-content container avec-ancre"><div class="ancre" id="entry-content"></div>
 			<?php 
-			echo '<div class="entry-content container" id="entry-content">';
 			if ( function_exists( 'fdc_fil_ariane' ) )  fdc_fil_ariane();
 
 			echo '<ul class="actualites alignfull">';
