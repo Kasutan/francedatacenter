@@ -879,7 +879,7 @@ ol:not([class]) {
 ul:not([class]) {
   list-style: none;
   padding-left: 1em; }
-  ul:not([class]) li::before {
+  ul:not([class]) > li::before {
     content: '•';
     color: var(--gris-fond);
     display: inline-block;
