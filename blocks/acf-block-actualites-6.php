@@ -48,12 +48,10 @@ function fdc_actualites_6_callback( $block ) {
 				fdc_affiche_actualite(get_the_ID());
 			endwhile;
 			echo '</ul>';
-			if($actualites) :
-				printf('<div class="fleche bleu"><a href="%s">Tous les articles %s</a></div>',
-				get_the_permalink( $actualites),
+			printf('<div class="fleche bleu"><a href="%s">Tous les articles %s</a></div>',
+				get_permalink( get_option( 'page_for_posts' )),
 				fdc_get_picto_inline('angle')
-				);
-			endif;
+			);
 		else : 
 			echo '<p>Aucun article</p>';
 		endif;	
