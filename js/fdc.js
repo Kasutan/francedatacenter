@@ -111,6 +111,7 @@
 
 		/****************** Sticky header *************************/	
 		var siteHeader=$('.site-header');
+		var pageHeaderImg=$('.entry-header .image');
 		var siteContent=$('.site-main');
 		var mainNavigation=$('.main-navigation');
 		var headerTop=0;
@@ -125,6 +126,11 @@
 				siteHeader.addClass('sticky');
 				mainNavigation.addClass('sticky');
 				siteContent.css('margin-top',siteHeader.outerHeight());
+				var parallax=windowTop*0.2;
+				console.log(parallax);
+				if(parallax <= 40) {
+					$(pageHeaderImg).css({'transform':'translateY(-'+parallax+'px)'});
+				}
 			} else {
 				siteHeader.removeClass('sticky');
 				mainNavigation.removeClass('sticky');
