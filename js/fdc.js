@@ -15,27 +15,25 @@
 
 		/*********Afficher/masquer le volet de connexion **********/
 		/*********+ modifier formulaire de connexion **********/
-		var voletConnexion=('#volet-connexion');
+		var voletConnexion=$('#volet-connexion');
+		var menu=$('.main-navigation');
+
 		if($(voletConnexion).length>0) {
-			var boutonConnexion=("#ouvrir-connexion");
+			var boutonConnexion=$("#ouvrir-connexion");
 			$(boutonConnexion).click(function(){
 				if($(boutonConnexion).attr('aria-expanded')=="false") {
 					$(voletConnexion).slideDown('slow');
 					$(voletConnexion).css('display','flex');
 					$(voletConnexion).attr('aria-expanded','true');
 					$(boutonConnexion).attr('aria-expanded','true');
-					if(width < 960) {
-						//TODO vérifier - interférence avec code sticky ?
-						$('body,html').animate(
-							{scrollTop : 0},400
-						);
-						var menu=$('.main-navigation');
-						if($(menu).hasClass('toggled')) {
-							$(menu).removeClass('toggled');
-							$(menu).attr('aria-expanded',false);
-							$('.menu-toggle').attr('aria-expanded',false);
+
+					$('body,html').animate(
+						{scrollTop : 0},
+						400,
+						function() {
+							fermeMenuMobile();
 						}
-					}
+					);
 				} else {
 					$(voletConnexion).slideUp('slow');
 					$(voletConnexion).attr('aria-expanded','false');
@@ -52,38 +50,43 @@
 			$('#volet-connexion #user_pass').attr('placeholder','mot de passe');
 			$('#volet-connexion #wp-submit').attr('value','OK');
 		}
+
+		function fermeMenuMobile(){
+			if($(menu).hasClass('toggled')) {
+				$(menu).removeClass('toggled');
+				$(menu).attr('aria-expanded',false);
+				$('.menu-toggle').attr('aria-expanded',false);
+			}
+		}
 		
 		/*********Afficher/masquer le volet de recherche **********/
-		var voletRecherche=('#volet-recherche');
+		var voletRecherche=$('#volet-recherche');
 		if($(voletRecherche).length>0) {
-			var boutonRecherche=("#ouvrir-recherche");
+			var boutonRecherche=$("#ouvrir-recherche");
 			$(boutonRecherche).click(function(){
 				if($(boutonRecherche).attr('aria-expanded')=="false") {
-					$(voletRecherche).slideDown('slow');
+					$(voletRecherche).fadeIn('slow');
 					$(voletRecherche).css('display','flex');
 					$(voletRecherche).attr('aria-expanded','true');
 					$(boutonRecherche).attr('aria-expanded','true');
-					if(width < 960) {
-						//TODO vérifier - interférence avec code sticky ?
-						$('body,html').animate(
-							{scrollTop : 0},400
-						);
-						var menu=$('.main-navigation');
-						if($(menu).hasClass('toggled')) {
-							$(menu).removeClass('toggled');
-							$(menu).attr('aria-expanded',false);
-							$('.menu-toggle').attr('aria-expanded',false);
+
+					$('body,html').animate(
+						{scrollTop : 0},
+						400,
+						function() {
+							fermeMenuMobile();
 						}
-					}
+					);
+					
 				} else {
-					$(voletRecherche).slideUp('slow');
+					$(voletRecherche).fadeOut('slow');
 					$(voletRecherche).attr('aria-expanded','false');
 					$(boutonRecherche).attr('aria-expanded','false');
 				}
 
 			});
 			$('#fermer-recherche').click(function(){
-				$(voletRecherche).slideUp('slow');
+				$(voletRecherche).fadeOut('slow');
 				$(voletRecherche).attr('aria-expanded','false');
 				$(boutonRecherche).attr('aria-expanded','false');
 			});
