@@ -12,12 +12,21 @@ $type_post=array(
 	"ressource" => "Ressource",
 	"evenement" => "Evènement"
 );
+if('evenement'==$post_type) {
+	if(function_exists("get_field") && get_field('page_agenda','options')) {
+		$link=get_permalink(get_field('page_agenda','options') );
+	} else {
+		$link='/agenda';
+	}
+} else {
+	$link=get_the_permalink();
+}
 ?>
 
 <article id="post-<?php the_ID(); ?>">
 <?php
 	printf( '<h2 class="h3"><a href="%s" rel="bookmark">%s</a></h2>',
-		esc_url( get_permalink() ),
+		$link,
 		strip_tags(get_the_title())
 	);
 	
@@ -51,6 +60,9 @@ $type_post=array(
 		echo '</div>';
 	endif;
 		the_excerpt();
-		echo '<a href="<?php the_permalink();?>" class="read-more-link">En savoir plus<span class="screen-reader-text"> à propos de '.get_the_title().'</span></a>';
-			?>
-</article><!-- #post-<?php the_ID(); ?> -->
+		printf('<a href="%s" class="read-more-link">En savoir plus<span class="screen-reader-text"> à propos de %s</span></a>',
+			$link,
+			strip_tags(get_the_title())
+		);
+		?>
+</article>
