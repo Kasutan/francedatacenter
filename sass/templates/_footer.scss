@@ -15,6 +15,9 @@
 			color:inherit;
 			text-decoration: underline;
 		}
+		br {
+			display: none;
+		}
 	}
 
 	ul {
@@ -84,6 +87,13 @@
 				top:-10px;
 				width:1px;
 			}
+		}
+	}
+
+	@include bp(xl) {
+		.footer-widgets .row {
+			flex-grow:1;
+			flex-wrap: nowrap;
 		}
 	}
 

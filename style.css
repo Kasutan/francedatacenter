@@ -1871,6 +1871,8 @@ button.modaal-close {
     .site-footer a:hover, .site-footer a:focus {
       color: inherit;
       text-decoration: underline; }
+    .site-footer a br {
+      display: none; }
   .site-footer ul {
     list-style: none;
     padding: 0;
@@ -1941,6 +1943,13 @@ button.modaal-close {
         position: absolute;
         top: -10px;
         width: 1px; } }
+  @media (min-width: 1400px) {
+    .site-footer .footer-widgets .row {
+      -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+      -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap; } }
   .site-footer #menu-liens-reseaux-sociaux {
     display: -webkit-box;
     display: -ms-flexbox;
