@@ -1218,6 +1218,8 @@ p.fil-ariane {
     padding-left: 0; }
   .main-navigation .menu-toggle {
     display: block; }
+    .main-navigation .menu-toggle:focus {
+      outline: none; }
   .main-navigation svg.times {
     display: none; }
   .main-navigation.toggled .volet-navigation {
@@ -1230,7 +1232,10 @@ p.fil-ariane {
     -ms-flex-direction: column;
     flex-direction: column;
     left: 0;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
     padding: 18px;
+    padding-bottom: 35px;
     position: absolute;
     top: 80px;
     width: 100vw;
@@ -2215,6 +2220,7 @@ button.modaal-close {
       color: var(--blanc); }
   .volet-header.recherche {
     min-height: 100vh;
+    padding-bottom: 50px;
     position: absolute;
     top: 0;
     left: 0;
