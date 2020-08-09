@@ -11,25 +11,6 @@
 		padding:20px;
 		position: relative;
 
-		&::before {
-			background-image:url('icons/decor.svg');
-			background-position: bottom right;
-			background-repeat: no-repeat;
-			background-size: contain;
-			content:'';
-			position: absolute;
-			height:600px;
-			right:-50%;
-			width:545px;
-			top:-20%;
-			@include bp(md) {
-				top:-20%;
-				height:872px;
-				right:-55%;
-				width:823px;
-			}
-		}
-
 
 		> * {
 			position: relative;
@@ -104,6 +85,26 @@
 	@include bp(md) {
 		br {
 			display: block;
+		}
+		.interieur {
+			&::before {
+				background-image:url('icons/decor.svg');
+				background-position: bottom right;
+				background-repeat: no-repeat;
+				background-size: contain;
+				content:'';
+				position: absolute;
+				height:600px;
+				right:-50%;
+				width:545px;
+				top:-20%;
+				@include bp(md) {
+					top:-20%;
+					height:872px;
+					right:-55%;
+					width:823px;
+				}
+			}
 		}
 	}
 	@include bp(lg) {
