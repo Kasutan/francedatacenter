@@ -2,11 +2,12 @@
 	margin-bottom: var(--margin-y);
 	text-align: center;
 	font-weight: 700;
-
-	background: var(--gradient);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
 	
+	.texte {
+		background: var(--gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
 	.titre {
 		font-size:1.8125rem;
 		line-height: 1.2;

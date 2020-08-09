@@ -35,7 +35,7 @@ function fdc_titre_degrade_callback( $block ) {
 	$sous_titre=wp_kses_post( get_field('sous_titre') );
 	if($titre || $sous_titre) :
 		printf('<section class="acf-block-titre-degrade %s">', $className);
-			printf('<div class="titre">%s</div><div class="sous-titre">%s</div>',$titre, $sous_titre );
+			printf('<div class="texte"><span class="titre">%s</span><br/><span class="sous-titre">%s</span></div>',$titre, $sous_titre );
 		echo "</section>";
 	endif;
 

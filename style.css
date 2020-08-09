@@ -3210,10 +3210,11 @@ button.retour {
 .acf-block-titre-degrade {
   margin-bottom: var(--margin-y);
   text-align: center;
-  font-weight: 700;
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; }
+  font-weight: 700; }
+  .acf-block-titre-degrade .texte {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; }
   .acf-block-titre-degrade .titre {
     font-size: 1.8125rem;
     line-height: 1.2; }
