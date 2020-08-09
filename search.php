@@ -14,7 +14,6 @@ get_header();
 
 		<main id="main" class="site-main">
 
-		<?php if ( have_posts() ) : ?>
 
 			<header class="entry-header"> 
 			<?php 
@@ -33,9 +32,11 @@ get_header();
 				if(function_exists('fdc_get_picto_url')) printf('<a href="#entry-content"><img src="%s" alt="fleche vers le bas" width="40" height="23"/></a>',fdc_get_picto_url('angle-bas'));
 				?>
 			</header><!-- .page-header -->
-			<div class="entry-content container loop avec-ancre"><div class="ancre" id="entry-content"></div>
+			<div class="entry-content container avec-ancre"><div class="ancre" id="entry-content"></div>
 			<?php
 			if ( function_exists( 'fdc_fil_ariane' ) )  fdc_fil_ariane();
+			
+			if ( have_posts() ) : 
 
 			/* Start the Loop */
 			while ( have_posts() ) :
@@ -50,13 +51,19 @@ get_header();
 
 			endwhile;
 			
-			echo '</div>'; //fin entry-content
 
 		else :
 
-			get_template_part( 'template-parts/content', 'none' );
+			echo '<section class="no-results not-found">';
+			echo '<p>Désolé, aucun résultat n\'a été trouvé. Voulez-vous essayer avec des mots-clés différents&nbsp;?</p>';
+				
+			get_search_form();
+		echo '</section>';
 
 		endif;
+
+		echo '</div>'; //fin entry-content
+		
 		?>
 
 		</main><!-- #main -->

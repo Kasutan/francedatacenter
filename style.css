@@ -2513,14 +2513,13 @@ button.modaal-close {
 .search-no-results .entry-header, .error404 .entry-header {
   background: var(--gradient); }
 
-.search-no-results .entry-content, .error404 .entry-content {
+.no-results {
   min-height: 50vh;
   padding-bottom: var(--margin-y);
   padding-top: var(--margin-y); }
-
-.search-no-results .search-field, .error404 .search-field {
-  border: solid 1px var(--bleu);
-  padding-left: 12px; }
+  .no-results .search-field {
+    border: solid 1px var(--bleu);
+    padding-left: 12px; }
 
 .acf-block-ressources {
   margin-bottom: var(--margin-y); }

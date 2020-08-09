@@ -351,6 +351,9 @@ if ( ! function_exists( 'fdc_fil_ariane' ) ) :
 				echo '<span class="current">Tous les articles</span>';
 			elseif (is_search()) :
 				echo '<span class="current">Recherche : '.get_search_query().'</span>';
+			elseif (is_404()) :
+				echo '<span class="current">Page introuvable</span>';
+
 			endif;
 
 			//Fermer la balise du fil d'ariane

@@ -21,12 +21,12 @@
 .search-no-results, .error404 {
 	.entry-header {
 		background: var(--gradient);
-	}
-	.entry-content {
-		min-height:50vh;
-		padding-bottom:var(--margin-y);
-		padding-top:var(--margin-y);
-	}
+	}	
+}
+.no-results{
+	min-height:50vh;
+	padding-bottom:var(--margin-y);
+	padding-top:var(--margin-y);
 	.search-field {
 		border:solid 1px var(--bleu);
 		padding-left:12px;

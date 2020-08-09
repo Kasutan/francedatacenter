@@ -13,19 +13,33 @@ get_header();
 ?>
 
 	<main id="main" class="site-main">
-
-			<header class="entry-header">
-				<h1 class="page-title">Page introuvable</h1>
-			</header><!-- .page-header -->
-
-			<div class="entry-content container avec-ancre"><div class="ancre" id="entry-content"></div>
-				<p>Cette page n'existe pas. Voulez-vous essayer une recherche&nbsp;?</p>
-
-				<?php
-				get_search_form();
-
+		<header class="entry-header"> 
+			<?php 
+				$defaut='';
+				if(function_exists('get_field')) {
+					$defaut=esc_attr(get_field('banniere_defaut','option'));
+				} 
+				if($defaut) {
+					printf('<div class="image">%s</div>',
+					wp_get_attachment_image( $defaut, $taille)
+					);
+				}
+				echo '<div class="texte-banniere">';
+					printf('<h1 class="page-title">Page introuvable</h1>');
+				echo '</div>';
+				if(function_exists('fdc_get_picto_url')) printf('<a href="#entry-content"><img src="%s" alt="fleche vers le bas" width="40" height="23"/></a>',fdc_get_picto_url('angle-bas'));
 				?>
-			</div><!-- .page-content -->
+		</header><!-- .page-header -->
+		<div class="entry-content container avec-ancre"><div class="ancre" id="entry-content"></div>
+		<?php
+		if ( function_exists( 'fdc_fil_ariane' ) )  fdc_fil_ariane();
+			
+			echo '<section class="no-results not-found">';
+				echo '<p>Cette page n\'existe pas. Voulez-vous essayer une recherche&nbsp;?</p>';
+				get_search_form();
+			echo '</section>';
+		echo '</div>'; //fin entry-content
+		?>
 
 	</main><!-- #main -->
 
