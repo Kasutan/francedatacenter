@@ -62,7 +62,9 @@ get_header();
 				if ( function_exists( 'fdc_fil_ariane' ) )  fdc_fil_ariane();
 
 				if ( function_exists( 'fdc_affiche_ressource' ) ) {
-					printf('<ul class="liste-ressources">%s</ul>',fdc_affiche_ressource(get_the_ID()));
+					echo '<ul class="liste-ressources">';
+						fdc_affiche_ressource(get_the_ID());
+					echo '</ul>';
 				} else {
 					the_content();
 				}

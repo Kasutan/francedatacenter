@@ -37,7 +37,7 @@ function fdc_coordonnees_callback( $block ) {
 	if($email || $telephone):
 		printf('<div class="acf-block-coordonnees %s">', $className);
 			if($email) printf('<a href="mailto:%s">%s %s</a>',$email, fdc_get_picto_inline('email'), $email);
-			if($telephone) printf('<a href="tel:%s">%s %s</a>',$telephone, fdc_get_picto_inline('telephone'), $telephone);
+			if($telephone) printf('<a href="tel:%s">%s %s</a>',str_replace(' ', '', $telephone), fdc_get_picto_inline('telephone'), $telephone);
 		echo '</div>';
 	endif;
 

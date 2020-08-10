@@ -55,7 +55,8 @@ function fdc_affiche_adherent($user,$contexte='grille',$groupe=0) {
 		}
 	} else { //contexte grille, on affiche le logo cliquable qui ouvre une popup au clic
 		if ($groupe > 0) {
-			printf('<li class="adherent js-afficher-plus" data-groupe="%s" data-src="%s"><a href="#adherent-%s" class="ouvrir-modaal"><img src="" alt="%s" /></a>%s</li>',
+			//ce logo n'est pas visible au chargement de la page : on lui passe différentes infos pour le JS et on ne charge pas l'image
+			printf('<li class="adherent js-afficher-plus" data-groupe="%s" data-src="%s"><a href="#adherent-%s" class="ouvrir-modaal"><img src="data:," alt="%s" /></a>%s</li>',
 				$groupe,
 				wp_get_attachment_image_url($logo, 'medium'),
 				$user_id,
@@ -147,7 +148,7 @@ function fdc_affiche_volet_connexion() {
 		return '';
 	}
 	$message=wp_kses_post(get_field('message_login','options'));
-	echo '<div class="volet-header" id="volet-connexion" aria-expanded="false" ><div class="decor"></div>';
+	echo '<div class="volet-header" id="volet-connexion" aria-expanded="false" role="form"><div class="decor"></div>';
 		printf('<img class="picto" src="%s" width="49" height="39" alt="picto connexion"/>',
 			fdc_get_picto_url('verrou-ferme-blanc')
 		);

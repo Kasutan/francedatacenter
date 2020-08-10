@@ -96,7 +96,7 @@ function fdc_affiche_volet_recherche() {
 	if(!function_exists('fdc_get_picto_url') ) {
 		return;
 	}
-	echo '<div class="volet-header recherche" id="volet-recherche" aria-expanded="false" ><div class="decor"></div>';
+	echo '<div class="volet-header recherche" id="volet-recherche" role="form" aria-expanded="false" ><div class="decor"></div>';
 		echo '<div class="sep"></div>';
 		printf('<img class="picto" src="%s" width="44" height="44" alt="picto recherche"/>',
 			fdc_get_picto_url('loupe')

@@ -65,7 +65,7 @@ function fdc_adherents_slider_callback( $block ) {
 				fdc_affiche_adherent($user,$contexte='slider');
 			}
 			echo '</ul>';
-			if($label && $cible) printf('<div class="fleche"><a href="%s">%s %s</a>',
+			if($label && $cible) printf('<div class="fleche"><a href="%s">%s %s</a></div>',
 				$cible, $label, fdc_get_picto_inline('angle'));
 		} else {
 			echo 'Aucun adhérent actif';

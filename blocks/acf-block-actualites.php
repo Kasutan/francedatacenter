@@ -74,6 +74,6 @@ function fdc_affiche_actualite($post_id) {
 			echo $date;
 		echo '</div>';
 		printf('<h3 class="titre-actualite">%s</h3>',get_the_title($post_id));
-		printf('<div clas="extrait">%s</div>',get_the_excerpt());
+		printf('<div>%s</div>',get_the_excerpt());
 	echo '</a></li>';
 }

@@ -27,7 +27,7 @@
 			<nav>
 				<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $link;?>"  class="icone-partage"
 				title="Cliquez pour partager sur Facebook" rel="noopener noreferrer" target="blank"   >
-				<img src="<?php echo fdc_get_picto_url('facebook-2');?>" alt=Facebook" height="44" width="50"/>
+				<img src="<?php echo fdc_get_picto_url('facebook-2');?>" alt="Facebook" height="44" width="50"/>
 				<span class="screen-reader-text">Cliquez pour partager sur Facebook (ouvre dans une nouvelle fenêtre)</span></a>
 
 				<a href="https://twitter.com/home?status=<?php echo $link;?>"  class="icone-partage"
@@ -35,7 +35,7 @@
 				<img src="<?php echo fdc_get_picto_url('twitter-2');?>" alt="Twitter" height="44" width="50"/>
 				<span class="screen-reader-text">Cliquez pour partager sur Twitter (ouvre dans une nouvelle fenêtre)</span></a>
 
-				<a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo $link;?>&title=<?php echo get_the_title();?>" class="icone-partage"
+				<a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo $link;?>&title=<?php echo urlencode(get_the_title());?>" class="icone-partage"
 				title="Cliquez pour partager sur LinkedIn" rel="noopener noreferrer" target="blank"   >
 				<img src="<?php echo fdc_get_picto_url('linkedin-2');?>" alt="Linkedin" height="44" width="50"/>
 				<span class="screen-reader-text">Cliquez pour partager sur LinkedIn (ouvre dans une nouvelle fenêtre)</span></a>
