@@ -241,7 +241,7 @@
 			clip-path: polygon(100% 0, 100% 95%, 80% 100%, 0 90%, 0 0)
 		}
 	}
-	&.decor::before {
+	&.decor::before, &.decor-gauche::before {
 		background-image:url('icons/decor.svg');
 		background-position: bottom right;
 		background-repeat: no-repeat;
@@ -252,6 +252,13 @@
 		height:300px;
 		right:-70px;
 		width:460px;
+	}
+	&.decor-gauche::before {
+		bottom:-20px;
+		left:-100px;
+		right:unset;
+		transform:rotateY(180deg);
+
 	}
 	.texte-banniere {
 		color:var(--blanc);
@@ -292,6 +299,13 @@
 			bottom:-25%;
 			height:230%;
 			right:-21%;
+			width:85%;
+		}
+		&.decor-gauche::before {
+			bottom:-13%;
+			height:230%;
+			left:-35%;
+			right:-unset;
 			width:85%;
 		}
 	}

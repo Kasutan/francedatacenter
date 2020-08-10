@@ -50,7 +50,7 @@
             "label": "Affichage du décor",
             "name": "decor_banniere",
             "type": "radio",
-            "instructions": "Afficher ou pas le décor en lignes grises sous l'image bannière, côté droit",
+            "instructions": "Afficher ou non le décor en lignes grises sous l'image bannière, côté droit ou côté gauche",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -59,7 +59,8 @@
                 "id": ""
             },
             "choices": {
-                "decor": "afficher le décor",
+                "decor": "afficher le décor côté droit",
+                "decor-gauche": "afficher le décor côté gauche",
                 "sans-decor": "ne pas afficher le décor"
             },
             "allow_null": 0,
@@ -101,5 +102,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1594640883
+    "modified": 1597042105
 }
