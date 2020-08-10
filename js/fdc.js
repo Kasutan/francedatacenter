@@ -127,7 +127,6 @@
 				mainNavigation.addClass('sticky');
 				siteContent.css('margin-top',siteHeader.outerHeight());
 				var parallax=windowTop*0.2;
-				console.log(parallax);
 				if(parallax <= 40) {
 					$(pageHeaderImg).css({'transform':'translateY(-'+parallax+'px)'});
 				}
@@ -239,7 +238,6 @@
 						$("#filtre-liste input:checked").each(function(i) {
 							selectedValues.push($(this).val());
 						});
-						console.log(selectedValues);
 						//on filtre la liste pour ne garder que les éléments dont le type est présent dans la liste
 						listeFiltrable.filter(function(item) {
 							return (selectedValues.indexOf(item.values().type)>=0);
@@ -271,7 +269,6 @@
 
 						//on met le focus sur le lien à l'intérieur du premier élément nouvellement affiché
 						$('.list li:nth-of-type('+mettreFocus+') a').focus();
-						console.log($('.list li:nth-of-type('+mettreFocus+') a'));
 						
 						//la nouvelle liste est prête, nouvelle animation pour réafficher
 						$(resultats).animate(
