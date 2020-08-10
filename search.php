@@ -23,7 +23,7 @@ get_header();
 				} 
 				if($defaut) {
 					printf('<div class="image">%s</div>',
-					wp_get_attachment_image( $defaut, $taille)
+					wp_get_attachment_image( $defaut, 'banniere')
 					);
 				}
 				echo '<div class="texte-banniere">';
