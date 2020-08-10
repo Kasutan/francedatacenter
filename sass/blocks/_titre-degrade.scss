@@ -1,5 +1,6 @@
 .acf-block-titre-degrade {
 	margin-bottom: var(--margin-y);
+	margin-top:var(--margin-y);
 	text-align: center;
 	font-weight: 700;
 	
@@ -25,10 +26,10 @@
 			display: block;
 		}
 		.titre {
-			font-size:3rem;
+			font-size:3.2rem;
 		}
 		.sous-titre {
-			font-size: 2rem;
+			font-size: 2.3rem;
 		}
 	}
 }

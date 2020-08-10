@@ -3292,6 +3292,7 @@ button.retour {
 
 .acf-block-titre-degrade {
   margin-bottom: var(--margin-y);
+  margin-top: var(--margin-y);
   text-align: center;
   font-weight: 700; }
   .acf-block-titre-degrade .texte {
@@ -3309,9 +3310,9 @@ button.retour {
     .acf-block-titre-degrade br {
       display: block; }
     .acf-block-titre-degrade .titre {
-      font-size: 3rem; }
+      font-size: 3.2rem; }
     .acf-block-titre-degrade .sous-titre {
-      font-size: 2rem; } }
+      font-size: 2.3rem; } }
 
 .acf-block-banniere {
   color: var(--blanc);
