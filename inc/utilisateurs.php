@@ -46,17 +46,17 @@ function fdc_affiche_adherent($user,$contexte='grille',$groupe=0) {
 		if(!empty($url)) {
 			printf('<li class="adherent"><a href="%s">%s</a></li>',
 				$url,
-				wp_get_attachment_image($logo, 'thumbnail', false, array('alt'=>$entreprise))
+				wp_get_attachment_image($logo, 'logo', false, array('alt'=>$entreprise))
 			);
 		} else {
 			printf('<li class="adherent">%s</li>',
-				wp_get_attachment_image($logo, 'thumbnail', false, array('alt'=>$entreprise))
+				wp_get_attachment_image($logo, 'logo', false, array('alt'=>$entreprise))
 			);
 		}
 	} else { //contexte grille, on affiche le logo cliquable qui ouvre une popup au clic
 		if ($groupe > 0) {
 			//ce logo n'est pas visible au chargement de la page : on lui passe différentes infos pour le JS et on ne charge pas l'image
-			printf('<li class="adherent js-afficher-plus" data-groupe="%s" data-src="%s"><a href="#adherent-%s" class="ouvrir-modaal"><img src="data:," alt="%s" /></a>%s</li>',
+			printf('<li class="adherent js-afficher-plus" data-groupe="%s" data-src="%s"><a href="#adherent-%s" class="ouvrir-modaal"><img src="data:," alt="%s" class="no-lazy-load" /></a>%s</li>',
 				$groupe,
 				wp_get_attachment_image_url($logo, 'medium'),
 				$user_id,

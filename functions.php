@@ -219,6 +219,7 @@ require get_template_directory() . '/inc/template-functions.php';
 */
 
 add_image_size('banniere',1600,700,false);
+add_image_size('logo',160,150,false);
 
 /**
 * CPT, custom fields, custom taxonomies et functions associées
