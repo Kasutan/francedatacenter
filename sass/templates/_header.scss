@@ -233,7 +233,6 @@
 	&.decoupe-gauche {
 		.image {
 			clip-path: polygon(100% 0, 100% 90%, 20% 100%, 0 95%, 0 0);
-			//TODO compléter avec un svg pour Edge
 		}
 	}
 	&.decoupe-droite {

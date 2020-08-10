@@ -8,7 +8,6 @@
  */
 
 get_header();
-			//TODO afficher une image bannière -> image par défaut
 
 ?>
 
