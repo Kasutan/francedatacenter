@@ -14,6 +14,9 @@
 		flex-direction: column;
 		justify-content: center;
 	}
+	br {
+		display: none;
+	}
 	@include bp(md) {
 		.liens {
 			flex-direction: row;

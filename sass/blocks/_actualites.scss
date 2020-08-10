@@ -108,7 +108,7 @@
 
 	//bloc 6 articles sur 2 colonnes pour la page Actualités
 	&.six {
-		padding-bottom: 0;
+		padding:0 var(--padding-x-grille);
 		.actualites {
 			padding:0;
 		}

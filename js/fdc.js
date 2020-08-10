@@ -26,6 +26,7 @@
 					$(voletConnexion).css('display','flex');
 					$(voletConnexion).attr('aria-expanded','true');
 					$(boutonConnexion).attr('aria-expanded','true');
+					$('#user_login').focus();
 
 					$('body,html').animate(
 						{scrollTop : 0},

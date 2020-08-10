@@ -113,6 +113,7 @@ a.wp-block-button__link:not(.has-background) {
 	&:hover, &:focus, &:active {
 		background: var(--blanc);
 		color: var(--bleu);
+		outline:none;
 		text-decoration: none;
 	}
 }
@@ -138,6 +139,7 @@ textarea {
 	color: var(--bleu);
 	border: 1px solid var(--gris-decor);
 	border-radius: 0;
+	outline-color:var(--cyan);
 	padding: 3px;
 	
 	&:focus {

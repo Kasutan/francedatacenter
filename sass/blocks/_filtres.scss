@@ -72,20 +72,23 @@ button.toggle-filtre {
 	align-items: center;
 	background-color: transparent;
 	border:none;
-	color:var(--cyan);
+	color:var(--bleu);
 	display: flex;
 	margin:0 auto 12px;
 	svg {
 		margin-right: 8px;
 		width:22px;
+		path {
+			fill:var(--bleu);
+		}
 	}
 	.masquer {
 		display:none;
 	}
 	&.ouvert {
-		color:var(--bleu);
+		color:var(--cyan);
 		svg path {
-			fill:var(--bleu);
+			fill:var(--cyan);
 		}
 		.masquer {
 			display:inline;

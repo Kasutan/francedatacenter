@@ -57,13 +57,17 @@
 	}
 }
 .single-post  {
+	h1 {
+		text-transform:none;
+	}
 	.fil-ariane {
 		margin-bottom: 5px;
 	}
 	.entry-meta {
 		margin-bottom: 29px;
-		& {
-			font-weight: normal;
+		margin-top: 10px;
+		& a {
+			font-weight: 700;
 			text-decoration: none;
 		}
 	}
