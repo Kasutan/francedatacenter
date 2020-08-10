@@ -63,7 +63,7 @@ function fdc_actualites_callback( $block ) {
 
 }
 
-function fdc_affiche_actualite($post_id) {
+function fdc_affiche_actualite($post_id, $titre="h3") {
 	$date=get_the_date('d/m/y',$post_id); //y : année sur 2 chiffres
 	$array_date=explode('/',$date);
 	$date=sprintf('<div class="date"><span class="jour">%s</span><span>%s/%s</span></div>',$array_date[0],$array_date[1],$array_date[2]);
@@ -73,7 +73,8 @@ function fdc_affiche_actualite($post_id) {
 			printf('<div class="image">%s</div>', get_the_post_thumbnail( $post_id , 'medium'));
 			echo $date;
 		echo '</div>';
-		printf('<h3 class="titre-actualite">%s</h3>',get_the_title($post_id));
+		if($titre=="h3") printf('<h3 class="titre-actualite">%s</h3>',get_the_title($post_id));
+		if($titre=="h2") printf('<h2 class="titre-actualite h3">%s</h2>',get_the_title($post_id));
 		printf('<div>%s</div>',get_the_excerpt());
 	echo '</a></li>';
 }

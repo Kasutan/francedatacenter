@@ -38,7 +38,7 @@ get_header();
 			/* Start the Loop */
 			while ( have_posts() ) :
 				the_post();
-				if(function_exists('fdc_affiche_actualite')) fdc_affiche_actualite(get_the_ID());
+				if(function_exists('fdc_affiche_actualite')) fdc_affiche_actualite(get_the_ID(),'h2');
 			endwhile;
 			?>
 			</ul>

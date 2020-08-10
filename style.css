@@ -3535,6 +3535,8 @@ button.retour {
     @media (min-width: 768px) {
       .actualite .titre-actualite {
         font-size: calc(24 * 1.125rem / 18); } }
+    .actualite .titre-actualite::after {
+      display: none; }
   .actualite a {
     color: var(--noir);
     display: block;

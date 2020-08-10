@@ -41,7 +41,7 @@ function fdc_actualites_themes_callback( $block ) {
 	if(!empty($categories)) : 
 	printf('<section class="acf-block-actualites-themes alignfull %s">', $className);
 		if($titre) printf('<h2>%s</h2>',$titre);
-		echo '<nav><ul class="categories">';
+		echo '<nav aria-label="thèmes des actualités"><ul class="categories">';
 		foreach( $categories as $category ) {
 			$term_id=$category->term_id ;
 			$image_id=esc_attr(get_field('image','term_'.$term_id));

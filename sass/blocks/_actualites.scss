@@ -40,6 +40,9 @@
 		color:var(--bleu);
 		@include taille(24);
 		transition:color var(--transition);
+		&::after {
+			display:none;
+		}
 
 	}
 	a {

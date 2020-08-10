@@ -47,7 +47,7 @@
 			?>
 		</div>
 
-		<nav id="site-navigation" class="main-navigation">
+		<nav id="site-navigation" class="main-navigation" aria-label="menu principal">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Menu">
 
 				<svg xmlns="http://www.w3.org/2000/svg" class="menu" width="28.964" height="23.016" viewBox="0 0 28.964 23.016"><path d="M28.576,80.327H.388A.388.388,0,0,1,0,79.94V78.388A.388.388,0,0,1,.388,78H28.576a.388.388,0,0,1,.388.388V79.94A.388.388,0,0,1,28.576,80.327Zm0,10.344H.388A.388.388,0,0,1,0,90.284V88.732a.388.388,0,0,1,.388-.388H28.576a.388.388,0,0,1,.388.388v1.552A.388.388,0,0,1,28.576,90.672Zm0,10.344H.388A.388.388,0,0,1,0,100.628V99.076a.388.388,0,0,1,.388-.388H28.576a.388.388,0,0,1,.388.388v1.552A.388.388,0,0,1,28.576,101.016Z" transform="translate(0 -78)" fill="#37b0b0"/></svg>
