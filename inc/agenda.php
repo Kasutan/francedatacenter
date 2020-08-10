@@ -1,8 +1,6 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-//TODO afficher infos complémentaires dans l'admin
-
 function fdc_affiche_evenement($post_id) {
 	if(get_post_type($post_id)!=='evenement' || !function_exists('get_field') || !function_exists('fdc_get_picto_inline') || !function_exists('fdc_get_picto_url') || !function_exists('fdc_get_type_evenement')) {
 		return;
@@ -192,4 +190,57 @@ function fdc_affiche_liste_evenements() {
 		echo '<p>Aucun évènement</p>';
 	endif;	
 	wp_reset_postdata();
+}
+
+/******************Colonnes dans l'admin *****************/
+add_filter( 'manage_evenement_posts_columns', 'fdc_set_custom_edit_evenement_columns' );
+
+function fdc_set_custom_edit_evenement_columns( $columns ) {
+
+$columns['date_evenement'] = __( 'Date évènement', 'francedatacenter' );
+$columns['lieu'] = __( 'Lieu', 'francedatacenter' );
+$columns['date'] =  __( 'Date publication', 'francedatacenter' );
+
+return $columns;
+}
+
+add_action( 'manage_evenement_posts_custom_column' , 'fdc_custom_evenement_column', 10, 2 );
+
+function fdc_custom_evenement_column( $column, $post_id ) {
+	if(!function_exists('get_field')) {
+		echo '';
+	}
+switch ( $column ) {
+
+	// display the value of an ACF (Advanced Custom Fields) field
+	case 'date_evenement' :
+		$date_debut=esc_attr(get_field('date_debut',$post_id));
+		$date_fin=esc_attr(get_field('date_fin',$post_id));
+		//s'agit-il d'un évènement passé ?
+		$passe=false;
+		if($date_debut < date('Y-m-d')) $passe=true;
+
+		//préparer format dates
+		$array_date_debut=explode('-',$date_debut);
+		$date_a_afficher=sprintf('%s/%s/%s',$array_date_debut[2],$array_date_debut[1],$array_date_debut[0]);
+
+		if($date_fin) {
+			$array_date_fin=explode('-',$date_fin);
+			$date_a_afficher.=sprintf(' - %s/%s/%s',$array_date_fin[2],$array_date_fin[1],$array_date_fin[0]);
+		}
+
+		if($passe) {
+			printf('<em style="color:grey">%s</em>',$date_a_afficher);
+		} else {
+			echo $date_a_afficher;
+		}
+		break;
+	
+	case 'lieu' :
+		echo esc_html(get_field( 'ville', $post_id ));  
+		$pays=esc_html(get_field( 'pays', $post_id ));
+		if($pays) printf(', %s',$pays);
+		break;
+
+}
 }
