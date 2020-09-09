@@ -104,28 +104,43 @@
 		
 		a {
 			background-color: var(--blanc);
-			background-image:url('icons/instagram.svg');
-			background-repeat: no-repeat;
-			background-position: center;
 			border-radius:50%;
 			display: block;
 			color:transparent;
 			height:38px;
 			margin:10px 10px 20px 0;
+			position: relative;
 			overflow:hidden;
 			width:38px;
+			&::after {
+				background-image:url('icons/instagram.svg');
+				background-repeat: no-repeat;
+				background-position: center;
+				content:'';
+				display: block;
+				height:100%;
+				left:0;
+				position:absolute;
+				transition:filter var(--transition);
+				top:0;
+				width:100%;
+			}
 
-			&[href*="twitter"] {
+			&[href*="twitter"]::after {
 				background-image:url('icons/twitter.svg');
 			}
-			&[href*="linkedin"] {
+			&[href*="linkedin"]::after {
 				background-image:url('icons/linkedin.svg');
 			}
-			&[href*="facebook"] {
+			&[href*="facebook"]::after {
 				background-image:url('icons/facebook.svg');
 			}
-			&[href*="youtube"] {
+			&[href*="youtube"]::after {
 				background-image:url('icons/youtube.svg');
+			}
+
+			&:hover::after, &:focus::after {
+				filter: brightness(0) saturate(100%) invert(67%) sepia(11%) saturate(2180%) hue-rotate(131deg) brightness(89%) contrast(85%);
 			}
 			
 		}

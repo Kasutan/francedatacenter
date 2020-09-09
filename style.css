@@ -1991,24 +1991,40 @@ button.modaal-close {
     justify-content: flex-start; }
     .site-footer #menu-liens-reseaux-sociaux a {
       background-color: var(--blanc);
-      background-image: url("icons/instagram.svg");
-      background-repeat: no-repeat;
-      background-position: center;
       border-radius: 50%;
       display: block;
       color: transparent;
       height: 38px;
       margin: 10px 10px 20px 0;
+      position: relative;
       overflow: hidden;
       width: 38px; }
-      .site-footer #menu-liens-reseaux-sociaux a[href*="twitter"] {
+      .site-footer #menu-liens-reseaux-sociaux a::after {
+        background-image: url("icons/instagram.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        content: '';
+        display: block;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        -webkit-transition: -webkit-filter var(--transition);
+        transition: -webkit-filter var(--transition);
+        transition: filter var(--transition);
+        transition: filter var(--transition), -webkit-filter var(--transition);
+        top: 0;
+        width: 100%; }
+      .site-footer #menu-liens-reseaux-sociaux a[href*="twitter"]::after {
         background-image: url("icons/twitter.svg"); }
-      .site-footer #menu-liens-reseaux-sociaux a[href*="linkedin"] {
+      .site-footer #menu-liens-reseaux-sociaux a[href*="linkedin"]::after {
         background-image: url("icons/linkedin.svg"); }
-      .site-footer #menu-liens-reseaux-sociaux a[href*="facebook"] {
+      .site-footer #menu-liens-reseaux-sociaux a[href*="facebook"]::after {
         background-image: url("icons/facebook.svg"); }
-      .site-footer #menu-liens-reseaux-sociaux a[href*="youtube"] {
+      .site-footer #menu-liens-reseaux-sociaux a[href*="youtube"]::after {
         background-image: url("icons/youtube.svg"); }
+      .site-footer #menu-liens-reseaux-sociaux a:hover::after, .site-footer #menu-liens-reseaux-sociaux a:focus::after {
+        -webkit-filter: brightness(0) saturate(100%) invert(67%) sepia(11%) saturate(2180%) hue-rotate(131deg) brightness(89%) contrast(85%);
+        filter: brightness(0) saturate(100%) invert(67%) sepia(11%) saturate(2180%) hue-rotate(131deg) brightness(89%) contrast(85%); }
   .site-footer .copyright {
     -webkit-box-align: center;
     -ms-flex-align: center;
