@@ -76,7 +76,7 @@ function fdc_prepare_popup_evenement($post_id,$classe_futur,$date_debut,$date_fi
 			if($lien_resa) {
 				echo '<p class="lien-evenement">';
 				if($label_lien_resa) printf('<strong>%s&nbsp;: </strong>',$label_lien_resa);
-				printf('<a href="%s">%s</a>',$lien_resa,$lien_resa);
+				printf('<a href="%s" target="_blank">%s</a>',$lien_resa,$lien_resa);
 				echo '</p>';
 			}
 		echo '</div>';

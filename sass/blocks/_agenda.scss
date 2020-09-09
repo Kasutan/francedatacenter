@@ -270,7 +270,6 @@
 @include bp(md) {
 	.image-popup {
 		display: flex;
-		height:320px;
 		width:100%;
 		img {
 			object-fit: cover;

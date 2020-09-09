@@ -3357,7 +3357,6 @@ button.retour {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    height: 320px;
     width: 100%; }
     .image-popup img {
       -o-object-fit: cover;
