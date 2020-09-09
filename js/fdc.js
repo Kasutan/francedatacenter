@@ -109,6 +109,15 @@
 				);
 			});
 		}
+		/********* Desktop : neutraliser clic pour lien de menu parent **********/
+		var liensParents=$('.volet-navigation .menu-item-has-children > a');
+		if(width>=960 && liensParents.length>0) {
+			liensParents.click(function(e) {
+				e.preventDefault();
+				$(this).blur();
+			})
+		}
+
 
 		/****************** Sticky header *************************/	
 		var siteHeader=$('.site-header');

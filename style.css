@@ -1088,7 +1088,7 @@ object {
 ## Links
 --------------------------------------------------------------*/
 :root {
-  --transition:0.5s ease-in-out; }
+  --transition:0.45s ease-in-out; }
 
 a,
 a:visited {
@@ -1158,8 +1158,8 @@ a:active {
     .fleche a:hover, .fleche a:focus, .fleche a:active, .fleche button:hover, .fleche button:focus, .fleche button:active {
       --lien: var(--bleu); }
       .fleche a:hover::after, .fleche a:focus::after, .fleche a:active::after, .fleche button:hover::after, .fleche button:focus::after, .fleche button:active::after {
-        -webkit-animation: animTrait 1s cubic-bezier(0.7, 0, 0.3, 1) both;
-        animation: animTrait 1s cubic-bezier(0.7, 0, 0.3, 1) both; }
+        -webkit-animation: animTrait 0.45s cubic-bezier(0.7, 0, 0.3, 1) both;
+        animation: animTrait 0.45s cubic-bezier(0.7, 0, 0.3, 1) both; }
   .fleche.bleu a, .fleche.bleu button {
     --lien: var(--bleu); }
     .fleche.bleu a:hover, .fleche.bleu a:focus, .fleche.bleu a:active, .fleche.bleu button:hover, .fleche.bleu button:focus, .fleche.bleu button:active {
@@ -1178,14 +1178,6 @@ a:active {
         max-width: 18px;
         top: 6px; } }
 
-@-webkit-keyframes animTrait {
-  from {
-    width: 0; } }
-
-@keyframes animTrait {
-  from {
-    width: 0; } }
-
 /*--------------------------------------------------------------
 ## Ancres
 --------------------------------------------------------------*/
@@ -1200,6 +1192,7 @@ a:active {
 ## Fil d'ariane
 --------------------------------------------------------------*/
 p.fil-ariane {
+  font-size: 1rem;
   margin-bottom: 28px; }
   p.fil-ariane a {
     text-decoration: none; }
@@ -1304,6 +1297,8 @@ p.fil-ariane {
         .main-navigation ul.menu > li {
           position: relative; }
           .main-navigation ul.menu > li:hover ul, .main-navigation ul.menu > li.focus ul {
+            -webkit-animation: animSousMenu 0.45s cubic-bezier(0.7, 0, 0.3, 1) both;
+            animation: animSousMenu 0.45s cubic-bezier(0.7, 0, 0.3, 1) both;
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
@@ -1312,6 +1307,7 @@ p.fil-ariane {
             -ms-flex-direction: column;
             flex-direction: column;
             left: unset;
+            opacity: 1;
             right: -32px;
             width: 320px; }
       .main-navigation.sticky ul.menu {
@@ -1421,6 +1417,8 @@ p.fil-ariane {
         color: var(--bleu); }
     .volet-navigation li:hover button.ouvrir-sous-menu .picto-desktop svg path, .volet-navigation li.focus button.ouvrir-sous-menu .picto-desktop svg path {
       fill: var(--bleu); }
+    .volet-navigation li:hover > a, .volet-navigation li.focus > a {
+      color: var(--bleu); }
     .volet-navigation li.current-menu-item > a, .volet-navigation li.current-menu-ancestor > a {
       color: var(--cyan); }
     .volet-navigation li.current-menu-item button.ouvrir-sous-menu .picto-desktop svg path, .volet-navigation li.current-menu-ancestor button.ouvrir-sous-menu .picto-desktop svg path {
@@ -1449,7 +1447,13 @@ p.fil-ariane {
       .volet-navigation ul.sub-menu li:last-of-type {
         border-bottom: 0; }
       .volet-navigation ul.sub-menu a {
-        color: var(--blanc); }
+        color: var(--blanc);
+        left: 0;
+        position: relative;
+        -webkit-transition: left var(--transition);
+        transition: left var(--transition); }
+        .volet-navigation ul.sub-menu a:hover, .volet-navigation ul.sub-menu a:focus {
+          left: 15px; }
       .volet-navigation ul.sub-menu::before {
         border-left: 6px solid transparent;
         border-right: 6px solid transparent;
@@ -1461,6 +1465,10 @@ p.fil-ariane {
         right: 30px;
         top: -6px;
         width: 0; } }
+
+@media screen and (min-width: 1030px) {
+  .volet-navigation a {
+    font-size: 1.125rem; } }
 
 .volet-navigation .connexion, .volet-navigation .recherche {
   -webkit-box-align: center;
@@ -1544,6 +1552,24 @@ p.fil-ariane {
         border-left-color: var(--bleu); }
         .volet-navigation .recherche:hover svg path, .volet-navigation .recherche:focus svg path, .volet-navigation .recherche:active svg path {
           fill: var(--bleu); } }
+
+/*Animations*/
+@-webkit-keyframes animTrait {
+  from {
+    width: 0; } }
+@keyframes animTrait {
+  from {
+    width: 0; } }
+
+@-webkit-keyframes animSousMenu {
+  from {
+    opacity: 0.4;
+    top: calc(90% + 10px); } }
+
+@keyframes animSousMenu {
+  from {
+    opacity: 0.4;
+    top: calc(90% + 10px); } }
 
 @media print {
   .topbar,
@@ -1869,10 +1895,11 @@ button.modaal-close {
   color: var(--blanc);
   padding: 0 var(--padding-x-footer) 0; }
   .site-footer a {
-    text-decoration: none; }
+    text-decoration: none;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s; }
     .site-footer a:hover, .site-footer a:focus {
-      color: inherit;
-      text-decoration: underline; }
+      color: inherit; }
     .site-footer a br {
       display: none; }
   .site-footer ul {
@@ -2040,6 +2067,8 @@ button.modaal-close {
   -ms-flex-align: center;
   align-items: center;
   background-color: var(--blanc);
+  -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2051,8 +2080,6 @@ button.modaal-close {
   position: relative;
   z-index: 10; }
   .site-header.sticky {
-    -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
     position: fixed;
     left: 0;
     top: 0;

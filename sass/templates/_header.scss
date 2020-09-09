@@ -4,6 +4,7 @@
 .site-header {
 	align-items: center;
 	background-color: var(--blanc);
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 	display: flex;
 	justify-content: space-between;
 	height:80px;
@@ -13,7 +14,6 @@
 
 
 	&.sticky {
-		box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 		position:fixed;
 		left: 0;
 		top: 0;

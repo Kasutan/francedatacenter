@@ -2,7 +2,7 @@
 ## Links
 --------------------------------------------------------------*/
 :root {
-	--transition:0.5s ease-in-out;
+	--transition:0.45s ease-in-out;
 }
 a,
 a:visited {
@@ -82,7 +82,7 @@ a:active {
 		&:hover, &:focus, &:active {
 			--lien : var(--bleu);
 			&::after {
-				animation: animTrait 1s cubic-bezier(0.7,0,0.3,1) both;
+				animation: animTrait 0.45s cubic-bezier(0.7,0,0.3,1) both;
 			}
 		}
 	}
@@ -127,11 +127,7 @@ a:active {
 
 	
 }
-@keyframes animTrait {
-	from { 
-		width: 0; 
-	}
-}
+
 /*--------------------------------------------------------------
 ## Ancres
 --------------------------------------------------------------*/
@@ -148,6 +144,7 @@ a:active {
 ## Fil d'ariane
 --------------------------------------------------------------*/
 p.fil-ariane {
+	font-size: 1rem;
 	margin-bottom:28px;
 	a {
 		text-decoration: none;
@@ -260,9 +257,11 @@ p.fil-ariane {
 				position: relative;
 				&:hover, &.focus { //classe .focus ajoutée en JS
 					ul {
+						animation: animSousMenu 0.45s cubic-bezier(0.7,0,0.3,1) both;
 						display:flex;
 						flex-direction: column;
 						left:unset;
+						opacity:1;
 						right: -32px;
 						width:320px;
 					}
@@ -392,6 +391,9 @@ p.fil-ariane {
 			button.ouvrir-sous-menu .picto-desktop svg path {
 				fill:var(--bleu);
 			}
+			> a {
+				color:var(--bleu);
+			}
 		}
 		li.current-menu-item, li.current-menu-ancestor {
 			> a {
@@ -436,6 +438,12 @@ p.fil-ariane {
 			}
 			a {
 				color:var(--blanc);
+				left:0;
+				position: relative;
+				transition: left var(--transition);
+				&:hover, &:focus {
+					left:15px;
+				}
 			}
 
 			&::before {
@@ -450,6 +458,12 @@ p.fil-ariane {
 				width: 0;
 
 			}
+		}
+	}
+
+	@media screen and (min-width:1030px) {
+		a {
+			font-size: 1.125rem;
 		}
 	}
 	
@@ -558,3 +572,19 @@ p.fil-ariane {
 	}
 
 }
+
+
+/*Animations*/
+@keyframes animTrait {
+	from { 
+		width: 0; 
+	}
+}
+
+@keyframes animSousMenu {
+	from { 
+		opacity:0.4;
+		top: calc(90% + 10px); 
+	}
+}
+

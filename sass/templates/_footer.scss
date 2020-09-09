@@ -11,9 +11,9 @@
 	padding:0 var(--padding-x-footer) 0;
 	a {
 		text-decoration: none;
+		transition-duration: 0.3s;
 		&:hover, &:focus {
 			color:inherit;
-			text-decoration: underline;
 		}
 		br {
 			display: none;
