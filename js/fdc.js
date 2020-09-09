@@ -228,7 +228,10 @@
 		/****************** Filtre agenda et ressources *************************/	
 		if($("#filtre-liste").length>0) {
 			var boutonPlus=("#afficher-plus");
-			var increment=parseInt($(boutonPlus).attr('data-increment'));
+			var increment=1000; // au cas où il n'y aurait pas de bouton plus avec data-increment stocké
+			if($(boutonPlus).length >0) {
+				increment=parseInt($(boutonPlus).attr('data-increment'));
+			}
 			var resultats=('.list');
 			var listeFiltrable = new List('liste-filtrable', {
 				valueNames: ['type'],
