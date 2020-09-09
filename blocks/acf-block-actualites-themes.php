@@ -45,6 +45,7 @@ function fdc_actualites_themes_callback( $block ) {
 		foreach( $categories as $category ) {
 			$term_id=$category->term_id ;
 			$image_id=esc_attr(get_field('image','term_'.$term_id));
+			$count=$category->count;
 			if($image_id) {
 				$style=sprintf('background-image:url(%s)',wp_get_attachment_url( $image_id ));
 			} else {
@@ -52,10 +53,11 @@ function fdc_actualites_themes_callback( $block ) {
 			}
 			$lien=esc_url( get_category_link( $term_id ) );
 			$nom=esc_html( $category->name );
-			printf('<li style="%s"><a href="%s">%s</a></li>',
+			printf('<li style="%s"><a href="%s">%s (%s)</a></li>',
 				$style,
 				$lien,
-				$nom
+				$nom,
+				$count
 			);
 		}
 		//Bloc pour tous les articles
