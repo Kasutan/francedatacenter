@@ -59,6 +59,12 @@ function fdc_affiche_evenement($post_id) {
 		$type_evenement->slug
 	);
 	
+	fdc_prepare_popup_evenement($post_id,$classe_futur,$date_debut,$date_fin,$titre,$plage_horaire,$type_evenement,$ville,$pays,$desc,$lien_resa,$label_lien_resa);
+
+	echo '</li>'; // fin de l'évènement
+}
+
+function fdc_prepare_popup_evenement($post_id,$classe_futur,$date_debut,$date_fin,$titre,$plage_horaire,$type_evenement,$ville,$pays,$desc,$lien_resa,$label_lien_resa) {
 	//on prépare la popup
 	printf('<div id="evenement-%s" class="popup %s">',$post_id,$classe_futur);
 		fdc_affiche_resume_evenement($date_debut,$date_fin,$titre,$plage_horaire,$type_evenement,$ville,$pays,'popup',$classe_futur);
@@ -76,8 +82,6 @@ function fdc_affiche_evenement($post_id) {
 		echo '</div>';
 		printf('<button class="fermer-modaal retour"><img src="%s" width="52" height="52" alt="Fermer"/><span>Revenir à la liste</span></button>',fdc_get_picto_url('croix'));
 	echo '</div>'; //fin .popup
-
-	echo '</li>'; // fin de l'évènement
 }
 
 function fdc_affiche_resume_evenement($date_debut,$date_fin,$titre,$plage_horaire,$type_evenement,$ville,$pays,$contexte='',$classe_futur='') {
@@ -167,23 +171,32 @@ function fdc_affiche_liste_evenements() {
 
 			/*Préparer les dates*/
 			$array_date_debut=explode('-',$date_debut);
-			$date_debut=sprintf('%s/%s/%s',$array_date_debut[2],$array_date_debut[1],$array_date_debut[0]);
+			$date_debut=sprintf('<span class="date">%s/%s</span><span class="sep">/</span><span class="annee">%s</span>',$array_date_debut[2],$array_date_debut[1],$array_date_debut[0]);
 
 			if($date_fin) {
 				$array_date_fin=explode('-',$date_fin);
-				$date_fin=sprintf('%s/%s/%s',$array_date_fin[2],$array_date_fin[1],$array_date_fin[0]);
+				$date_fin=sprintf('<span class="date">%s/%s</span><span class="sep">/</span><span class="annee">%s</span>',$array_date_fin[2],$array_date_fin[1],$array_date_fin[0]);
 			}
 
 			/*Préparer la ville et ajouter , pays s'il y en a un*/
 			$ville=wp_kses_post(get_field('ville',$post_id));
 			$pays=wp_kses_post(get_field('pays',$post_id));
-			if($pays) $ville.=', '.$pays;
+			if($pays) $ville_pour_liste=$ville.', '.$pays;
 
-			printf('<li><strong>%s</strong><br>',get_the_title());
-				printf('<p>%s - %s',$ville, $date_debut);
+			printf('<li><a href="#evenement-%s" class="ouvrir-modaal"><strong>%s</strong><br>',$post_id,get_the_title());
+				printf('<p>%s - %s',$ville_pour_liste, $date_debut);
 				if($date_fin) printf(' au %s',$date_fin);
 				echo '</p>';
-			echo '</li>';
+			echo '</a></li>';
+
+			/*Données pour la popup*/
+			$desc=get_the_content($post_id);
+			$plage_horaire=wp_kses_post(get_field('plage_horaire',$post_id));
+			$label_lien_resa=wp_kses_post(get_field('label_lien_resa',$post_id));
+			$lien_resa=esc_url(get_field('lien_resa',$post_id));
+			$type_evenement=fdc_get_type_evenement($post_id); 
+			fdc_prepare_popup_evenement($post_id,$classe_futur='',$date_debut,$date_fin,get_the_title(),$plage_horaire,$type_evenement,$ville,$pays,$desc,$lien_resa,$label_lien_resa);
+
 		endwhile;
 		echo '</ul>';
 	else : 

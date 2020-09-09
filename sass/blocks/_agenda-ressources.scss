@@ -12,6 +12,9 @@
 		top:0;
 		width: 100%;
 	}
+	.popup {
+		display: none;
+	}
 	.agenda, .ressources, .videos {
 		position: relative; // pour passer devant le décor
 	}
@@ -71,6 +74,19 @@
 		ul {
 			margin:0;
 			padding-left:1em;
+		}
+	}
+	.agenda li {
+		transition:color var(--transition);
+		&:hover, &:focus-within {
+			color:var(--cyan);
+		}
+		a {
+			color:var(--noir);
+			text-decoration: none;
+			&:focus, &:hover {
+				color:var(--cyan);
+			}
 		}
 	}
 	.picto-verrou {
