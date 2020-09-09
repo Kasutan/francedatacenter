@@ -41,7 +41,7 @@ $post_type=get_post_type();
 				} else {
 					printf('<h1 class="page-title">%s</h1>',get_the_title());
 				}
-				if($baseline) printf('<p class="baseline">%s</p>',$baseline);
+				if($baseline) printf('<div class="sep"></div><p class="baseline">%s</p>',$baseline);
 			echo '</div>';
 			if(function_exists('fdc_get_picto_url')) printf('<a href="#entry-content"><img src="%s" alt="fleche vers le bas" width="40" height="23"/></a>',fdc_get_picto_url('angle-bas'));
 			?>

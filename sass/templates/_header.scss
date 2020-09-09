@@ -4,7 +4,6 @@
 .site-header {
 	align-items: center;
 	background-color: var(--blanc);
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 	display: flex;
 	justify-content: space-between;
 	height:80px;
@@ -14,6 +13,7 @@
 
 
 	&.sticky {
+		box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 		position:fixed;
 		left: 0;
 		top: 0;
@@ -218,6 +218,9 @@
 	min-height:40vw;
 	position:relative;
 	.image {
+		animation: animFadeIn 3s ease-out 0s 1 normal forwards;
+		background: var(--gradient);
+		color:transparent;
 		display: flex;
 		height:100%;
 		left:0;
@@ -241,6 +244,7 @@
 		}
 	}
 	&.decor::before, &.decor-gauche::before {
+		animation: animDecorFadeIn 1s ease-out 3s 1 normal forwards;
 		background-image:url('icons/decor.svg');
 		background-position: bottom right;
 		background-repeat: no-repeat;
@@ -250,6 +254,7 @@
 		position: absolute;
 		height:300px;
 		right:-70px;
+		visibility: hidden;
 		width:460px;
 	}
 	&.decor-gauche::before {
@@ -264,22 +269,21 @@
 		padding:50px var(--padding-x);
 		position: relative;
 	}
+	h1 {
+		animation: animH1 5s ease-out 0s 1 normal forwards;
+	}
+	.sep {
+		animation: animTraitBaselineMobile 5s ease-out 0s 1 normal forwards;
+		background-color: #fff;
+		height:4px;
+		margin:10px auto 20px;
+		width:26px;
+	}
 	.baseline {
+		animation: animBaseline 5s ease-out 0s 1 normal forwards;
 		font-weight: 300;
-		margin-top: 30px;
-		position: relative;
 		text-align: center;
 		text-transform: uppercase;
-
-		&::before {
-			background-color: #fff;
-			content:'';
-			height:4px;
-			left: calc(50% - 13px);
-			position: absolute;
-			top:-20px;
-			width:26px;
-		}
 	}
 	a {
 		bottom:12%;
@@ -310,15 +314,96 @@
 	}
 
 	@include bp(md) {
+		.sep {
+			animation: animTraitBaselineTablette 5s ease-out 0s 1 normal forwards;
+			height:8px;
+			margin : 26px auto;
+			width:50px;
+		}
 		.baseline {
 			font-size: 38px;
-			margin-top: 60px;
-			&::before {
-				height:8px;
-				left: calc(50% - 25px);
-				top:-36px;
-				width:50px;
-			}
 		}
+	}
+}
+
+/*Animations*/
+@keyframes animFadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 0.99;
+	}
+}
+@keyframes animDecorFadeIn {
+	0% {
+		opacity: 0;
+		visibility: hidden;
+	}
+	100% {
+		opacity: 0.99;
+		visibility: visible;
+	}
+}
+@keyframes animH1 {
+	0% {
+		opacity: 0;
+	}
+	20% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 0.99;
+	}
+	100% {
+		opacity: 0.99;
+	}
+}
+@keyframes animBaseline {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 0;
+	}
+	60% {
+		opacity: 0.99;
+	}
+	100% {
+		opacity: 0.99;
+	}
+}
+@keyframes animTraitBaselineMobile {
+	0% {
+		opacity: 0;
+	}
+	40% {
+		opacity: 0;
+		width: 1px;
+	}
+	50% {
+		opacity: 0.99;
+		width: 23px;
+	}
+	100% {
+		opacity: 0.99;
+		width: 23px;
+	}
+}
+@keyframes animTraitBaselineTablette {
+	0% {
+		opacity: 0;
+	}
+	40% {
+		opacity: 0;
+		width: 1px;
+	}
+	50% {
+		opacity: 0.99;
+		width: 50px;
+	}
+	100% {
+		opacity: 0.99;
+		width: 50px;
 	}
 }
