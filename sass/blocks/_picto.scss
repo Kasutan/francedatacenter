@@ -33,6 +33,7 @@
 		@include taille(20);
 	}
 	@include bp(md) {
+		margin-top:40px;
 		&.grand {
 			.picto {
 				flex-basis:120px;

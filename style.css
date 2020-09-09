@@ -2939,9 +2939,9 @@ button.modaal-close {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
     list-style: none;
     margin: 0 auto;
     max-width: var(--max-width-xl);
@@ -2953,21 +2953,48 @@ button.modaal-close {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-preferred-size: 200px;
-    flex-basis: 200px;
+    -ms-flex-preferred-size: calc(50% - 10px);
+    flex-basis: calc(50% - 10px);
     -webkit-box-flex: 0;
     -ms-flex-positive: 0;
     flex-grow: 0;
-    height: 160px;
+    height: 100px;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-    margin: 15px; }
+    margin: 10px 0; }
+    .acf-block-adherents .adherent a {
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      height: 100%;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      position: relative;
+      width: 95%; }
+      .acf-block-adherents .adherent a img {
+        max-height: 100%;
+        -o-object-fit: contain;
+        object-fit: contain; }
     .acf-block-adherents .adherent.js-afficher-plus {
       display: none;
       opacity: 0; }
   .acf-block-adherents a.ouvrir-modal {
     display: block; }
+  @media (min-width: 576px) {
+    .acf-block-adherents .adherents {
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center; }
+    .acf-block-adherents .adherent {
+      -ms-flex-preferred-size: 200px;
+      flex-basis: 200px;
+      height: 160px;
+      margin: 15px; } }
 
 .infos-adherent {
   padding: 20px; }
@@ -3860,14 +3887,16 @@ button.retour {
       .acf-block-picto p.titre {
         font-size: calc(20 * 1.125rem / 18); } }
   @media (min-width: 768px) {
-    .acf-block-picto.grand .picto {
-      -ms-flex-preferred-size: 120px;
-      flex-basis: 120px;
-      margin-right: 38px;
-      width: 120px; }
-    .acf-block-picto.grand .texte {
-      border-left: solid 1px var(--accent);
-      padding-left: 50px; } }
+    .acf-block-picto {
+      margin-top: 40px; }
+      .acf-block-picto.grand .picto {
+        -ms-flex-preferred-size: 120px;
+        flex-basis: 120px;
+        margin-right: 38px;
+        width: 120px; }
+      .acf-block-picto.grand .texte {
+        border-left: solid 1px var(--accent);
+        padding-left: 50px; } }
 
 .acf-block-portrait .image {
   display: -webkit-box;

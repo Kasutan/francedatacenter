@@ -80,7 +80,7 @@ function fdc_prepare_popup_adherent($user_id,$logo,$entreprise,$url) {
 		echo '<div class="infos-adherent">';
 			if($logo) echo wp_get_attachment_image($logo, 'medium', false, array('alt'=>$entreprise));
 			if($descriptif) printf('<div class="descriptif">%s</div>',$descriptif); else echo $entreprise;
-			if($url) printf('<a href="%s" class="url">%s</a>',$url, $url);
+			if($url) printf('<a href="%s" class="url" target="_blank">%s</a>',$url, $url);
 		echo '</div>'; //fin .infos
 		printf('<button class="fermer-modaal retour"><img src="%s" width="52" height="52" alt="Fermer"/><span>Revenir à la liste</span></button>',fdc_get_picto_url('croix'));
 	echo '</div>'; //fin .popup
