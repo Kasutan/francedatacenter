@@ -24,9 +24,10 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		margin-top: 1em;
 	}
 	.fleche a {
-		margin-top:0;
+		margin: 0 0 0.5em;
 	}
 	@include bp(md) {
 		.sous-titre {
