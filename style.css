@@ -3024,7 +3024,7 @@ button.modaal-close {
     text-align: center;
     text-decoration: none; }
 
-button.retour {
+button.retour, button.fermer, a.fermer {
   background-color: var(--fond);
   border: none;
   color: var(--cyan);
@@ -3033,14 +3033,25 @@ button.retour {
   padding: 10px;
   text-align: center;
   width: 100%; }
-  button.retour img {
+  button.retour img, button.fermer img, a.fermer img {
     max-width: 5.8vw;
     margin-bottom: 5px; }
-  button.retour span {
+  button.retour span, button.fermer span, a.fermer span {
     font-weight: bold;
     display: block;
     text-align: center;
     text-transform: none; }
+
+button.fermer, a.fermer {
+  display: inline-block;
+  font-size: 1rem;
+  text-decoration: none;
+  width: 50%; }
+
+.boutons-fermer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
 
 @media (min-width: 768px) {
   .infos-adherent {
@@ -3053,11 +3064,11 @@ button.retour {
 @media (min-width: 960px) {
   .infos-adherent {
     padding: 60px; }
-  button.retour {
+  button.retour, button.fermer, a.fermer {
     padding: 30px; }
-    button.retour img {
+    button.retour img, button.fermer img, a.fermer img {
       max-width: 52px; }
-    button.retour span {
+    button.retour span, button.fermer span, a.fermer span {
       font-size: 22px; } }
 
 .acf-block-adherents-slider {

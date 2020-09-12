@@ -64,7 +64,7 @@ function fdc_affiche_evenement($post_id) {
 	echo '</li>'; // fin de l'évènement
 }
 
-function fdc_prepare_popup_evenement($post_id,$classe_futur,$date_debut,$date_fin,$titre,$plage_horaire,$type_evenement,$ville,$pays,$desc,$lien_resa,$label_lien_resa) {
+function fdc_prepare_popup_evenement($post_id,$classe_futur,$date_debut,$date_fin,$titre,$plage_horaire,$type_evenement,$ville,$pays,$desc,$lien_resa,$label_lien_resa,$contexte="agenda") {
 	//on prépare la popup
 	printf('<div id="evenement-%s" class="popup %s">',$post_id,$classe_futur);
 		fdc_affiche_resume_evenement($date_debut,$date_fin,$titre,$plage_horaire,$type_evenement,$ville,$pays,'popup',$classe_futur);
@@ -80,7 +80,14 @@ function fdc_prepare_popup_evenement($post_id,$classe_futur,$date_debut,$date_fi
 				echo '</p>';
 			}
 		echo '</div>';
-		printf('<button class="fermer-modaal retour"><img src="%s" width="52" height="52" alt="Fermer"/><span>Revenir à la liste</span></button>',fdc_get_picto_url('croix'));
+		if($contexte!="agenda") {
+			echo '<div class="boutons-fermer">';
+			printf('<button class="fermer-modaal fermer"><img src="%s" width="52" height="52" alt="Fermer"/><span>Fermer la fenêtre</span></button>',fdc_get_picto_url('croix'));
+			printf('<a href="/agenda/" class="fermer"><img src="%s" width="52" height="52" class="no-lazy-load" alt="Flèche"/><span>Voir l\'agenda</span></button>',fdc_get_picto_url('angle-cercle'));
+			echo '</div>';
+		} else {
+			printf('<button class="fermer-modaal retour"><img src="%s" width="52" height="52" alt="Fermer"/><span>Revenir à la liste</span></button>',fdc_get_picto_url('croix'));
+		}
 	echo '</div>'; //fin .popup
 }
 
@@ -195,7 +202,7 @@ function fdc_affiche_liste_evenements() {
 			$label_lien_resa=wp_kses_post(get_field('label_lien_resa',$post_id));
 			$lien_resa=esc_url(get_field('lien_resa',$post_id));
 			$type_evenement=fdc_get_type_evenement($post_id); 
-			fdc_prepare_popup_evenement($post_id,$classe_futur='',$date_debut,$date_fin,get_the_title(),$plage_horaire,$type_evenement,$ville,$pays,$desc,$lien_resa,$label_lien_resa);
+			fdc_prepare_popup_evenement($post_id,$classe_futur='',$date_debut,$date_fin,get_the_title(),$plage_horaire,$type_evenement,$ville,$pays,$desc,$lien_resa,$label_lien_resa,'accueil');
 
 		endwhile;
 		echo '</ul>';

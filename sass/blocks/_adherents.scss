@@ -72,7 +72,7 @@
 	}
 }
 
-button.retour {
+button.retour, button.fermer, a.fermer {
 	background-color: var(--fond);
 	border:none;
 	color:var(--cyan);
@@ -91,6 +91,15 @@ button.retour {
 		text-align: center;
 		text-transform: none;
 	}
+}
+button.fermer, a.fermer {
+	display: inline-block;
+	font-size: 1rem;
+	text-decoration: none;
+	width:50%;
+}
+.boutons-fermer {
+	display: flex;
 }
 
 @include bp(md) {
@@ -111,7 +120,7 @@ button.retour {
 		padding:60px;
 		
 	}
-	button.retour {
+	button.retour, button.fermer, a.fermer {
 		padding:30px;
 		img {
 			max-width:52px;
