@@ -207,21 +207,16 @@
 
 		/****************** Afficher plus d'adhérents *************************/	
 		$('.acf-block-adherents #afficher-plus').click(function(){
-			var next=$(this).attr('data-prochain-groupe');
-			var last=$(this).attr('data-dernier-groupe');
-			var montrerAdherents=$('.adherent[data-groupe="'+next+'"]');
-			$(montrerAdherents).each(function( index ) {
-				var img=$(this).find('img');
-				$(img).attr('src',$(this).attr('data-src'));
-				$(this).css('display','flex');
-				$(this).animate({opacity:1},1000);
-			});
-			$(montrerAdherents[0]).find('a').focus();
-			if(next==last) {
+			var montrerAdherents=$('.js-afficher-plus');
+			if(montrerAdherents.length>0) {
+				montrerAdherents.each(function( index ) {
+					var img=$(this).find('img');
+					$(img).attr('src',$(this).attr('data-src'));
+					$(this).css('display','flex');
+					$(this).animate({opacity:1},1000);
+				});
+				$(montrerAdherents[0]).find('a').focus();
 				$(this).hide();
-			} else {
-				next++;
-				$(this).attr('data-prochain-groupe',next);
 			}
 		});
 
