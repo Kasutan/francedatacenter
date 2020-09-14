@@ -39,7 +39,7 @@ $labels = array(
 register_taxonomy('type_ressource','ressource',array(
 	'hierarchical' => true,
 	'labels' => $labels,
-	'show_ui' => false, //masqué pour empêcher la modif des slugs (utilisés en dur pour l'affichage)
+	'show_ui' => true, 
 	'show_admin_column' => true,
 	'query_var' => false,
 	'public' => false,
