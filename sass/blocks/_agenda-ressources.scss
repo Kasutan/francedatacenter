@@ -76,7 +76,7 @@
 			padding-left:1em;
 		}
 	}
-	.agenda li {
+	.agenda li, .ressources li {
 		transition:color var(--transition);
 		&:hover, &:focus-within {
 			color:var(--cyan);

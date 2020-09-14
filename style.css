@@ -4186,15 +4186,15 @@ button.fermer, a.fermer {
     .acf-block-agenda-ressources .texte ul {
       margin: 0;
       padding-left: 1em; }
-  .acf-block-agenda-ressources .agenda li {
+  .acf-block-agenda-ressources .agenda li, .acf-block-agenda-ressources .ressources li {
     -webkit-transition: color var(--transition);
     transition: color var(--transition); }
-    .acf-block-agenda-ressources .agenda li:hover, .acf-block-agenda-ressources .agenda li:focus-within {
+    .acf-block-agenda-ressources .agenda li:hover, .acf-block-agenda-ressources .agenda li:focus-within, .acf-block-agenda-ressources .ressources li:hover, .acf-block-agenda-ressources .ressources li:focus-within {
       color: var(--cyan); }
-    .acf-block-agenda-ressources .agenda li a {
+    .acf-block-agenda-ressources .agenda li a, .acf-block-agenda-ressources .ressources li a {
       color: var(--noir);
       text-decoration: none; }
-      .acf-block-agenda-ressources .agenda li a:focus, .acf-block-agenda-ressources .agenda li a:hover {
+      .acf-block-agenda-ressources .agenda li a:focus, .acf-block-agenda-ressources .agenda li a:hover, .acf-block-agenda-ressources .ressources li a:focus, .acf-block-agenda-ressources .ressources li a:hover {
         color: var(--cyan); }
   .acf-block-agenda-ressources .picto-verrou {
     margin-left: 10px; }

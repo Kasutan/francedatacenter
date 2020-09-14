@@ -148,12 +148,12 @@ function fdc_affiche_liste_ressources_pour_accueil() {
 			$ressources->the_post();
 			$acces=esc_attr(get_field('acces',get_the_ID()));
 
-			printf('<li><strong>%s</strong>',get_the_title());
+			printf('<li><a href="%s"><strong>%s</strong>',get_the_permalink(),get_the_title());
 				if($acces=='privee') {
 					printf('<span class="picto-verrou">%s</span>',fdc_get_picto_inline('petit-verrou'));
 				}
 				printf('<p>Publiée le %s</p>',get_the_date('d/m/y'));
-			echo '</li>';
+			echo '</a></li>';
 		endwhile;
 		echo '</ul>';
 	else : 
