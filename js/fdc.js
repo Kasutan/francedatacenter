@@ -94,10 +94,11 @@
 		}
 		
 		/********* Ouvrir-fermer les sous-menus mobile **********/
-		var ouvrirSousMenu=$('.ouvrir-sous-menu');
+		var ouvrirSousMenu=$('.ouvrir-sous-menu, .menu-item-has-children > a');
 		if(width<960 && ouvrirSousMenu.length>0) {
-			ouvrirSousMenu.click(function() {
-				$(this).next().animate(
+			ouvrirSousMenu.click(function(e) {
+				e.preventDefault();
+				$(this).siblings('.sub-menu').animate(
 					{right:0},
 					400
 				);
