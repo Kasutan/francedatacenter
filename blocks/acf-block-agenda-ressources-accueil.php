@@ -81,9 +81,15 @@ function fdc_agenda_ressources_callback( $block ) {
 					while(have_rows('videos')): the_row();	
 						$post_id=esc_attr(get_sub_field('ressource'));
 						$url=esc_url(get_field('url_video',$post_id));
-						$video_id = explode("?v=", $url);
-						$video_id = $video_id[1]; //on garde ce qu'il y a après ?v=
-						$video_id = explode("&", $video_id)[0]; // on enlève les autres paramètres
+						$video_id='';
+						if(strpos($url,'youtube.com')>0) {  //on a l'url de visionnage
+							$video_id = explode("?v=", $url);
+							$video_id = $video_id[1]; //on garde ce qu'il y a après ?v=
+							$video_id = explode("&", $video_id)[0]; // on enlève les autres paramètres
+						} elseif(strpos($url,'youtu.be')>0) { //on a l'url de partage
+							$video_id=explode('youtu.be/',$url)[1]; // on ne garde que ce qu'il y a après le domaine
+						}
+						
 						$image_id=esc_attr(get_sub_field('image'));
 						if($image_id) {
 							$image_url=wp_get_attachment_url( $image_id );
@@ -91,7 +97,7 @@ function fdc_agenda_ressources_callback( $block ) {
 							$image_url="https://img.youtube.com/vi/".$video_id."/maxresdefault.jpg";
 						}
 						
-						printf('<li><a href="http://www.youtube.com/embed/%s" class="video-modaal"><img src="%s" alt="%s" width="385" height="182"/></a>',
+						printf('<li><a href="https://www.youtube.com/embed/%s" class="video-modaal"><img src="%s" alt="%s" width="385" height="182"/></a>',
 							$video_id,
 							$image_url,
 							get_the_title($post_id),

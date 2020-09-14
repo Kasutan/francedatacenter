@@ -103,7 +103,7 @@
             "label": "URL de la vidéo",
             "name": "url_video",
             "type": "url",
-            "instructions": "",
+            "instructions": "Formats acceptés pour l'url de la vidéo :\r\n-> https:\/\/www.youtube.com\/watch?v=IDDELAVIDEO&XYZ (copiez l'url dans la barre d'adresse du navigateur quand vous la visionnez sur YouTube) \r\nou ->https:\/\/www.youtu.be\/IDDELAVIDEO (url de partage)",
             "required": 1,
             "conditional_logic": [
                 [
@@ -138,7 +138,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1594305367
+    "modified": 1600091576
 }
