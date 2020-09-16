@@ -2646,6 +2646,10 @@ button.modaal-close {
       background-color: var(--bleu);
       color: var(--blanc); }
 
+.single-post .entry-header .image {
+  -webkit-filter: brightness(0.8);
+  filter: brightness(0.8); }
+
 .single-post h1 {
   text-transform: none; }
 
