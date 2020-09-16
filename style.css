@@ -3745,9 +3745,12 @@ button.fermer, a.fermer {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    height: 243px;
+    height: 146px;
     overflow: hidden;
     width: 100%; }
+    @media (min-width: 768px) {
+      .actualite .image {
+        height: 243px; } }
     .actualite .image img {
       -o-object-fit: cover;
       object-fit: cover;

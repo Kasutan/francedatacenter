@@ -26,9 +26,12 @@
 	}
 	.image {
 		display: flex;
-		height:243px;
+		height:146px;
 		overflow: hidden;
 		width:100%;
+		@include bp(md) {
+			height:243px;
+		}
 		img {
 			object-fit: cover;
 			object-position: center;
