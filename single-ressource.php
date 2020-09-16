@@ -46,7 +46,7 @@ get_header();
 		
 
 		printf('<header class="entry-header %s %s">',$decoupe_banniere,$decor_banniere);
-			if($image) printf('<div class="image">%s</div>'); elseif(function_exists('fdc_post_thumbnail')) echo '<div class="image">'.fdc_post_thumbnail('banniere').'</div>';
+			if($image) printf('<div class="image">%s</div>',$image); elseif(function_exists('fdc_post_thumbnail')) echo '<div class="image">'.fdc_post_thumbnail('banniere').'</div>';
 			echo '<div class="texte-banniere">';
 				if($titre) printf('<h1 class="page-title">%s</h1>',$titre); else printf('<h1 class="page-title">%s</h1>',get_the_title());
 				if($baseline) printf('<p class="baseline">%s</p>',$baseline);

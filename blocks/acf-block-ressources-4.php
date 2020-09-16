@@ -32,8 +32,7 @@ function fdc_ressources_4_callback( $block ) {
 
 	$titre=wp_kses_post( get_field('titre') );
 	if(!$titre) $titre='Publications et ressources';
-	$ressources=fdc_get_page_ID('page_ressources'); 
-
+	$page_ressources=fdc_get_page_ID('page_ressources'); 
 
 	printf('<section class="acf-block-quatre-ressources alignfull %s">', $className);
 		$args=array(
@@ -52,7 +51,7 @@ function fdc_ressources_4_callback( $block ) {
 			echo '</ul>';
 			if($ressources) :
 				printf('<div class="fleche bleu"><a href="%s">Toutes les ressources %s</a></div>',
-				get_the_permalink( $ressources),
+				get_the_permalink( $page_ressources),
 				fdc_get_picto_inline('angle')
 				);
 			endif;
