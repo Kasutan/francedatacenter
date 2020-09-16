@@ -134,17 +134,17 @@
 			var windowTop = $(window).scrollTop(); // returns number
 			var windowBottom=window.innerHeight+windowTop;
 			if (windowTop > headerTop && ($(voletConnexion).length==0 || $(voletConnexion).attr('aria-expanded')!="true")) {
+				siteContent.css('margin-top',siteHeader.outerHeight());
 				siteHeader.addClass('sticky');
 				mainNavigation.addClass('sticky');
-				siteContent.css('margin-top',siteHeader.outerHeight());
 				var parallax=windowTop*0.2;
 				if(parallax <= 40) {
 					$(pageHeaderImg).css({'transform':'translateY(-'+parallax+'px)'});
 				}
 			} else {
+				siteContent.css('margin-top',0);
 				siteHeader.removeClass('sticky');
 				mainNavigation.removeClass('sticky');
-				siteContent.css('margin-top',0);
 			}
 
 		});

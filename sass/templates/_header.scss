@@ -10,14 +10,27 @@
 	padding: 0 var(--padding-x-header);
 	position: relative;
 	z-index:10;
+	&::before {
+		box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+		content: '';
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		opacity: 0;
+		transition: opacity 0.3s ease-in-out;
+	}
 
 
 	&.sticky {
-		box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 		position:fixed;
 		left: 0;
 		top: 0;
 		width:100%;
+		&::before {
+			opacity: 1;
+		}
 	}
 }
 

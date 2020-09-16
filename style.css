@@ -2094,13 +2094,25 @@ button.modaal-close {
   padding: 0 var(--padding-x-header);
   position: relative;
   z-index: 10; }
-  .site-header.sticky {
+  .site-header::before {
     -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+    content: '';
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out; }
+  .site-header.sticky {
     position: fixed;
     left: 0;
     top: 0;
     width: 100%; }
+    .site-header.sticky::before {
+      opacity: 1; }
 
 .custom-logo {
   display: block;
