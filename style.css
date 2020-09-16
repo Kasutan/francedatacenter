@@ -2113,6 +2113,8 @@ button.modaal-close {
     width: 100%; }
     .site-header.sticky::before {
       opacity: 1; }
+  .site-header .site-branding, .site-header .recherche.bouton, .site-header .menu-toggle {
+    position: relative; }
 
 .custom-logo {
   display: block;
