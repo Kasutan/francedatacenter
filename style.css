@@ -1743,6 +1743,15 @@ button.modaal-close {
   right: 10px;
   top: 10px; }
 
+@media (min-width: 960px) {
+  .modaal-video .modaal-inner-wrapper {
+    display: block;
+    width: unset;
+    max-width: 800px;
+    margin: auto; }
+  .modaal-video button.modaal-close {
+    right: -30px; } }
+
 .modaal-loading-spinner {
   background: none;
   position: absolute;

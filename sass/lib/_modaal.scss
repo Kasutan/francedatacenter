@@ -200,11 +200,25 @@ button.modaal-close {
 	max-height:56vw;
 	width: 100%;
 }
-.modaal-video button.modaal-close {
-	background-color: transparent;
-	left:unset;
-	right: 10px;
-	top: 10px;
+.modaal-video {
+	button.modaal-close {
+		background-color: transparent;
+		left:unset;
+		right: 10px;
+		top: 10px;
+	}
+	@include bp(lg) {
+		.modaal-inner-wrapper {
+			display: block;
+			width: unset;
+			max-width: 800px;
+			margin: auto;
+		}
+		button.modaal-close {
+			right:-30px;
+		}
+		
+	}
 }
 
 
