@@ -32,7 +32,7 @@ function fdc_actualites_callback( $block ) {
 
 	$titre=wp_kses_post( get_field('titre') );
 	if(!$titre) $titre='Actualités';
-	$actualites=fdc_get_page_ID('page_actualites'); 
+	$page_actualites=fdc_get_page_ID('page_actualites'); 
 
 
 	printf('<section class="acf-block-actualites alignfull %s">', $className);
@@ -51,7 +51,7 @@ function fdc_actualites_callback( $block ) {
 			echo '</ul>';
 			if($actualites) :
 				printf('<div class="fleche bleu"><a href="%s">Toute l\'actualité %s</a></div>',
-				get_the_permalink( $actualites),
+				get_the_permalink( $page_actualites),
 				fdc_get_picto_inline('angle')
 				);
 			endif;
