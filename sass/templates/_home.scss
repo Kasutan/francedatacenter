@@ -1,13 +1,63 @@
 .home {
-	.page-title {
-		@include taille(76);
+	h1.page-title {
+		font-size:29px;
 		line-height: calc(101/76);
+		font-weight: 500;
 		span {
-		display: block;
-		font-weight: 300;
-		@include taille(55);
-		line-height: calc(73/55);
+			display: block;
+			font-weight: 300;
+			font-size: 18px;
+			line-height: calc(73/55);
+		}
+		@include bp(md) {
+			@include taille(40);
+			font-weight: 300;
+			span {
+				@include taille(40);
+			}
+		}
+		@include bp(lg) {
+			@include taille(60);
 		}
 	}
-	
+	.entry-header {
+		h1 {
+			animation: animBaseline 5s ease-out 0s 1 normal forwards;
+		}
+		.sep {
+			animation: animTraitBaselineMobile 5s ease-out 0s 1 normal forwards;
+			background-color: #fff;
+			height:4px;
+			margin:10px auto 20px;
+			width:26px;
+		}
+		.baseline {
+			animation: animH1 5s ease-out 0s 1 normal forwards;
+			font-weight: 300;
+			font-size: 18px;
+			text-align: center;
+			text-transform: uppercase;
+		}
+		@include bp(md) {
+			.sep {
+				animation: animTraitBaselineTablette 5s ease-out 0s 1 normal forwards;
+				height:8px;
+				margin : 16px auto;
+				width:50px;
+			}
+			.baseline {
+				font-weight: 500;
+				font-size: 38px;
+				margin-bottom: 16px;
+			}
+		}
+		@include bp(lg) {
+			.baseline {
+				margin-bottom: 1em;
+			}
+			.sep {
+				margin : 26px auto;
+			}
+		}
+	}
 }

@@ -2403,19 +2403,6 @@ button.modaal-close {
   .entry-header h1 {
     -webkit-animation: animH1 5s ease-out 0s 1 normal forwards;
     animation: animH1 5s ease-out 0s 1 normal forwards; }
-  .entry-header .sep {
-    -webkit-animation: animTraitBaselineMobile 5s ease-out 0s 1 normal forwards;
-    animation: animTraitBaselineMobile 5s ease-out 0s 1 normal forwards;
-    background-color: #fff;
-    height: 4px;
-    margin: 10px auto 20px;
-    width: 26px; }
-  .entry-header .baseline {
-    -webkit-animation: animBaseline 5s ease-out 0s 1 normal forwards;
-    animation: animBaseline 5s ease-out 0s 1 normal forwards;
-    font-weight: 300;
-    text-align: center;
-    text-transform: uppercase; }
   .entry-header a {
     bottom: 12%;
     justify-self: flex-end;
@@ -2437,15 +2424,6 @@ button.modaal-close {
       left: -35%;
       right: -unset;
       width: 85%; } }
-  @media (min-width: 768px) {
-    .entry-header .sep {
-      -webkit-animation: animTraitBaselineTablette 5s ease-out 0s 1 normal forwards;
-      animation: animTraitBaselineTablette 5s ease-out 0s 1 normal forwards;
-      height: 8px;
-      margin: 26px auto;
-      width: 50px; }
-    .entry-header .baseline {
-      font-size: 38px; } }
 
 /*Animations*/
 @-webkit-keyframes animFadeIn {
@@ -2567,20 +2545,72 @@ button.modaal-close {
     opacity: 0.99;
     width: 50px; } }
 
-.home .page-title {
-  font-size: calc(76 * 0.8125rem / 18);
-  line-height: calc(101/76); }
-  @media (min-width: 768px) {
-    .home .page-title {
-      font-size: calc(76 * 1.125rem / 18); } }
-  .home .page-title span {
+.home h1.page-title {
+  font-size: 29px;
+  line-height: calc(101/76);
+  font-weight: 500; }
+  .home h1.page-title span {
     display: block;
     font-weight: 300;
-    font-size: calc(55 * 0.8125rem / 18);
+    font-size: 18px;
     line-height: calc(73/55); }
-    @media (min-width: 768px) {
-      .home .page-title span {
-        font-size: calc(55 * 1.125rem / 18); } }
+  @media (min-width: 768px) {
+    .home h1.page-title {
+      font-size: calc(40 * 0.8125rem / 18);
+      font-weight: 300; } }
+  @media (min-width: 768px) and (min-width: 768px) {
+    .home h1.page-title {
+      font-size: calc(40 * 1.125rem / 18); } }
+  @media (min-width: 768px) {
+      .home h1.page-title span {
+        font-size: calc(40 * 0.8125rem / 18); } }
+    @media (min-width: 768px) and (min-width: 768px) {
+      .home h1.page-title span {
+        font-size: calc(40 * 1.125rem / 18); } }
+  @media (min-width: 960px) {
+    .home h1.page-title {
+      font-size: calc(60 * 0.8125rem / 18); } }
+  @media (min-width: 960px) and (min-width: 768px) {
+    .home h1.page-title {
+      font-size: calc(60 * 1.125rem / 18); } }
+
+.home .entry-header h1 {
+  -webkit-animation: animBaseline 5s ease-out 0s 1 normal forwards;
+  animation: animBaseline 5s ease-out 0s 1 normal forwards; }
+
+.home .entry-header .sep {
+  -webkit-animation: animTraitBaselineMobile 5s ease-out 0s 1 normal forwards;
+  animation: animTraitBaselineMobile 5s ease-out 0s 1 normal forwards;
+  background-color: #fff;
+  height: 4px;
+  margin: 10px auto 20px;
+  width: 26px; }
+
+.home .entry-header .baseline {
+  -webkit-animation: animH1 5s ease-out 0s 1 normal forwards;
+  animation: animH1 5s ease-out 0s 1 normal forwards;
+  font-weight: 300;
+  font-size: 18px;
+  text-align: center;
+  text-transform: uppercase; }
+
+@media (min-width: 768px) {
+  .home .entry-header .sep {
+    -webkit-animation: animTraitBaselineTablette 5s ease-out 0s 1 normal forwards;
+    animation: animTraitBaselineTablette 5s ease-out 0s 1 normal forwards;
+    height: 8px;
+    margin: 16px auto;
+    width: 50px; }
+  .home .entry-header .baseline {
+    font-weight: 500;
+    font-size: 38px;
+    margin-bottom: 16px; } }
+
+@media (min-width: 960px) {
+  .home .entry-header .baseline {
+    margin-bottom: 1em; }
+  .home .entry-header .sep {
+    margin: 26px auto; } }
 
 .archive .entry-header h1 span, .blog .entry-header h1 span {
   font-size: calc(50 * 0.8125rem / 18);

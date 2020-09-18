@@ -288,20 +288,8 @@
 	}
 	h1 {
 		animation: animH1 5s ease-out 0s 1 normal forwards;
-	}
-	.sep {
-		animation: animTraitBaselineMobile 5s ease-out 0s 1 normal forwards;
-		background-color: #fff;
-		height:4px;
-		margin:10px auto 20px;
-		width:26px;
-	}
-	.baseline {
-		animation: animBaseline 5s ease-out 0s 1 normal forwards;
-		font-weight: 300;
-		text-align: center;
-		text-transform: uppercase;
-	}
+	}	
+	
 	a {
 		bottom:12%;
 		justify-self: flex-end;
@@ -330,17 +318,7 @@
 		}
 	}
 
-	@include bp(md) {
-		.sep {
-			animation: animTraitBaselineTablette 5s ease-out 0s 1 normal forwards;
-			height:8px;
-			margin : 26px auto;
-			width:50px;
-		}
-		.baseline {
-			font-size: 38px;
-		}
-	}
+	
 }
 
 /*Animations*/
