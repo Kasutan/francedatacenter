@@ -2688,8 +2688,8 @@ button.modaal-close {
       color: var(--blanc); }
 
 .single-post .entry-header .image {
-  -webkit-filter: brightness(0.8);
-  filter: brightness(0.8); }
+  -webkit-filter: brightness(0.7);
+  filter: brightness(0.7); }
 
 .single-post h1 {
   text-transform: none; }
