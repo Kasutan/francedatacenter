@@ -16,9 +16,10 @@
 		font-weight: 700;
 		height:54px;
 		left:6px;
+		line-height: 1;
 		justify-content: center;
 		position: absolute;
-		width:50px;
+		width:55px;
 		@include taille(16);
 		.jour {
 			@include taille(26);

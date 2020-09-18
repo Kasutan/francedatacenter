@@ -2955,6 +2955,7 @@ button.modaal-close {
     flex-direction: column;
     font-weight: 700;
     height: 54px;
+    line-height: 1;
     margin-right: 23px;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
@@ -2966,7 +2967,7 @@ button.modaal-close {
         font-size: calc(16 * 1.125rem / 18); } }
     .acf-block-quatre-ressources .date .jour {
       font-size: calc(26 * 0.8125rem / 18);
-      line-height: calc(30 / 26); }
+      line-height: 1; }
       @media (min-width: 768px) {
         .acf-block-quatre-ressources .date .jour {
           font-size: calc(26 * 1.125rem / 18); } }
@@ -3766,11 +3767,12 @@ button.fermer, a.fermer {
     font-weight: 700;
     height: 54px;
     left: 6px;
+    line-height: 1;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
     position: absolute;
-    width: 50px;
+    width: 55px;
     font-size: calc(16 * 0.8125rem / 18); }
     @media (min-width: 768px) {
       .actualite .date {

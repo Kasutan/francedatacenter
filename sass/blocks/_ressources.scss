@@ -177,13 +177,14 @@
 		flex-direction: column;
 		font-weight: 700;
 		height:54px;
+		line-height:1;
 		margin-right: 23px;
 		justify-content: center;
 		width:63px;
 		@include taille(16);
 		.jour {
 			@include taille(26);
-			line-height:calc(30 / 26);
+			line-height:1;
 		}
 	}
 	h3 {
