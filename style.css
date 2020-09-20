@@ -2425,6 +2425,10 @@ button.modaal-close {
       right: -unset;
       width: 85%; } }
 
+/*Hauteur réduite pour les pages internes*/
+.page:not(.home) .entry-header {
+  min-height: 30vw; }
+
 /*Animations*/
 @-webkit-keyframes animFadeIn {
   0% {
