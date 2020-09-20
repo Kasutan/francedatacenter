@@ -1,27 +1,14 @@
 .home {
-	h1.page-title {
-		font-size:29px;
-		line-height: calc(101/76);
-		font-weight: 500;
-		span {
-			display: block;
-			font-weight: 300;
-			font-size: 18px;
-			line-height: calc(73/55);
-		}
-		@include bp(md) {
-			@include taille(40);
-			font-weight: 300;
-			span {
-				@include taille(40);
-			}
-		}
-		@include bp(lg) {
-			@include taille(60);
-		}
-	}
 	.entry-header {
 		h1 {
+			font-size:1.5rem;
+			line-height: calc(101/76);
+			font-weight: 500;
+			span {
+				display: block;
+				font-weight: 300;
+				line-height: calc(73/55);
+			}
 			animation: animBaseline 5s ease-out 0s 1 normal forwards;
 		}
 		.sep {
@@ -34,11 +21,18 @@
 		.baseline {
 			animation: animH1 5s ease-out 0s 1 normal forwards;
 			font-weight: 300;
-			font-size: 18px;
+			font-size: 1.5rem;
 			text-align: center;
 			text-transform: uppercase;
 		}
 		@include bp(md) {
+			h1 {
+				@include taille(40);
+				font-weight: 300;
+				span {
+					@include taille(40);
+				}
+			}
 			.sep {
 				animation: animTraitBaselineTablette 5s ease-out 0s 1 normal forwards;
 				height:8px;
@@ -46,14 +40,21 @@
 				width:50px;
 			}
 			.baseline {
-				font-weight: 500;
+				font-weight: 700;
 				font-size: 38px;
 				margin-bottom: 16px;
 			}
 		}
 		@include bp(lg) {
+			h1 {
+				font-size: 80px;
+				span {
+					font-size: 54px;
+				}
+			}
 			.baseline {
-				margin-bottom: 1em;
+				font-size: 3rem;
+				margin-bottom: 0.5em;
 			}
 			.sep {
 				margin : 26px auto;
