@@ -90,10 +90,13 @@
 		}
 	}
 
-	@include bp(xl) {
+	@media screen and (min-width:1200px) {
 		.footer-widgets .row {
 			flex-grow:1;
 			flex-wrap: nowrap;
+		}
+		.footer-4 {
+			flex-basis:150px;
 		}
 	}
 

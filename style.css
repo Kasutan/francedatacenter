@@ -1982,13 +1982,16 @@ button.modaal-close {
         position: absolute;
         top: -10px;
         width: 1px; } }
-  @media (min-width: 1400px) {
+  @media screen and (min-width: 1200px) {
     .site-footer .footer-widgets .row {
       -webkit-box-flex: 1;
       -ms-flex-positive: 1;
       flex-grow: 1;
       -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap; } }
+      flex-wrap: nowrap; }
+    .site-footer .footer-4 {
+      -ms-flex-preferred-size: 150px;
+      flex-basis: 150px; } }
   .site-footer #menu-liens-reseaux-sociaux {
     display: -webkit-box;
     display: -ms-flexbox;
