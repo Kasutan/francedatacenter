@@ -34,17 +34,26 @@ function fdc_bouton_callback( $block ) {
 	$label=wp_kses_post( get_field('label') );
 	$style=esc_attr(get_field('style')); // angle ou angle-bas
 	$cible='';
+	$target=esc_attr(get_field('target')); //blank ou same
+
 	if($style=='angle') {
 		$cible=esc_url(get_field('lien'));
 	} else if($style=='angle-bas') {
 		$cible=esc_url(get_field('fichier'));
 	}
 
+	if($target=='blank') {
+		$target_attr=' target="_blank"';
+	} else {
+		$target_attr='';
+	}
+
 	if($label && $cible):
-		printf('<div class="fleche %s %s"><a href="%s">%s %s</a></div>',
+		printf('<div class="fleche %s %s"><a href="%s" %s>%s %s</a></div>',
 			$className,
 			$style,
 			$cible,
+			$target_attr,
 			$label,
 			fdc_get_picto_inline($style)
 		);
