@@ -2429,8 +2429,9 @@ button.modaal-close {
       width: 85%; } }
 
 /*Hauteur réduite pour les pages internes*/
-.page:not(.home) .entry-header {
-  min-height: 30vw; }
+@media (min-width: 576px) {
+  .page:not(.home) .entry-header {
+    min-height: 30vw; } }
 
 /*Animations*/
 @-webkit-keyframes animFadeIn {

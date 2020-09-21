@@ -322,7 +322,9 @@
 }
 /*Hauteur réduite pour les pages internes*/
 .page:not(.home) .entry-header {
-	min-height:30vw;
+	@include bp(sm) {
+		min-height:30vw;
+	}
 }
 
 /*Animations*/
