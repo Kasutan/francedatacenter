@@ -70,6 +70,7 @@
 					$(voletRecherche).css('display','flex');
 					$(voletRecherche).attr('aria-expanded','true');
 					$(boutonRecherche).attr('aria-expanded','true');
+					$('#volet-recherche .search-field').focus();
 
 					$('body,html').animate(
 						{scrollTop : 0},
