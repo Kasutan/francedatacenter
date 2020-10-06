@@ -152,7 +152,7 @@ function fdc_affiche_liste_ressources_pour_accueil() {
 				if($acces=='privee') {
 					printf('<span class="picto-verrou">%s</span>',fdc_get_picto_inline('petit-verrou'));
 				}
-				printf('<p>Publiée le %s</p>',get_the_date('d/m/y'));
+				printf('<p>Publié le %s</p>',get_the_date('d/m/y'));
 			echo '</a></li>';
 		endwhile;
 		echo '</ul>';
