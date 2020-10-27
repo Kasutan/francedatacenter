@@ -58,6 +58,30 @@
             "min": "",
             "max": "",
             "step": ""
+        },
+        {
+            "key": "field_5f97daae730d1",
+            "label": "Ordre d'affichage",
+            "name": "ordre",
+            "type": "radio",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "ASC": "du plus ancien au plus récent",
+                "DESC": "du plus récent au plus ancien"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "ASC",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
         }
     ],
     "location": [
@@ -75,7 +99,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1596451275
+    "modified": 1603787522
 }

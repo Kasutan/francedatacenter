@@ -34,6 +34,8 @@ function fdc_agenda_callback( $block ) {
 	if(!$page) $page=3;
 
 	$titre=wp_kses_post(get_field('titre'));
+	$ordre=esc_attr(get_field('ordre'));
+	if(empty($ordre)) $ordre='ASC';
 
 	printf('<section class="acf-block-agenda %s">', $className);
 		$args=array(
@@ -41,15 +43,7 @@ function fdc_agenda_callback( $block ) {
 			'posts_per_page' => -1,
 			'meta_key' => 'date_debut', //on trie les évènements selon leur date
 			'orderby' => 'meta_value',
-			'order' => 'ASC', 
-			'meta_query' => array(
-					array(
-					'key' => 'date_debut',
-					'value' => date('Y-m-d'),
-					'compare' => '>=', // on n'affiche que les évènements futurs
-					'type' => 'CHAR'
-				)
-			)
+			'order' => $ordre, 
 		);
 		$agenda=new WP_Query($args);
 		if($agenda->have_posts()) :
