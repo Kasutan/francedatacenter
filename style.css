@@ -2399,6 +2399,14 @@ button.modaal-close {
     right: unset;
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg); }
+  .entry-header.conserver-image .image {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+    .entry-header.conserver-image .image img {
+      -o-object-fit: contain;
+      object-fit: contain;
+      width: auto; }
   .entry-header .texte-banniere {
     color: var(--blanc);
     padding: 50px var(--padding-x);
@@ -3808,6 +3816,15 @@ button.fermer, a.fermer {
       transition: transform var(--transition);
       transition: transform var(--transition), -webkit-transform var(--transition);
       width: 100%; }
+    .actualite .image.conserver-image {
+      background: #fff;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center; }
+      .actualite .image.conserver-image img {
+        -o-object-fit: contain;
+        object-fit: contain;
+        width: auto; }
   .actualite .titre-actualite {
     color: var(--bleu);
     font-size: calc(24 * 0.8125rem / 18);

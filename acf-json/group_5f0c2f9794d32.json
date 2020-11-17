@@ -69,6 +69,30 @@
             "layout": "horizontal",
             "return_format": "value",
             "save_other_choice": 0
+        },
+        {
+            "key": "field_5fb3aebf2aa40",
+            "label": "Conserver les proportions et la taille de l'image mise en avant ?",
+            "name": "conserver_image",
+            "type": "radio",
+            "instructions": "Par exemple si l'image mise en avant est un logo",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "oui": "oui",
+                "non": "non"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "non",
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
         }
     ],
     "location": [
@@ -100,7 +124,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1597042105
+    "modified": 1605611385
 }

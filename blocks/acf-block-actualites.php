@@ -68,9 +68,15 @@ function fdc_affiche_actualite($post_id, $titre="h3") {
 	$array_date=explode('/',$date);
 	$date=sprintf('<div class="date"><span class="jour">%s</span><span>%s/%s</span></div>',$array_date[0],$array_date[1],$array_date[2]);
 
+	if(function_exists('get_field') && esc_html( get_field('conserver_image',$post_id))==='oui') {
+		$classe_image='conserver-image';
+	} else {
+		$classe_image='';
+	}
+
 	printf('<li class="actualite"><a href="%s">',get_the_permalink($post_id));
-		echo '<div class="image-wrapper">';
-			printf('<div class="image">%s</div>', get_the_post_thumbnail( $post_id , 'medium'));
+		printf('<div class="image-wrapper">');
+			printf('<div class="image %s">%s</div>', $classe_image, get_the_post_thumbnail( $post_id , 'medium'));
 			echo $date;
 		echo '</div>';
 		if($titre=="h3") printf('<h3 class="titre-actualite">%s</h3>',get_the_title($post_id));

@@ -27,12 +27,18 @@ $post_type=get_post_type();
 			$baseline=wp_kses_post( get_field('baseline'));
 			$decoupe_banniere=esc_html( get_field('decoupe_banniere'));
 			$decor_banniere=esc_html( get_field('decor_banniere'));
+			$conserver_image=esc_html( get_field('conserver_image'));
 		} else {
-			$baseline=$decoupe_banniere=$decor_banniere=$ligne_1=$ligne_2='';
+			$baseline=$decoupe_banniere=$decor_banniere=$ligne_1=$ligne_2=$conserver_image='';
 		}
 		
+		if($conserver_image==='oui') {
+			$classe_header='conserver-image';
+		} else {
+			$classe_header='';
+		}
 
-		printf('<header class="entry-header %s %s">',$decoupe_banniere,$decor_banniere);
+		printf('<header class="entry-header %s %s %s">',$decoupe_banniere,$decor_banniere,$classe_header);
 				
 			if(function_exists('fdc_post_thumbnail')) echo '<div class="image">'.fdc_post_thumbnail('banniere').'</div>';
 			echo '<div class="texte-banniere">';

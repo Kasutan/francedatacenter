@@ -39,6 +39,15 @@
 			transition:transform var(--transition);
 			width:100%;
 		}
+		&.conserver-image {
+			background: #fff;
+			justify-content: center;
+			img {
+				object-fit: contain;
+				width:auto;
+			}
+
+		}
 	}
 	.titre-actualite {
 		color:var(--bleu);

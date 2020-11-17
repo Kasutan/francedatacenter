@@ -281,6 +281,15 @@
 		transform:rotateY(180deg);
 
 	}
+	&.conserver-image {
+		.image {
+			justify-content: center;
+			img {
+				object-fit: contain; 
+				width:auto;
+			}
+		}
+	}
 	.texte-banniere {
 		color:var(--blanc);
 		padding:50px var(--padding-x);

@@ -25,8 +25,15 @@ get_header();
 			$baseline=wp_kses_post( get_field('baseline'));
 			$decoupe_banniere=esc_html( get_field('decoupe_banniere'));
 			$decor_banniere=esc_html( get_field('decor_banniere'));
+			$conserver_image=esc_html( get_field('conserver_image'));
 		} else {
-			$baseline=$decoupe_banniere=$decor_banniere='';
+			$baseline=$decoupe_banniere=$decor_banniere=$conserver_image='';
+		}
+
+		if($conserver_image==='oui') {
+			$classe_header='conserver-image';
+		} else {
+			$classe_header='';
 		}
 
 		if(function_exists('fdc_get_page_ID') && fdc_get_page_ID('page_ressources')) {
@@ -45,7 +52,7 @@ get_header();
 		}
 		
 
-		printf('<header class="entry-header %s %s">',$decoupe_banniere,$decor_banniere);
+		printf('<header class="entry-header %s %s %s">',$decoupe_banniere,$decor_banniere,$classe_header);
 			if($image) printf('<div class="image">%s</div>',$image); elseif(function_exists('fdc_post_thumbnail')) echo '<div class="image">'.fdc_post_thumbnail('banniere').'</div>';
 			echo '<div class="texte-banniere">';
 				if($titre) printf('<h1 class="page-title">%s</h1>',$titre); else printf('<h1 class="page-title">%s</h1>',get_the_title());
