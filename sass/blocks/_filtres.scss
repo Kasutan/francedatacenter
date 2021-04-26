@@ -23,27 +23,13 @@
 		margin:0 5px 14px;
 		padding:5px 10px;
 		position: relative;
-		&::after {
-			border:solid 1px var(--accent);
-			border-radius: 50%;
-			color:transparent;
-			content:'✓';
-			display: inline-block;
-			font-size: 10px;
-			height:auto;
-			line-height: 14px;
-			margin-left: 10px;
-			position: relative;
-			text-align: center;
-			top:-2px;
-			width:15px;
-		}
 	}
-	input:focus + label {
-		outline:dashed 1px var(--accent);
-	}
+
 	input:checked + label {
 		--accent:var(--cyan);
+		background-color:var(--accent);
+		color:var(--blanc);
+		
 		&.publications {
 			--accent : var(--bleu);
 		}
@@ -52,9 +38,6 @@
 		}
 		&.photos {
 			--accent : var(--bleu-fonce);
-		}
-		&::after {
-			color:var(--accent);
 		}
 	}
 

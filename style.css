@@ -4393,32 +4393,16 @@ button.fermer, a.fermer {
     margin: 0 5px 14px;
     padding: 5px 10px;
     position: relative; }
-    .filtre label::after {
-      border: solid 1px var(--accent);
-      border-radius: 50%;
-      color: transparent;
-      content: '✓';
-      display: inline-block;
-      font-size: 10px;
-      height: auto;
-      line-height: 14px;
-      margin-left: 10px;
-      position: relative;
-      text-align: center;
-      top: -2px;
-      width: 15px; }
-  .filtre input:focus + label {
-    outline: dashed 1px var(--accent); }
   .filtre input:checked + label {
-    --accent:var(--cyan); }
+    --accent:var(--cyan);
+    background-color: var(--accent);
+    color: var(--blanc); }
     .filtre input:checked + label.publications {
       --accent: var(--bleu); }
     .filtre input:checked + label.videos {
       --accent: var(--violet); }
     .filtre input:checked + label.photos {
       --accent: var(--bleu-fonce); }
-    .filtre input:checked + label::after {
-      color: var(--accent); }
   @media (min-width: 768px) {
     .filtre label {
       margin: 0 14px 14px; }
