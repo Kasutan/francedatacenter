@@ -34,8 +34,18 @@ function fdc_agenda_callback( $block ) {
 	if(!$page) $page=3;
 
 	$titre=wp_kses_post(get_field('titre'));
+	
 	$ordre=esc_attr(get_field('ordre'));
 	if(empty($ordre)) $ordre='ASC';
+
+	//option du bloc pour choisir entre les événements futurs ou passés
+	// champ radio valeur "passe" ou "futur"
+	$periode=esc_attr(get_field('periode'));
+	if($periode==='passe') {
+		$compare='<';
+	} else {
+		$compare='>=';
+	}
 
 	printf('<section class="acf-block-agenda %s">', $className);
 		$args=array(
@@ -44,12 +54,22 @@ function fdc_agenda_callback( $block ) {
 			'meta_key' => 'date_debut', //on trie les évènements selon leur date
 			'orderby' => 'meta_value',
 			'order' => $ordre, 
+			'meta_query' => array( 
+				array( 
+					'key' => 'date_debut',
+					'value' => date('Y-m-d'),
+					'compare' => $compare
+				)
+			)
 		);
 		$agenda=new WP_Query($args);
 		if($agenda->have_posts()) :
 			if($titre) printf('<h2 class="has-text-align-center">%s</h2>',$titre);
 			echo '<div class="agenda" id="liste-filtrable">';
-				fdc_affiche_filtre_agenda();
+				if($periode==='futur') {
+					//on affiche le filtre uniquement pour les événements futurs
+					fdc_affiche_filtre_agenda();
+				}
 				echo '<ul class="list evenements">';
 				while ($agenda->have_posts()):
 					$agenda->the_post();

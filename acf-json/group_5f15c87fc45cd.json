@@ -39,6 +39,54 @@
             "new_lines": ""
         },
         {
+            "key": "field_60866c1a247cf",
+            "label": "Afficher les évènements à venir ou passés",
+            "name": "periode",
+            "type": "radio",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "futur": "afficher les événements en cours ou à venir",
+                "passe": "afficher les événements passés"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_5f97daae730d1",
+            "label": "Ordre d'affichage",
+            "name": "ordre",
+            "type": "radio",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "ASC": "ordre chronologique",
+                "DESC": "ordre chronologique inverse"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "ASC",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
             "key": "field_5f27d629fd3ac",
             "label": "Nombre d'éléments à afficher",
             "name": "page",
@@ -58,30 +106,6 @@
             "min": "",
             "max": "",
             "step": ""
-        },
-        {
-            "key": "field_5f97daae730d1",
-            "label": "Ordre d'affichage",
-            "name": "ordre",
-            "type": "radio",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "ASC": "du plus ancien au plus récent",
-                "DESC": "du plus récent au plus ancien"
-            },
-            "allow_null": 0,
-            "other_choice": 0,
-            "default_value": "ASC",
-            "layout": "vertical",
-            "return_format": "value",
-            "save_other_choice": 0
         }
     ],
     "location": [
@@ -101,5 +125,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1603787522
+    "modified": 1619423688
 }
