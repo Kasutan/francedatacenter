@@ -33,16 +33,50 @@ function fdc_adherents_callback( $block ) {
 	$taille_groupe=esc_attr(get_field('taille_groupe'));
 	if(!$taille_groupe) $taille_groupe=10;
 
+	$titre_recents=esc_html(get_field('titre_recents'));
+
 	printf('<section class="acf-block-adherents alignfull %s">', $className);
 		//https://developer.wordpress.org/reference/classes/wp_user_query/prepare_query/
 		// WP_User_Query arguments
+
+		// Afficher d'abord les 6 adhérents les plus récents
+		$args_recents = array(
+			'role'           => 'Subscriber',
+			'number'         => '6',
+			'orderby'		=> 'registered',
+			'order'          => 'DESC', 
+			'meta_key'		=>  'date_expiration',
+			'meta_value'	=> date('Ymd'),
+			'meta_compare'	=> '>='
+		);
+
+		$user_query_recents=new WP_User_Query( $args_recents );
+
+		// The User Loop
+		if ( ! empty( $user_query_recents->results ) ) {
+			echo '<div class="recents">';
+				printf('<div class="intro"><span class="titre">%s</span><div class="ligne"></div></div>',$titre_recents);
+				echo '<ul class="adherents adherents-recents">';
+				foreach ( $user_query_recents->results as $user ) {
+					fdc_affiche_adherent($user,$contexte='grille'); //le contexte est important pour l'affichage de la popup
+					$recents[]=$user->get('ID');
+				}
+				echo '</ul>';
+				echo '<div class="separation"><div class ="ligne"></div></div>';
+			echo '</div>';
+		} else {
+			$recents=array();
+		}
+
+		//Afficher ensuite tous les autres adhérents
 		$args = array(
 			'role'           => 'Subscriber',
 			'number'         => '-1',
 			'order'          => 'ASC', // orderby username = entreprise
 			'meta_key'		=>  'date_expiration',
 			'meta_value'	=> date('Ymd'),
-			'meta_compare'	=> '>='
+			'meta_compare'	=> '>=',
+			'exclude' => $recents //on exclut les utilisateurs déjà affichés précédemment
 		);
 
 		// The User Query

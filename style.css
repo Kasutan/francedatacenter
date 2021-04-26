@@ -3019,6 +3019,7 @@ button.modaal-close {
       --padding-interne: 64px; } }
 
 .acf-block-adherents {
+  --max-width-xl: 1900px;
   padding: 30px 0; }
   .acf-block-adherents .popup {
     display: none; }
@@ -3035,6 +3036,34 @@ button.modaal-close {
     margin: 0 auto;
     max-width: var(--max-width-xl);
     padding: 0 30px; }
+  .acf-block-adherents .adherents.adherents-recents {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); }
+    .acf-block-adherents .adherents.adherents-recents .adherent {
+      height: unset; }
+  .acf-block-adherents .recents {
+    margin: 0 auto;
+    max-width: var(--max-width-xl);
+    padding: 0 30px; }
+  .acf-block-adherents .intro, .acf-block-adherents .separation {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+  .acf-block-adherents .titre {
+    color: var(--cyan);
+    font-weight: 700;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    padding-right: 30px; }
+  .acf-block-adherents .ligne {
+    background-color: var(--cyan);
+    height: 1px;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1; }
   .acf-block-adherents .adherent {
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -3083,7 +3112,12 @@ button.modaal-close {
       -ms-flex-preferred-size: 200px;
       flex-basis: 200px;
       height: 160px;
-      margin: 15px; } }
+      margin: 15px; }
+    .acf-block-adherents .adherents.adherents-recents {
+      grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 960px) {
+    .acf-block-adherents .adherents.adherents-recents {
+      grid-template-columns: repeat(6, 1fr); } }
 
 .infos-adherent {
   padding: 20px; }

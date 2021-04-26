@@ -1,4 +1,5 @@
 .acf-block-adherents {
+	--max-width-xl : 1900px;
 	padding:30px 0;
 	.popup {
 		display: none;
@@ -11,6 +12,35 @@
 		margin: 0 auto;
 		max-width:var(--max-width-xl);
 		padding:0 30px;
+	}
+
+	.adherents.adherents-recents {
+		display:grid ;
+		grid-template-columns: repeat(2,1fr);
+		.adherent {
+			height:unset;
+		}
+	}
+	.recents {
+		margin: 0 auto;
+		max-width: var(--max-width-xl);
+		padding: 0 30px;
+	}
+	.intro, .separation {
+		align-items: center;
+		display: flex;
+		
+	}
+	.titre {
+		color:var(--cyan);
+		font-weight: 700;
+		flex-shrink: 0;
+		padding-right:30px;
+	}
+	.ligne {
+		background-color:var(--cyan);
+		height:1px;
+		flex-grow: 1;
 	}
 
 	.adherent {
@@ -51,6 +81,15 @@
 			flex-basis:200px;
 			height:160px;
 			margin:15px;
+		}
+		.adherents.adherents-recents {
+			grid-template-columns: repeat(3,1fr);
+		}
+	}
+
+	@include bp(lg) {
+		.adherents.adherents-recents {
+			grid-template-columns: repeat(6,1fr);
 		}
 	}
 }
