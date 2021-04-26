@@ -58,7 +58,8 @@ function fdc_agenda_callback( $block ) {
 				array( 
 					'key' => 'date_debut',
 					'value' => date('Y-m-d'),
-					'compare' => $compare
+					'compare' => $compare,
+					'type' => 'DATE'
 				)
 			)
 		);
