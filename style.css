@@ -2865,6 +2865,8 @@ button.modaal-close {
   .ressource .desc {
     font-size: 0.9em;
     margin-bottom: 5px; }
+    .ressource .desc a {
+      display: inline-block; }
   .ressource .meta {
     -webkit-box-align: center;
     -ms-flex-align: center;
