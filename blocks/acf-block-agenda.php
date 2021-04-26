@@ -66,10 +66,7 @@ function fdc_agenda_callback( $block ) {
 		if($agenda->have_posts()) :
 			if($titre) printf('<h2 class="has-text-align-center">%s</h2>',$titre);
 			echo '<div class="agenda" id="liste-filtrable">';
-				if($periode==='futur') {
-					//on affiche le filtre uniquement pour les événements futurs
-					fdc_affiche_filtre_agenda();
-				}
+				fdc_affiche_filtre_agenda();
 				echo '<ul class="list evenements">';
 				while ($agenda->have_posts()):
 					$agenda->the_post();
