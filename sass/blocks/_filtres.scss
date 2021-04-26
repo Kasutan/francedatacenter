@@ -29,14 +29,14 @@
 		--accent:var(--cyan);
 		background-color:var(--accent);
 		color:var(--blanc);
-		
-		&.publications {
+
+		&.ressources-cat-1 {
 			--accent : var(--bleu);
 		}
-		&.videos {
+		&.ressources-cat-3 {
 			--accent : var(--violet);
 		}
-		&.photos {
+		&.ressources-cat-4 {
 			--accent : var(--bleu-fonce);
 		}
 	}

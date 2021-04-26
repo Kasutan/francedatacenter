@@ -14,13 +14,13 @@
 }
 .ressource {
 	--accent : var(--bleu); //fonction du type de ressource
-	&.travaux-internes {
+	&.ressources-cat-2 {
 		--accent : var(--cyan);
 	}
-	&.videos {
+	&.ressources-cat-3 {
 		--accent : var(--violet);
 	}
-	&.photos {
+	&.ressources-cat-4 {
 		--accent : var(--bleu-fonce);
 	}
 	align-items: flex-start;

@@ -2814,11 +2814,11 @@ button.modaal-close {
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 13px; }
-  .ressource.travaux-internes {
+  .ressource.ressources-cat-2 {
     --accent: var(--cyan); }
-  .ressource.videos {
+  .ressource.ressources-cat-3 {
     --accent: var(--violet); }
-  .ressource.photos {
+  .ressource.ressources-cat-4 {
     --accent: var(--bleu-fonce); }
   .ressource .texte {
     border-bottom: 1px solid var(--bleu);
@@ -4397,11 +4397,11 @@ button.fermer, a.fermer {
     --accent:var(--cyan);
     background-color: var(--accent);
     color: var(--blanc); }
-    .filtre input:checked + label.publications {
+    .filtre input:checked + label.ressources-cat-1 {
       --accent: var(--bleu); }
-    .filtre input:checked + label.videos {
+    .filtre input:checked + label.ressources-cat-3 {
       --accent: var(--violet); }
-    .filtre input:checked + label.photos {
+    .filtre input:checked + label.ressources-cat-4 {
       --accent: var(--bleu-fonce); }
   @media (min-width: 768px) {
     .filtre label {
