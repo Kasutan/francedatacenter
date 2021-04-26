@@ -27,7 +27,7 @@ function fdc_affiche_ressource($post_id) {
 		return;
 	}
 	$titre=get_the_title($post_id);
-	$desc=get_the_content($post_id);
+	$desc=apply_filters('the_content',get_the_content($post_id));
 	$date=get_the_date('', $post_id);
 	$type_ressource=fdc_get_type_ressource($post_id); // pour la couleur et le filtre
 	$acces=esc_attr(get_field('acces',$post_id));
