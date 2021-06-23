@@ -159,12 +159,12 @@ function fdc_affiche_liste_evenements() {
 		'meta_key' => 'date_debut', //on trie les évènements selon leur date
 		'orderby' => 'meta_value',
 		'order' => 'ASC', 
-		'meta_query' => array(
-				array(
+		'meta_query' => array( 
+			array( 
 				'key' => 'date_debut',
 				'value' => date('Y-m-d'),
-				'compare' => '>=', // on n'affiche que les évènements futurs
-				'type' => 'CHAR'
+				'compare' => '>=',
+				'type' => 'DATE'
 			)
 		)
 	);
