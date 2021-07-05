@@ -39,7 +39,7 @@
 			if(has_custom_logo(  )) {
 				the_custom_logo(  );
 			} else {
-				printf('<a href="%s" class="custom-logo"><img alt="France Data Center" src="%s" width="244" height="89"/></a>',
+				printf('<a href="%s" class="custom-logo"><img alt="France Datacenter" src="%s" width="244" height="89"/></a>',
 					esc_url( home_url( '/' ) ),
 					fdc_get_picto_url('logo')
 				);
