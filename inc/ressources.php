@@ -97,13 +97,19 @@ function fdc_affiche_filtre_ressources(){
 		foreach($terms as $term) : 
 			$nom=$term->name;
 			$slug=$term->slug;
+			if($slug==="videos") {
+				$class_label="screen-reader-text"; // On ne montre pas cette catégorie dans le filtre, mais elle opère
+			} else {
+				$class_label='';
+			}
 			printf('<input type="radio" id="%s" name="filtre-ressources" value="%s" class="type">',
 				$slug,
 				$slug
 			);
-			printf('<label for="%s" class="%s">%s</label>',
+			printf('<label for="%s" class="%s %s">%s</label>',
 				$slug,
 				$slug,
+				$class_label,
 				$nom
 			);
 		endforeach;

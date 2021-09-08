@@ -172,6 +172,12 @@ function fdc_get_type_evenement($post_id) {
 function fdc_get_type_ressource($post_id) {
 	$terms=get_the_terms($post_id,'type_ressource');
 	if($terms) {
-		return $terms[0]->slug;
+		$slugs=[];
+		foreach($terms as $term) {
+			$slugs[]=$term->slug;
+		}
+		return implode(' ',$slugs);
+	} else {
+		return false;
 	}
 }

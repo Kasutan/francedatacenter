@@ -254,7 +254,7 @@
 						} else {
 							//on filtre la liste pour ne garder que les éléments dont le type est sélectionné
 							listeFiltrable.filter(function(item) {
-								return (selectedValue==item.values().type);
+								return (item.values().type.indexOf(selectedValue)>=0);
 							});
 						}
 						
