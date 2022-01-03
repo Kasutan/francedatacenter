@@ -4,7 +4,29 @@
 	ol.groupes {
 		list-style: none;
 		padding: 0 var(--padding-x-grille);
-
+		position: relative;
+		//Décor
+		&::before {
+			background-image:url('icons/decor-droit.svg');
+			background-position: bottom right;
+			background-repeat: no-repeat;
+			background-size: contain;
+			content:'';
+			position: absolute;
+			height:600px;
+			right:-300px;
+			width:545px;
+			top:calc(50% - 300px);
+			@include bp(md) {
+				top: 20%;
+				height: 872px;
+				right: -500px;
+				width: 823px;
+			}
+			@include bp(xl) {
+				right: -30%;
+			}
+		}
 		//Grille fallback
 		display:flex;
 		flex-wrap:wrap;
@@ -20,18 +42,25 @@
 		//Grille avec CSS Grid
 		@supports(grid-template-columns: 1fr) {
 			display: grid;
+			justify-items: center;
 			grid-template-columns: 1fr;
-			row-gap: 30px;
-			@include bp(md) {
+			row-gap: 20px;
+			@include bp(sm) {
 				grid-template-columns: repeat(2,1fr);
 				column-gap:75px;
+				row-gap: 30px;
 			}
 			@include bp(lg) {
 				grid-template-columns: repeat(3,1fr);
 			}
 
 			li.groupe {
+				max-width:350px;
 				padding:0;
+				margin:0;
+				@include bp(sm) {
+					max-width:unset;
+				}
 			}
 		}
 
@@ -44,18 +73,24 @@
 		}
 
 		.numero {
-			--taille:43px;
+			--taille:30px;
+		
 			align-items: center;
 			background: var(--gradient);
 			border-radius: 100%;
 			color:var(--blanc);
 			display: flex;
-			@include taille(26);
+			@include taille(20);
 			font-weight: 700;
 			height:var(--taille);
 			justify-content: center;
 			text-align: center;
 			width:var(--taille);
+
+			@include bp(md) {
+				--taille:43px;
+				@include taille(26);
+			}
 		}
 
 		.nom {
@@ -66,13 +101,47 @@
 			@include taille(26);
 			font-weight: 700;
 			justify-content: center;
-			min-height:100px;
 			padding:13px;
 			width:100%;
+			@include bp(sm) {
+				min-height:80px;
+			}
+			@include bp(md) {
+				min-height:100px;
+			}
 		}
 
 		.texte {
 			margin-bottom: 5px;
+		}
+
+		ul.liens {
+			list-style: none;
+			margin:0;
+			padding:0;
+			li {
+				padding:0;
+				&.prive a {
+					color:var(--gris);
+					.picto {
+						display: inline-block;
+						margin-right: 0.5ch;
+						width: 16px;
+						height: 14px;
+						svg {
+							max-width:100%;
+							max-height:100%;
+						}
+					}
+					path {
+						fill:var(--gris);
+					}
+				}
+			}
+			a {
+				font-weight: 700;
+				text-decoration: none;
+			}
 		}
 
 		

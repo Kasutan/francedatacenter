@@ -30,9 +30,10 @@ function fdc_comite_callback( $block ) {
 		$className=esc_attr($block["className"]);
 	} else $className='';
 
+	$adherent=fdc_is_current_user_adherent();
+
 	if( have_rows('groupes') ):
 		printf('<section class="acf-block-comite alignfull %s">', $className);
-			//TODO ajouter décor
 			echo '<ol class="groupes">';
 			$count=1;
 			while(have_rows('groupes')): the_row();
@@ -45,13 +46,26 @@ function fdc_comite_callback( $block ) {
 
 				//Liste des liens vers les ressources
 				if(have_rows('ressources')) : 
-					echo '<ul cass="liens">';
+					echo '<ul class="liens">';
 					while(have_rows('ressources')): the_row();
 						$ressource=esc_attr(get_sub_field('ressource'));
 						$label=wp_kses_post(get_sub_field('label'));
 						if($ressource && $label) {
-							//TODO vérifier si la ressource est publique et sinon, si l'adhérent est connecté
-							printf('<li><a href="%s">%s</a></li>',get_the_permalink( $ressource),$label);
+							//Vérifier si l'accès à la ressource est autorisé 
+							$acces=esc_attr(get_field('acces',$ressource));
+							if($acces=='privee' && !$adherent) {
+								printf('<li class="prive">
+										<a href="#info-acces-%s"><div class="picto">%s</div>%s</a>
+										<p id="info-acces-%s" class="info-access"><em>Accès réservé aux adhérents</em></p>
+									</li>',
+									$ressource,
+									fdc_get_picto_inline('verrou-ferme'),
+									$label,
+									$ressource
+								);
+							} else {
+								printf('<li><a href="%s">> %s</a></li>', get_the_permalink( $ressource),$label);
+							}
 						}
 					endwhile;
 					echo '</ul>';

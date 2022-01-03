@@ -1108,6 +1108,9 @@ a:hover,
 a:active {
   outline: 0; }
 
+.no-underline a {
+  text-decoration: none; }
+
 .fleche {
   text-align: center;
   /*Variante avec les couleurs inversées*/
@@ -4507,6 +4510,7 @@ button.toggle-filtre {
   .acf-block-comite ol.groupes {
     list-style: none;
     padding: 0 var(--padding-x-grille);
+    position: relative;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -4515,6 +4519,26 @@ button.toggle-filtre {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center; }
+    .acf-block-comite ol.groupes::before {
+      background-image: url("icons/decor-droit.svg");
+      background-position: bottom right;
+      background-repeat: no-repeat;
+      background-size: contain;
+      content: '';
+      position: absolute;
+      height: 600px;
+      right: -300px;
+      width: 545px;
+      top: calc(50% - 300px); }
+      @media (min-width: 768px) {
+        .acf-block-comite ol.groupes::before {
+          top: 20%;
+          height: 872px;
+          right: -500px;
+          width: 823px; } }
+      @media (min-width: 1400px) {
+        .acf-block-comite ol.groupes::before {
+          right: -30%; } }
     .acf-block-comite ol.groupes li.groupe {
       -ms-flex-preferred-size: 360px;
       flex-basis: 360px;
@@ -4523,18 +4547,25 @@ button.toggle-filtre {
     @supports (grid-template-columns: 1fr) {
       .acf-block-comite ol.groupes {
         display: grid;
+        justify-items: center;
         grid-template-columns: 1fr;
-        row-gap: 30px; }
-        @media (min-width: 768px) {
+        row-gap: 20px; }
+        @media (min-width: 576px) {
           .acf-block-comite ol.groupes {
             grid-template-columns: repeat(2, 1fr);
             -webkit-column-gap: 75px;
-            column-gap: 75px; } }
+            column-gap: 75px;
+            row-gap: 30px; } }
         @media (min-width: 960px) {
           .acf-block-comite ol.groupes {
             grid-template-columns: repeat(3, 1fr); } }
         .acf-block-comite ol.groupes li.groupe {
-          padding: 0; } }
+          max-width: 350px;
+          padding: 0;
+          margin: 0; }
+          @media (min-width: 576px) {
+            .acf-block-comite ol.groupes li.groupe {
+              max-width: unset; } } }
     .acf-block-comite ol.groupes li.groupe {
       -webkit-box-align: center;
       -ms-flex-align: center;
@@ -4548,7 +4579,7 @@ button.toggle-filtre {
       flex-direction: column;
       text-align: center; }
     .acf-block-comite ol.groupes .numero {
-      --taille:43px;
+      --taille:30px;
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
@@ -4558,7 +4589,7 @@ button.toggle-filtre {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-      font-size: calc(26 * 0.8125rem / 18);
+      font-size: calc(20 * 0.8125rem / 18);
       font-weight: 700;
       height: var(--taille);
       -webkit-box-pack: center;
@@ -4568,7 +4599,14 @@ button.toggle-filtre {
       width: var(--taille); }
       @media (min-width: 768px) {
         .acf-block-comite ol.groupes .numero {
-          font-size: calc(26 * 1.125rem / 18); } }
+          font-size: calc(20 * 1.125rem / 18); } }
+      @media (min-width: 768px) {
+        .acf-block-comite ol.groupes .numero {
+          --taille:43px;
+          font-size: calc(26 * 0.8125rem / 18); } }
+  @media (min-width: 768px) and (min-width: 768px) {
+    .acf-block-comite ol.groupes .numero {
+      font-size: calc(26 * 1.125rem / 18); } }
     .acf-block-comite ol.groupes .nom {
       -webkit-box-align: center;
       -ms-flex-align: center;
@@ -4583,13 +4621,39 @@ button.toggle-filtre {
       -webkit-box-pack: center;
       -ms-flex-pack: center;
       justify-content: center;
-      min-height: 100px;
       padding: 13px;
       width: 100%; }
       @media (min-width: 768px) {
         .acf-block-comite ol.groupes .nom {
           font-size: calc(26 * 1.125rem / 18); } }
+      @media (min-width: 576px) {
+        .acf-block-comite ol.groupes .nom {
+          min-height: 80px; } }
+      @media (min-width: 768px) {
+        .acf-block-comite ol.groupes .nom {
+          min-height: 100px; } }
     .acf-block-comite ol.groupes .texte {
       margin-bottom: 5px; }
+    .acf-block-comite ol.groupes ul.liens {
+      list-style: none;
+      margin: 0;
+      padding: 0; }
+      .acf-block-comite ol.groupes ul.liens li {
+        padding: 0; }
+        .acf-block-comite ol.groupes ul.liens li.prive a {
+          color: var(--gris); }
+          .acf-block-comite ol.groupes ul.liens li.prive a .picto {
+            display: inline-block;
+            margin-right: 0.5ch;
+            width: 16px;
+            height: 14px; }
+            .acf-block-comite ol.groupes ul.liens li.prive a .picto svg {
+              max-width: 100%;
+              max-height: 100%; }
+          .acf-block-comite ol.groupes ul.liens li.prive a path {
+            fill: var(--gris); }
+      .acf-block-comite ol.groupes ul.liens a {
+        font-weight: 700;
+        text-decoration: none; }
 
 /*# sourceMappingURL=style.css.map */

@@ -349,6 +349,18 @@
 			$('#filtre-liste').trigger("change");
 		}
 
+
+		/*********Info sur accès ressources dans le bloc Comité éditorial **********/
+		var liensPrives=$('.acf-block-comite li.prive a');
+		if(liensPrives.length >0) {
+			$('.acf-block-comite li.prive .info-access').hide();
+			$(liensPrives).click(function (e) { 
+				e.preventDefault();
+				var target=$(this).attr('href');
+				$(target).slideDown();
+			});
+		}
+
 		
 
 	}); //fin document ready
