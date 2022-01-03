@@ -1,0 +1,162 @@
+{
+    "key": "group_61d2da08acf64",
+    "title": "Bloc comité éditorial",
+    "fields": [
+        {
+            "key": "field_61d2da08afc14",
+            "label": "Bloc comité éditorial",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Pour chaque groupe de travail : nom, descriptif et ressources (optionnelles).",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_61d2da08afcaa",
+            "label": "Groupes de travail",
+            "name": "groupes",
+            "type": "repeater",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_61d2da08b2a37",
+            "min": 0,
+            "max": 0,
+            "layout": "row",
+            "button_label": "Ajouter un groupe de travail",
+            "sub_fields": [
+                {
+                    "key": "field_61d2da08b2a37",
+                    "label": "Nom",
+                    "name": "nom",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": 2,
+                    "new_lines": "br"
+                },
+                {
+                    "key": "field_61d2da836adb6",
+                    "label": "Texte",
+                    "name": "texte",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": 2,
+                    "new_lines": "br"
+                },
+                {
+                    "key": "field_61d2da936adb7",
+                    "label": "Publications",
+                    "name": "ressources",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "collapsed": "field_61d2daab6adb8",
+                    "min": 0,
+                    "max": 0,
+                    "layout": "row",
+                    "button_label": "Ajouter une publication",
+                    "sub_fields": [
+                        {
+                            "key": "field_61d2daab6adb8",
+                            "label": "ressource",
+                            "name": "ressource",
+                            "type": "post_object",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [
+                                "ressource"
+                            ],
+                            "taxonomy": "",
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "return_format": "id",
+                            "ui": 1
+                        },
+                        {
+                            "key": "field_61d2dadd6adb9",
+                            "label": "Label du lien vers la publication",
+                            "name": "label",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "Lire la dernière publication",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/acf-comite"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1641208617
+}

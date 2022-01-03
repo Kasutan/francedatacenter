@@ -236,7 +236,7 @@ require_once( 'inc/agenda.php' );
 */
 
 
-function fdc_block_categories( $categories, $post ) {
+function fdc_block_categories_all( $categories, $post ) {
 	return array_merge(
 		array(
 			array(
@@ -270,6 +270,7 @@ require_once( 'blocks/acf-block-actualites-6.php' );
 require_once( 'blocks/acf-block-ressources-4.php' );
 require_once( 'blocks/acf-block-missions-accueil.php' );
 require_once( 'blocks/acf-block-agenda-ressources-accueil.php' );
+require_once( 'blocks/acf-block-comite-editorial.php' );
 
 /**
 * Reusable Blocks accessible in backend

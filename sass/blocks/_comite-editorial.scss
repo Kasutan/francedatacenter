@@ -1,0 +1,80 @@
+.acf-block-comite {
+	margin-top:var(--margin-y);
+	margin-bottom:var(--margin-y);
+	ol.groupes {
+		list-style: none;
+		padding: 0 var(--padding-x-grille);
+
+		//Grille fallback
+		display:flex;
+		flex-wrap:wrap;
+		justify-content: center;
+
+		li.groupe {
+			//Grille fallback
+			flex-basis:360px;
+			padding:0 25px;
+			margin-bottom:30px;
+		}
+
+		//Grille avec CSS Grid
+		@supports(grid-template-columns: 1fr) {
+			display: grid;
+			grid-template-columns: 1fr;
+			row-gap: 30px;
+			@include bp(md) {
+				grid-template-columns: repeat(2,1fr);
+				column-gap:75px;
+			}
+			@include bp(lg) {
+				grid-template-columns: repeat(3,1fr);
+			}
+
+			li.groupe {
+				padding:0;
+			}
+		}
+
+		//Mise en forme de chaque item groupe de travail
+		li.groupe {
+			align-items:center;
+			display: flex;
+			flex-direction: column;
+			text-align: center;
+		}
+
+		.numero {
+			--taille:43px;
+			align-items: center;
+			background: var(--gradient);
+			border-radius: 100%;
+			color:var(--blanc);
+			display: flex;
+			@include taille(26);
+			font-weight: 700;
+			height:var(--taille);
+			justify-content: center;
+			text-align: center;
+			width:var(--taille);
+		}
+
+		.nom {
+			align-items:center;
+			border-bottom: 1px solid var(--gris);
+			color:var(--cyan);
+			display: flex;
+			@include taille(26);
+			font-weight: 700;
+			justify-content: center;
+			min-height:100px;
+			padding:13px;
+			width:100%;
+		}
+
+		.texte {
+			margin-bottom: 5px;
+		}
+
+		
+	}
+}
