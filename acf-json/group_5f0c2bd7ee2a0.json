@@ -3,6 +3,25 @@
     "title": "Options générales FDC",
     "fields": [
         {
+            "key": "field_5f296a77d4c63",
+            "label": "Message sous le formulaire de connexion",
+            "name": "message_login",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 1
+        },
+        {
             "key": "field_5f0c2bdaaf7b2",
             "label": "Image bannière par défaut",
             "name": "banniere_defaut",
@@ -91,6 +110,118 @@
             "multiple": 0,
             "return_format": "id",
             "ui": 1
+        },
+        {
+            "key": "field_61d3411a55cf9",
+            "label": "Labels du filtre adhérents par catégories",
+            "name": "labels_filtre",
+            "type": "group",
+            "instructions": "Attention les labels et l'ordre doivent correspondre à ceux affichés lors de la saisie des adhérents. Si vous effectuez des modifications ici, modifier aussi dans \/wp-admin\/post.php?post=73&action=edit",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_61d3415b55cfa",
+                    "label": "Catégorie 1",
+                    "name": "cat_1",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Concevoir",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_61d3419e55cfb",
+                    "label": "Catégorie 2",
+                    "name": "cat_2",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Construire",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_61d341b355cfc",
+                    "label": "Catégorie 3",
+                    "name": "cat_3",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Opérer",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_61d341bc55cfd",
+                    "label": "Catégorie 4",
+                    "name": "cat_4",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Exploiter",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_61d341cb55cfe",
+                    "label": "Catégorie 5",
+                    "name": "cat_5",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Développer",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -108,7 +239,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1596209479
+    "show_in_rest": 0,
+    "modified": 1641235187
 }

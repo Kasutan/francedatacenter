@@ -3,6 +3,33 @@
     "title": "Informations sur l'entreprise adhérente",
     "fields": [
         {
+            "key": "field_61d33961016c0",
+            "label": "Catégorie d'adhérent",
+            "name": "categorie",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "cat_1": "Concevoir",
+                "cat_2": "Construire",
+                "cat_3": "Opérer",
+                "cat_4": "Exploiter",
+                "cat_5": "Développer"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "vertical",
+            "return_format": "array",
+            "save_other_choice": 0
+        },
+        {
             "key": "field_5f0873152834d",
             "label": "Nom de l'entreprise",
             "name": "entreprise",
@@ -97,7 +124,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1594391287
+    "show_in_rest": 0,
+    "modified": 1641232876
 }

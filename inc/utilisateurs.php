@@ -5,32 +5,40 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 //https://www.tipsandtricks-hq.com/adding-a-custom-column-to-the-users-table-in-wordpress-7378
 add_action('manage_users_columns','fdc_modify_user_columns');
 function fdc_modify_user_columns($column_headers) {
-  unset($column_headers['posts']);
-  $column_headers['entreprise'] = 'Entreprise';
-  $column_headers['date_expiration'] = 'Fin d\'adhésion';
-  return $column_headers;
+	unset($column_headers['posts']);
+	$column_headers['entreprise'] = 'Entreprise';
+	$column_headers['categorie'] = 'Catégorie';
+	$column_headers['date_expiration'] = 'Fin d\'adhésion';
+	return $column_headers;
 }
 
 add_action('manage_users_custom_column', 'fdc_user_custom_column_content', 10, 3);
 function fdc_user_custom_column_content($value, $column_name, $user_id) {
-  if(!function_exists('get_field')) {
-	  return $value;
-  }
-  if ( 'entreprise' == $column_name ) {
-    return esc_html(get_field('entreprise','user_'.$user_id));
-  } else if('date_expiration' == $column_name) {
-	$date_expiration=get_field('date_expiration','user_'.$user_id);
-	if($date_expiration) {
-		$date_actuelle=date('Ymd');
-		$date_expiration_formatee = date("d-m-Y", strtotime($date_expiration));
-		if($date_actuelle<=$date_expiration) {
-			return '<span style="color:green">'.$date_expiration_formatee.'</span>';
-		} else {
-			return '<span style="color:orange">'.$date_expiration_formatee.'</span>';
+	if(!function_exists('get_field')) {
+		return $value;
+	}
+	if ( 'entreprise' == $column_name ) {
+		return esc_html(get_field('entreprise','user_'.$user_id));
+	} else if('date_expiration' == $column_name) {
+		$date_expiration=get_field('date_expiration','user_'.$user_id);
+		if($date_expiration) {
+			$date_actuelle=date('Ymd');
+			$date_expiration_formatee = date("d-m-Y", strtotime($date_expiration));
+			if($date_actuelle<=$date_expiration) {
+				return '<span style="color:green">'.$date_expiration_formatee.'</span>';
+			} else {
+				return '<span style="color:orange">'.$date_expiration_formatee.'</span>';
+			}
 		}
-	} 
-  }
-  return $value;
+	} else if ( 'categorie' == $column_name ) {
+		$cat='';
+		$cat_array=get_field('categorie','user_'.$user_id);
+		if($cat_array) {
+			$cat=esc_html($cat_array['label']);
+		}
+		return $cat;
+	}
+	return $value;
 }
 
 function fdc_affiche_adherent($user,$contexte='grille',$groupe=0) {
@@ -41,6 +49,13 @@ function fdc_affiche_adherent($user,$contexte='grille',$groupe=0) {
 	$logo=esc_attr(get_field('logo','user_'.$user_id));
 	$entreprise=esc_html(get_field('entreprise','user_'.$user_id));
 	$url=$user->get('user_url');
+
+	$cat_array=$cat=false;
+	$cat_array=get_field('categorie','user_'.$user_id);
+	if($cat_array) {
+		$cat=esc_attr($cat_array['value']);
+	}
+
 
 	if($contexte==='slider') { //on affiche le logo cliquable ou simplement l'image
 		if(!empty($url)) {
@@ -53,17 +68,26 @@ function fdc_affiche_adherent($user,$contexte='grille',$groupe=0) {
 			);
 		}
 	} else { //contexte grille, on affiche le logo cliquable qui ouvre une popup au clic
+
 		if ($groupe > 0) {
 			//ce logo n'est pas visible au chargement de la page : on lui passe différentes infos pour le JS et on ne charge pas l'image
-			printf('<li class="adherent js-afficher-plus" data-groupe="%s" data-src="%s"><a href="#adherent-%s" class="ouvrir-modaal"><img src="data:," alt="%s" class="no-lazy-load" /></a>%s</li>',
-				$groupe,
-				wp_get_attachment_image_url($logo, 'medium'),
+			printf('<li class="adherent js-afficher-plus" data-groupe="%s" data-src="%s">',$groupe,
+			wp_get_attachment_image_url($logo, 'medium'));
+			if($cat) {
+				printf('<span class="cat" style="display:none" aria-hidden="true">%s</span>',print_r($cat));
+			}
+			printf('<a href="#adherent-%s" class="ouvrir-modaal"><img src="data:," alt="%s" class="no-lazy-load" /></a>%s</li>',
 				$user_id,
 				$entreprise,
 				fdc_prepare_popup_adherent($user_id,$logo,$entreprise,$url)
 			);
 		} else {
-			printf('<li class="adherent"><a href="#adherent-%s" class="ouvrir-modaal">%s</a>%s</li>',
+			echo '<li class="adherent">';
+			if($cat) {
+				printf('<span class="cat" style="display:none" aria-hidden="true">%s</span>',$cat);
+			}
+			printf('<a href="#adherent-%s" class="ouvrir-modaal">%s</a>%s</li>',
+
 				$user_id,
 				wp_get_attachment_image($logo, 'medium', false, array('alt'=>$entreprise)),
 				fdc_prepare_popup_adherent($user_id,$logo,$entreprise,$url)
@@ -239,14 +263,14 @@ function fdc_simplifier_admin_edition_utilisateur_js() {
 * https://www.itsupportguides.com/knowledge-base/wordpress/wordpress-how-to-disable-new-user-notification-emails/
 */
 if ( ! function_exists( 'wp_new_user_notification' ) ) :
-    function wp_new_user_notification( $user_id, $deprecated = null, $notify = '' ) {
-        return;
-    }
+		function wp_new_user_notification( $user_id, $deprecated = null, $notify = '' ) {
+				return;
+		}
 endif;
 if ( ! function_exists( 'wp_password_change_notification' ) ) :
-    function wp_password_change_notification( $user ) {
-        return;
-    }
+		function wp_password_change_notification( $user ) {
+				return;
+		}
 endif;
 
 
@@ -262,7 +286,7 @@ function fdc_hide_admin_bar()
 
 //Redirect users if they are not editors to the front-end (no direct access to back-end)
 function fdc_block_access_to_dashboard(){
-	if( is_admin() && !defined('DOING_AJAX')  )
+	if( is_admin() && !defined('DOING_AJAX')	)
 	{
 		if(!current_user_can('edit_posts') ) {
 			wp_safe_redirect(home_url());

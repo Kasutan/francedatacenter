@@ -35,9 +35,27 @@ function fdc_adherents_callback( $block ) {
 
 	$titre_recents=esc_html(get_field('titre_recents'));
 
+	$afficher_filtre=esc_attr(get_field('afficher_filtre')); // renvoie 1 ou 0
+
 	printf('<section class="acf-block-adherents alignfull %s">', $className);
 		//https://developer.wordpress.org/reference/classes/wp_user_query/prepare_query/
 		// WP_User_Query arguments
+
+		//On prépare la user_query qui va servir pour le filtre et pour l'affichage de tous les adhérents
+
+		
+		//Construire le filtre
+		if($afficher_filtre) {
+			$titre_filtre=wp_kses_post(get_field('titre_filtre'));
+			if($titre_filtre) printf('<legend>%s</legend>',$titre_filtre);
+
+			//On récupère les labels dans les options du site - pour les avoir dans l'ordre
+			$labels_filtres=get_field('labels_filtre','options');
+			if(!empty($labels_filtres)) {
+				var_dump($labels_filtres);
+			}
+		}
+
 
 		// Afficher d'abord les 6 adhérents les plus récents
 		$args_recents = array(
@@ -76,7 +94,6 @@ function fdc_adherents_callback( $block ) {
 			'meta_key'		=>  'date_expiration',
 			'meta_value'	=> date('Ymd'),
 			'meta_compare'	=> '>=',
-			'exclude' => $recents //on exclut les utilisateurs déjà affichés précédemment
 		);
 
 		// The User Query
