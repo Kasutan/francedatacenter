@@ -74,9 +74,60 @@ function fdc_antenne_callback( $block ) {
 			}
 
 			echo '</div><div class="col-2">';
-			
-			//TODO liste des événements liés à cette région
 
+			//Liste des événements liés à cette région
+			//TODO tester nombre d'événements affichés (futurs & passés)
+			//TODO ajouter popup
+			
+			$evenements= get_posts(array(
+				'post_type' => "evenement",
+				'numberposts' => -1,
+				'meta_key' => 'date_debut', //on trie les évènements selon leur date
+				'orderby' => 'meta_value',
+				'order' => 'DESC', //du plus récent (ou futur) au plus loin dans le passé 
+				'tax_query' => array(
+					array(
+						'taxonomy' => 'antenne_regionnale',
+						'terms'    => $term_id,
+					),
+				),
+			));
+
+			$nb_passes=0;
+
+			if(!empty($evenements)) {
+				echo '<div class="evenements-wrap"><h3 class="titre">Evenements</h3><ul class="evenements">';
+				foreach($evenements as $post_id) {
+					if($nb_passes > 2) break; //on va du futur vers le passé. Si on a déjà listé 2 événements passés, on sort de la boucle
+
+					$titre_item=get_the_title($post_id);
+					$ville=esc_html(get_field('ville',$post_id));
+
+					$date_debut=esc_attr(get_field('date_debut',$post_id));
+					$date_fin=esc_attr(get_field('date_fin',$post_id));
+					//s'agit-il d'un évènement futur ?
+					$classe_futur='';
+					if($date_debut > date('Y-m-d')) {
+						$classe_futur='futur';
+					} else {
+						$nb_passes++;
+					}
+
+					//préparer format dates
+					$array_date_debut=explode('-',$date_debut);
+					$date_a_afficher=sprintf('%s/%s/%s',$array_date_debut[2],$array_date_debut[1],$array_date_debut[0]);
+
+					if($date_fin) {
+						$array_date_fin=explode('-',$date_fin);
+						$date_a_afficher.=sprintf(' > %s/%s/%s',$array_date_fin[2],$array_date_fin[1],$array_date_fin[0]);
+					}
+					
+					printf('<li class="%s"><a href="%s">%s - <strong>%s</strong></br><strong>%s</strong></a></li>', $classe_futur,get_the_permalink( $post_id),$date_a_afficher, $ville, $titre_item);
+					
+				}
+
+				echo '</ul></div>';
+			}
 
 			//Liste des ressources liées à cette région - avec type de fichier et vérification accès
 			$ressources= get_posts(array(
