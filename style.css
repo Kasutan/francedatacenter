@@ -4484,6 +4484,15 @@ button.toggle-filtre {
     button.toggle-filtre.ouvert .afficher {
       display: none; }
 
+.filtre-ressources {
+  background-color: var(--bleu-clair);
+  padding: 20px 20px 6px; }
+  .filtre-ressources .titre-filtre {
+    color: var(--bleu);
+    font-weight: 700;
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%; }
+
 @media screen and (max-width: 767px) {
   .filtre-ressources {
     background-color: var(--bleu-clair);

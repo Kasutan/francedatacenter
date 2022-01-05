@@ -92,6 +92,15 @@ button.toggle-filtre {
 		}
 	}
 }
+.filtre-ressources {
+	background-color: var(--bleu-clair);
+	padding:20px 20px 6px;
+	.titre-filtre {
+		color:var(--bleu);
+		font-weight: 700;
+		flex-basis:100%;
+	}
+}
 @media screen and (max-width:767px) {
 	.filtre-ressources {
 		background-color: var(--bleu-clair);

@@ -91,7 +91,7 @@ function fdc_affiche_filtre_ressources(){
 		fdc_get_picto_inline('filtre')
 	);
 	echo '<form id="filtre-liste" class="filtre filtre-ressources" aria-expanded="false">';
-		echo '<p class="screen-reader-text">Filtrer par type de ressource</p>';
+		echo '<p class="titre-filtre">Filtrer par thématique : </p>';
 		echo '<input type="radio" name="filtre-ressources" id="tous" value="tous" class="type" checked>';
 		echo '<label for="tous">Toutes</label>';
 		foreach($terms as $term) : 
