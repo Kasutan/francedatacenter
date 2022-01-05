@@ -37,7 +37,7 @@ function fdc_adherents_callback( $block ) {
 
 	$afficher_filtre=esc_attr(get_field('afficher_filtre')); // renvoie 1 ou 0
 
-	printf('<section class="acf-block-adherents alignfull %s">', $className);
+	printf('<section class="acf-block-adherents alignfull %s" id="liste-filtrable">', $className);
 		//https://developer.wordpress.org/reference/classes/wp_user_query/prepare_query/
 		// WP_User_Query arguments
 
@@ -71,14 +71,11 @@ function fdc_adherents_callback( $block ) {
 				echo '<ul class="adherents adherents-recents">';
 				foreach ( $user_query_recents->results as $user ) {
 					fdc_affiche_adherent($user,$contexte='grille'); //le contexte est important pour l'affichage de la popup
-					$recents[]=$user->get('ID');
 				}
 				echo '</ul>';
 				echo '<div class="separation"><div class ="ligne"></div></div>';
 			echo '</div>';
-		} else {
-			$recents=array();
-		}
+		} 
 
 		//Afficher ensuite tous les autres adhérents
 		$args = array(
@@ -96,7 +93,7 @@ function fdc_adherents_callback( $block ) {
 		// The User Loop
 		if ( ! empty( $user_query->results ) ) {
 			$compteur=0;
-			echo '<ul class="adherents">';
+			echo '<ul class="adherents list">';
 			foreach ( $user_query->results as $user ) {
 				$groupe=floor($compteur/$taille_groupe);
 				fdc_affiche_adherent($user,$contexte='grille',$groupe);
@@ -109,6 +106,8 @@ function fdc_adherents_callback( $block ) {
 				fdc_get_picto_inline('angle-bas')
 				);
 			}
+			//reçoit la pagination list.js - cet élément est masqué, mais sert à repérer si tous les éléments sont affichés (en tenant compte des filtres), pour savoir si on masque ou pas le bouton Afficher plus
+			echo '<ul class="pagination" style="display:none"></ul>'; 
 		} else {
 			echo 'Aucun adhérent actif';
 		}

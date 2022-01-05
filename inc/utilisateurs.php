@@ -84,7 +84,7 @@ function fdc_affiche_adherent($user,$contexte='grille',$groupe=0) {
 		} else {
 			echo '<li class="adherent">';
 			if($cat) {
-				printf('<span class="cat" style="display:none" aria-hidden="true">%s</span>',$cat);
+				printf('<span class="type" style="display:none" aria-hidden="true">%s</span>',$cat); //pour le filtre
 			}
 			printf('<a href="#adherent-%s" class="ouvrir-modaal">%s</a>%s</li>',
 

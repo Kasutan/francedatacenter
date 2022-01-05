@@ -222,15 +222,22 @@
 			}
 		});
 
-		/****************** Filtre agenda et ressources *************************/	
+		/****************** Filtre agenda et ressources et adhérents*************************/	
 		if($("#filtre-liste").length>0) {
 			var boutonPlus=("#afficher-plus");
 			var increment=1000; // au cas où il n'y aurait pas de bouton plus avec data-increment stocké
 			if($(boutonPlus).length >0) {
 				increment=parseInt($(boutonPlus).attr('data-increment'));
 			}
-			console.log('increment',increment);
 			var resultats=('.list');
+
+			/*Actions supplémentaires si liste d'adhérents*/
+			var listeAdherents=$(resultats).hasClass('adherents');
+			if(listeAdherents) {
+				//au chargement de la page, tous les adhérents sont affichés (le filtre n'a pas encore été activé) -> montrer l'input "Tous" comme étant coché
+				$('#tous').prop( "checked", true );
+			}
+
 			var listeFiltrable = new List('liste-filtrable', {
 				valueNames: ['type'],
 				page: increment,
@@ -246,16 +253,25 @@
 						//callback de l'animation
 						//on récupère le type sélectionné
 						var selectedValue=$("#filtre-liste input:checked").val();
-						console.log(selectedValue);
+						//console.log(selectedValue);
 
 						if(selectedValue=='tous') {
 							//on réinitialise le filtre
 							listeFiltrable.filter();
+							//on affiche les adhérents récents
+							if(listeAdherents) {
+								$('.recents').fadeIn();
+							}
 						} else {
 							//on filtre la liste pour ne garder que les éléments dont le type est sélectionné
 							listeFiltrable.filter(function(item) {
 								return (item.values().type.indexOf(selectedValue)>=0);
 							});
+
+							//on masque les adhérents récents
+							if(listeAdherents) {
+								$('.recents').slideUp();
+							}
 						}
 						
 
