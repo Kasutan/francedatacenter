@@ -35,8 +35,12 @@ function fdc_antenne_callback( $block ) {
 
 	$description=wp_kses_post(get_field('description')); //renvoie texte avec <br>
 
+	$adherent=fdc_is_current_user_adherent(); // Pour l'affichage des documents réservés aux adhérents
+
 	if(!empty($antenne)):
-		printf('<div class="acf-block-antenne %s">', $className);
+		$term_id=$antenne->term_id;
+		printf('<div class="acf-block-antenne %s" id="antenne-%s">', $className,$term_id);
+			echo '<div class="col-1">';
 			printf('<h2 class="nom">%s</h2>',$antenne->name);
 
 			if($description) {
@@ -69,12 +73,48 @@ function fdc_antenne_callback( $block ) {
 				echo '</ul>';
 			}
 
+			echo '</div><div class="col-2">';
+			
 			//TODO liste des événements liés à cette région
 
 
-			//TODO liste des ressources liées à cette région
-		
-		echo '</div>';
+			//Liste des ressources liées à cette région - avec type de fichier et vérification accès
+			$ressources= get_posts(array(
+				'post_type' => "ressource",
+				'numberposts' => -1,
+				'tax_query' => array(
+					array(
+						'taxonomy' => 'antenne_regionnale',
+						'terms'    => $term_id,
+					),
+				),
+			));
+			if(!empty($ressources)) {
+				echo '<div class="ressources-wrap"><h3 class="titre">Ressources</h3><ul class="ressources">';
+				foreach($ressources as $post_id) {
+					$titre_item=get_the_title($post_id);
+					$type_fichier=esc_attr(get_field('type_fichier',$post_id));
+					//Vérifier si l'accès à la ressource est autorisé 
+					$acces=esc_attr(get_field('acces',$post_id));
+					if($acces=='privee' && !$adherent) {
+						printf('<li class="prive">
+								<div class="picto">%s</div>%s (%s) - Accès adhérent</p>
+							</li>',
+							fdc_get_picto_inline('verrou-ferme'),
+							$titre_item,
+							$type_fichier
+						);
+					} else {
+						printf('<li><a href="%s">%s (%s)</a></li>', get_the_permalink( $post_id),$titre_item,$type_fichier);
+					}
+				}
+
+				echo '</ul></div>';
+			}
+
+			echo '</div>'; //fin .col-2
+
+		echo '</div>'; //fin bloc
 	endif;
 
 }
