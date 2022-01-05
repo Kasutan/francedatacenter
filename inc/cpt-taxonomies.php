@@ -47,6 +47,29 @@ register_taxonomy('type_ressource','ressource',array(
 ));
 }
 
+/***************************************************************
+	Custom Taxonomy Région
+/***************************************************************/
+
+add_action( 'init', 'fdc_create_region_tag', 0 );
+function fdc_create_region_tag() {
+// Labels part for the GUI
+$labels = array(
+	'name' => _x( 'Antenne régionale', 'taxonomy general name' ),
+	'singular_name' => _x( 'Antenne régionale', 'taxonomy singular name' ),
+	'menu_name' => __( 'Antennes régionales' ),
+); 
+register_taxonomy('antenne_regionnale',array('ressource','evenement'),array(
+	'hierarchical' => true,
+	'labels' => $labels,
+	'show_ui' => true, 
+	'show_admin_column' => true,
+	'query_var' => false,
+	'public' => false,
+	'show_in_rest' => false
+));
+}
+
 
 /***************************************************************
 	Custom Post Type : evenement
@@ -87,7 +110,7 @@ function fdc_evenement_post_type() {
 		'description'           => __( 'Evènement pour l\'agenda', 'francedatacenter' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'thumbnail', 'editor', 'revisions', 'custom-fields' ),
-		'taxonomies'            => array( 'type_evement'),
+		'taxonomies'            => array( 'type_evenement','antenne_regionale'),
 		'hierarchical'          => false,
 		'public'                => false,
 		'show_ui'               => true,
@@ -139,7 +162,7 @@ function fdc_ressource_post_type() {
 		'description'           => __( 'Ressources publiques ou réservées aux adhérents', 'francedatacenter' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'revisions', 'editor', 'custom-fields' ),
-		'taxonomies'            => array( 'type_ressource'),
+		'taxonomies'            => array( 'type_ressource','antenne_regionale'),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
