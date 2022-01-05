@@ -298,3 +298,31 @@ function fdc_block_access_to_dashboard(){
 add_action('init','fdc_block_access_to_dashboard');
 
 
+function fdc_affiche_filtre_adherents($titre_filtre){
+	//On récupère les labels dans les options du site - pour les avoir dans l'ordre
+	$labels_filtres=get_field('labels_filtre','options');
+	if(empty($labels_filtres)) {
+		return;
+	}
+
+	
+	echo '<div class="filtre-wrap">';
+	if($titre_filtre) printf('<p class="titre-filtre">%s</p>',$titre_filtre);
+
+		echo '<form id="filtre-liste" class="filtre filtre-adherents">';
+			echo '<input type="radio" name="filtre-adherents" id="tous" value="tous" class="type" checked>';
+			echo '<label for="tous" class="tous">Tous</label>';
+			foreach($labels_filtres as $slug => $label) : 
+				printf('<input type="radio" id="%s" name="filtre-adherents" value="%s" class="type">',
+					$slug,
+					$slug
+				);
+				printf('<label for="%s" class="%s">%s</label>',
+					$slug,
+					$slug,
+					$label
+				);
+			endforeach;
+		echo '</form>';
+	echo '</div>';
+}

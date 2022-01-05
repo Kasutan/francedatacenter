@@ -45,15 +45,9 @@ function fdc_adherents_callback( $block ) {
 
 		
 		//Construire le filtre
-		if($afficher_filtre) {
+		if($afficher_filtre && function_exists('fdc_affiche_filtre_adherents')) {
 			$titre_filtre=wp_kses_post(get_field('titre_filtre'));
-			if($titre_filtre) printf('<legend>%s</legend>',$titre_filtre);
-
-			//On récupère les labels dans les options du site - pour les avoir dans l'ordre
-			$labels_filtres=get_field('labels_filtre','options');
-			if(!empty($labels_filtres)) {
-				var_dump($labels_filtres);
-			}
+			fdc_affiche_filtre_adherents($titre_filtre);
 		}
 
 

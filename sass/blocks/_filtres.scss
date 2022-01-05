@@ -1,10 +1,18 @@
-/*Filtre pour l'agenda et les ressources*/
-
+/*Filtre pour l'agenda et les ressources et les adhérents*/
+.filtre-wrap {
+	background-color: var(--fond);
+	margin: 0 calc(var(--padding-x) - 20px) 30px;
+	padding:20px 20px 6px;
+	.titre-filtre {
+		color:var(--bleu);
+		font-weight: 700;
+	}
+}
 .filtre {
 	border:none;
 	display: flex;
 	flex-wrap:wrap;
-	justify-content: center;
+	justify-content: space-between;
 	margin-bottom: 25px;
 	input{
 		border: 0;
@@ -21,7 +29,7 @@
 		border:solid 1px var(--accent);
 		color:var(--accent);
 		cursor:pointer;
-		margin:0 5px 14px;
+		margin:0 0 14px;
 		padding:5px 10px;
 		position: relative;
 	}
@@ -31,7 +39,7 @@
 		background-color:var(--accent);
 		color:var(--blanc);
 
-		&.ressources-cat-1 {
+		&.ressources-cat-1, &.tous {
 			--accent : var(--bleu);
 		}
 		&.ressources-cat-3 {
@@ -43,12 +51,14 @@
 	}
 
 	@include bp(md) {
-		label {
-			margin:0 14px 14px;
-		}
+		
 		&.filtre-ressources {
 			margin-top: 34px;
 		}
+	}
+
+	&.filtre-adherents {
+		margin-bottom: 0;
 	}
 }
 

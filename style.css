@@ -4404,7 +4404,15 @@ button.fermer, a.fermer {
         margin-left: 31px;
         padding-bottom: 90px; } }
 
-/*Filtre pour l'agenda et les ressources*/
+/*Filtre pour l'agenda et les ressources et les adhérents*/
+.filtre-wrap {
+  background-color: var(--fond);
+  margin: 0 calc(var(--padding-x) - 20px) 30px;
+  padding: 20px 20px 6px; }
+  .filtre-wrap .titre-filtre {
+    color: var(--bleu);
+    font-weight: 700; }
+
 .filtre {
   border: none;
   display: -webkit-box;
@@ -4412,9 +4420,9 @@ button.fermer, a.fermer {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   margin-bottom: 25px; }
   .filtre input {
     border: 0;
@@ -4430,24 +4438,24 @@ button.fermer, a.fermer {
     border: solid 1px var(--accent);
     color: var(--accent);
     cursor: pointer;
-    margin: 0 5px 14px;
+    margin: 0 0 14px;
     padding: 5px 10px;
     position: relative; }
   .filtre input:checked + label {
     --accent:var(--cyan);
     background-color: var(--accent);
     color: var(--blanc); }
-    .filtre input:checked + label.ressources-cat-1 {
+    .filtre input:checked + label.ressources-cat-1, .filtre input:checked + label.tous {
       --accent: var(--bleu); }
     .filtre input:checked + label.ressources-cat-3 {
       --accent: var(--violet); }
     .filtre input:checked + label.ressources-cat-4 {
       --accent: var(--bleu-fonce); }
   @media (min-width: 768px) {
-    .filtre label {
-      margin: 0 14px 14px; }
     .filtre.filtre-ressources {
       margin-top: 34px; } }
+  .filtre.filtre-adherents {
+    margin-bottom: 0; }
 
 button.toggle-filtre {
   -webkit-box-align: center;
