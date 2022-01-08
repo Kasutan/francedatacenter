@@ -83,7 +83,7 @@ function fdc_prepare_popup_evenement($post_id,$classe_futur,$date_debut,$date_fi
 		if($contexte!="agenda") {
 			echo '<div class="boutons-fermer">';
 			printf('<button class="fermer-modaal fermer"><img src="%s" width="52" height="52" alt="Fermer"/><span>Fermer la fenêtre</span></button>',fdc_get_picto_url('croix'));
-			printf('<a href="/agenda/" class="fermer"><img src="%s" width="52" height="52" class="no-lazy-load" alt="Flèche"/><span>Voir l\'agenda</span></button>',fdc_get_picto_url('angle-cercle'));
+			printf('<a href="/agenda/" class="fermer"><img src="%s" width="52" height="52" class="no-lazy-load" alt="Flèche"/><span>Voir l\'agenda</span></a>',fdc_get_picto_url('angle-cercle'));
 			echo '</div>';
 		} else {
 			printf('<button class="fermer-modaal retour"><img src="%s" width="52" height="52" alt="Fermer"/><span>Revenir à la liste</span></button>',fdc_get_picto_url('croix'));
