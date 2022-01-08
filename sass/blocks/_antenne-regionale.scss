@@ -1,4 +1,100 @@
 .acf-block-antenne {
+	@include bleed;
+	
+	margin-bottom: 20px;
+	padding: 60px var(--padding-x) 30px;
+	position: relative;
+
+	.fond {
+		--pointe:25px;
+		background-color: var(--fond);
+		clip-path:polygon(80% 0, 100% var(--pointe), 100% calc(100% - var(--pointe)), 20% 100%, 0px calc(100% - var(--pointe)), 0 var(--pointe));
+		position: absolute;
+		top:0;
+		left:0;
+		height: 100%;
+		width:100%;
+	}
+	.col-1, .col-2 {
+		position: relative;
+	}
+
+	.nom-wrap {
+		align-items: center;
+		display: flex;
+		height:30px;
+		justify-content: center;
+		position: absolute;
+		left:0;
+		top : -5px;
+		width:100%;
+	}
+	.nom-antenne {
+		color: var(--blanc);
+		background-color: var(--cyan);
+		display: inline-block;
+		font-size: 20px;
+		font-weight: 700;
+		padding: 5px;
+		margin: 0;
+		max-width: 80%;
+		min-width:168px;
+		text-align: center;
+		line-height: 26px;
+		&::after {
+			display: none;
+		}
+		
+	}
+
+	.titre {
+		color:var(--bleu);
+		font-size: 16px;
+		font-weight: 700;
+		text-transform: uppercase;
+
+	}
+
+	ul {
+		list-style:none;
+		margin-bottom: 10px;
+		margin-top: 0;
+		padding-left:0;
+		padding-bottom:10px;
+
+		&.description, &.referents, &.evenements {
+			border-bottom: solid 2px var(--blanc);
+		}
+
+		&.description {
+			list-style:square;
+			font-weight: 700;
+			padding-left:var(--padding-x);
+		}
+	}
+
+	.referent {
+		align-items: center;
+		display: flex;
+		margin-bottom: 10px;
+		.photo {
+			--taille:50px;
+			height:50px;
+			width:50px;
+			margin-right: 15px;
+			img {
+				border-radius: 100%;
+				object-fit: cover;
+			}
+		}
+		.texte {
+			p {
+				margin-bottom: 0;
+			}
+		}
+
+	}
+
 	.popup {
 		display: none;
 	}

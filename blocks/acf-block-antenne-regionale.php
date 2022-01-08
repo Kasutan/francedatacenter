@@ -40,8 +40,11 @@ function fdc_antenne_callback( $block ) {
 	if(!empty($antenne)):
 		$term_id=$antenne->term_id;
 		printf('<div class="acf-block-antenne %s" id="antenne-%s">', $className,$antenne->slug);
+			echo '<div class="fond"></div>';
+			printf('<div class="nom-wrap"><h2 class="nom-antenne">%s</h2></div>',$antenne->name);
+
 			echo '<div class="col-1">';
-			printf('<h2 class="nom">%s</h2>',$antenne->name);
+
 
 			if($description) {
 				echo '<h3 class="titre">En bref</h3><ul class="description">';
@@ -61,14 +64,14 @@ function fdc_antenne_callback( $block ) {
 					$fonction=esc_html(get_sub_field('fonction'));
 					$societe=esc_html(get_sub_field('societe'));
 					$photo=esc_attr(get_sub_field('photo'));
-
+					echo '<li class="referent">';
 					if($photo) printf('<div class="photo">%s</div>',wp_get_attachment_image( $photo, 'thumbnail'));
 
 					echo '<div class="texte">';
 						if($nom) printf('<p class="nom"><strong>%s</strong></p>',$nom);
 						if($fonction) printf('<p>%s</p>',$fonction);
 						if($societe) printf('<p>%s</p>',$societe);
-					echo '</div>';
+					echo '</div></li>';
 				endwhile;
 				echo '</ul>';
 			}
