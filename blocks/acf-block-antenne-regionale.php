@@ -39,7 +39,7 @@ function fdc_antenne_callback( $block ) {
 
 	if(!empty($antenne)):
 		$term_id=$antenne->term_id;
-		printf('<div class="acf-block-antenne %s" id="antenne-%s">', $className,$term_id);
+		printf('<div class="acf-block-antenne %s" id="antenne-%s">', $className,$antenne->slug);
 			echo '<div class="col-1">';
 			printf('<h2 class="nom">%s</h2>',$antenne->name);
 
@@ -76,9 +76,7 @@ function fdc_antenne_callback( $block ) {
 			echo '</div><div class="col-2">';
 
 			//Liste des événements liés à cette région
-			//TODO tester nombre d'événements affichés (futurs & passés)
-			//TODO ajouter popup
-			
+
 			$evenements= get_posts(array(
 				'post_type' => "evenement",
 				'numberposts' => -1,
@@ -97,8 +95,9 @@ function fdc_antenne_callback( $block ) {
 
 			if(!empty($evenements)) {
 				echo '<div class="evenements-wrap"><h3 class="titre">Evenements</h3><ul class="evenements">';
-				foreach($evenements as $post_id) {
-					if($nb_passes > 2) break; //on va du futur vers le passé. Si on a déjà listé 2 événements passés, on sort de la boucle
+				foreach($evenements as $post) {
+					$post_id=$post->ID;
+					if($nb_passes >= 2) break; //on va du futur vers le passé. Si on a déjà listé 2 événements passés, on sort de la boucle
 
 					$titre_item=get_the_title($post_id);
 					$ville=esc_html(get_field('ville',$post_id));
@@ -122,8 +121,16 @@ function fdc_antenne_callback( $block ) {
 						$date_a_afficher.=sprintf(' > %s/%s/%s',$array_date_fin[2],$array_date_fin[1],$array_date_fin[0]);
 					}
 					
-					printf('<li class="%s"><a href="%s">%s - <strong>%s</strong></br><strong>%s</strong></a></li>', $classe_futur,get_the_permalink( $post_id),$date_a_afficher, $ville, $titre_item);
-					
+					printf('<li class="%s"><a href="#evenement-%s" class="ouvrir-modaal">%s - <strong>%s</strong></br><strong>%s</strong></a></li>', $classe_futur,$post_id,$date_a_afficher, $ville, $titre_item);
+
+					/*Données pour la popup*/
+					$desc=$post->post_content;
+					$pays=wp_kses_post(get_field('pays',$post_id));
+					$plage_horaire=wp_kses_post(get_field('plage_horaire',$post_id));
+					$label_lien_resa=wp_kses_post(get_field('label_lien_resa',$post_id));
+					$lien_resa=esc_url(get_field('lien_resa',$post_id));
+					$type_evenement=fdc_get_type_evenement($post_id); 
+					fdc_prepare_popup_evenement($post_id,$classe_futur='',$date_debut,$date_fin,$titre_item,$plage_horaire,$type_evenement,$ville,$pays,$desc,$lien_resa,$label_lien_resa,'accueil');
 				}
 
 				echo '</ul></div>';
