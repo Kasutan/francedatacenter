@@ -377,7 +377,16 @@
 			});
 		}
 
-		
+		/****************** Style titre événements dans bloc Antenne régionale*************************/
+		var eveFutur=$('.acf-block-antenne li.futur');
+		if(eveFutur.length > 0) {
+			$(eveFutur).each(function( index ) {
+				$(this).parents('.evenements-wrap').addClass('contient-futur');
+			});
+		}
+
+		/****************** Ajout décor au premier bloc antenne régionale*************************/
+		$('.acf-block-antenne').first().addClass('avec-decor');
 
 	}); //fin document ready
 })( jQuery );
