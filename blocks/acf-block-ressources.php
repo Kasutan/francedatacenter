@@ -37,7 +37,19 @@ function fdc_ressources_callback( $block ) {
 	printf('<section class="acf-block-ressources %s">', $className);
 		$args=array(
 			'post_type' => 'ressource',
-			'posts_per_page' => -1
+			'posts_per_page' => -1,
+			'meta_query' => array( 
+				'relation' => 'OR',
+				array( 
+					'key' => 'masquer_national',
+					'value' => 'masquer',
+					'compare' => '!=',
+				),
+				array( 
+					'key' => 'masquer_national',
+					'compare' => 'NOT EXISTS',
+				)
+			)
 		);
 		$ressources=new WP_Query($args);
 		if($ressources->have_posts()) :

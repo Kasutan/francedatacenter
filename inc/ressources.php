@@ -146,6 +146,18 @@ function fdc_affiche_liste_ressources_pour_accueil() {
 				'terms' => 11, //exclure les vidéos
 				'operator' => 'NOT IN'
 			)
+		),
+		'meta_query' => array( 
+			'relation' => 'OR',
+			array( 
+				'key' => 'masquer_national',
+				'value' => 'masquer',
+				'compare' => '!=',
+			),
+			array( 
+				'key' => 'masquer_national',
+				'compare' => 'NOT EXISTS',
+			)
 		)
 	);
 	$ressources=new WP_Query($args);

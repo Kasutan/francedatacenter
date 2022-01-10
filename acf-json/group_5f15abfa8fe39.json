@@ -133,7 +133,7 @@
             "label": "Masquer cet évènement dans l'agenda général et sur la page d'accueil ?",
             "name": "masquer_national",
             "type": "radio",
-            "instructions": "",
+            "instructions": "Si cet évènement est associé à une antenne régionale, il sera visible dans le bloc de sa région sur la page Antennes Régionales.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -171,5 +171,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1641823672
+    "modified": 1641824110
 }

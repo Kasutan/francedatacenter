@@ -37,7 +37,19 @@ function fdc_ressources_4_callback( $block ) {
 	printf('<section class="acf-block-quatre-ressources alignfull %s">', $className);
 		$args=array(
 			'posts_per_page' => 4,
-			'post_type' => 'ressource'
+			'post_type' => 'ressource',
+			'meta_query' => array( 
+				'relation' => 'OR',
+				array( 
+					'key' => 'masquer_national',
+					'value' => 'masquer',
+					'compare' => '!=',
+				),
+				array( 
+					'key' => 'masquer_national',
+					'compare' => 'NOT EXISTS',
+				)
+			)
 		);
 		$ressources=new WP_Query($args);
 		if($ressources->have_posts()) :
