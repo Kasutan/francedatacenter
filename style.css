@@ -1906,7 +1906,8 @@ button.modaal-close {
   align-items: center;
   background-color: var(--noir);
   color: var(--blanc);
-  padding: 0 var(--padding-x-footer) 0; }
+  padding: 0 var(--padding-x-footer) 0;
+  position: relative; }
   .site-footer a {
     text-decoration: none;
     -webkit-transition-duration: 0.3s;
@@ -1948,6 +1949,35 @@ button.modaal-close {
       margin-bottom: 1em; }
   .site-footer .footer-widgets .row > div {
     margin-bottom: 25px; }
+  .site-footer .backtotop {
+    --taille:40px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: var(--cyan);
+    border-radius: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: var(--taille);
+    padding: 8px;
+    width: var(--taille);
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    -webkit-transition: -webkit-transform var(--transition);
+    transition: -webkit-transform var(--transition);
+    transition: transform var(--transition);
+    transition: transform var(--transition), -webkit-transform var(--transition);
+    z-index: 1; }
+    .site-footer .backtotop:hover, .site-footer .backtotop:focus {
+      -webkit-transform: translateY(-0.5rem);
+      transform: translateY(-0.5rem); }
+    .site-footer .backtotop svg {
+      -webkit-transform-origin: center;
+      transform-origin: center;
+      -webkit-transform: rotateZ(180deg);
+      transform: rotateZ(180deg); }
   @media (min-width: 768px) {
     .site-footer .footer-widgets {
       -webkit-box-orient: horizontal;

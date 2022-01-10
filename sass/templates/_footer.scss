@@ -9,6 +9,7 @@
 	background-color:var(--noir);
 	color:var(--blanc);
 	padding:0 var(--padding-x-footer) 0;
+	position: relative;
 	a {
 		text-decoration: none;
 		transition-duration: 0.3s;
@@ -58,6 +59,31 @@
 	}
 	.footer-widgets .row > div {
 		margin-bottom: 25px;
+	}
+
+	.backtotop {
+		--taille:40px;
+		align-items: center;
+		background-color: var(--cyan);
+		border-radius: 100%;
+		display: flex;
+		height:var(--taille);
+		padding:8px;
+		width:var(--taille);
+
+		position: absolute;
+		right:1rem;
+		top : 1rem;
+		transition: transform var(--transition);
+		z-index:1;
+		&:hover, &:focus {
+			transform : translateY(-0.5rem);
+		}
+
+		svg {
+			transform-origin: center;
+			transform: rotateZ(180deg);
+		}
 	}
 
 	@include bp(md) {

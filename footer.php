@@ -12,6 +12,7 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
+		<a class="backtotop" href="#entry-content"><span class="screen-reader-text">Retour en haut</span><?php echo fdc_get_picto_inline('angle-bas');?></a>
 		<div class="footer-widgets">
 			<div class="row">
 				<?php dynamic_sidebar('footer_1');
