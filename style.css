@@ -1403,7 +1403,8 @@ p.fil-ariane {
   position: absolute;
   right: -100vw;
   top: 0;
-  width: 100vw; }
+  width: 100vw;
+  z-index: 1; }
 
 @media (min-width: 960px) {
   .volet-navigation {
@@ -4136,7 +4137,8 @@ button.fermer, a.fermer {
       margin-bottom: 1em; }
 
 .wp-block-columns.sommaire-antennes ol {
-  font-weight: 700; }
+  font-weight: 700;
+  list-style-position: inside; }
 
 .wp-block-columns.sommaire-antennes li a {
   text-decoration: none; }
@@ -4493,11 +4495,30 @@ button.fermer, a.fermer {
       --accent: var(--violet); }
     .filtre input:checked + label.ressources-cat-4 {
       --accent: var(--bleu-fonce); }
+  .filtre.agenda {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+    .filtre.agenda label {
+      margin: 0 5px 14px; }
   @media (min-width: 768px) {
     .filtre.filtre-ressources {
-      margin-top: 34px; } }
+      margin-top: 34px; }
+    .filtre.agenda label {
+      margin: 0 14px 14px; } }
   .filtre.filtre-adherents {
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-column-gap: 10px;
+    column-gap: 10px; }
+    .filtre.filtre-adherents label {
+      margin-right: 5px; }
+    @media (min-width: 768px) {
+      .filtre.filtre-adherents {
+        -webkit-column-gap: 20px;
+        column-gap: 20px; } }
 
 button.toggle-filtre {
   -webkit-box-align: center;

@@ -50,16 +50,39 @@
 		}
 	}
 
+	&.agenda {
+		justify-content: center;
+		label {
+			margin:0 5px 14px;
+		}
+	}
+
 	@include bp(md) {
 		
 		&.filtre-ressources {
 			margin-top: 34px;
 		}
+
+		&.agenda {
+			label {
+				margin:0 14px 14px;
+			}
+		}
 	}
 
 	&.filtre-adherents {
 		margin-bottom: 0;
+		justify-content: flex-start;
+		column-gap: 10px;
+		label {
+			margin-right:5px;
+		}
+		@include bp(md) {
+			column-gap: 20px;
+		}
 	}
+
+	
 }
 
 button.toggle-filtre {
