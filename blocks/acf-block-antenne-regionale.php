@@ -97,7 +97,7 @@ function fdc_antenne_callback( $block ) {
 			$nb_passes=0;
 
 			if(!empty($evenements)) {
-				echo '<div class="evenements-wrap"><h3 class="titre">Evenements</h3><ul class="evenements">';
+				echo '<div class="evenements-wrap"><h3 class="titre">événements</h3><ul class="evenements">';
 				foreach($evenements as $post) {
 					$post_id=$post->ID;
 					if($nb_passes >= 2) break; //on va du futur vers le passé. Si on a déjà listé 2 événements passés, on sort de la boucle
@@ -159,7 +159,7 @@ function fdc_antenne_callback( $block ) {
 					$acces=esc_attr(get_field('acces',$post_id));
 					if($acces=='privee' && !$adherent) {
 						printf('<li class="prive">
-								<div class="picto">%s</div>%s (%s) - Accès adhérent</p>
+								<div class="picto">%s</div>%s (%s) - Accès adhérent
 							</li>',
 							fdc_get_picto_inline('verrou-ferme'),
 							$titre_item,
