@@ -1,4 +1,5 @@
 .wp-block-columns {
+	//Dans la page Gouvernance
 	&.antennes-regionales {
 		align-items: center;
 		ol {
@@ -7,6 +8,27 @@
 			font-weight: 700;
 			li {
 				margin-bottom: 1em;
+			}
+		}
+	}
+
+	//Dans la page Antennes régionales (2022)
+	&.sommaire-antennes {
+		ol {
+			font-weight: 700;
+		}
+
+		li a {
+			text-decoration:none;
+		}
+
+		@media screen and (max-width:600px) {
+			//Centrer liste et masquer carte en mobile
+			figure {
+				display: none
+			}
+			li {
+				text-align: center;
 			}
 		}
 	}

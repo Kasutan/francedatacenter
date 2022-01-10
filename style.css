@@ -4135,6 +4135,18 @@ button.fermer, a.fermer {
     .wp-block-columns.antennes-regionales ol li {
       margin-bottom: 1em; }
 
+.wp-block-columns.sommaire-antennes ol {
+  font-weight: 700; }
+
+.wp-block-columns.sommaire-antennes li a {
+  text-decoration: none; }
+
+@media screen and (max-width: 600px) {
+  .wp-block-columns.sommaire-antennes figure {
+    display: none; }
+  .wp-block-columns.sommaire-antennes li {
+    text-align: center; } }
+
 .decor-traits {
   position: relative; }
   .decor-traits::before {
@@ -4924,14 +4936,5 @@ button.toggle-filtre {
   @media (min-width: 1400px) {
     .acf-block-antenne.avec-decor::before {
       right: -25%; } }
-
-.sommaire-antennes li a {
-  text-decoration: none; }
-
-@media screen and (max-width: 600px) {
-  .sommaire-antennes figure {
-    display: none; }
-  .sommaire-antennes li {
-    text-align: center; } }
 
 /*# sourceMappingURL=style.css.map */

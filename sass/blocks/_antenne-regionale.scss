@@ -295,20 +295,3 @@
 		}
 	}
 }
-
-//Styles complémentaires pour le bloc natif wp-columns qui contient la carte et la liste de liens vers les blocs antenne régionale
-.sommaire-antennes {
-	li a {
-		text-decoration:none;
-	}
-
-	@media screen and (max-width:600px) {
-		//Centrer liste et masquer carte en mobile
-		figure {
-			display: none
-		}
-		li {
-			text-align: center;
-		}
-	}
-}
