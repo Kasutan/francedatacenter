@@ -40,6 +40,7 @@ function fdc_antenne_callback( $block ) {
 	if(!empty($antenne)):
 		$term_id=$antenne->term_id;
 		printf('<div class="acf-block-antenne %s" id="antenne-%s">', $className,$antenne->slug);
+			echo '<div class="interieur">';
 			echo '<div class="fond"></div>';
 			printf('<div class="nom-wrap"><h2 class="nom-antenne">%s</h2></div>',$antenne->name);
 
@@ -174,7 +175,8 @@ function fdc_antenne_callback( $block ) {
 			}
 
 			echo '</div>'; //fin .col-2
-
+		
+		echo '</div>'; //fin .interieur
 		echo '</div>'; //fin bloc
 	endif;
 

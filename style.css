@@ -4678,9 +4678,10 @@ button.toggle-filtre {
   margin-left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-  margin-bottom: 30px;
-  padding: 60px var(--padding-x) 20px;
-  position: relative; }
+  margin-bottom: 30px; }
+  .acf-block-antenne .interieur {
+    padding: 60px var(--padding-x) 20px;
+    position: relative; }
   .acf-block-antenne .fond {
     --pointe:25px;
     background-color: var(--fond);
@@ -4749,8 +4750,8 @@ button.toggle-filtre {
     margin-bottom: 10px; }
     .acf-block-antenne .referent .photo {
       --taille:50px;
-      height: 50px;
-      width: 50px;
+      height: var(--taille);
+      width: var(--taille);
       margin-right: 15px; }
       .acf-block-antenne .referent .photo img {
         border-radius: 100%;
@@ -4760,7 +4761,7 @@ button.toggle-filtre {
       margin-bottom: 0; }
   .acf-block-antenne a {
     text-decoration: none; }
-  .acf-block-antenne .evenements-wrap .titre {
+  .acf-block-antenne .evenements-wrap.contient-futur .titre {
     color: var(--cyan); }
   .acf-block-antenne .evenements-wrap li {
     margin-bottom: 5px; }
@@ -4794,5 +4795,101 @@ button.toggle-filtre {
         fill: var(--gris); }
   .acf-block-antenne .popup {
     display: none; }
+  @media (min-width: 768px) {
+    .acf-block-antenne {
+      margin-bottom: 70px;
+      margin-top: 70px;
+      padding: 0 var(--padding-x-grille); }
+      .acf-block-antenne .interieur {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        padding: 60px 22px 30px;
+        position: relative; }
+        .acf-block-antenne .interieur::after {
+          --triangle:23px;
+          content: '';
+          left: calc(50% - var(--triangle));
+          position: absolute;
+          top: 0;
+          display: inline-block;
+          height: 0;
+          width: 0;
+          border-top: var(--triangle) solid var(--blanc);
+          border-right: var(--triangle) solid transparent;
+          border-left: var(--triangle) solid transparent; }
+      .acf-block-antenne.avec-decor::before {
+        background-image: url("icons/decor.svg");
+        background-position: bottom right;
+        background-repeat: no-repeat;
+        background-size: contain;
+        content: '';
+        position: absolute;
+        top: -200px;
+        height: 872px;
+        right: -500px;
+        width: 823px; }
+      .acf-block-antenne .fond {
+        -webkit-clip-path: unset;
+        clip-path: unset; }
+      .acf-block-antenne .col-1, .acf-block-antenne .col-2 {
+        -ms-flex-preferred-size: 50%;
+        flex-basis: 50%; }
+      .acf-block-antenne .col-1 {
+        padding-right: 30px; }
+      .acf-block-antenne .nom-wrap {
+        height: 60px;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+        padding-left: 20px;
+        top: -30px; }
+      .acf-block-antenne .nom-antenne {
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        border: solid 5px var(--blanc);
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        font-size: 32px;
+        height: 60px;
+        min-width: 300px;
+        padding: 10px;
+        line-height: 43px;
+        text-align: left; }
+      .acf-block-antenne .titre {
+        background-color: var(--bleu);
+        color: var(--blanc);
+        display: inline-block;
+        font-size: 20px;
+        line-height: 26px;
+        padding: 7px 10px 4px; }
+      .acf-block-antenne ul {
+        margin-bottom: 25px; }
+        .acf-block-antenne ul.description, .acf-block-antenne ul.referents, .acf-block-antenne ul.evenements {
+          border-bottom: none; }
+        .acf-block-antenne ul.description {
+          padding-left: 22px; }
+      .acf-block-antenne .referent {
+        margin-bottom: 20px; }
+        .acf-block-antenne .referent .photo {
+          --taille:85px; }
+      .acf-block-antenne .evenements-wrap, .acf-block-antenne .ressources-wrap {
+        background-color: var(--blanc);
+        padding: 70px 20px 0;
+        position: relative; }
+        .acf-block-antenne .evenements-wrap .titre, .acf-block-antenne .ressources-wrap .titre {
+          left: -12px;
+          position: absolute;
+          top: 12px; }
+        .acf-block-antenne .evenements-wrap li, .acf-block-antenne .ressources-wrap li {
+          margin-bottom: 10px; }
+      .acf-block-antenne .evenements-wrap.contient-futur .titre {
+        background-color: var(--cyan);
+        color: var(--blanc); } }
+  @media (min-width: 1400px) {
+    .acf-block-antenne.avec-decor::before {
+      right: -25%; } }
 
 /*# sourceMappingURL=style.css.map */

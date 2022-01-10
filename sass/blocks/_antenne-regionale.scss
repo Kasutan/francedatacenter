@@ -2,8 +2,11 @@
 	@include bleed;
 	
 	margin-bottom: 30px;
-	padding: 60px var(--padding-x) 20px;
-	position: relative;
+
+	.interieur {
+		padding: 60px var(--padding-x) 20px;
+		position: relative;
+	}
 
 	.fond {
 		--pointe:25px;
@@ -79,8 +82,8 @@
 		margin-bottom: 10px;
 		.photo {
 			--taille:50px;
-			height:50px;
-			width:50px;
+			height:var(--taille);
+			width:var(--taille);
 			margin-right: 15px;
 			img {
 				border-radius: 100%;
@@ -100,7 +103,7 @@
 	}
 
 	.evenements-wrap {
-		.titre {
+		&.contient-futur .titre {
 			color:var(--cyan);
 		}
 
@@ -149,9 +152,140 @@
 		}
 	}
 
-	
-
 	.popup {
 		display: none;
+	}
+
+	@include bp(md) {
+		margin-bottom: 70px;
+		margin-top:70px;
+		padding:0 var(--padding-x-grille);
+
+		.interieur {
+			display: flex;
+			padding:60px 22px 30px;
+			position: relative;
+			&::after {
+				--triangle:23px;
+				content:'';
+				left:calc(50% - var(--triangle));
+				position:absolute;
+				top:0;
+
+				display: inline-block;
+				height: 0;
+				width: 0;
+				border-top: var(--triangle) solid var(--blanc);
+				border-right: var(--triangle) solid transparent;
+				border-left: var(--triangle) solid transparent;
+			}
+		}
+
+		&.avec-decor {
+			&::before {
+				background-image:url('icons/decor.svg');
+				background-position: bottom right;
+				background-repeat: no-repeat;
+				background-size: contain;
+				content:'';
+				position: absolute;
+				top: -200px;
+				height: 872px;
+				right: -500px;
+				width: 823px;
+				
+			}
+		}
+		
+	
+
+		
+
+		.fond {
+			clip-path: unset;
+		}
+
+		.col-1, .col-2 {
+			flex-basis:50%;
+		}
+		.col-1 {
+			padding-right:30px;
+		}
+
+		.nom-wrap {
+			height:60px;
+			justify-content: flex-start;
+			padding-left:20px;
+			top:-30px;
+		}
+		.nom-antenne {
+			align-items: center;
+			border:solid 5px var(--blanc);
+			display: flex;
+			font-size: 32px;;
+			height:60px;
+			min-width:300px;
+			padding:10px;
+			line-height: 43px;
+			text-align: left;
+		}
+
+		.titre {
+			background-color: var(--bleu);
+			color:var(--blanc);
+			display: inline-block;
+			font-size: 20px;
+			line-height: 26px;
+			padding: 7px 10px 4px;
+		}
+
+		ul {
+			margin-bottom: 25px;
+			&.description, &.referents, &.evenements {
+				border-bottom: none;
+			}
+			&.description {
+				padding-left:22px;
+			}
+		}
+
+		.referent {
+			margin-bottom: 20px;
+			.photo {
+				--taille:85px;
+			}
+		}
+
+		.evenements-wrap, .ressources-wrap {
+			background-color: var(--blanc);
+			padding:70px 20px 0;
+			position: relative;
+			.titre {
+				left:-12px;
+				position: absolute;
+				top:12px;
+			}
+
+			li {
+				margin-bottom: 10px;
+			}
+
+		}
+
+		.evenements-wrap {
+			&.contient-futur .titre {
+				background-color:var(--cyan);
+				color:var(--blanc);
+			}
+		}
+
+	}
+
+	@include bp(xl) {
+		&.avec-decor {
+			&::before {
+				right: -25%;
+			}
+		}
 	}
 }
