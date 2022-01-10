@@ -160,11 +160,24 @@ function fdc_affiche_liste_evenements() {
 		'orderby' => 'meta_value',
 		'order' => 'ASC', 
 		'meta_query' => array( 
+			'relation' => 'AND',
 			array( 
 				'key' => 'date_debut',
 				'value' => date('Y-m-d'),
 				'compare' => '>=',
 				'type' => 'DATE'
+			),
+			array( 
+				'relation' => 'OR',
+				array( 
+					'key' => 'masquer_national',
+					'value' => 'masquer',
+					'compare' => '!=',
+				),
+				array( 
+					'key' => 'masquer_national',
+					'compare' => 'NOT EXISTS',
+				)
 			)
 		)
 	);

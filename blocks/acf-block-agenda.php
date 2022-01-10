@@ -55,12 +55,26 @@ function fdc_agenda_callback( $block ) {
 			'orderby' => 'meta_value',
 			'order' => $ordre, 
 			'meta_query' => array( 
+				'relation' => 'AND',
 				array( 
 					'key' => 'date_debut',
 					'value' => date('Y-m-d'),
 					'compare' => $compare,
 					'type' => 'DATE'
+				),
+				array( 
+					'relation' => 'OR',
+					array( 
+						'key' => 'masquer_national',
+						'value' => 'masquer',
+						'compare' => '!=',
+					),
+					array( 
+						'key' => 'masquer_national',
+						'compare' => 'NOT EXISTS',
+					)
 				)
+			
 			)
 		);
 		$agenda=new WP_Query($args);
