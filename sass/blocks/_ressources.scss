@@ -201,7 +201,7 @@
 		color:var(--noir);
 		@include taille(16);
 	}
-	li a {
+	li > a {
 		align-items: start;
 		display: flex;
 		margin-bottom: 23px;

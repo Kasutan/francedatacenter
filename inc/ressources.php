@@ -122,7 +122,7 @@ function fdc_affiche_ressource_pour_liste($post_id) {
 		return;
 	}
 	$titre=get_the_title($post_id);
-	$desc=get_the_content($post_id);
+	$desc=strip_tags(get_the_content($post_id),'<p><br><strong><b><em>');
 	$date=get_the_date('d/m/y',$post_id); //y : année sur 2 chiffres
 	$array_date=explode('/',$date);
 	$date=sprintf('<div class="date"><span class="jour">%s</span><span>%s/%s</span></div>',$array_date[0],$array_date[1],$array_date[2]);

@@ -3036,7 +3036,7 @@ button.modaal-close {
     @media (min-width: 768px) {
       .acf-block-quatre-ressources .desc {
         font-size: calc(16 * 1.125rem / 18); } }
-  .acf-block-quatre-ressources li a {
+  .acf-block-quatre-ressources li > a {
     -webkit-box-align: start;
     -ms-flex-align: start;
     align-items: start;
@@ -3045,7 +3045,7 @@ button.modaal-close {
     display: flex;
     margin-bottom: 23px;
     text-decoration: none; }
-    .acf-block-quatre-ressources li a:hover h3, .acf-block-quatre-ressources li a:focus h3, .acf-block-quatre-ressources li a:active h3 {
+    .acf-block-quatre-ressources li > a:hover h3, .acf-block-quatre-ressources li > a:focus h3, .acf-block-quatre-ressources li > a:active h3 {
       color: var(--cyan); }
   @media (min-width: 768px) {
     .acf-block-quatre-ressources {
