@@ -2,6 +2,7 @@
 	@include bleed;
 	
 	margin-bottom: 30px;
+	margin-top: 30px;
 
 	.interieur {
 		padding: 60px var(--padding-x) 20px;
@@ -18,8 +19,9 @@
 		height: 100%;
 		width:100%;
 	}
+
 	.col-1, .col-2 {
-		position: relative;
+		position: relative; //passer devant le fond
 	}
 
 	.nom-wrap {
@@ -161,6 +163,10 @@
 		margin-top:70px;
 		padding:0 var(--padding-x-grille);
 
+		.ancre {
+			top: calc(-1px*var(--header-bottom) - 30px);
+		}
+
 		.interieur {
 			display: flex;
 			padding:60px 22px 30px;
@@ -286,6 +292,23 @@
 			&::before {
 				right: -25%;
 			}
+		}
+	}
+}
+
+//Styles complémentaires pour le bloc natif wp-columns qui contient la carte et la liste de liens vers les blocs antenne régionale
+.sommaire-antennes {
+	li a {
+		text-decoration:none;
+	}
+
+	@media screen and (max-width:600px) {
+		//Centrer liste et masquer carte en mobile
+		figure {
+			display: none
+		}
+		li {
+			text-align: center;
 		}
 	}
 }

@@ -4678,7 +4678,8 @@ button.toggle-filtre {
   margin-left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-  margin-bottom: 30px; }
+  margin-bottom: 30px;
+  margin-top: 30px; }
   .acf-block-antenne .interieur {
     padding: 60px var(--padding-x) 20px;
     position: relative; }
@@ -4800,6 +4801,8 @@ button.toggle-filtre {
       margin-bottom: 70px;
       margin-top: 70px;
       padding: 0 var(--padding-x-grille); }
+      .acf-block-antenne .ancre {
+        top: calc(-1px*var(--header-bottom) - 30px); }
       .acf-block-antenne .interieur {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -4891,5 +4894,14 @@ button.toggle-filtre {
   @media (min-width: 1400px) {
     .acf-block-antenne.avec-decor::before {
       right: -25%; } }
+
+.sommaire-antennes li a {
+  text-decoration: none; }
+
+@media screen and (max-width: 600px) {
+  .sommaire-antennes figure {
+    display: none; }
+  .sommaire-antennes li {
+    text-align: center; } }
 
 /*# sourceMappingURL=style.css.map */
