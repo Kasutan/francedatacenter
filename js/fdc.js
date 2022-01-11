@@ -331,22 +331,22 @@
 			}
 		}
 
-		/*********Afficher/masquer les filtres ressources **********/
+		/*********Afficher/masquer les filtres ressources et adhérents **********/
 		var toggleFiltre=$('#toggle-filtre');
 		if($(toggleFiltre).length>0) {
 			if(width>=768) {
 				toggleFiltre.hide();
-				$('#filtre-liste').show();
+				$('.ressources #filtre-liste, .adherents .filtre-wrap, .filtre-wrap .titre-filtre').show();
 				$('#filtre-liste').removeAttr('aria-expanded');
 			} else {
-				$('#filtre-liste').hide();
+				$('.ressources #filtre-liste, .adherents .filtre-wrap, .filtre-wrap .titre-filtre').hide();
 				toggleFiltre.click(function(){
 					if(toggleFiltre.hasClass('ouvert')) {
-						$('#filtre-liste').slideUp('slow');
+						$('.ressources #filtre-liste, .adherents .filtre-wrap').slideUp('slow');
 						$('#filtre-liste').attr('aria-expanded','false');
 						$(toggleFiltre).attr('aria-expanded','false');
 					} else {
-						$('#filtre-liste').slideDown('slow');
+						$('.ressources #filtre-liste, .adherents .filtre-wrap').slideDown('slow');
 						$('#filtre-liste').attr('aria-expanded','true');
 						$(toggleFiltre).attr('aria-expanded','true');
 					}

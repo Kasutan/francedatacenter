@@ -37,7 +37,7 @@ function fdc_adherents_callback( $block ) {
 
 	$afficher_filtre=esc_attr(get_field('afficher_filtre')); // renvoie 1 ou 0
 
-	printf('<section class="acf-block-adherents alignfull %s" id="liste-filtrable">', $className);
+	printf('<section class="acf-block-adherents adherents alignfull %s" id="liste-filtrable">', $className);
 		//https://developer.wordpress.org/reference/classes/wp_user_query/prepare_query/
 		// WP_User_Query arguments
 

@@ -4574,13 +4574,16 @@ button.toggle-filtre {
     flex-basis: 100%; }
 
 @media screen and (max-width: 767px) {
-  .filtre-ressources {
+  .filtre-wrap {
+    padding-bottom: 0;
+    padding-top: 0; }
+  .filtre-ressources, .filtre-adherents {
     background-color: var(--bleu-clair);
     padding: 15px;
     position: relative;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap; }
-    .filtre-ressources::before {
+    .filtre-ressources::before, .filtre-adherents::before {
       border-left: 15px solid transparent;
       border-right: 15px solid transparent;
       border-bottom: 12px solid var(--bleu-clair);
@@ -4591,12 +4594,12 @@ button.toggle-filtre {
       position: absolute;
       top: -12px;
       width: 0; }
-    .filtre-ressources label {
+    .filtre-ressources label, .filtre-adherents label {
       -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
       margin: 0 0 13px;
       padding: 8px 10px; }
-      .filtre-ressources label::after {
+      .filtre-ressources label::after, .filtre-adherents label::after {
         position: absolute;
         right: 10px;
         top: 8px; } }

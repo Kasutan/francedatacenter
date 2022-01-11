@@ -305,6 +305,9 @@ function fdc_affiche_filtre_adherents($titre_filtre){
 		return;
 	}
 
+	printf('<button id="toggle-filtre" aria-controls="filtre-liste" aria-expanded="false" class="toggle-filtre">%s <span class="afficher">Filtrer par secteur d\'activité</span><span class="masquer">Masquer le filtre</span></button>',
+		fdc_get_picto_inline('filtre')
+	);
 	
 	echo '<div class="filtre-wrap">';
 	if($titre_filtre) printf('<p class="titre-filtre">%s</p>',$titre_filtre);

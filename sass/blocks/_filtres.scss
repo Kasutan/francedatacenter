@@ -125,7 +125,12 @@ button.toggle-filtre {
 	}
 }
 @media screen and (max-width:767px) {
-	.filtre-ressources {
+	.filtre-wrap {
+		//pour qu'on voie le petit décor triangle sous le bouton toggle
+		padding-bottom:0;
+		padding-top:0;
+	}
+	.filtre-ressources, .filtre-adherents {
 		background-color: var(--bleu-clair);
 		padding:15px;
 		position: relative;
