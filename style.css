@@ -1955,8 +1955,7 @@ button.modaal-close {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    background-color: var(--cyan);
-    border-radius: 100%;
+    background-color: var(--fond);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1964,21 +1963,31 @@ button.modaal-close {
     padding: 8px;
     width: var(--taille);
     position: absolute;
-    right: 1rem;
-    top: 1rem;
-    -webkit-transition: -webkit-transform var(--transition);
-    transition: -webkit-transform var(--transition);
-    transition: transform var(--transition);
-    transition: transform var(--transition), -webkit-transform var(--transition);
+    right: 10px;
+    top: calc(-10px - var(--taille));
+    -webkit-transition: all var(--transition);
+    transition: all var(--transition);
     z-index: 1; }
-    .site-footer .backtotop:hover, .site-footer .backtotop:focus {
-      -webkit-transform: translateY(-0.5rem);
-      transform: translateY(-0.5rem); }
     .site-footer .backtotop svg {
       -webkit-transform-origin: center;
       transform-origin: center;
       -webkit-transform: rotateZ(180deg);
       transform: rotateZ(180deg); }
+      .site-footer .backtotop svg path {
+        fill: var(--bleu); }
+    .site-footer .backtotop:hover, .site-footer .backtotop:focus {
+      background-color: var(--cyan);
+      -webkit-transform: translateY(-0.5rem);
+      transform: translateY(-0.5rem); }
+      .site-footer .backtotop:hover svg path, .site-footer .backtotop:focus svg path {
+        fill: var(--blanc); }
+    .site-footer .backtotop.js-fixed {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      top: unset;
+      -webkit-animation: slideUp 0.45s cubic-bezier(0.7, 0, 0.3, 1) both;
+      animation: slideUp 0.45s cubic-bezier(0.7, 0, 0.3, 1) both; }
   @media (min-width: 768px) {
     .site-footer .footer-widgets {
       -webkit-box-orient: horizontal;
@@ -2121,6 +2130,14 @@ button.modaal-close {
       .site-footer .liens-copyright li:before {
         content: '-';
         margin-right: 10px; } }
+
+/*Animations*/
+@-webkit-keyframes slideUp {
+  from {
+    bottom: -50px; } }
+@keyframes slideUp {
+  from {
+    bottom: -50px; } }
 
 /*--------------------------------------------------------------
 ## Site header

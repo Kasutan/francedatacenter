@@ -64,26 +64,46 @@
 	.backtotop {
 		--taille:40px;
 		align-items: center;
-		background-color: var(--cyan);
-		border-radius: 100%;
+		background-color: var(--fond);
 		display: flex;
 		height:var(--taille);
 		padding:8px;
 		width:var(--taille);
 
 		position: absolute;
-		right:1rem;
-		top : 1rem;
-		transition: transform var(--transition);
+		right:10px;
+		top : calc(-10px - var(--taille));
+		transition: all var(--transition);
 		z-index:1;
-		&:hover, &:focus {
-			transform : translateY(-0.5rem);
-		}
 
 		svg {
 			transform-origin: center;
 			transform: rotateZ(180deg);
+			path {
+				fill : var(--bleu);
+			}
 		}
+
+		&:hover, &:focus {
+			background-color:var(--cyan);
+			transform : translateY(-0.5rem);
+			svg {
+				path {
+					fill : var(--blanc);
+				}
+			}
+		}
+
+		&.js-fixed {
+			position:fixed;
+			bottom : 10px;
+			right:10px;
+			top:unset;
+
+			animation: slideUp 0.45s cubic-bezier(0.7,0,0.3,1) both;
+
+		}
+		
 	}
 
 	@include bp(md) {
@@ -220,3 +240,10 @@
 }
 
 
+
+/*Animations*/
+@keyframes slideUp {
+	from { 
+		bottom: -50px; 
+	}
+}

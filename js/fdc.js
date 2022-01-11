@@ -388,6 +388,16 @@
 		/****************** Ajout décor au premier bloc antenne régionale*************************/
 		$('.acf-block-antenne').first().addClass('avec-decor');
 
+		/***********Backtotop en position fixed quand on scrolle vers le haut *******/
+		window.onscroll = function(e) {
+			if(this.oldScroll > this.scrollY) {
+				$('.backtotop').addClass(('js-fixed'));
+			} else {
+				$('.backtotop').removeClass(('js-fixed'));
+			}
+			this.oldScroll = this.scrollY;
+		}
+
 	}); //fin document ready
 })( jQuery );
 
