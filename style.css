@@ -1956,6 +1956,7 @@ button.modaal-close {
     -ms-flex-align: center;
     align-items: center;
     background-color: var(--fond);
+    border: none;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1977,8 +1978,7 @@ button.modaal-close {
         fill: var(--bleu); }
     .site-footer .backtotop:hover, .site-footer .backtotop:focus {
       background-color: var(--cyan);
-      -webkit-transform: translateY(-0.5rem);
-      transform: translateY(-0.5rem); }
+      border: none; }
       .site-footer .backtotop:hover svg path, .site-footer .backtotop:focus svg path {
         fill: var(--blanc); }
     .site-footer .backtotop.js-fixed {
@@ -4152,6 +4152,10 @@ button.fermer, a.fermer {
         font-size: calc(22 * 1.125rem / 18); } }
     .wp-block-columns.antennes-regionales ol li {
       margin-bottom: 1em; }
+    @media screen and (max-width: 599px) {
+      .wp-block-columns.antennes-regionales ol {
+        list-style-position: inside;
+        text-align: center; } }
 
 .wp-block-columns.sommaire-antennes ol {
   font-weight: 700;

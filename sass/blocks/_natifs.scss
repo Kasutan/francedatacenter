@@ -9,7 +9,14 @@
 			li {
 				margin-bottom: 1em;
 			}
+			//liste centrée en mobile
+			@media screen and (max-width:599px) {
+				list-style-position: inside; //Pour centrer aussi les numéros dans Chrome
+				text-align: center;
+
+			}
 		}
+
 	}
 
 	//Dans la page Antennes régionales (2022)

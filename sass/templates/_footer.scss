@@ -65,6 +65,7 @@
 		--taille:40px;
 		align-items: center;
 		background-color: var(--fond);
+		border:none;
 		display: flex;
 		height:var(--taille);
 		padding:8px;
@@ -86,7 +87,8 @@
 
 		&:hover, &:focus {
 			background-color:var(--cyan);
-			transform : translateY(-0.5rem);
+			border:none;
+			//transform : translateY(-0.5rem);
 			svg {
 				path {
 					fill : var(--blanc);
