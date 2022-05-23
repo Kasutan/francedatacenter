@@ -31,12 +31,13 @@ function fdc_user_custom_column_content($value, $column_name, $user_id) {
 			}
 		}
 	} else if ( 'categorie' == $column_name ) {
-		$cat='';
+		$cat_string='';
 		$cat_array=get_field('categorie','user_'.$user_id);
 		if($cat_array) {
-			$cat=esc_html($cat_array['label']);
+			foreach($cat_array as $cat)
+			$cat_string.=esc_html($cat['label']).' ';
 		}
-		return $cat;
+		return $cat_string;
 	}
 	return $value;
 }
@@ -50,11 +51,18 @@ function fdc_affiche_adherent($user,$contexte='grille',$groupe=0) {
 	$entreprise=esc_html(get_field('entreprise','user_'.$user_id));
 	$url=$user->get('user_url');
 
-	$cat_array=$cat=false;
-	$cat_array=get_field('categorie','user_'.$user_id);
-	if($cat_array) {
-		$cat=esc_attr($cat_array['value']);
+	$cat_array=false;
+	$cat_string='';
+	$cat_array=get_field_object('categorie','user_'.$user_id);
+
+	if(!empty($cat_array)) {
+		$cats=$cat_array['value'];
+		if(is_array($cats)) {
+			foreach($cats as $cat)
+			$cat_string.=$cat['value'].' ';
+		}
 	}
+	
 
 
 	if($contexte==='slider') { //on affiche le logo cliquable ou simplement l'image
@@ -83,8 +91,8 @@ function fdc_affiche_adherent($user,$contexte='grille',$groupe=0) {
 			);
 		} else {
 			echo '<li class="adherent">';
-			if($cat) {
-				printf('<span class="type" style="display:none" aria-hidden="true">%s</span>',$cat); //pour le filtre
+			if($cat_string) {
+				printf('<span class="type" style="display:none" aria-hidden="true">%s</span>',$cat_string); //pour le filtre
 			}
 			printf('<a href="#adherent-%s" class="ouvrir-modaal">%s</a>%s</li>',
 
