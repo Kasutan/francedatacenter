@@ -69,7 +69,7 @@ function fdc_prepare_popup_evenement($post_id,$classe_futur,$date_debut,$date_fi
 	printf('<div id="evenement-%s" class="popup %s">',$post_id,$classe_futur);
 		fdc_affiche_resume_evenement($date_debut,$date_fin,$titre,$plage_horaire,$type_evenement,$ville,$pays,'popup',$classe_futur);
 		if(has_post_thumbnail( $post_id )) {
-			printf('<div class="image-popup">%s</div>',get_the_post_thumbnail( $post_id,'medium'));
+			printf('<div class="image-popup">%s</div>',get_the_post_thumbnail( $post_id,'large'));
 		} 
 		echo '<div class="description-evenement">';
 			echo $desc;
