@@ -242,7 +242,7 @@ function fdc_simplifier_admin_edition_utilisateur_js() {
 	jQuery(document).ready( function($) {
 	
 		//Champs à cacher dans l'écran d'édition
-		var fields_to_hide = ['nickname', 'display_name','description'];
+		var fields_to_hide = ['nickname', 'description'];
 		for(i=0; i<fields_to_hide.length; i++) {
 			if ( $('#'+ fields_to_hide[i]).length ) {
 				$('#'+ fields_to_hide[i]).parents('tr').hide();
@@ -337,3 +337,6 @@ function fdc_affiche_filtre_adherents($titre_filtre){
 		echo '</form>';
 	echo '</div>';
 }
+
+//Ne plus envoyer d'email à l'utilisateur quand on modifie son mot de passe depuis le BO
+add_filter( 'send_password_change_email', '__return_false' );
