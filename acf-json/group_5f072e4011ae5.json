@@ -6,6 +6,7 @@
             "key": "field_61d33961016c0",
             "label": "Catégorie d'adhérent",
             "name": "categorie",
+            "aria-label": "",
             "type": "checkbox",
             "instructions": "",
             "required": 0,
@@ -27,12 +28,14 @@
             "layout": "vertical",
             "toggle": 0,
             "return_format": "array",
-            "save_custom": 0
+            "save_custom": 0,
+            "custom_choice_button_text": "Ajouter un nouveau choix"
         },
         {
             "key": "field_5f0873152834d",
             "label": "Nom de l'entreprise",
             "name": "entreprise",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -52,6 +55,7 @@
             "key": "field_5f072e5d07a40",
             "label": "Date d'expiration de l'adhésion",
             "name": "date_expiration",
+            "aria-label": "",
             "type": "date_picker",
             "instructions": "Si ce champ est vide ou contient une date passée, l'utilisateur n'aura pas accès au contenu adhérents",
             "required": 0,
@@ -69,6 +73,7 @@
             "key": "field_5f0735e264115",
             "label": "Logo",
             "name": "logo",
+            "aria-label": "",
             "type": "image",
             "instructions": "",
             "required": 0,
@@ -93,6 +98,7 @@
             "key": "field_5f0876fe2e9d4",
             "label": "Descriptif de l'entreprise",
             "name": "descriptif",
+            "aria-label": "",
             "type": "textarea",
             "instructions": "",
             "required": 0,
@@ -107,6 +113,28 @@
             "maxlength": "",
             "rows": "",
             "new_lines": "br"
+        },
+        {
+            "key": "field_6867d7902913e",
+            "label": "Ne pas afficher parmi les nouveaux adhérents",
+            "name": "not_new",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "relevanssi_exclude": 0,
+            "message": "Ne pas afficher parmi les nouveaux adhérents",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -127,5 +155,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1653325106
+    "modified": 1751635901
 }

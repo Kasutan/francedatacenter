@@ -57,9 +57,26 @@ function fdc_adherents_callback( $block ) {
 			'number'         => '6',
 			'orderby'		=> 'registered',
 			'order'          => 'DESC', 
-			'meta_key'		=>  'date_expiration',
-			'meta_value'	=> date('Ymd'),
-			'meta_compare'	=> '>='
+			'meta_query' => array(
+				'relation'=> 'AND',
+				array(
+					'key'		=>  'date_expiration',
+					'value'	=> date('Ymd'),
+					'compare'	=> '>=',
+				),
+				array(
+					'relation' => 'OR',
+					array(
+						'key'		=> 'not_new',
+						'compare'	=> 'NOT EXISTS',
+					),
+					array(
+						'key'		=> 'not_new',
+						'value'	=> 1,
+						'compare'	=> '!=',
+					),
+				),
+			),
 		);
 
 		$user_query_recents=new WP_User_Query( $args_recents );
