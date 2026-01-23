@@ -1,16 +1,19 @@
 {
   "name": "lapeyre",
   "version": "1.0.0",
-  "description": "Theme pour Lapeyre base sur underscore",
+  "description": "Theme pour Francedatacenter base sur underscore",
   "main": "gulpfile.js",
-  "dependencies": {},
+  "dependencies": {
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-v4": "^4.0.0-alpha.5"
+  },
   "devDependencies": {
-    "browser-sync": "^2.23.6",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^4.1.0",
-    "gulp-rename": "^1.4.0",
-    "gulp-sass": "^3.2.1",
-    "gulp-sourcemaps": "^2.6.5"
+    "gulp": "^4.0.2",
+    "sass": "^1.57.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -1,11 +1,9 @@
 // Grab our gulp packages
 var gulp  = require('gulp'),
-    sass = require('gulp-sass'),
-//    cssnano = require('gulp-cssnano'),
+    sass = require('gulp-sass')(require('sass')),
     autoprefixer = require('gulp-autoprefixer'),
-    sourcemaps = require('gulp-sourcemaps'),
-//    concat = require('gulp-concat'),
-    rename = require('gulp-rename');
+    sourcemaps = require('gulp-sourcemaps');
+
 
 
 
@@ -16,10 +14,7 @@ gulp.task('styles', function() {
     return gulp.src('sass/*.scss')
         .pipe(sourcemaps.init()) // Start Sourcemaps
         .pipe(sass())
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
-            cascade: false
-        }))
+        .pipe(autoprefixer())
         .pipe(sourcemaps.write('.')) // Creates sourcemaps for minified styles
 		.pipe(gulp.dest('./'));
 
@@ -30,7 +25,7 @@ gulp.task('styles', function() {
 gulp.task('watch', function() {
 
   // Watch .scss files
-  gulp.watch('sass/*/*.scss', ['styles']);
+  gulp.watch('sass/*/*.scss', gulp.series('styles'));
 
 
 
