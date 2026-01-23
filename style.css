@@ -4412,6 +4412,15 @@ button.fermer, a.fermer {
     flex: 0 0 202px;
   }
 }
+@media (min-width: 960px) {
+  .acf-block-portrait .texte p:first-child {
+    margin-bottom: 0.25rem;
+  }
+  .acf-block-portrait .texte p:nth-child(2) {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+}
 
 .wp-block-columns.antennes-regionales {
   align-items: center;
