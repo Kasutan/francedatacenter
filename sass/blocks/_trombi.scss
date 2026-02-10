@@ -70,9 +70,6 @@
 		.membres {
 			justify-content: center;
 		}
-
-		.membre {}
-
 	}
 	@include bp(md) {
 	}
@@ -94,6 +91,12 @@
 .infos-membre {
 	--padding:20px;
 	padding: var(--padding) var(--padding) 0;
+	@include bp(md) {
+		--padding:40px;
+	}
+	@include bp(lg) {
+		--padding:60px;
+	}
 
 	img {
 		border-radius: 100%;
@@ -161,7 +164,6 @@ a.fermer {
 }
 
 @include bp(md) {
-	--padding:40px;
 
 	button.retour {
 		padding: 20px;
@@ -173,7 +175,6 @@ a.fermer {
 }
 
 @include bp(lg) {
-	--padding:60px;
 
 
 	button.retour,

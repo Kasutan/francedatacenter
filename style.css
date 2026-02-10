@@ -2593,10 +2593,8 @@ button.modaal-close span {
   width: 100%;
 }
 .entry-header .image img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
+  object-fit: cover;
+  object-position: center;
   width: 100%;
 }
 .entry-header.decoupe-gauche .image {
@@ -2629,8 +2627,7 @@ button.modaal-close span {
   justify-content: center;
 }
 .entry-header.conserver-image .image img {
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   width: auto;
 }
 .entry-header .texte-banniere {
@@ -3309,8 +3306,7 @@ button.modaal-close span {
 }
 .acf-block-adherents .adherent a img {
   max-height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 .acf-block-adherents .adherent.js-afficher-plus {
   display: none;
@@ -3437,10 +3433,8 @@ button.fermer, a.fermer {
   justify-content: center;
 }
 .acf-block-adherents-slider .adherent img, .acf-block-adherents-slider .adherent a img {
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: center;
-     object-position: center;
+  object-fit: contain;
+  object-position: center;
 }
 .acf-block-adherents-slider.droite {
   position: relative;
@@ -3560,8 +3554,7 @@ button.fermer, a.fermer {
     width: 100%;
   }
   .acf-block-agenda .evenement .image img {
-    -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
     width: 100%;
   }
   .acf-block-agenda .evenement .image.defaut {
@@ -3570,8 +3563,7 @@ button.fermer, a.fermer {
     justify-content: center;
   }
   .acf-block-agenda .evenement .image.defaut img {
-    -o-object-fit: unset;
-       object-fit: unset;
+    object-fit: unset;
     width: 90px;
   }
   .acf-block-agenda .evenement .type-desktop {
@@ -3758,8 +3750,7 @@ button.fermer, a.fermer {
     width: 100%;
   }
   .image-popup img {
-    -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
     width: 100%;
   }
 }
@@ -3792,8 +3783,7 @@ button.fermer, a.fermer {
   width: 294px;
 }
 .acf-block-image-decalee .image img {
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   width: 100%;
 }
 .acf-block-image-decalee .image .decor {
@@ -3846,10 +3836,8 @@ button.fermer, a.fermer {
   width: 50%;
 }
 .acf-block-frise .image img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
+  object-fit: cover;
+  object-position: center;
   width: 100%;
 }
 .acf-block-frise .decor {
@@ -3948,10 +3936,8 @@ button.fermer, a.fermer {
   width: 100%;
 }
 .acf-block-banniere .interieur .image img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
+  object-fit: cover;
+  object-position: center;
   width: 100%;
 }
 .acf-block-banniere .interieur .image .filtre {
@@ -4151,10 +4137,8 @@ button.fermer, a.fermer {
   }
 }
 .actualite .image img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
+  object-fit: cover;
+  object-position: center;
   transition: transform var(--transition);
   width: 100%;
 }
@@ -4163,8 +4147,7 @@ button.fermer, a.fermer {
   justify-content: center;
 }
 .actualite .image.conserver-image img {
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   width: auto;
 }
 .actualite .titre-actualite {
@@ -4381,8 +4364,7 @@ button.fermer, a.fermer {
   width: 202px;
 }
 .acf-block-portrait .image img {
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   width: 100%;
 }
 .acf-block-portrait .image .decor {
@@ -4668,8 +4650,7 @@ button.fermer, a.fermer {
   width: 535px;
 }
 .acf-block-agenda-ressources .image img {
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   width: 100%;
 }
 .acf-block-agenda-ressources .image .decor {
@@ -5236,8 +5217,7 @@ button.toggle-filtre.ouvert .afficher {
 }
 .acf-block-antenne .referent .photo img {
   border-radius: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .acf-block-antenne .referent .texte p {
   margin-bottom: 0;
@@ -5488,7 +5468,18 @@ button.toggle-filtre.ouvert .afficher {
 }
 
 .infos-membre {
-  padding: 20px 20px 0;
+  --padding:20px;
+  padding: var(--padding) var(--padding) 0;
+}
+@media (min-width: 768px) {
+  .infos-membre {
+    --padding:40px;
+  }
+}
+@media (min-width: 960px) {
+  .infos-membre {
+    --padding:60px;
+  }
 }
 .infos-membre img {
   border-radius: 100%;
@@ -5512,9 +5503,6 @@ button.toggle-filtre.ouvert .afficher {
   color: var(--bleu);
   margin-bottom: 1em;
   text-transform: uppercase;
-}
-.infos-membre .descriptif {
-  margin-bottom: 20px;
 }
 
 button.retour,
@@ -5557,9 +5545,6 @@ a.fermer {
 }
 
 @media (min-width: 768px) {
-  .infos-membre {
-    padding: 40px;
-  }
   button.retour {
     padding: 20px;
   }
@@ -5568,9 +5553,6 @@ a.fermer {
   }
 }
 @media (min-width: 960px) {
-  .infos-membre {
-    padding: 60px;
-  }
   button.retour,
   button.fermer,
   a.fermer {
