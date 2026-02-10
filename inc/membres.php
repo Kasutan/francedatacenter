@@ -2,107 +2,75 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 function fdc_affiche_membre($post_id) {
-	if(get_post_type($post_id)!=='ressource' || !function_exists('get_field') || !function_exists('fdc_get_picto_inline') || !function_exists('fdc_is_current_user_adherent')) {
+	if(get_post_type($post_id)!=='fdc_membre' || !function_exists('get_field')) {
 		return;
 	}
-	$titre=get_the_title($post_id);
-	$desc=apply_filters('the_content',get_the_content($post_id));
-	$date=get_the_date('', $post_id);
-	$type_ressource=fdc_get_type_ressource($post_id); // pour la couleur et le filtre
-	$acces=esc_attr(get_field('acces',$post_id));
-	$type_fichier=esc_attr(get_field('type_fichier',$post_id)); // pour le picto et l'url
-	$label_lien=esc_html(get_field('label_lien',$post_id)); 
+	$nom=get_the_title($post_id);
+	$prenom=wp_kses_post(get_field( 'prenom', $post_id ));  
+	$fonction=wp_kses_post(get_field( 'fonction', $post_id ));
+	$entreprise=wp_kses_post(get_field( 'entreprise', $post_id ));
+	$photo=esc_attr(get_field( 'photo', $post_id ));
+
+	printf('<li class="membre">');
+		printf('<a href="#membre-%s" class="ouvrir-modaal">',$post_id);
+			echo wp_get_attachment_image($photo, 'thumb', false, array('alt'=>$nom.' '.$prenom));
+
+			printf('<p class="nom"><strong>%s<br>%s</strong></p>',$prenom,$nom);
+
+			printf('<p class="fonction">%s</p>',$fonction);
+
+			printf('<p class="entreprise"><strong>%s</strong></p>',$entreprise);
+
+			fdc_prepare_popup_membre($post_id,$photo,$nom,$prenom,$fonction,$entreprise);
+			
+	echo '</a></li>';
+}
+
+
+function fdc_prepare_popup_membre($post_id,$photo,$nom,$prenom,$fonction,$entreprise) {
 	
-	if($type_fichier=='video') {
-		$url=esc_url(get_field('url_video',$post_id));
-		$attribut_lien=' target="_blank"';
-	} else {
-		$url=esc_url(get_field('url_fichier',$post_id));
-		$attribut_lien=' download';
-	}
+	$bio=wp_kses_post(get_field( 'bio', $post_id ));
 
-	$adherent=fdc_is_current_user_adherent();
+	ob_start(); 
+	printf('<div id="membre-%s" class="popup">',$post_id);
+		echo '<div class="infos-membre">';
 
-	printf('<li class="ressource %s">',$type_ressource);
-		echo '<div class="pictos">';
-			printf('<div class="picto-type">%s</div>',fdc_get_picto_inline($type_fichier));
+			echo wp_get_attachment_image($photo, 'thumb', false, array('alt'=>$nom.' '.$prenom));
 
-			if($acces=='privee' && !$adherent) {
-				printf('<div class="picto-verrou">%s</div>',fdc_get_picto_inline('verrou-ferme'));
-			} else if($acces=='privee' && $adherent) {
-				printf('<div class="picto-verrou ouvert">%s</div>',fdc_get_picto_inline('verrou-ouvert'));
-			}
-		echo '</div>';//fin .pictos
-		printf('<div class="texte"><h2 class="titre">%s</h2><div class="desc">%s</div>',$titre, $desc);
-			echo '<div class="meta">';
-				printf('<div class="date"><span class="picto">%s</span> %s</div>',fdc_get_picto_inline('calendrier'),$date);
-				
-				if($acces=='privee' && !$adherent) {
-					printf('<div class="message-verrouillage"><span class="picto">%s</span> %s</div>',
-						fdc_get_picto_inline($type_fichier),
-						'Accès réservé aux adhérents'
-					);
-				} else {
-					printf('<a href="%s"%s><span class="picto">%s</span> %s</a>',
-						$url,
-						$attribut_lien,
-						fdc_get_picto_inline($type_fichier),
-						$label_lien
-					);
-				}
-			echo '</div>'; //fin .meta
+			printf('<p class="nom"><strong>%s %s</strong></p>',$prenom,$nom);
 
-		echo '</div>';//fin .texte
-		//pour le filtre uniquement
-		printf('<span class="type screen-reader-text">%s</span>',
-			$type_ressource
-		);
-	echo '</li>';
+			printf('<p class="fonction">%s</p>',$fonction);
 
+			printf('<p class="entreprise"><strong>%s</strong></p>',$entreprise);
+
+			printf('<div class="bio">%s</div>',$bio);
+
+		echo '</div>'; //fin .infos
+
+		printf('<button class="fermer-modaal retour"><img src="%s" width="52" height="52" alt="Fermer"/><span>Revenir à la liste</span></button>',fdc_get_picto_url('croix'));
+
+	echo '</div>'; //fin .popup
+	return ob_get_clean();
 }
 
 //Pour le trombi de la page Gang
 function fdc_affiche_trombi() {
-	$args=array(
-		'posts_per_page' => 3,
-		'post_type' => 'ressource',
-		'tax_query' => array(
-			array(
-				'taxonomy' => 'type_ressource',
-				'terms' => 11, //exclure les vidéos
-				'operator' => 'NOT IN'
-			)
-		),
-		'meta_query' => array( 
-			'relation' => 'OR',
-			array( 
-				'key' => 'masquer_national',
-				'value' => 'masquer',
-				'compare' => '!=',
-			),
-			array( 
-				'key' => 'masquer_national',
-				'compare' => 'NOT EXISTS',
-			)
-		)
-	);
-	$ressources=new WP_Query($args);
-	if($ressources->have_posts()) :
-		echo '<ul>';
-		while ($ressources->have_posts()):
-			$ressources->the_post();
-			$acces=esc_attr(get_field('acces',get_the_ID()));
+	//TODO ordre alphabétique
 
-			printf('<li><a href="%s"><strong>%s</strong>',get_the_permalink(),get_the_title());
-				if($acces=='privee') {
-					printf('<span class="picto-verrou">%s</span>',fdc_get_picto_inline('petit-verrou'));
-				}
-				printf('<p>Publié le %s</p>',get_the_date('d/m/y'));
-			echo '</a></li>';
+	$args=array(
+		'posts_per_page' => -1,
+		'post_type' => 'fdc_membre',
+	);
+	$membres=new WP_Query($args);
+	if($membres->have_posts()) :
+		echo '<ul>';
+		while ($membres->have_posts()):
+			$membres->the_post();
+			fdc_affiche_membre($get_the_ID());
 		endwhile;
 		echo '</ul>';
 	else : 
-		echo '<p>Aucune ressource</p>';
+		echo '<p>Aucune membre</p>';
 	endif;	
 	wp_reset_postdata();
 }
