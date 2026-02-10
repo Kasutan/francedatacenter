@@ -1,0 +1,128 @@
+.acf-block-dates {
+	
+	margin-bottom: clamp(1.875rem, calc(1.179rem + 2.857vw), 3.75rem);
+
+	.titre-section {
+		margin-bottom: 1.5em;
+	}
+
+	.dates {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		position: relative;
+	}
+	.ligne {
+		background-color: #C6C6C6;
+		height:100%;
+		left:0;
+		position:absolute;
+		top:0;
+		width:1px;
+		--rond:6px;
+		&::before, &::after {
+			background-color: #C6C6C6;
+			border-radius: 100%;
+			content:'';
+			left:calc(1px - var(--rond)/2);
+			height:var(--rond);
+			width:var(--rond);
+			position:absolute;
+		}
+		&::before {
+			top:0;
+		}
+		&::after {
+			bottom:0;
+		}
+	}
+	.etape {
+		--trait:25px;
+		--rond:8px;
+		--bordure:5px;
+		@include bp(lg) {
+			--trait:44px;
+			--rond:10px;
+			--bordure:3px;
+
+		}
+		background-color: var(--fond-gris);
+		border-radius: 0px 5px 5px 0px;
+		border-color:var(--bleu);
+		border-style: solid;
+		border-width:0;
+		border-left-width: var(--bordure);
+		margin-left: var(--trait);
+		margin-bottom: 20px;
+		padding:15px;
+		position:relative;
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+
+		&::before, &::after {
+			background-color: var(--bleu);
+			content:'';
+			position:absolute;
+		}
+		&::before {
+			height:2px;
+			left:calc(-1 * var(--trait) - var(--bordure));
+			width:calc(var(--trait) + var(--bordure));
+			top:calc(50% - 1px);
+		}
+		&::after {
+			border-radius: 100%;
+			height:var(--rond);
+			left:calc(-1 * var(--trait) - var(--bordure) - 0.5*var(--rond));
+			top:calc(50% - var(--rond)/2);
+			width:var(--rond);
+		}
+
+	}
+	.date {
+		color:var(--bleu);
+		margin-bottom: 6px;
+	}
+	.texte {
+		margin-bottom: 0;
+	}
+
+	@include bp(lg) {
+
+		.titre-section {
+			text-align: center;
+			&::after {
+				left: calc(50% - 15px);
+			}
+		}
+
+		.ligne {
+			left:50%;
+		}
+		.etape {
+			margin-bottom: 2px;
+			width:calc(50%);
+			&:nth-last-of-type(2n+1) {
+				left:50%;
+			}
+			&:nth-of-type(2n) {
+				border-left-width:0;
+				border-right-width: var(--bordure);
+				border-radius: 5px 0px 0px 5px;
+				left:calc(-1*var(--trait));
+				margin-left: 0;
+				margin-right: var(--trait);
+				&::before {
+					left:unset;
+					right:calc(-1 * var(--trait) - var(--bordure));
+				}
+				&::after {
+					left:unset;
+					right:calc(-1 * var(--trait) - var(--bordure) - 0.5*var(--rond));
+				}
+			}
+		}
+	}
+}
