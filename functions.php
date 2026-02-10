@@ -227,6 +227,7 @@ add_image_size('logo',160,150,false);
 
 require_once( 'inc/cpt-taxonomies.php' );
 require_once( 'inc/ressources.php' );
+require_once( 'inc/membres.php' );
 require_once( 'inc/utilisateurs.php' );
 require_once( 'inc/agenda.php' );
 
