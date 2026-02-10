@@ -5469,7 +5469,7 @@ button.toggle-filtre.ouvert .afficher {
 @media (min-width: 960px) {
   .acf-block-trombi {
     --nb-col: 3;
-    clip-path: polygon(90% 0%, 100% 10%, 100% 85%, 10% 100%, 0px 90%, 0 15%);
+    clip-path: polygon(90% 0%, 100% 80px, 100% calc(100% - 80px), 10% 100%, 0px calc(100% - 50px), 0 110px);
   }
   .acf-block-trombi .nom {
     font-size: calc(20 * 0.8125rem / 18);
