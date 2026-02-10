@@ -204,3 +204,53 @@ function fdc_get_type_ressource($post_id) {
 		return false;
 	}
 }
+
+/***************************************************************
+	Custom Post Type : Membres du Gang
+/***************************************************************/
+function fdc_membre_post_type() {
+
+	$labels = array(
+		'name'                  => _x( 'Membres du Gang', 'Post Type General Name', 'francedatacenter' ),
+		'singular_name'         => _x( 'Membre du Gang', 'Post Type Singular Name', 'francedatacenter' ),
+		'menu_name'             => __( 'Membres du Gang', 'francedatacenter' ),
+		'name_admin_bar'        => __( 'Membres du Gang', 'francedatacenter' ),
+		'archives'              => __( 'Archives des membres', 'francedatacenter' ),
+		'attributes'            => __( 'Item Attributes', 'francedatacenter' ),
+		'parent_item_colon'     => __( 'Parent Item:', 'francedatacenter' ),
+		'all_items'             => __( 'Toutes les membres', 'francedatacenter' ),
+		'add_new_item'          => __( 'Ajouter une membre', 'francedatacenter' ),
+		'add_new'               => __( 'Ajouter', 'francedatacenter' ),
+		'new_item'              => __( 'Nouvelle membre', 'francedatacenter' ),
+		'edit_item'             => __( 'Modifier la membre', 'francedatacenter' ),
+		'update_item'           => __( 'Mettre à jour la membre', 'francedatacenter' ),
+		'view_item'             => __( 'Voir la membre', 'francedatacenter' ),
+		'view_items'            => __( 'Voir les membres', 'francedatacenter' ),
+		'search_items'          => __( 'Rechercher une membre', 'francedatacenter' ),
+		'not_found'             => __( 'Aucune membre', 'francedatacenter' ),
+		'not_found_in_trash'    => __( 'Aucune membre dans la corbeille', 'francedatacenter' ),
+	);
+	$args = array(
+		'label'                 => __( 'Membre du Gang', 'francedatacenter' ),
+		'description'           => __( 'Membres du Gang des femmes', 'francedatacenter' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'revisions', 'custom-fields' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 5,
+		'menu_icon'             => 'dashicons-nametag',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => false,
+		'exclude_from_search'   => true,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'page',
+		'show_in_rest'          => false,
+	);
+	register_post_type( 'fdc_membre', $args );
+
+}
+add_action( 'init', 'fdc_membre_post_type', 0 );
