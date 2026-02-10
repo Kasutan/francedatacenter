@@ -48,7 +48,7 @@
             "label": "Fonction",
             "name": "fonction",
             "aria-label": "",
-            "type": "text",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -61,9 +61,9 @@
             "default_value": "",
             "maxlength": "",
             "allow_in_bindings": 0,
+            "rows": 2,
             "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "new_lines": "br"
         },
         {
             "key": "field_698b0aeb7bd51",
@@ -156,5 +156,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1770720274
+    "modified": 1770742203
 }
