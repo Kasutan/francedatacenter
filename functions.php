@@ -273,6 +273,7 @@ require_once( 'blocks/acf-block-missions-accueil.php' );
 require_once( 'blocks/acf-block-agenda-ressources-accueil.php' );
 require_once( 'blocks/acf-block-comite-editorial.php' );
 require_once( 'blocks/acf-block-antenne-regionale.php' );
+require_once( 'blocks/acf-block-trombi.php' );
 
 /**
 * Reusable Blocks accessible in backend

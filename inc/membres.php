@@ -15,13 +15,13 @@ function fdc_affiche_membre($post_id) {
 		printf('<a href="#membre-%s" class="ouvrir-modaal">',$post_id);
 			echo wp_get_attachment_image($photo, 'thumb', false, array('alt'=>$nom.' '.$prenom));
 
-			printf('<p class="nom"><strong>%s<br>%s</strong></p>',$prenom,$nom);
+			printf('<p class="nom"><strong>%s<br><span class="up">%s</span></strong></p>',$prenom,$nom);
 
-			printf('<p class="fonction">%s</p>',$fonction);
+			printf('<p>%s</p>',$fonction);
 
-			printf('<p class="entreprise"><strong>%s</strong></p>',$entreprise);
+			printf('<p><strong><span class="up">%s</span></strong></p>',$entreprise);
 
-			fdc_prepare_popup_membre($post_id,$photo,$nom,$prenom,$fonction,$entreprise);
+			echo fdc_prepare_popup_membre($post_id,$photo,$nom,$prenom,$fonction,$entreprise);
 			
 	echo '</a></li>';
 }
@@ -37,9 +37,9 @@ function fdc_prepare_popup_membre($post_id,$photo,$nom,$prenom,$fonction,$entrep
 
 			echo wp_get_attachment_image($photo, 'thumb', false, array('alt'=>$nom.' '.$prenom));
 
-			printf('<p class="nom"><strong>%s %s</strong></p>',$prenom,$nom);
+			printf('<p class="nom"><strong>%s <span class="up">%s</span></strong></p>',$prenom,$nom);
 
-			printf('<p class="fonction">%s</p>',$fonction);
+			printf('<p class="fonction"><strong>%s</strong></p>',$fonction);
 
 			printf('<p class="entreprise"><strong>%s</strong></p>',$entreprise);
 
@@ -63,10 +63,10 @@ function fdc_affiche_trombi() {
 	);
 	$membres=new WP_Query($args);
 	if($membres->have_posts()) :
-		echo '<ul>';
+		echo '<ul class="membres">';
 		while ($membres->have_posts()):
 			$membres->the_post();
-			fdc_affiche_membre($get_the_ID());
+			fdc_affiche_membre(get_the_ID());
 		endwhile;
 		echo '</ul>';
 	else : 
