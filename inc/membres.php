@@ -55,11 +55,12 @@ function fdc_prepare_popup_membre($post_id,$photo,$nom,$prenom,$fonction,$entrep
 
 //Pour le trombi de la page Gang
 function fdc_affiche_trombi() {
-	//TODO ordre alphabétique
 
 	$args=array(
 		'posts_per_page' => -1,
 		'post_type' => 'fdc_membre',
+		'order' => 'ASC',
+		'orderby' => 'title'
 	);
 	$membres=new WP_Query($args);
 	if($membres->have_posts()) :
@@ -70,7 +71,7 @@ function fdc_affiche_trombi() {
 		endwhile;
 		echo '</ul>';
 	else : 
-		echo '<p>Aucune membre</p>';
+		echo '<p class="text-center">Aucune membre</p>';
 	endif;	
 	wp_reset_postdata();
 }
