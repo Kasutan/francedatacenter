@@ -285,6 +285,10 @@ p.fil-ariane {
 
 	@include bp(xl) {
 		padding-top:30px;
+
+		ul.menu > li:hover ul, .main-navigation ul.menu > li.focus ul {
+			width: 340px;
+		}
 	}
 	
 }
