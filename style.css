@@ -4479,6 +4479,15 @@ button.fermer, a.fermer {
     width: 823px;
   }
 }
+.decor-traits.decor-gauche::before {
+  left: -300px;
+  right: unset;
+}
+@media (min-width: 768px) {
+  .decor-traits.decor-gauche::before {
+    left: -90%;
+  }
+}
 
 .wp-block-image figcaption {
   font-style: italic;

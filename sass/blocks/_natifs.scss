@@ -62,6 +62,15 @@
 			width:823px;
 		}
 	}
+	&.decor-gauche {
+		&::before {
+			left:-300px;
+			right:unset;
+			@include bp(md) {
+				left:-90%;
+			}
+		}
+	}
 }
 
 .wp-block-image {
