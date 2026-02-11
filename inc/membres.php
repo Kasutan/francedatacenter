@@ -17,7 +17,7 @@ function fdc_affiche_membre($post_id) {
 
 			printf('<p class="nom"><strong>%s<br><span class="up">%s</span></strong></p>',$prenom,$nom);
 
-			printf('<p>%s</p>',$fonction);
+			printf('<p class="fonction">%s</p>',$fonction);
 
 			printf('<p><strong><span class="up">%s</span></strong></p>',$entreprise);
 

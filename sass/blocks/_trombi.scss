@@ -64,6 +64,14 @@
 		text-transform: uppercase;
 	}
 
+	.nom {
+		color:var(--bleu);
+	}
+
+	.fonction {
+		@include taille(16);
+	}
+
 	@include bp(sm) {
 		--nb-col: 2;
 

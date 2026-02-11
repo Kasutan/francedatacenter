@@ -823,7 +823,7 @@ h3,
 h4,
 .h1, .h2, .h3, .h4 {
   clear: both;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 h1, .h1 {
@@ -885,14 +885,6 @@ h5, .h5 {
 }
 
 @media (min-width: 768px) {
-  h1,
-  h2,
-  h3,
-  h4,
-  .h1, .h2, .h3, .h4 {
-    clear: both;
-    font-weight: 700;
-  }
   h1, .h1 {
     font-size: 3.75rem;
   }
@@ -3913,6 +3905,7 @@ button.fermer, a.fermer {
   line-height: 1.2;
 }
 .acf-block-titre-degrade .sous-titre {
+  display: block;
   font-size: 1.2rem;
 }
 .acf-block-titre-degrade br {
@@ -5457,6 +5450,17 @@ button.toggle-filtre.ouvert .afficher {
 }
 .acf-block-trombi span.up {
   text-transform: uppercase;
+}
+.acf-block-trombi .nom {
+  color: var(--bleu);
+}
+.acf-block-trombi .fonction {
+  font-size: calc(16 * 0.8125rem / 18);
+}
+@media (min-width: 768px) {
+  .acf-block-trombi .fonction {
+    font-size: calc(16 * 1.125rem / 18);
+  }
 }
 @media (min-width: 576px) {
   .acf-block-trombi {
