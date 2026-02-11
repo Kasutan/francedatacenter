@@ -1,39 +1,84 @@
 .owl-nav {
+	--angle-h:28px;
+	--angle-w:calc(0.58 * var(--angle-h));
+
+	@include bp(md) {
+		--angle-h:38px;
+	}
+
+	@include bp(lg) {
+		--angle-h:48px;
+	}
+
 	display: flex;
 	justify-content: space-between;
 	left:0;
 	position:absolute;
-	top:calc(50% - 20px);
+	top:calc(50% - var(--angle-h) / 2);
 	width:100%;
 	button {
 		background-color:transparent;
 		border:none;
-		margin:10px;
+		margin:0;
 		padding:0;
 			
 		span {
-			background-image:url('icons/Fleche-P.svg');
+			background-image:url('icons/angle-blanc.svg');
 			background-size:contain;
 			background-repeat: no-repeat;
 			background-position: center;
 			color:transparent;
 			display: block;
-			height:19px;
-			left: -20px;
+			height:var(--angle-h);
+			right: var(--angle-w);
 			position:relative;
-			width:10px;
-			@include bp(md) {
-				left:-50px;
-			}
+			transform-origin: center;
+			width:var(--angle-w);
+			
 
 		}
-		&.owl-next span {
-			background-image:url('icons/Fleche-S.svg');
-			left:20px;
-			@include bp(md) {
-				left:50px;
-			}
+		&.owl-prev span {
+			left:var(--angle-w);
+			right:unset;
+			transform:rotateY(180deg);
 		}
 	}
+}
 
+.owl-dots {
+	--dot:12px;
+	@include bp(md) {
+		--dot:15px;
+	}
+	@include bp(lg) {
+		--dot:20px;
+	}
+	display: flex;
+	left:0;
+	justify-content: center;
+	margin-bottom: 0;
+	margin-top: calc(1.5 * var(--dot));
+	position: absolute;
+	width: 100%;
+	button.owl-dot {
+		background-color: var(--gris);
+		border-radius:100%;
+		height:var(--dot);
+		margin-bottom: 0;
+		margin-right: calc(0.6 * var(--dot));
+		min-height: unset;
+		min-width: unset;
+		outline-color: var(--cyan);
+		width:var(--dot);
+		&:last-of-type {
+			margin-right: 0;
+		}
+		&.active, &:hover, &:focus {
+			background-color: var(--cyan);
+			opacity: 1;
+		}
+		&:focus-visible {
+			border-radius: 100%; //pour outline
+		}
+	}
 }

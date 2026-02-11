@@ -3459,44 +3459,94 @@ button.fermer, a.fermer {
 }
 
 .owl-nav {
+  --angle-h:28px;
+  --angle-w:calc(0.58 * var(--angle-h));
+}
+@media (min-width: 768px) {
+  .owl-nav {
+    --angle-h:38px;
+  }
+}
+@media (min-width: 960px) {
+  .owl-nav {
+    --angle-h:48px;
+  }
+}
+.owl-nav {
   display: flex;
   justify-content: space-between;
   left: 0;
   position: absolute;
-  top: calc(50% - 20px);
+  top: calc(50% - var(--angle-h) / 2);
   width: 100%;
 }
 .owl-nav button {
   background-color: transparent;
   border: none;
-  margin: 10px;
+  margin: 0;
   padding: 0;
 }
 .owl-nav button span {
-  background-image: url("icons/Fleche-P.svg");
+  background-image: url("icons/angle-blanc.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   color: transparent;
   display: block;
-  height: 19px;
-  left: -20px;
+  height: var(--angle-h);
+  right: var(--angle-w);
   position: relative;
-  width: 10px;
+  transform-origin: center;
+  width: var(--angle-w);
+}
+.owl-nav button.owl-prev span {
+  left: var(--angle-w);
+  right: unset;
+  transform: rotateY(180deg);
+}
+
+.owl-dots {
+  --dot:12px;
 }
 @media (min-width: 768px) {
-  .owl-nav button span {
-    left: -50px;
+  .owl-dots {
+    --dot:15px;
   }
 }
-.owl-nav button.owl-next span {
-  background-image: url("icons/Fleche-S.svg");
-  left: 20px;
-}
-@media (min-width: 768px) {
-  .owl-nav button.owl-next span {
-    left: 50px;
+@media (min-width: 960px) {
+  .owl-dots {
+    --dot:20px;
   }
+}
+.owl-dots {
+  display: flex;
+  left: 0;
+  justify-content: center;
+  margin-bottom: 0;
+  margin-top: calc(1.5 * var(--dot));
+  position: absolute;
+  width: 100%;
+}
+.owl-dots button.owl-dot {
+  background-color: var(--gris);
+  border-radius: 100%;
+  height: var(--dot);
+  margin-bottom: 0;
+  margin-right: calc(0.6 * var(--dot));
+  min-height: unset;
+  min-width: unset;
+  outline-color: var(--cyan);
+  width: var(--dot);
+}
+.owl-dots button.owl-dot:last-of-type {
+  margin-right: 0;
+}
+.owl-dots button.owl-dot.active, .owl-dots button.owl-dot:hover, .owl-dots button.owl-dot:focus {
+  background-color: var(--cyan);
+  opacity: 1;
+}
+.owl-dots button.owl-dot:focus-visible {
+  border-radius: 100%;
 }
 
 .acf-block-agenda {
@@ -5722,5 +5772,14 @@ a.fermer {
     left: unset;
     right: calc(-1 * var(--trait) - var(--bordure) - 0.5 * var(--rond));
   }
+}
+
+.acf-block-photos-slider {
+  margin-bottom: clamp(5rem, 2.911rem + 8.571vw, 10.625rem);
+  padding: 0 20px;
+}
+.acf-block-photos-slider .photos {
+  margin: 0 auto;
+  max-width: 1090px;
 }
 /*# sourceMappingURL=style.css.map */

@@ -162,6 +162,19 @@
 		}
 
 
+		/****************** Carrousel de photos *************************/
+
+
+		$(".acf-block-photos-slider .owl-carousel").owlCarousel({
+			loop:true,
+			nav : true,
+			dots : true,
+			autoplay:true,
+			autoplayTimeout:4000,
+			autoplaySpeed:2000,
+			autoplayHoverPause:true,
+			items:1
+		});
 
 		/****************** Carrousel de logos adhérents *************************/
 

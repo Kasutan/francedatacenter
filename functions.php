@@ -275,6 +275,8 @@ require_once( 'blocks/acf-block-comite-editorial.php' );
 require_once( 'blocks/acf-block-antenne-regionale.php' );
 require_once( 'blocks/acf-block-trombi.php' );
 require_once( 'blocks/acf-block-dates.php' );
+require_once( 'blocks/acf-block-photos-slider.php' );
+
 
 /**
 * Reusable Blocks accessible in backend
